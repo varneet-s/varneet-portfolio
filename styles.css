@@ -297,6 +297,12 @@ body {
   gap: 14px;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
 /* ============ LISTS ============ */
 
 ul {
