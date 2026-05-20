@@ -1,0 +1,6 @@
+# Mac system files
+.DS_Store
+**/.DS_Store
+
+# Antigravity IDE files
+.agents/
