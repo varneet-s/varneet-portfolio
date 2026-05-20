@@ -1,123 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Varneet Singh</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Explore Business Analysis and Data Analytics projects by Varneet Singh, applying structured frameworks like GAP analysis, BPMN, and sales auditing.">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="page">
-    <nav class="navbar">
-      <div class="nav-inner">
-        <div class="nav-brand">Varneet Singh</div>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="projects.html" class="active">Projects</a>
-          <a href="experience.html">Experience</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-    </nav>
 
-    <main class="container">
-      <section class="section">
-        <div class="section-header">
-          <h1 class="section-title">Projects</h1>
-          <div class="section-subtitle">
-            Selected case studies showing how data and business questions come together.
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" id="logo-home">
+        VARNEET SINGH<span class="logo-dot"></span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu-links">
+        <a href="index.html" class="nav-link" id="nav-link-home">Home</a>
+        <a href="projects.html" class="nav-link active" id="nav-link-projects">Projects</a>
+        <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
+        <a href="contact.html" class="nav-link" id="nav-link-contact">Contact</a>
+        <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">
+          Let's Talk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+      </nav>
+
+      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main>
+    
+    <!-- Projects Hero Header -->
+    <section class="hero" style="padding: 8rem 0 4rem 0;">
+      <div class="container hero-layout">
+        <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3.25rem);">Case Studies & Analytics</h1>
+        <p class="hero-subtitle" style="margin-bottom: 0;">
+          Detailed structural breakdowns of real-world operational and sales datasets. I apply business frameworks to make sense of complex metrics and drive performance.
+        </p>
+      </div>
+    </section>
+
+    <!-- Full Projects List -->
+    <section class="projects-list-page" style="padding-top: 0; padding-bottom: 8rem;">
+      <div class="container">
+        <div class="projects-list" style="border-top: 1px solid var(--divider);">
+          
+          <!-- Project 1: SQL Coming Soon -->
+          <div class="project-item placeholder">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="label-role">Data Analytics</span>
+                <span class="label-active">Active</span>
+                <span class="label-date">Newest</span>
+              </div>
+              <h3 class="project-item-title">Advanced SQL Business Querying</h3>
+              <p class="project-desc">Currently engineering comprehensive relational database schemas and complex analytical queries to solve multi-departmental business challenges.</p>
+              <div class="project-tools">
+                <span class="tool-tag">MySQL</span>
+                <span class="tool-tag">Relational Modeling</span>
+                <span class="tool-tag">Schema Design</span>
+              </div>
+            </div>
+            <div class="project-action">
+              Coming Soon
+            </div>
           </div>
+
+          <!-- Project 2: Olist E-Commerce -->
+          <a href="projects/olist.html" class="project-item" id="project-item-olist">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="label-role">Business Analysis</span>
+                <span class="label-date">2026</span>
+              </div>
+              <h3 class="project-item-title">Olist E-Commerce Operations & GMV Analysis</h3>
+              <p class="project-desc">Conducted a full-scale operational gap analysis of Brazil's largest e-commerce department. Modeled BPMN workflows, mapped Congruence gaps, and identified root causes of customer delivery friction.</p>
+              <div class="project-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Tableau</span>
+                <span class="tool-tag">Draw.io</span>
+                <span class="tool-tag">BPMN Workflow</span>
+                <span class="tool-tag">GAP Analysis</span>
+              </div>
+            </div>
+            <div class="project-action">
+              View Case Study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- Project 3: I.P. Pharma -->
+          <a href="projects/pharma.html" class="project-item" id="project-item-pharma">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="label-role">Business Operations Analyst</span>
+                <span class="label-active">Active</span>
+                <span class="label-date">2026</span>
+              </div>
+              <h3 class="project-item-title">I.P. Pharma Operational Dashboard & Sales Tracking</h3>
+              <p class="project-desc">Engineered an automated stock management and representative sales tracking system for a tier-2 city pharmaceutical distributor, resolving field reporting inaccuracies.</p>
+              <div class="project-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Operations Management</span>
+                <span class="tool-tag">Inventory Controls</span>
+              </div>
+            </div>
+            <div class="project-action">
+              View Case Study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- Project 4: Vrinda Store -->
+          <a href="projects/vrinda.html" class="project-item" id="project-item-vrinda">
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="label-role">Data Analysis</span>
+                <span class="label-date">2025</span>
+              </div>
+              <h3 class="project-item-title">Vrinda Store Retail Sales Performance Audit</h3>
+              <p class="project-desc">Audited a complete retail transaction dataset in Excel to construct key customer profiles, regional performance indices, and channel success factors.</p>
+              <div class="project-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Sales Auditing</span>
+                <span class="tool-tag">Customer Segmentation</span>
+              </div>
+            </div>
+            <div class="project-action">
+              View Case Study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
         </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <div class="card-title">Instagram Growth Strategy – Zero to Revenue</div>
-            <div class="card-meta">Real client · Social media analytics</div>
-            <p class="card-text">
-              Built an Instagram presence from zero, defined KPIs, and connected profile performance
-              directly to ticket sales and revenue.
-            </p>
-            <ul>
-              <li><strong>Role:</strong> Social Media Manager & Analyst</li>
-              <li><strong>Focus:</strong> Growth, engagement, and funnel to purchase.</li>
-              <li><strong>Period:</strong> [FILL IN: months & year]</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Instagram Insights</span>
-              <span class="tag">Excel dashboards</span>
-              <span class="tag">KPI design</span>
-            </div>
-            <div style="margin-top:10px;">
-              <a href="project-instagram.html" class="btn btn-ghost">View full case study →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Social Media Campaign Performance Analysis</div>
-            <div class="card-meta">Public dataset · Budget optimisation</div>
-            <p class="card-text">
-              Analysed cross‑platform campaign data (impressions, clicks, CPA, conversions) to
-              identify which channels and creatives deserve more budget.
-            </p>
-            <ul>
-              <li><strong>Role:</strong> Business / Data Analyst</li>
-              <li><strong>Dataset:</strong> Social media ads performance (Kaggle).</li>
-              <li><strong>Deliverables:</strong> Dashboard + recommendations slide.</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Kaggle</span>
-              <span class="tag">Excel / Sheets</span>
-              <span class="tag">SQL</span>
-            </div>
-            <div style="margin-top:10px;">
-              <a href="project-campaign.html" class="btn btn-ghost">View full case study →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Customer Segmentation with RFM</div>
-            <div class="card-meta">Retail data · Retention strategy</div>
-            <p class="card-text">
-              Used RFM scoring on transaction data to create segments such as Champions, Loyal,
-              At‑risk, and designed actions for each.
-            </p>
-            <ul>
-              <li><strong>Role:</strong> Analyst</li>
-              <li><strong>Focus:</strong> Retention, CLV, and targeted campaigns.</li>
-              <li><strong>Tools:</strong> Excel / Python.</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">RFM</span>
-              <span class="tag">Segmentation</span>
-              <span class="tag">Customer analytics</span>
-            </div>
-            <div style="margin-top:10px;">
-              <a href="project-rfm.html" class="btn btn-ghost">View full case study →</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">[FILL IN: Future Project]</div>
-            <div class="card-meta">Space reserved for your next case study</div>
-            <p class="card-text">
-              Use this slot for a future operations analysis, BA documentation example, or another
-              dataset you analyse (e.g., sales, support tickets, website behaviour).
-            </p>
-            <div class="tag-row">
-              <span class="tag">[FILL IN]</span>
-              <span class="tag">[FILL IN]</span>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 Varneet Singh</span>
-        <span><a href="mailto:varneetsingh45@gmail.com">Email</a> · <a href="contact.html">Contact form</a></span>
       </div>
-    </footer>
-  </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER & CALLOUT
+       ========================================================================== -->
+  <footer class="footer" id="footer-section">
+    <div class="footer-callout">
+      <div class="container footer-callout-wrap">
+        <h2 class="footer-callout-title">Let's solve business challenges together.</h2>
+        <p>I am actively seeking Business/Data Analyst roles where I can apply rigorous frameworks and technical tracking to drive measurable performance improvements.</p>
+        <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="footer-cta-mail">
+          varneetsingh45@gmail.com
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+        
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link" id="footer-social-linkedin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link" id="footer-social-github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Varneet Singh. All Rights Reserved. Crafted with Cornsilk & Black Forest.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

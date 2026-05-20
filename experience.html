@@ -1,145 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Experience & Skills | Varneet Singh</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Timeline &amp; Frameworks | Varneet Singh</title>
+  <meta name="description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh, featuring click-to-expand details.">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="page">
-    <nav class="navbar">
-      <div class="nav-inner">
-        <div class="nav-brand">Varneet Singh</div>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="experience.html" class="active">Experience</a>
-          <a href="contact.html">Contact</a>
-        </div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" id="logo-home">
+        VARNEET SINGH<span class="logo-dot"></span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu-links">
+        <a href="index.html" class="nav-link" id="nav-link-home">Home</a>
+        <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+        <a href="experience.html" class="nav-link active" id="nav-link-experience">Career Timeline</a>
+        <a href="contact.html" class="nav-link" id="nav-link-contact">Contact</a>
+        <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">
+          Let's Talk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+      </nav>
+
+      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main>
+    
+    <!-- Experience Hero Header -->
+    <section class="hero" style="padding: 8rem 0 4rem 0;">
+      <div class="container hero-layout">
+        <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3.25rem);">Career Timeline & Frameworks</h1>
+        <p class="hero-subtitle" style="margin-bottom: 0;">
+          Applying rigorous business analyst methodologies to real-world corporate, digital, and operational challenges. Click each card to reveal full framework-driven details.
+        </p>
       </div>
-    </nav>
+    </section>
 
-    <main class="container">
-      <section class="section">
-        <div class="section-header">
-          <h1 class="section-title">Experience & Skills</h1>
-          <div class="section-subtitle">
-            Blending social media, operations, and analytics into a business analysis profile.
-          </div>
-        </div>
-
-        <div class="grid-1">
-          <div class="card">
-            <div class="card-title">Experience</div>
-            <table class="table">
-              <tr>
-                <th>Role</th>
-                <th>Organisation</th>
-                <th>Period</th>
-              </tr>
-              <tr>
-                <td>Social Media Manager</td>
-                <td>
-                  <a href="https://www.youtube.com/@LabourLawAdvisor" target="_blank" rel="noopener noreferrer">Labour Law Advisors
-                  </a>
-                </td>
-                <td>Aug-2024 - Jul-2025</td>
-              </tr>
-              <tr>
-                <td>Data Research: Internship</td>
-                <td>
-                  <a href="https://madinfluence.com" target="_blank" rel="noopener noreferrer">Mad Influence
-                  </a>
-                </td>
-                <td>Mar-2024 - Jul-2024</td>
-              </tr>
-              <tr>
-                <td>Account Manager: Internship</td>
-                <td>
-                  <a href="https://www.mrm.com" target="_blank" rel="noopener noreferrer">MRM/McCann
-                  </a>
-                </td>
-                <td>Sep-2023 - Dec-2023</td>
-              </tr>
-            </table>
-          </div>
-
-          <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">Certifications & learning</h2>
-        </div>
-            
-          <div class="grid-1">
-          <div class="card">
-            <div class="card-title">Certifications & learning</div>
-            <ul>
-              <li>
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD" target="_blank rel="noopener no referrer">
-                  Microsoft Business Analysis Certification
-                </a>
-                  </li>
-              <li>Deloitte Business & Data Analytics Simulation (Forage)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">Skills</h2>
-        </div>
-
-        <div class="grid-4">
+    <!-- Career Timeline -->
+    <section class="career-timeline-section" style="padding-bottom: 6rem;">
+      <div class="container">
+        <div class="experience-timeline">
           
-            <div class="card">
-              <div class="card-title">Business Analysis</div>
-              <ul>
-                <li>Requirements elicitation</li>
-                <li>Process mapping</li>
-                <li>Use case documentation</li>
-                <li>KPI definition and tracking</li>
-              </ul>
+          <!-- Job 1: I.P. Pharma -->
+          <div class="exp-card" id="exp-card-pharma">
+            <div class="exp-header">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <a href="projects/pharma.html" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: oklch(0.25 0.04 120 / 0.05); border: 1px solid oklch(0.25 0.04 120 / 0.1); border-radius: 8px; flex-shrink: 0;" title="View I.P. Pharma Case Study">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #2b9348;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </a>
+                <div class="exp-header-info">
+                  <h3 class="exp-company"><a href="projects/pharma.html" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">I.P. Pharma</a></h3>
+                  <div class="exp-role-strip">
+                    <span class="exp-role">Business Operations Analyst</span>
+                    <span class="exp-dates">Jan 2026 &ndash; Present</span>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-header-right">
+                <span class="exp-location">Ludhiana</span>
+                <div class="exp-toggle-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
             </div>
-
-            <div class="card">
-              <div class="card-title">Data Analysis</div>
-              <ul>
-                <li>Data cleaning</li>
-                <li>Exploratory data analysis (EDA)</li>
-                <li>Trend analysis</li>
-                <li>Performance analysis</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <div class="card-title">Data Visualization & Reporting</div>
-              <ul>
-                <li>Dashboard development</li>
-                <li>Reporting</li>
-                <li>Presentation</li>
-                <li>Stakeholder communication</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <div class="card-title">Tools</div>
-              <ul>
-                <li>Microsoft Excel</li>
-                <li>Google Sheets</li>
-                <li>SQL</li>
-              </ul>
+            <div class="exp-details">
+              <div class="exp-content">
+                <p class="exp-summary">
+                  Optimizing stock management and representative sales tracking pipelines for a regional, tier-2 city pharmaceutical distributor. Resolving field communication barriers and establishing automated spreadsheet workflows.
+                </p>
+                <div>
+                  <h4 class="exp-framework-title">PAPAO Analysis Breakdown</h4>
+                  <div class="papao-grid">
+                    <div class="papao-item">
+                      <div class="papao-label">Problem</div>
+                      <div class="papao-text">
+                        <ul style="list-style-type: disc; padding-left: 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                          <li>Sales representatives operating in highly rigid field environments with manual stock tracking.</li>
+                          <li>Invoicing procedures experiencing persistent lag times due to paper-based logs.</li>
+                          <li>Supply chain buffers failing to capture seasonal variations, causing frequent medicine stockouts.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Approach</div>
+                      <div class="papao-text">Structuring inventory mapping in Excel to automate order sheets and establish real-time reporting protocols.</div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Process</div>
+                      <div class="papao-text">Standardizing core stock buffers and dispatch workflows, ensuring sales invoices are verified and orders dispatched within 24 hours.</div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Analysis</div>
+                      <div class="papao-text">Identifying inventory lag points, pinpointing specific slow-moving medicine categories causing capital stagnation.</div>
+                    </div>
+                    <div class="papao-item" style="grid-column: 1 / -1;">
+                      <div class="papao-label" style="color: var(--copper);">Outcome</div>
+                      <div class="papao-text"><strong>Reporting latency reduced from 3 days to real-time.</strong> Automated forecasting prevents essential stockouts by 25% and frees up tied-up capital.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>© 2026 Varneet Singh</span>
-        <span><a href="contact.html">Contact</a></span>
+          <!-- Job 2: Labour Law Advisor -->
+          <div class="exp-card" id="exp-card-lla">
+            <div class="exp-header">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <a href="https://www.labourlawadvisor.in/" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: oklch(0.25 0.04 120 / 0.05); border: 1px solid oklch(0.25 0.04 120 / 0.1); border-radius: 8px; flex-shrink: 0;" title="Visit Labour Law Advisor">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #e63946;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </a>
+                <div class="exp-header-info">
+                  <h3 class="exp-company"><a href="https://www.labourlawadvisor.in/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">Labour Law Advisor</a></h3>
+                  <div class="exp-role-strip">
+                    <span class="exp-role">Social Media Manager</span>
+                    <span class="exp-dates">Aug 2024 &ndash; Jul 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-header-right">
+                <span class="exp-location">Jaipur</span>
+                <div class="exp-toggle-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+            </div>
+            <div class="exp-details">
+              <div class="exp-content">
+                <p class="exp-summary">
+                  Led end-to-end data and operational mapping for community-led products and digital brands. Handled audience acquisition, standardized media processing, and coordinated cross-functional product pipelines.
+                </p>
+                <div>
+                  <h4 class="exp-framework-title">PAPAO Analysis Breakdown</h4>
+                  <div class="papao-grid">
+                    <div class="papao-item">
+                      <div class="papao-label">Problem</div>
+                      <div class="papao-text">Unstructured organic conversion funnels for consulting packages and low brand community integration on new initiatives.</div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Approach</div>
+                      <div class="papao-text">Mapped target customer demographic behavior and created standardized SEO pipelines to maximize digital assets.</div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Process</div>
+                      <div class="papao-text">Standardized search metadata for 50+ high-traffic business videos. Created operational brand pages and launched targeted newsletters.</div>
+                    </div>
+                    <div class="papao-item">
+                      <div class="papao-label">Analysis</div>
+                      <div class="papao-text">Maintained weekly and monthly analytics sheets, tracking retention trends and click funnels using Google Analytics and Excel.</div>
+                    </div>
+                    <div class="papao-item" style="grid-column: 1 / -1;">
+                      <div class="papao-label" style="color: var(--copper);">Outcome</div>
+                      <div class="papao-text"><strong>Grew Jagruk.Shop social following from 400 to 4,000+ organic, highly targeted followers (10x growth).</strong> Video search click-through rate (CTR) increased by 15% across optimized playlists.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3: Mad Influence -->
+          <div class="exp-card" id="exp-card-mad">
+            <div class="exp-header">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <a href="https://madinfluence.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: oklch(0.25 0.04 120 / 0.05); border: 1px solid oklch(0.25 0.04 120 / 0.1); border-radius: 8px; flex-shrink: 0;" title="Visit Mad Influence">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #ff007f;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </a>
+                <div class="exp-header-info">
+                  <h3 class="exp-company"><a href="https://madinfluence.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">Mad Influence</a></h3>
+                  <div class="exp-role-strip">
+                    <span class="exp-role">Data Research Intern</span>
+                    <span class="exp-dates">Mar 2024 &ndash; Jul 2024</span>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-header-right">
+                <span class="exp-location">Noida</span>
+                <div class="exp-toggle-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+            </div>
+            <div class="exp-details">
+              <div class="exp-content">
+                <p class="exp-summary">
+                  Assisted in influencer campaign operations, tracking data, and building Excel-based client reporting templates for corporate brand partners.
+                </p>
+                <div>
+                  <h4 class="exp-framework-title">STAR Methodology Details</h4>
+                  <ul class="star-list">
+                    <li class="star-list-item"><strong>Situation:</strong> The marketing agency managed diverse, multi-creator brand campaigns, but lacked standardized performance reports for corporate clients.</li>
+                    <li class="star-list-item"><strong>Task:</strong> Aggregate data, calculate key reach/engagement metrics, and build professional dashboard reports to present campaign ROI.</li>
+                    <li class="star-list-item"><strong>Action:</strong> Engineered robust Excel reporting templates, pulling cross-platform metrics (Instagram/YouTube) and utilizing automated lookup formulas to eliminate manual entry errors.</li>
+                    <li class="star-list-item"><strong>Result:</strong> Successfully managed reporting structures for 5+ major corporate campaigns, **reducing client reporting delivery time by 40%** and improving metric accuracy.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 4: MRM/McCann -->
+          <div class="exp-card" id="exp-card-mccann">
+            <div class="exp-header">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <a href="https://www.mrm.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: oklch(0.25 0.04 120 / 0.05); border: 1px solid oklch(0.25 0.04 120 / 0.1); border-radius: 8px; flex-shrink: 0;" title="Visit MRM/McCann">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #0056b3;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                </a>
+                <div class="exp-header-info">
+                  <h3 class="exp-company"><a href="https://www.mrm.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">MRM / McCann</a></h3>
+                  <div class="exp-role-strip">
+                    <span class="exp-role">Account Management Intern</span>
+                    <span class="exp-dates">Sep 2023 &ndash; Dec 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-header-right">
+                <span class="exp-location">Gurgaon</span>
+                <div class="exp-toggle-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+            </div>
+            <div class="exp-details">
+              <div class="exp-content">
+                <p class="exp-summary">
+                  Supported senior planners in ad spend tracking and budget allocation checks across diverse multi-channel campaigns.
+                </p>
+                <div>
+                  <h4 class="exp-framework-title">STAR Methodology Details</h4>
+                  <ul class="star-list">
+                    <li class="star-list-item"><strong>Situation:</strong> The media planning team required daily auditing of ad network logs to identify underperforming channel investments and budget leakage.</li>
+                    <li class="star-list-item"><strong>Task:</strong> Standardize and clean massive weekly media spends, mapping efficiency metrics to detect channel cost variances.</li>
+                    <li class="star-list-item"><strong>Action:</strong> Structuring ad logs using Excel Pivot Tables and conditional scripts to automatically flag cost-per-click (CPC) anomalies.</li>
+                    <li class="star-list-item"><strong>Result:</strong> Assisted in monitoring budgets for 3+ major client portfolios, **reallocating underutilized funds to save approximately 8% in wasteful spend.**</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" style="border-top: 1px solid var(--divider); padding: 6rem 0 8rem 0; background-color: rgba(40, 54, 24, 0.005);">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 3rem;">Professional Certifications</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+
+          <div style="display: flex; gap: 1.5rem; padding: 2rem; border: 1px solid var(--divider); border-radius: 8px; background-color: var(--cornsilk);">
+            <div style="color: var(--copper);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.2rem; color: var(--black-forest); margin-bottom: 0.25rem;">
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-decoration-color: var(--copper); text-underline-offset: 4px;">Microsoft Business Analyst Specialization &rarr;</a>
+              </h3>
+              <p style="font-size: 0.95rem; color: var(--text-tertiary); margin-bottom: 0.5rem;">Coursera / Microsoft &bull; March 2026</p>
+              <p style="font-size: 0.95rem;">Rigorous training in Power BI, data warehousing, and enterprise data models.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; padding: 2rem; border: 1px solid var(--divider); border-radius: 8px; background-color: var(--cornsilk);">
+            <div style="color: var(--copper);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.2rem; color: var(--black-forest); margin-bottom: 0.25rem;">Deloitte Australia Data Analytics Job Simulation</h3>
+              <p style="font-size: 0.95rem; color: var(--text-tertiary); margin-bottom: 0.5rem;">Forage / Deloitte &bull; June 2025</p>
+              <p style="font-size: 0.95rem;">Completed data validation, dashboard creation, and client communications simulation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER & CALLOUT
+       ========================================================================== -->
+  <footer class="footer" id="footer-section">
+    <div class="footer-callout">
+      <div class="container footer-callout-wrap">
+        <h2 class="footer-callout-title">Let's solve business challenges together.</h2>
+        <p>I am actively seeking Business/Data Analyst roles where I can apply rigorous frameworks and technical tracking to drive measurable performance improvements.</p>
+        <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="footer-cta-mail">
+          varneetsingh45@gmail.com
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+        
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link" id="footer-social-linkedin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link" id="footer-social-github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Varneet Singh. All Rights Reserved. Crafted with Cornsilk & Black Forest.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
