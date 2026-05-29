@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olist E-Commerce GMV Analysis | Varneet Singh</title>
-  <meta name="description" content="Operational gap analysis of Olist E-Commerce logistics operations, modeled in BPMN and mapped using the Nadler-Tushman Congruence Model.">
+  <meta name="description" content="Analysed ~99,000 orders from Brazil's largest marketplace aggregator across four pre-formed business hypotheses — delivery performance, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel and Tableau.">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -64,7 +64,7 @@
         </h1>
         
         <p class="hero-subtitle" style="max-width: 80ch; font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem;">
-          Conducted a comprehensive operational gap analysis of Brazil's leading e-commerce sales ecosystem to isolate shipping friction and model scalable carrier consolidation pipelines.
+          Analysed ~99,000 orders from Brazil's largest marketplace aggregator to test four pre-formed business hypotheses — delivery performance, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel, Tableau, and structured BA frameworks.
         </p>
 
         <div class="cs-meta-wrap">
@@ -75,9 +75,10 @@
           <div class="cs-meta-item">
             <span class="cs-meta-label">Analytical Tools &amp; Models</span>
             <div class="cs-meta-val cs-meta-tools-list">
-              <span class="cs-meta-tool-tag">Nadler-Tushman</span>
+              <span class="cs-meta-tool-tag">6P Framework</span>
               <span class="cs-meta-tool-tag">BPMN</span>
-              <span class="cs-meta-tool-tag">GAP Analysis</span>
+              <span class="cs-meta-tool-tag">Nadler-Tushman</span>
+              <span class="cs-meta-tool-tag">Excel</span>
               <span class="cs-meta-tool-tag">Tableau</span>
               <span class="cs-meta-tool-tag">Draw.io</span>
             </div>
@@ -103,10 +104,10 @@
         <div class="cs-section" style="position: relative;">
           <h2 class="cs-section-title">1. The Problem</h2>
           <p>
-            Olist E-Commerce was facing a critical customer retention crisis. A review of buyer feedback surveys indicated rising dissatisfaction centered on long shipping lead times, delayed handovers, and erratic carrier performance. These logistics issues directly led to customer complaints, an increased refund rate, and stagnant Gross Merchandise Value (GMV) growth across key Brazilian regions.
+            Olist is a Brazilian marketplace aggregator connecting small and medium sellers to platforms like Mercado Livre, B2W, and Via Varejo. The dataset covers approximately 99,000 orders placed between 2016 and 2018 across Brazil's 27 states.
           </p>
           <p style="margin-top: 1.5rem;">
-            Before proposing raw software solutions, Olist needed to understand **where** the system was failing. The core challenge was isolating whether delays originated from seller packaging inefficiency, logistics hubs, or final-mile carrier distribution.
+            Using the <strong>6P Framework</strong> (Product, Price, Place, Promotion, People, Process) as a structured diagnostic lens — before opening the dataset — four problem areas emerged: freight costs potentially making purchases economically unviable in remote regions, seller supply concentrated far from customer demand, delivery timing as a likely driver of satisfaction scores, and platform revenue likely following a power law across sellers. These were formalised into four testable hypotheses and documented before any data was accessed, to prevent retrofitting conclusions to data.
           </p>
         </div>
 
@@ -114,17 +115,20 @@
         <div class="cs-section">
           <h2 class="cs-section-title">2. The Approach</h2>
           <p>
-            To address the problem holistically, I applied the **Nadler-Tushman Congruence Model** to audit the company's internal and external systems. I structured my analysis into three logical phases:
+            I structured the analysis using a standard BA workflow across four phases:
           </p>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
             <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Process Mapping:</strong> Modeled the entire order-to-delivery lifecycle using standard Business Process Model and Notation (BPMN) diagrams in Draw.io to identify manual handoffs.
+              <strong style="color: var(--black-forest);">Business Question Formation:</strong> Applied the 6P Framework to pre-diagnose problems and form four testable hypotheses (H1–H4) before accessing the dataset. Predictions were documented upfront to ensure analytical integrity.
             </li>
             <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Data Ingestion:</strong> Ingested over 100,000 transaction, order, and location records in Microsoft Excel for data sanitization and variable modeling.
+              <strong style="color: var(--black-forest);">Stakeholder Mapping:</strong> Built a Power/Interest grid for six stakeholder groups — CEO, Operations & Logistics, Sales & Marketing, Investors, Sellers, and Customers — with tailored engagement strategies for each.
             </li>
             <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Visual Analytics:</strong> Built operational logistics dashboards in Tableau Desktop to isolate state-by-state delivery delays.
+              <strong style="color: var(--black-forest);">Process Mapping:</strong> Modelled the full order-to-delivery lifecycle using BPMN swimlane diagrams in Draw.io across four actors: Customer, Olist System, Seller, and Carrier — identifying three critical handoff points where delays compound.
+            </li>
+            <li style="position: relative; padding-left: 2rem;">
+              <strong style="color: var(--black-forest);">Data Analysis & Visualisation:</strong> Consolidated 9 raw CSV files (99,441 rows) into a MASTER sheet in Excel using XLOOKUP joins, built 6 pivot tables, then created a 7-visualisation Tableau dashboard including a Lorenz curve for seller GMV concentration.
             </li>
           </ul>
         </div>
@@ -133,20 +137,20 @@
         <div class="cs-section">
           <h2 class="cs-section-title">3. The Process</h2>
           <p>
-            I traced the operational flow step-by-step:
+            I traced the analytical workflow step-by-step:
           </p>
           <div style="background-color: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 2rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 1.25rem;">
             <div>
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 1: Raw Data Cleaning</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Checked for missing zip codes, resolved null values in delivery timestamp logs, and created calculated fields to isolate 'seller processing duration' from 'carrier transit duration'.</p>
+              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 1: Data Consolidation in Excel</strong>
+              <p style="font-size: 0.95rem; margin: 0;">Imported 9 raw CSV files via Power Query into separate worksheets. Built a MASTER sheet (99,441 rows, 23 columns) using XLOOKUP to join orders, customers, items, products, sellers, payments, reviews, and geolocation on foreign keys. Filtered to 96,478 delivered orders and created 5 calculated columns: delivery_delay_days, delivery_status, delay_band, order_purchase_month_year, and freight_pct (freight as % of product price).</p>
             </div>
             <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 2: BPMN Path Mapping</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Mapped swimlanes for Sellers, Olist Platform, Warehousing Hubs, and Carriers. Found that the handoff from independent sellers to third-party shipping hubs had zero system-driven SLA controls.</p>
+              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 2: Pivot Table Analysis (6 Tables)</strong>
+              <p style="font-size: 0.95rem; margin: 0;">Built 6 pivot tables to test H1–H4: delivery status vs. average review score; delay severity vs. average review score; revenue by customer state; monthly order volume trend; seller revenue concentration (Lorenz curve inputs); and average freight percentage by customer state — all confirming the pre-formed hypotheses.</p>
             </div>
             <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 3: KPI Definition</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Established core metrics in Tableau to track Carrier Lead Time Variance, Average Shipping Duration by State, and Hub-to-Buyer Distance Ratios.</p>
+              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 3: Tableau Dashboard (7 Visualisations)</strong>
+              <p style="font-size: 0.95rem; margin: 0;">Connected Tableau Desktop to the DELIVERED_ONLY sheet. Built 7 charts: delay severity vs. review score (line), revenue by top 10 states (bar), freight % by state (bar), monthly growth trend (line), customers by state (map), sellers by state (map), and a GMV Pareto Lorenz curve using 8 custom LOD calculated fields to deduplicate revenue and compute the seller concentration ratio.</p>
             </div>
           </div>
         </div>
@@ -155,20 +159,20 @@
         <div class="cs-section">
           <h2 class="cs-section-title">4. The Analysis</h2>
           <p>
-            The quantitative analysis of the 100k+ transaction records yielded three critical operational discoveries:
+            All four hypotheses were confirmed. The quantitative evidence revealed three operational dimensions of the same underlying problem:
           </p>
           <div class="cs-analysis-grid">
             <div class="cs-analysis-card">
-              <strong>The Seller Packaging Trap (28% of Delays)</strong>
-              <p>Nearly one-third of overall logistics friction occurs before the final carrier ever receives the package. Independent sellers spend an average of 48 hours packing and labeling orders, double the platform's nominal 24-hour target.</p>
+              <strong>H1 — Late Deliveries Collapse Satisfaction</strong>
+              <p>Late deliveries (6,534 orders, ~6.8% of delivered orders) averaged a 2.27 review score versus 4.03 for on-time orders — a 1.76-point gap on a 5-point scale. Orders 7+ days late dropped further to 1.70, functionally destroying customer retention. Delay severity was progressive: every additional band produced a measurable score collapse.</p>
             </div>
             <div class="cs-analysis-card">
-              <strong>Severe Regional SLA Variance (+8.5 Days)</strong>
-              <p>Deliveries destined for northeastern states (e.g., Bahia, Ceará) take over a week longer to arrive than shipments within Rio de Janeiro and São Paulo, directly stemming from fragmented regional hub networks.</p>
+              <strong>H2 — Extreme Geographic Revenue Concentration</strong>
+              <p>São Paulo generated 42% of total platform revenue (R$4.62M of R$12.09M). The top 3 states — SP, RJ, MG — accounted for ~70% of GMV. Platform orders peaked at 7,289/month in Nov 2017 then plateaued, indicating Olist had saturated established markets and needed geographic expansion to sustain growth.</p>
             </div>
             <div class="cs-analysis-card">
-              <strong>Fulfillment Congruence Mismatch</strong>
-              <p>Using the Nadler-Tushman model reveals a structural friction: the business relies on decentralized, loose logistics contracts while pursuing highly aggressive customer retention and growth targets.</p>
+              <strong>H3 + H4 — Seller Pareto & Northern Freight Burden</strong>
+              <p>Of 2,960 sellers, the top 592 (20%) generated 82.54% of GMV — stronger than the classic 80/20 rule. Meanwhile, northern-state customers paid freight exceeding 50% of product price: Roraima (60.07%), Rondônia (57.83%), Maranhão (53.67%) — more than double São Paulo's 25.24% baseline. Despite these costs, northern customers were still placing orders, confirming suppressed latent demand, not absent demand.</p>
             </div>
           </div>
         </div>
@@ -177,25 +181,25 @@
         <div class="cs-section" style="border-bottom: none;">
           <h2 class="cs-section-title">5. Business Recommendation</h2>
           <p>
-            Based on these insights, I delivered a structured operational restructuring proposal to consolidate Olist's freight and establish localized sorting hubs. I backed this with interactive Tableau logistics dashboards to empower category managers.
+            Based on the four confirmed hypotheses, I applied the Nadler-Tushman Congruence Model to diagnose root causes across Work, People, Structure, and Culture — then delivered four prioritised recommendations using MoSCoW. All recommendations operate within Olist's marketplace model; no warehouse ownership or stock-holding was proposed.
           </p>
                    <div class="outcome-card">
             <h3 class="outcome-title">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              Recommended Strategic Impact
+              MoSCoW Prioritised Recommendations
             </h3>
             <ul class="outcome-list">
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Modeled 3.4-Day Shipping Reduction:</strong> Consolidating regional carrier networks is projected to achieve a 22% reduction in shipping durations across core states.
+                <strong>Logistics Partnerships in Northern States (Must Have):</strong> Negotiate regional carrier contracts or extend Olist Envios coverage to bring freight from 50–60% of product price toward a sub-20% target — directly unlocking latent demand in underserved regions. Paired with reduced transit times to stop the delivery-delay-to-low-review-score chain.
               </li>
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Projected 12% Freight Savings:</strong> Auditing and optimizing rural dispatch parameters and routes could yield substantial localized savings.
+                <strong>Seller Tiering to Protect Top GMV Contributors (Must Have):</strong> Segment the top 20% of sellers (592 accounts generating 82.54% of GMV) into a priority tier with dedicated support. Low effort, high impact — retention is cheaper than replacement, and churn in this cohort causes an immediate, disproportionate revenue impact.
               </li>
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Recommended Dashboard Systems:</strong> Visualized operational metrics in a production-ready dashboard design to track seller packaging SLAs.
+                <strong>Seller Acquisition in Underserved States (Should Have):</strong> Launch a targeted seller acquisition programme in tier 2 and tier 3 states to reduce geographic concentration risk. Most effective after logistics barriers are reduced — sellers are unlikely to join a platform where their customers face 50–60% freight costs.
               </li>
             </ul>
           </div>
