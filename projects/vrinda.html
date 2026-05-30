@@ -24,6 +24,8 @@
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/og-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/projects/vrinda.html">
   <meta property="og:type" content="website">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
 <body>
 
@@ -115,6 +117,11 @@
           <p style="margin-top: 1.5rem;">
             The objective was to audit the raw year-long transactional database to answer three questions: **Who** is the core customer? **Where** is the revenue concentrated? And **what** channels drive the highest transactional value?
           </p>
+          <figure class="narrative-chart narrative-chart--doughnut" aria-label="Doughnut chart showing gender split of revenue">
+            <div class="chart-badge">65% Women (30-45)</div>
+            <canvas id="chart-vrinda-gender"></canvas>
+            <figcaption>Fig 1 — Revenue share by gender. The core customer is definitively female adults.</figcaption>
+          </figure>
         </div>
 
         <!-- A: Approach -->
@@ -172,6 +179,11 @@
             <div class="cs-analysis-card">
               <strong>Strong Geographic Clusters (35% of Demand)</strong>
               <p>Maharashtra and Karnataka are the highest-performing regional corridors, together contributing over a third of all completed customer orders.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Bar chart showing top states by order volume">
+                <div class="chart-badge left">35% Demand in MH + KA</div>
+                <canvas id="chart-vrinda-states"></canvas>
+                <figcaption>Fig 2 — Top 5 states by order volume.</figcaption>
+              </figure>
             </div>
             <div class="cs-analysis-card">
               <strong>Category Margin Discrepancy (3x Velocity)</strong>
@@ -206,6 +218,15 @@
                 <strong>Designed Single-Sheet Dashboard:</strong> Deployed a centralized spreadsheet overview layout enabling monthly performance tracking with zero manual upkeep.
               </li>
             </ul>
+            <div style="margin-top: 2rem;">
+              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase;">Channel Strategy</strong>
+              <p style="font-size: 0.85rem; line-height: 1.4; margin-top: 0.5rem;">Targeted campaigns must prioritize the top 3 marketplace platforms which command 80.4% of total sales volume.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Bar chart showing sales by platform channel">
+                <div class="chart-badge">80.4% Top 3</div>
+                <canvas id="chart-vrinda-channels"></canvas>
+                <figcaption>Fig 3 — Transactional volume by platform. Amazon, Flipkart, and Myntra dominate.</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
@@ -248,5 +269,46 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="../js/charts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      NarrativeCharts.applyDefaults();
+
+      /* Demographics — Gender revenue split */
+      NarrativeCharts.doughnutChart(
+        'chart-vrinda-gender',
+        ['Women (30–45)', 'Men & Other'],
+        [65, 35],
+        {
+          colors: ['#b06c25', 'rgba(40,54,24,0.12)'],
+        }
+      );
+
+      /* Geographic clusters — Top 5 states */
+      NarrativeCharts.horizontalBar(
+        'chart-vrinda-states',
+        ['Maharashtra', 'Karnataka', 'Uttar Pradesh', 'Telangana', 'Tamil Nadu'],
+        [2450, 1890, 1620, 1380, 1250],
+        {
+          colors: ['#3a6b35', '#3a6b35', 'rgba(40,54,24,0.15)', 'rgba(40,54,24,0.15)', 'rgba(40,54,24,0.15)'],
+          borderColors: ['#283618', '#283618', 'rgba(40,54,24,0.3)', 'rgba(40,54,24,0.3)', 'rgba(40,54,24,0.3)'],
+          aspectRatio: 2.2,
+        }
+      );
+
+      /* Channels */
+      NarrativeCharts.horizontalBar(
+        'chart-vrinda-channels',
+        ['Amazon', 'Flipkart', 'Myntra', 'Ajio', 'Others'],
+        [35, 26, 19.4, 10, 9.6],
+        {
+          colors: ['#b06c25', '#b06c25', '#b06c25', 'rgba(176,108,37,0.3)', 'rgba(176,108,37,0.1)'],
+          borderColors: ['#b06c25', '#b06c25', '#b06c25', 'rgba(176,108,37,0.5)', 'rgba(176,108,37,0.3)'],
+          yTickFormat: function(v) { return v + '%'; },
+          aspectRatio: 2.5,
+        }
+      );
+    });
+  </script>
 </body>
 </html>

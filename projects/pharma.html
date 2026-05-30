@@ -24,6 +24,8 @@
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/og-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/projects/pharma.html">
   <meta property="og:type" content="website">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
 <body>
 
@@ -155,6 +157,11 @@
             <div class="cs-analysis-card">
               <strong>Shelf Space Stagnation (20% Frozen)</strong>
               <p>Over one-fifth of active warehouse shelf space was occupied by slow-moving, low-turnover medicine brands, unnecessarily tying up valuable distributor capital.</p>
+              <figure class="narrative-chart narrative-chart--doughnut" aria-label="Doughnut chart showing active versus frozen shelf space">
+                <div class="chart-badge">20% Frozen</div>
+                <canvas id="chart-pharma-shelf"></canvas>
+                <figcaption>Fig 1 — Warehouse shelf space utilization. 20% of shelf capacity was frozen by slow-moving inventory, tying up working capital.</figcaption>
+              </figure>
             </div>
             <div class="cs-analysis-card">
               <strong>Inelastic Ordering Parameters</strong>
@@ -182,6 +189,15 @@
                 <strong>25% Modeled Drop in Essential Stockouts:</strong> Safety stock parameters ensured essential drug lines remained consistently in inventory.
               </li>
             </ul>
+            <div style="margin-top: 2rem;">
+              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase;">Stockout Reduction Trajectory</strong>
+              <p style="font-size: 0.85rem; line-height: 1.4; margin-top: 0.5rem;">After implementing the automated tracking limits, projected essential stockouts dropped significantly by the third month.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Line chart showing drop in stockouts over 3 months">
+                <div class="chart-badge left">-25% by Month 3</div>
+                <canvas id="chart-pharma-stockout"></canvas>
+                <figcaption>Fig 2 — Essential item stockout occurrences over the trial period.</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
@@ -222,5 +238,32 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="../js/charts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      NarrativeCharts.applyDefaults();
+
+      /* Shelf space utilization */
+      NarrativeCharts.doughnutChart(
+        'chart-pharma-shelf',
+        ['Active Stock (Turnover OK)', 'Frozen / Slow-Moving'],
+        [80, 20],
+        {
+          colors: ['#3a6b35', 'rgba(176,108,37,0.8)'],
+        }
+      );
+
+      /* Stockout reduction */
+      NarrativeCharts.lineChart(
+        'chart-pharma-stockout',
+        ['Baseline', 'Month 1', 'Month 2', 'Month 3'],
+        [40, 38, 32, 30],
+        {
+          yTitle: 'Monthly Stockouts',
+          aspectRatio: 2.5,
+        }
+      );
+    });
+  </script>
 </body>
 </html>

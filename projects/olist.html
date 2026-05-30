@@ -24,6 +24,8 @@
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/og-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/projects/olist.html">
   <meta property="og:type" content="website">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
 <body>
  
@@ -115,6 +117,20 @@
           <p>
             Olist is a Brazilian marketplace aggregator connecting small and medium sellers to platforms like Mercado Livre, B2W, and Via Varejo. The dataset covers approximately 99,000 orders placed between 2016 and 2018 across Brazil's 27 states.
           </p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px; background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 700; color: var(--copper); line-height: 1.2;">6.8%</div>
+              <div style="font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Delay Rate</div>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 700; color: var(--copper); line-height: 1.2;">7,289</div>
+              <div style="font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">GMV Plateau (Orders/mo)</div>
+            </div>
+            <div style="flex: 1; min-width: 200px; background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 700; color: var(--copper); line-height: 1.2;">50%+</div>
+              <div style="font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Freight Burden in North</div>
+            </div>
+          </div>
           <p style="margin-top: 1.5rem;">
             Using the <strong>6P Framework</strong> (Product, Price, Place, Promotion, People, Process) as a structured diagnostic lens — before opening the dataset — four problem areas emerged: freight costs potentially making purchases economically unviable in remote regions, seller supply concentrated far from customer demand, delivery timing as a likely driver of satisfaction scores, and platform revenue likely following a power law across sellers. These were formalised into four testable hypotheses and documented before any data was accessed, to prevent retrofitting conclusions to data.
           </p>
@@ -140,6 +156,13 @@
               <strong style="color: var(--black-forest);">Data Analysis & Visualisation:</strong> Consolidated 9 raw CSV files (99,441 rows) into a MASTER sheet in Excel using XLOOKUP joins, built 6 pivot tables, then created a 7-visualisation Tableau dashboard including a Lorenz curve for seller GMV concentration.
             </li>
           </ul>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2.5rem; gap: 1rem; overflow-x: auto; padding-bottom: 1rem;">
+            <div style="flex: 1; text-align: center; background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 8px; font-weight: bold;">Process Mapping</div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; color: var(--copper);"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <div style="flex: 1; text-align: center; background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 8px; font-weight: bold;">Data Ingestion</div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; color: var(--copper);"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <div style="flex: 1; text-align: center; background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 8px; font-weight: bold;">Visual Analytics</div>
+          </div>
         </div>
 
         <!-- P: Process -->
@@ -162,6 +185,21 @@
               <p style="font-size: 0.95rem; margin: 0;">Connected Tableau Desktop to the DELIVERED_ONLY sheet. Built 7 charts: delay severity vs. review score (line), revenue by top 10 states (bar), freight % by state (bar), monthly growth trend (line), customers by state (map), sellers by state (map), and a GMV Pareto Lorenz curve using 8 custom LOD calculated fields to deduplicate revenue and compute the seller concentration ratio.</p>
             </div>
           </div>
+          <div style="margin-top: 2rem; overflow-x: auto;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; min-width: 600px;">
+              <div style="font-weight: bold; border-bottom: 2px solid var(--copper); padding-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Sellers</div>
+              <div style="font-weight: bold; border-bottom: 2px solid var(--copper); padding-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Olist Platform</div>
+              <div style="font-weight: bold; border-bottom: 2px solid var(--copper); padding-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Warehousing Hubs</div>
+              <div style="font-weight: bold; border-bottom: 2px solid var(--copper); padding-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Carriers</div>
+              
+              <div style="background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 4px; font-size: 0.9rem; text-align: center;">Packaging</div>
+              <div style="background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 4px; font-size: 0.9rem; text-align: center;">Routing</div>
+              <div style="background: rgba(184, 115, 51, 0.1); border: 2px dashed var(--copper); padding: 1rem; border-radius: 4px; font-size: 0.9rem; text-align: center; position: relative;">
+                <strong>Handoff Gap Found Here</strong>
+              </div>
+              <div style="background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 1rem; border-radius: 4px; font-size: 0.9rem; text-align: center;">Transit</div>
+            </div>
+          </div>
         </div>
 
         <!-- A: Analysis -->
@@ -174,25 +212,48 @@
             <div class="cs-analysis-card">
               <strong>H1 — Late Deliveries Collapse Satisfaction</strong>
               <p>Late deliveries (6,534 orders, ~6.8% of delivered orders) averaged a 2.27 review score versus 4.03 for on-time orders — a 1.76-point gap on a 5-point scale. Orders 7+ days late dropped further to 1.70, functionally destroying customer retention. Delay severity was progressive: every additional band produced a measurable score collapse.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Line chart showing delay severity vs average review score">
+                <div class="chart-badge">1.70 score at 7+ days</div>
+                <canvas id="chart-olist-delay-review" style="height: 280px !important;"></canvas>
+                <figcaption>Fig 1 — Delay Severity vs. Score. Color shows delay band. Marks labeled by count of Order Id.</figcaption>
+              </figure>
             </div>
             <div class="cs-analysis-card">
               <strong>H2 — Extreme Geographic Revenue Concentration</strong>
-              <p>São Paulo generated 42% of total platform revenue (R$4.62M of R$12.09M). The top 3 states — SP, RJ, MG — accounted for ~70% of GMV. Platform orders peaked at 7,289/month in Nov 2017 then plateaued, indicating Olist had saturated established markets and needed geographic expansion to sustain growth.</p>
+              <p>São Paulo generated 42% of total platform revenue (R$4,622,373 of R$12.09M). The top 3 states — SP, RJ, MG — accounted for ~70% of GMV. Platform orders peaked at 7,289/month in Nov 2017 then plateaued, indicating Olist had saturated established markets and needed geographic expansion to sustain growth.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Horizontal bar chart showing revenue by top 10 states">
+                <div class="chart-badge">SP: R$4.62M (42%)</div>
+                <canvas id="chart-olist-state-revenue" style="height: 360px !important;"></canvas>
+                <figcaption>Fig 2 — Revenue By Top 10 States. Sum of Price for each Customer State, filtered to top 10.</figcaption>
+              </figure>
             </div>
             <div class="cs-analysis-card">
-              <strong>H3 + H4 — Seller Pareto & Northern Freight Burden</strong>
-              <p>Of 2,960 sellers, the top 592 (20%) generated 82.54% of GMV — stronger than the classic 80/20 rule. Meanwhile, northern-state customers paid freight exceeding 50% of product price: Roraima (60.07%), Rondônia (57.83%), Maranhão (53.67%) — more than double São Paulo's 25.24% baseline. Despite these costs, northern customers were still placing orders, confirming suppressed latent demand, not absent demand.</p>
+              <strong>H3 — Seller GMV Pareto Concentration</strong>
+              <p>Of 2,960 sellers, the top 592 (20%) generated 82.54% of GMV — stronger than the classic 80/20 rule. Platform health depends disproportionately on retaining a small, identifiable cohort of highly successful sellers.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Lorenz curve showing seller GMV concentration">
+                <canvas id="chart-olist-lorenz" style="height: 380px !important;"></canvas>
+                <figcaption>Fig 3 — GMV Pareto Distribution. % of Sellers vs. % of Total Running Sum of True GMV.</figcaption>
+              </figure>
+            </div>
+            <div class="cs-analysis-card">
+              <strong>H4 — The Northern Freight Burden</strong>
+              <p>Northern-state customers paid freight exceeding 50% of product price: Roraima (60.07%), Rondônia (57.83%), Maranhão (53.67%) — more than double São Paulo's 25.24% baseline. Despite these costs, northern customers were still placing orders, confirming suppressed latent demand.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Bar chart showing average freight percentage by state">
+                <div class="chart-badge">Northern Freight &gt; 50%</div>
+                <canvas id="chart-olist-freight" style="height: 320px !important;"></canvas>
+                <figcaption>Fig 4 — Freight % By State. Average of Freight Pct for each Customer State.</figcaption>
+              </figure>
             </div>
           </div>
         </div>
 
         <!-- O: Outcome -->
         <div class="cs-section" style="border-bottom: none;">
-          <h2 class="cs-section-title">5. Business Recommendation</h2>
+          <h2 class="cs-section-title">5. Business Recommendations</h2>
           <p>
-            Based on the four confirmed hypotheses, I applied the Nadler-Tushman Congruence Model to diagnose root causes across Work, People, Structure, and Culture — then delivered four prioritised recommendations using MoSCoW. All recommendations operate within Olist's marketplace model; no warehouse ownership or stock-holding was proposed.
+            These recommendations are based on analysis of Olist's 2016–2018 order, delivery, seller, and customer data. Each recommendation targets a specific gap identified in the analysis and is grounded in the dataset. Olist operates as a marketplace and commerce enabler — all recommendations stay within that operating model.
           </p>
-                   <div class="outcome-card">
+          <div class="outcome-card">
             <h3 class="outcome-title">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               MoSCoW Prioritised Recommendations
@@ -200,16 +261,65 @@
             <ul class="outcome-list">
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Logistics Partnerships in Northern States (Must Have):</strong> Negotiate regional carrier contracts or extend Olist Envios coverage to bring freight from 50–60% of product price toward a sub-20% target — directly unlocking latent demand in underserved regions. Paired with reduced transit times to stop the delivery-delay-to-low-review-score chain.
+                <strong>Logistics Partnerships in Northern States (Must Have):</strong> Customers in northern states are still placing orders despite paying freight costs that can exceed half the product price. That is not a market with no demand — it is a market with a logistics cost problem. Regional carrier partnerships, or an extension of Olist Envios coverage into the north would bring freight costs to a level where northern orders become economically viable for both sellers and customers at scale. <em>Owner: Operations & Logistics. Effort: Medium.</em>
               </li>
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Seller Tiering to Protect Top GMV Contributors (Must Have):</strong> Segment the top 20% of sellers (592 accounts generating 82.54% of GMV) into a priority tier with dedicated support. Low effort, high impact — retention is cheaper than replacement, and churn in this cohort causes an immediate, disproportionate revenue impact.
+                <strong>Reduce Transit Time in Remote Routes (Must Have):</strong> Late deliveries are not a minor inconvenience — they are a platform credibility problem. A 1.76-point review score gap between late and on-time orders is large enough to affect seller rankings, repeat purchase rates, and customer trust. The root cause is route complexity — northern states have longer distances, fewer carrier options, and infrastructure constraints the fulfilment workflow was never designed to handle. <em>Owner: Operations & Logistics. Effort: High.</em>
               </li>
               <li class="outcome-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Seller Acquisition in Underserved States (Should Have):</strong> Launch a targeted seller acquisition programme in tier 2 and tier 3 states to reduce geographic concentration risk. Most effective after logistics barriers are reduced — sellers are unlikely to join a platform where their customers face 50–60% freight costs.
+                <strong>Seller Tiering Based on GMV Contribution (Must Have):</strong> 592 sellers are currently generating the majority of platform revenue with no differentiated treatment. If a meaningful portion of them churn or reduce activity, the impact on GMV is immediate. Segmenting sellers into tiers and assigning dedicated support to the top tier protects the revenue base. Retention is cheaper than replacement. <em>Owner: Seller Success Team. Effort: Low.</em>
               </li>
+              <li class="outcome-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                <strong>Seller Acquisition in Underserved States (Should Have):</strong> When 42% of revenue depends on one state, any disruption — regulatory, economic, or competitive — disproportionately affects the platform. A targeted seller acquisition programme in tier 2 and tier 3 states would reduce concentration risk, shorten the distance between sellers and northern customers, and open a growth channel competitors have not yet saturated. Most effective after logistics barriers are reduced. <em>Owner: Sales & Marketing. Effort: Medium.</em>
+              </li>
+            </ul>
+          </div>
+
+          <!-- MoSCoW Summary Table -->
+          <div style="margin-top: 2.5rem; overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--copper);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Recommendation</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Priority</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--divider);">
+                  <td style="padding: 0.75rem 1rem;">Logistics partnerships in northern states</td>
+                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
+                  <td style="padding: 0.75rem 1rem;">Directly removes highest-cost barrier for northern customers</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--divider);">
+                  <td style="padding: 0.75rem 1rem;">Reduce transit time in remote routes</td>
+                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
+                  <td style="padding: 0.75rem 1rem;">Flows from logistics infrastructure — addresses retention risk</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--divider);">
+                  <td style="padding: 0.75rem 1rem;">Seller tiering — protect top 20%</td>
+                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
+                  <td style="padding: 0.75rem 1rem;">Low effort, high impact, protects existing revenue base</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem;">Seller acquisition in underserved states</td>
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">Should Have</td>
+                  <td style="padding: 0.75rem 1rem;">Most effective after logistics barriers are reduced</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- What This Analysis Does Not Recommend -->
+          <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px;">
+            <strong style="display: block; margin-bottom: 0.75rem; color: var(--black-forest);">What This Analysis Does Not Recommend</strong>
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.95rem; line-height: 1.7;">
+              <li>Building warehouses or shifting to a stock-holding model — outside Olist's operating model</li>
+              <li>Abandoning the SP market — concentration is a risk, not a reason to pull back from a high-performing region</li>
+              <li>Category-level changes — category analysis was out of scope for this project</li>
             </ul>
           </div>
         </div>
@@ -253,5 +363,122 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="../js/charts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      NarrativeCharts.applyDefaults();
+
+      /* ── H1 — Delay Severity vs. Score (gradient line with order counts) ── */
+      NarrativeCharts.gradientLineChart(
+        'chart-olist-delay-review',
+        ['Early', 'On Time', 'Late 1-3 days', 'Late 4-7 days', 'Late 7+ days'],
+        [4.295, 4.030, 3.286, 2.078, 1.697],
+        [88652, 1292, 1870, 1802, 2862],
+        {
+          yTitle: 'Avg. Review Score',
+          xTitle: 'Delay Band',
+          aspectRatio: 2,
+        }
+      );
+
+      /* ── H2 — Revenue By Top 10 States (horizontal bar) ── */
+      NarrativeCharts.horizontalBar(
+        'chart-olist-state-revenue',
+        ['SP', 'RJ', 'MG', 'RS', 'PR', 'SC', 'BA', 'DF', 'GO', 'ES'],
+        [4622373, 1600069, 1426815, 665875, 605069, 463138, 447296, 273492, 254663, 246253],
+        {
+          colors: [
+            'rgba(180,175,165,0.75)', /* SP — grey/beige */
+            'rgba(170,140,200,0.75)', /* RJ — purple */
+            'rgba(90,160,80,0.75)',   /* MG — green */
+            'rgba(240,180,190,0.75)', /* RS — pink */
+            'rgba(220,200,100,0.75)', /* PR — yellow */
+            'rgba(160,130,100,0.75)', /* SC — brown */
+            'rgba(80,120,200,0.75)',  /* BA — blue */
+            'rgba(230,160,80,0.75)',  /* DF — orange */
+            'rgba(120,200,190,0.75)', /* GO — teal */
+            'rgba(220,100,100,0.75)', /* ES — red */
+          ],
+          borderColors: [
+            'rgba(180,175,165,1)', 'rgba(170,140,200,1)', 'rgba(90,160,80,1)',
+            'rgba(240,180,190,1)', 'rgba(220,200,100,1)', 'rgba(160,130,100,1)',
+            'rgba(80,120,200,1)', 'rgba(230,160,80,1)', 'rgba(120,200,190,1)',
+            'rgba(220,100,100,1)',
+          ],
+          xTitle: 'Price ₹',
+          xTickFormat: function(v) {
+            if (v >= 1000000) return (v / 1000000).toFixed(1) + 'M';
+            if (v >= 1000) return (v / 1000) + 'K';
+            return v;
+          },
+          tooltipCallbacks: {
+            label: function(item) {
+              return 'R$' + item.raw.toLocaleString();
+            }
+          },
+          aspectRatio: 1.4,
+        }
+      );
+
+      /* ── H3 — GMV Pareto Distribution (Lorenz Curve) ── */
+      /* Generate smooth Lorenz curve data: x = % of sellers, y = cumulative GMV % */
+      var lorenzX = [];
+      var lorenzY = [];
+      for (var i = 0; i <= 100; i++) {
+        lorenzX.push(i);
+        /* Approximate the actual Lorenz curve shape from the Tableau chart */
+        /* Using a power function that passes through (0,0), (20,82.54), (100,100) */
+        if (i === 0) { lorenzY.push(0); }
+        else if (i <= 20) {
+          /* Steep rise: top sellers contribute heavily */
+          lorenzY.push(82.54 * Math.pow(i / 20, 0.55));
+        } else {
+          /* Gradual rise from 82.54 to 100 for remaining 80% of sellers */
+          var remaining = (i - 20) / 80;
+          lorenzY.push(82.54 + (100 - 82.54) * Math.pow(remaining, 0.6));
+        }
+      }
+
+      NarrativeCharts.lorenzCurve(
+        'chart-olist-lorenz',
+        lorenzX,
+        lorenzY,
+        {
+          refX: 20,
+          refY: 82.54,
+          aspectRatio: 1.2,
+        }
+      );
+
+      /* ── H4 — Freight % By State (vertical bar, all 27 states) ── */
+      NarrativeCharts.verticalBar(
+        'chart-olist-freight',
+        ['RR','RO','MA','AC','PI','AM','RN','PB','TO','AL','PA','SE','PE','CE','AP','BA','MT','ES','GO','RS','MS','PR','DF','SC','RJ','MG','SP'],
+        [60.07,57.83,53.67,51.21,50.40,50.17,50.15,50.01,49.89,47.13,46.33,46.15,43.41,42.71,38.82,38.62,37.88,34.70,34.18,34.14,34.13,33.53,33.48,32.96,31.71,31.71,25.24],
+        {
+          colors: [
+            /* Northern/remote states — copper tones for high freight */
+            'rgba(176,108,37,0.7)', 'rgba(176,108,37,0.7)', 'rgba(176,108,37,0.7)',
+            'rgba(176,108,37,0.65)', 'rgba(176,108,37,0.6)', 'rgba(176,108,37,0.55)',
+            'rgba(176,108,37,0.5)', 'rgba(176,108,37,0.5)', 'rgba(176,108,37,0.45)',
+            'rgba(176,108,37,0.4)', 'rgba(176,108,37,0.4)', 'rgba(176,108,37,0.35)',
+            'rgba(176,108,37,0.35)', 'rgba(176,108,37,0.3)', 'rgba(176,108,37,0.3)',
+            'rgba(58,107,53,0.3)', 'rgba(58,107,53,0.3)', 'rgba(58,107,53,0.35)',
+            'rgba(58,107,53,0.35)', 'rgba(58,107,53,0.4)', 'rgba(58,107,53,0.4)',
+            'rgba(58,107,53,0.45)', 'rgba(58,107,53,0.45)', 'rgba(58,107,53,0.5)',
+            'rgba(58,107,53,0.5)', 'rgba(58,107,53,0.55)', 'rgba(58,107,53,0.7)',
+          ],
+          yTickFormat: function(v) { return v + '%'; },
+          yTitle: 'Avg. Freight Pct',
+          tooltipCallbacks: {
+            label: function(item) {
+              return item.raw.toFixed(2) + '%';
+            }
+          },
+          aspectRatio: 1.8,
+        }
+      );
+    });
+  </script>
 </body>
 </html>

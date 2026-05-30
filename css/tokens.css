@@ -1,0 +1,15 @@
+/* css/tokens.css
+   Restrained palette tokens for chart visualizations.
+   These supplement (not override) the existing palette in styles.css. */
+
+:root {
+  /* Chart‑specific neutrals – used only inside .chart-container */
+  --chart-neutral-100: oklch(95% 0 0);
+  --chart-neutral-300: oklch(80% 0 0);
+  --chart-neutral-500: oklch(60% 0 0);
+  --chart-neutral-700: oklch(30% 0 0);
+  --chart-neutral-900: oklch(10% 0 0);
+
+  /* Single accent for data highlights */
+  --chart-accent: oklch(55% 0.12 180);
+}

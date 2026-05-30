@@ -1,0 +1,59 @@
+/* css/design-system.css
+   Additive styles for narrative chart components.
+   Imports chart tokens; does NOT override any global styles from styles.css. */
+
+@import url('tokens.css');
+
+/* ── Narrative chart figure ──────────────────────────────────────── */
+.narrative-chart {
+  margin: 2rem 0;
+  padding: 0;
+  position: relative;
+  background: transparent;
+  border: none;
+}
+
+.narrative-chart canvas {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  height: 220px !important;
+  margin: 0 auto;
+}
+
+/* Floating badge for key data points overlaying charts */
+.chart-badge {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  background: var(--copper);
+  color: var(--cornsilk);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(188, 108, 37, 0.2);
+}
+
+.chart-badge.left {
+  right: auto;
+  left: 5%;
+}
+
+.narrative-chart figcaption {
+  margin-top: 1rem;
+  font-family: var(--font-sans, 'Outfit', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: oklch(0.25 0.04 120 / 0.55);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Doughnut charts need a constrained width */
+.narrative-chart--doughnut canvas {
+  max-width: 320px;
+  max-height: 250px;
+}
