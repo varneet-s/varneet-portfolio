@@ -4,3 +4,6 @@
 
 # Antigravity IDE files
 .agents/
+
+# Kiro IDE files
+.kiro/

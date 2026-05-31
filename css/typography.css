@@ -1,3 +1,160 @@
 /* css/typography.css
-   Chart‑specific typography overrides only.
-   Does NOT touch html/body — those are governed by styles.css */
+   Global typography constraints & rules.
+   Enforces hierarchy, spacing, and readability across the entire portfolio.
+   Does NOT override base font-family or body styles — those live in styles.css.
+   
+   Sources: Figma Design Basics (typography-in-design), project workflow skills.
+   ========================================================================== */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   1. TYPE SCALE — Fluid headings via clamp(), fixed body
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+h1 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h4 {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   2. BODY & PARAGRAPH — Readability constraints
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+p {
+  max-width: 65ch;           /* Hard cap — never exceed 75ch anywhere */
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Small/meta text floor */
+small,
+.text-sm,
+figcaption,
+.meta {
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   3. WEIGHT MAP — Controlled usage per context
+   ══════════════════════════════════════════════════════════════════════════════
+   
+   300 (Light)    → Satoshi only, large display contexts
+   400 (Regular)  → Default body weight
+   500 (Medium)   → Labels, nav links, emphasis within body
+   600 (SemiBold) → All headings (Lora)
+   700 (Bold)     → Metric numbers, badges, nav active, strong emphasis
+   
+   Rule: Never use 700 on body paragraphs.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   4. UPPERCASE RULES — Always pair with tracking
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.uppercase-label,
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Badges & meta already handle this in styles.css, but enforce the pattern */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   5. ALIGNMENT CONSTRAINTS
+   ══════════════════════════════════════════════════════════════════════════════
+   
+   - Default: left-aligned
+   - Centered: only for short elements (≤2 lines): headings, CTAs, figcaptions
+   - Never: text-align: justify (creates uneven word spacing)
+   - Right-align: only for dates/numbers in structured layouts
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   6. SPACING BETWEEN TYPE ELEMENTS
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Eyebrow/label → heading */
+.eyebrow + h1,
+.eyebrow + h2,
+.eyebrow + h3 {
+  margin-top: 0.75rem;
+}
+
+/* Heading → body */
+h1 + p,
+h2 + p,
+h3 + p {
+  margin-top: 1.5rem;
+}
+
+/* Body → CTA */
+p + .cta-button,
+p + .secondary-button {
+  margin-top: 2rem;
+}
+
+/* Paragraph stacking */
+p + p {
+  margin-top: 1.25rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   7. RESPONSIVE FLOORS — Mobile minimums
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  h1 { font-size: max(1.75rem, clamp(1.75rem, 5vw, 2.5rem)); }
+  h2 { font-size: max(1.5rem, clamp(1.5rem, 4vw, 1.85rem)); }
+  h3 { font-size: max(1.25rem, clamp(1.25rem, 3.5vw, 1.5rem)); }
+  
+  /* Body stays stable — no scaling needed */
+  p { font-size: 1rem; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   8. BANNED PATTERNS (documented as comments for enforcement)
+   ══════════════════════════════════════════════════════════════════════════════
+   
+   ✗ background-clip: text + gradient  → Use solid color; emphasis via weight/size
+   ✗ text-shadow for readability       → Fix contrast instead
+   ✗ font-size below 0.8rem            → Absolute floor for any text
+   ✗ bold (700) on body paragraphs     → Use 500 (medium) for emphasis
+   ✗ Centered paragraphs > 2 lines     → Left-align long text
+   ✗ text-align: justify               → Creates rivers of whitespace
+   ✗ Italic on full paragraphs         → Reserve for single-word/phrase accents
+   ✗ Mixing serif in body text         → Lora is headings-only
+   ✗ More than 2 weights per component → Keep it clean
+   ✗ Static px headings without clamp  → Always use fluid sizing
+   ✗ ALL CAPS on headings or body      → Only for labels/badges/meta
+   ✗ ALL CAPS strings > 30 characters  → Loses readability
+   ✗ Inter, Roboto, Arial, Helvetica   → Banned fonts
+   ══════════════════════════════════════════════════════════════════════════════ */

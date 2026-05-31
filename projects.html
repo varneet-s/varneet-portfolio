@@ -16,6 +16,7 @@
   <title>Projects | Varneet Singh</title>
   <meta name="description" content="Explore Business Analysis and Data Analytics projects by Varneet Singh, applying structured frameworks like GAP analysis, BPMN, and sales auditing.">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/typography.css">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Projects | Varneet Singh">
@@ -70,13 +71,31 @@
       </div>
     </section>
 
+    <!-- Filter Bar -->
+    <section class="filter-section" style="padding: 2rem 0 0 0;">
+      <div class="container">
+        <div class="filter-bar" role="toolbar" aria-label="Filter projects by category or status">
+          <button class="filter-badge active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-badge" data-filter="data-analytics" aria-pressed="false">Data Analytics</button>
+          <button class="filter-badge" data-filter="business-analysis" aria-pressed="false">Business Analysis</button>
+          <button class="filter-badge" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filter-badge" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Full Projects List -->
-    <section class="projects-list-page" style="padding-top: 0; padding-bottom: 8rem;">
+    <section class="projects-list-page" style="padding-top: 2rem; padding-bottom: 8rem;">
       <div class="container">
         <div class="projects-list" style="border-top: 1px solid var(--divider);">
+
+          <!-- Empty state message -->
+          <div class="filter-empty-state" aria-live="polite" hidden>
+            <p>No projects match the selected filter.</p>
+          </div>
           
           <!-- Project 1: SQL Coming Soon -->
-          <div class="project-item placeholder">
+          <div class="project-item placeholder" data-category="data-analytics" data-status="active">
             <div class="project-info">
               <div class="project-meta">
                 <span class="label-role badge-data">Data Analytics</span>
@@ -96,7 +115,7 @@
           </div>
 
           <!-- Project 2: Olist E-Commerce -->
-          <a href="projects/olist.html" class="project-item" id="project-item-olist">
+          <a href="projects/olist.html" class="project-item" id="project-item-olist" data-category="business-analysis" data-status="completed">
             <div class="project-info">
               <div class="project-meta">
                 <span class="label-role badge-business">Business Analysis</span>
@@ -120,7 +139,7 @@
           </a>
 
           <!-- Project 3: I.P. Pharma -->
-          <a href="projects/pharma.html" class="project-item" id="project-item-pharma">
+          <a href="projects/pharma.html" class="project-item" id="project-item-pharma" data-category="business-analysis" data-status="active">
             <div class="project-info">
               <div class="project-meta">
                 <span class="label-role badge-business">Business Operations Analyst</span>
@@ -142,7 +161,7 @@
           </a>
 
           <!-- Project 4: Vrinda Store -->
-          <a href="projects/vrinda.html" class="project-item" id="project-item-vrinda">
+          <a href="projects/vrinda.html" class="project-item" id="project-item-vrinda" data-category="data-analytics" data-status="completed">
             <div class="project-info">
               <div class="project-meta">
                 <span class="label-role badge-data">Data Analysis</span>

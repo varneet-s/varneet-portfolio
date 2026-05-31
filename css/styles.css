@@ -157,7 +157,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: oklch(0.97 0.005 85 / 0.85); /* Only 1 shade darker than Linen body background for a perfect blend */
+  background-color: oklch(0.95 0.008 85 / 0.9); /* slightly darker warm tint for nav */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--divider);
@@ -274,7 +274,7 @@ header {
    ========================================================================== */
 .hero {
   padding: 8rem 0 6rem 0;
-  background-color: rgba(40, 54, 24, 0.005);
+  background-color: rgba(40, 54, 24, 0.025);
   border-bottom: 1px solid var(--divider);
 }
 
@@ -326,7 +326,7 @@ header {
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.6;
-  max-width: 65ch;
+  max-width: none;
 }
 
 .hero-ctas {
@@ -911,7 +911,7 @@ header {
 
 /* Home Page Wide Hero Spacing & Zero Indent */
 .home-hero-layout {
-  max-width: 1100px !important;
+  max-width: 1200px;
 }
 .home-hero-layout .hero-tagline-quote {
   border-left: none;
@@ -1060,12 +1060,26 @@ header {
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 @media(min-width: 768px) {
   .contact-layout {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.2fr 1px 0.8fr;
+    gap: 2.5rem;
+  }
+}
+
+.contact-divider {
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .contact-divider {
+    display: block;
+    width: 1px;
+    background: var(--black-forest);
+    opacity: 0.15;
   }
 }
 
@@ -1249,6 +1263,99 @@ header {
   }
 }
 
+
+/* ==========================================================================
+   FILTER BAR
+   ========================================================================== */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter-badge {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid var(--tag-border);
+  background-color: var(--tag-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-badge:hover {
+  border-color: var(--copper);
+  color: var(--copper);
+}
+
+.filter-badge:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 2px;
+}
+
+.filter-badge.active {
+  background-color: var(--copper);
+  border-color: var(--copper);
+  color: var(--cornsilk);
+}
+
+.filter-badge.active:hover {
+  background-color: var(--copper-hover);
+  color: var(--cornsilk);
+}
+
+/* Project card filter transitions */
+.project-item {
+  transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease, border-width 0.3s ease;
+  overflow: hidden;
+}
+
+.project-item.filter-hidden {
+  opacity: 0;
+  max-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom-width: 0 !important;
+  pointer-events: none;
+}
+
+/* Empty state */
+.filter-empty-state {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.filter-empty-state p {
+  font-size: 1.1rem;
+  color: var(--text-tertiary);
+  max-width: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .project-item {
+    transition: none !important;
+  }
+  .filter-badge {
+    transition: none !important;
+  }
+}
+
+/* Responsive filter bar */
+@media (max-width: 768px) {
+  .filter-bar {
+    gap: 0.5rem;
+  }
+}
 
 /* ==========================================================================
    PROJECT TYPE BADGES (3c)

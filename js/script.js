@@ -26,6 +26,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
+  // PROJECT FILTER ENGINE
+  // ==========================================================================
+  const filterBar = document.querySelector('.filter-bar');
+
+  if (filterBar) {
+    const badges = filterBar.querySelectorAll('.filter-badge');
+    const projectList = document.querySelector('.projects-list');
+    const cards = projectList ? projectList.querySelectorAll('.project-item') : [];
+    const emptyState = projectList ? projectList.querySelector('.filter-empty-state') : null;
+
+    function applyFilter(filterValue) {
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        if (filterValue === 'all') {
+          card.classList.remove('filter-hidden');
+          card.removeAttribute('hidden');
+          visibleCount++;
+        } else {
+          const category = card.getAttribute('data-category');
+          const status = card.getAttribute('data-status');
+          const matches = category === filterValue || status === filterValue;
+
+          if (matches) {
+            card.classList.remove('filter-hidden');
+            card.removeAttribute('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('filter-hidden');
+            card.setAttribute('hidden', '');
+          }
+        }
+      });
+
+      // Empty state
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.removeAttribute('hidden');
+        } else {
+          emptyState.setAttribute('hidden', '');
+        }
+      }
+    }
+
+    badges.forEach(badge => {
+      badge.addEventListener('click', () => {
+        const filterValue = badge.getAttribute('data-filter');
+        const isAlreadyActive = badge.classList.contains('active');
+
+        // Deactivate all badges
+        badges.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+
+        // If clicking the active badge, reset to "All"
+        if (isAlreadyActive && filterValue !== 'all') {
+          const allBadge = filterBar.querySelector('[data-filter="all"]');
+          allBadge.classList.add('active');
+          allBadge.setAttribute('aria-pressed', 'true');
+          applyFilter('all');
+        } else {
+          badge.classList.add('active');
+          badge.setAttribute('aria-pressed', 'true');
+          applyFilter(filterValue);
+        }
+      });
+    });
+  }
+
+  // ==========================================================================
   // EXPERIENCE ACCORDION (PAPAO / STAR DETAILS)
   // ==========================================================================
   const expHeaders = document.querySelectorAll('.exp-header');
