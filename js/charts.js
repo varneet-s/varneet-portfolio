@@ -36,14 +36,14 @@
   /* ── Chart.js global defaults ──────────────────────────────────────── */
   function applyDefaults() {
     if (!window.Chart) return;
-    Chart.defaults.font.family = "'Outfit', sans-serif";
+    Chart.defaults.font.family = "'Satoshi', sans-serif";
     Chart.defaults.font.size = 13;
     Chart.defaults.color = HEX.textSecondary;
     Chart.defaults.plugins.legend.display = false;
     Chart.defaults.plugins.tooltip.enabled = true;
     Chart.defaults.plugins.tooltip.backgroundColor = HEX.forest;
-    Chart.defaults.plugins.tooltip.titleFont = { family: "'Outfit', sans-serif", size: 13, weight: 600 };
-    Chart.defaults.plugins.tooltip.bodyFont = { family: "'Outfit', sans-serif", size: 12 };
+    Chart.defaults.plugins.tooltip.titleFont = { family: "'Satoshi', sans-serif", size: 13, weight: 600 };
+    Chart.defaults.plugins.tooltip.bodyFont = { family: "'Satoshi', sans-serif", size: 12 };
     Chart.defaults.plugins.tooltip.padding = 10;
     Chart.defaults.plugins.tooltip.cornerRadius = 4;
     Chart.defaults.animation = false; /* static charts */
@@ -348,7 +348,7 @@
 
         /* Annotation label */
         drawCtx.save();
-        drawCtx.font = "bold 11px 'Outfit', sans-serif";
+        drawCtx.font = "bold 11px 'Satoshi', sans-serif";
         drawCtx.fillStyle = HEX.forest;
         drawCtx.textAlign = 'left';
         drawCtx.fillText('20% of sellers', px + 6, py - 24);
@@ -359,7 +359,7 @@
 
         /* Y-axis label for refY */
         drawCtx.save();
-        drawCtx.font = "11px 'Outfit', sans-serif";
+        drawCtx.font = "11px 'Satoshi', sans-serif";
         drawCtx.fillStyle = HEX.textSecondary;
         drawCtx.textAlign = 'right';
         drawCtx.fillText(refY + '% of GMV', left - 6, py + 4);
@@ -458,7 +458,7 @@
               usePointStyle: true,
               pointStyle: 'circle',
               padding: 16,
-              font: { size: 13, family: "'Outfit', sans-serif", weight: 500 },
+              font: { size: 13, family: "'Satoshi', sans-serif", weight: 500 },
               color: HEX.textSecondary,
             }
           },

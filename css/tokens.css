@@ -1,15 +1,17 @@
 /* css/tokens.css
-   Restrained palette tokens for chart visualizations.
-   These supplement (not override) the existing palette in styles.css. */
+   Chart palette tokens — aligned to main design system in styles.css. */
 
 :root {
-  /* Chart‑specific neutrals – used only inside .chart-container */
-  --chart-neutral-100: oklch(95% 0 0);
-  --chart-neutral-300: oklch(80% 0 0);
-  --chart-neutral-500: oklch(60% 0 0);
-  --chart-neutral-700: oklch(30% 0 0);
-  --chart-neutral-900: oklch(10% 0 0);
+  /* Chart neutrals — warm-tinted to match cornsilk background */
+  --chart-neutral-100: oklch(0.95 0.005 85);
+  --chart-neutral-300: oklch(0.80 0.008 85);
+  --chart-neutral-500: oklch(0.60 0.006 100);
+  --chart-neutral-700: oklch(0.35 0.015 110);
+  --chart-neutral-900: oklch(0.15 0.02 120);
 
-  /* Single accent for data highlights */
-  --chart-accent: oklch(55% 0.12 180);
+  /* Chart accent — aligned to --teal (data domain colour) */
+  --chart-accent: var(--teal);
+
+  /* Secondary chart colour — copper, for contrast series */
+  --chart-accent-2: var(--copper);
 }

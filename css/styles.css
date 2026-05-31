@@ -1,39 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Satoshi:wght@300;400;500;700&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root {
-  /* Core Color System (Palette A - Modern OKLCH) */
-  --cornsilk: oklch(0.98 0.006 85); /* Premium warm Linen background */
-  --black-forest: oklch(0.25 0.04 120); /* Deep organic Black Forest green */
-  --copper: oklch(0.55 0.15 45); /* Curated organic Copper rust */
-  
-  /* Text Tones & Readability */
-  --text-primary: var(--black-forest);
-  --text-secondary: oklch(0.25 0.04 120 / 0.75); /* Softened forest green for readability */
-  --text-tertiary: oklch(0.25 0.04 120 / 0.55);
-  
-  /* Functional Accents */
-  --accent-muted: oklch(0.55 0.15 45 / 0.12); /* Soft copper tint */
-  --accent-hover: oklch(0.50 0.15 45);
-  
-  /* Forest Green Balanced Accents */
-  --accent-green: oklch(0.40 0.10 125); /* Rich vibrant organic forest green */
-  --accent-green-muted: oklch(0.40 0.10 125 / 0.08); /* Soft vibrant green tint */
-  
-  /* Layout & Spacing */
-  --divider: oklch(0.25 0.04 120 / 0.08);
-  --tag-bg: oklch(0.25 0.04 120 / 0.04);
-  --tag-border: oklch(0.25 0.04 120 / 0.12);
-  
-  /* Typography Stacks */
+  /* ── Base Palette ─────────────────────────────────────────── */
+  --cornsilk:      oklch(0.98 0.006 85);   /* warm linen background */
+  --black-forest:  oklch(0.25 0.04 120);   /* deep organic green — primary text */
+
+  /* ── Text Tones ───────────────────────────────────────────── */
+  --text-primary:   var(--black-forest);
+  --text-secondary: oklch(0.25 0.04 120 / 0.75);
+  --text-tertiary:  oklch(0.25 0.04 120 / 0.55);
+
+  /* ── 5-Colour Semantic Accent System ─────────────────────── */
+
+  /* 1. Copper — primary action: CTAs, nav underlines, buttons, logo dot */
+  --copper:         oklch(0.55 0.15 45);
+  --copper-muted:   oklch(0.55 0.15 45 / 0.12);
+  --copper-hover:   oklch(0.50 0.15 45);
+
+  /* 2. Status Green — live/available state only */
+  --status-green:         oklch(0.40 0.13 132);
+  --status-green-muted:   oklch(0.40 0.13 132 / 0.10);
+  --status-green-border:  oklch(0.40 0.13 132 / 0.22);
+  --status-green-dot:     oklch(0.45 0.16 132);
+
+  /* 3. Teal — data & analytics domain */
+  --teal:           oklch(0.42 0.11 200);
+  --teal-muted:     oklch(0.42 0.11 200 / 0.10);
+  --teal-border:    oklch(0.42 0.11 200 / 0.22);
+  --teal-text:      oklch(0.28 0.09 200);
+
+  /* 4. Amber — business strategy domain */
+  --amber:          oklch(0.58 0.13 68);
+  --amber-muted:    oklch(0.58 0.13 68 / 0.10);
+  --amber-border:   oklch(0.58 0.13 68 / 0.22);
+  --amber-text:     oklch(0.38 0.10 68);
+
+  /* 5. Slate — informational / pending */
+  --slate:          oklch(0.48 0.08 255);
+  --slate-muted:    oklch(0.48 0.08 255 / 0.10);
+  --slate-border:   oklch(0.48 0.08 255 / 0.22);
+  --slate-text:     oklch(0.30 0.07 255);
+
+  /* ── Layout & Utility ─────────────────────────────────────── */
+  --divider:        oklch(0.25 0.04 120 / 0.08);
+  --tag-bg:         oklch(0.25 0.04 120 / 0.04);
+  --tag-border:     oklch(0.25 0.04 120 / 0.12);
+
+  /* ── Typography ───────────────────────────────────────────── */
   --font-display: 'Lora', serif;
-  --font-sans: 'Outfit', sans-serif;
-  
-  /* Transitions */
+  --font-sans:    'Satoshi', sans-serif;
+
+  /* ── Transitions ──────────────────────────────────────────── */
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.15s ease-out;
+  --transition-fast:   all 0.15s ease-out;
 }
 
 /* Global SVG Logo & Brand Icon Grayscale-to-Color Transition */
@@ -174,7 +196,7 @@ header {
 
 .nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-secondary);
   position: relative;
   padding: 0.25rem 0;
@@ -281,9 +303,9 @@ header {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--accent-green);
-  background-color: var(--accent-green-muted);
-  border: 1px solid oklch(0.35 0.08 120 / 0.15);
+  color: var(--status-green);
+  background-color: var(--status-green-muted);
+  border: 1px solid var(--status-green-border);
   padding: 0.4rem 0.9rem;
   border-radius: 100px;
   margin-bottom: 2rem;
@@ -393,11 +415,37 @@ header {
 }
 
 .project-meta .label-role {
-  background-color: var(--accent-green-muted);
-  color: var(--accent-green);
-  border: 1px solid oklch(0.35 0.08 120 / 0.15);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Default label-role colour (fallback if no badge class) */
+.project-meta .label-role:not(.badge-data):not(.badge-business):not(.badge-pending) {
+  background-color: var(--status-green-muted);
+  color: var(--status-green);
+  border: 1px solid var(--status-green-border);
+}
+
+/* Badge overrides at matching specificity */
+.project-meta .badge-data {
+  background-color: var(--teal-muted);
+  color: var(--teal-text);
+  border: 1px solid var(--teal-border);
+}
+
+.project-meta .badge-business {
+  background-color: var(--amber-muted);
+  color: var(--amber-text);
+  border: 1px solid var(--amber-border);
+}
+
+.project-meta .badge-pending {
+  background-color: var(--slate-muted);
+  color: var(--slate-text);
+  border: 1px solid var(--slate-border);
 }
 
 .project-meta .label-date {
@@ -447,7 +495,7 @@ header {
 
 .project-item:hover .project-action {
   border-color: var(--copper);
-  background-color: var(--accent-muted);
+  background-color: var(--copper-muted);
   padding-right: 2rem;
 }
 
@@ -495,7 +543,7 @@ header {
 }
 
 .skill-category-title svg {
-  color: var(--accent-green);
+  color: var(--status-green);
 }
 
 .skill-items-wrap {
@@ -664,7 +712,7 @@ header {
 
 .exp-card.expanded .exp-toggle-icon {
   transform: rotate(180deg);
-  color: var(--accent-green);
+  color: var(--status-green);
 }
 
 .exp-details {
@@ -864,29 +912,19 @@ header {
   padding-left: 0;
 }
 
-/* Reusable Label Active Badge (Green Status Pulse) */
-.label-active {
-  background-color: oklch(0.65 0.18 140 / 0.08);
-  color: oklch(0.40 0.15 140);
-  border: 1px solid oklch(0.65 0.18 140 / 0.15);
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  height: fit-content;
-}
-.label-active::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background-color: oklch(0.45 0.18 140);
+/* Status Dot — pulsing green indicator for active projects */
+.status-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  background-color: var(--status-green-dot);
   display: inline-block;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /* Case Study Tools box pills */
@@ -1203,4 +1241,78 @@ header {
     gap: 0.75rem;
     margin-right: 0.25rem;
   }
+}
+
+
+/* ==========================================================================
+   PROJECT TYPE BADGES (3c)
+   ========================================================================== */
+.badge-data {
+  background-color: var(--teal-muted);
+  color: var(--teal-text);
+  border: 1px solid var(--teal-border);
+}
+
+.badge-business {
+  background-color: var(--amber-muted);
+  color: var(--amber-text);
+  border: 1px solid var(--amber-border);
+}
+
+.badge-pending {
+  background-color: var(--slate-muted);
+  color: var(--slate-text);
+  border: 1px solid var(--slate-border);
+}
+
+/* ==========================================================================
+   SKILLS SECTION BLOCKS (3d)
+   ========================================================================== */
+.skills-block-methodology {
+  background-color: var(--amber-muted);
+  border: 1px solid var(--amber-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.skills-block-methodology .skills-block-label {
+  color: var(--amber-text);
+}
+
+.skills-block-analytics {
+  background-color: var(--teal-muted);
+  border: 1px solid var(--teal-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.skills-block-analytics .skills-block-label {
+  color: var(--teal-text);
+}
+
+/* ==========================================================================
+   CASE STUDY CALLOUT BOXES (3e)
+   ========================================================================== */
+.cs-callout {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.cs-callout-finding {
+  background-color: var(--amber-muted);
+  border: 1px solid var(--amber-border);
+}
+
+.cs-callout-finding .cs-callout-title {
+  color: var(--amber-text);
+}
+
+.cs-callout-data {
+  background-color: var(--teal-muted);
+  border: 1px solid var(--teal-border);
+}
+
+.cs-callout-data .cs-callout-title {
+  color: var(--teal-text);
 }

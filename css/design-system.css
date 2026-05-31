@@ -44,10 +44,10 @@
 
 .narrative-chart figcaption {
   margin-top: 1rem;
-  font-family: var(--font-sans, 'Outfit', sans-serif);
+  font-family: var(--font-sans, 'Satoshi', sans-serif);
   font-size: 0.85rem;
   font-weight: 500;
-  color: oklch(0.25 0.04 120 / 0.55);
+  color: var(--text-tertiary);
   text-align: center;
   line-height: 1.5;
 }
