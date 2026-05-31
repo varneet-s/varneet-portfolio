@@ -814,9 +814,14 @@ header {
 
 .cs-container {
   width: 100%;
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.cs-container p,
+.cs-section p {
+  max-width: none;
 }
 
 .cs-analysis-grid {
@@ -850,6 +855,7 @@ header {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin: 0;
+  max-width: none;
 }
 
 .cs-navigation {
@@ -998,7 +1004,7 @@ header {
 }
 
 .cs-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
   border-bottom: 1px solid var(--divider);
 }
 

@@ -68,8 +68,9 @@
           backgroundColor: opts.colors || data.map((_, i) => i === 0 ? HEX.copper : HEX.forestMuted),
           borderColor: opts.borderColors || data.map((_, i) => i === 0 ? HEX.copper : HEX.forest),
           borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.6,
+          borderRadius: 3,
+          barPercentage: 0.7,
+          categoryPercentage: 0.85,
         }]
       },
       options: {
@@ -119,8 +120,9 @@
           backgroundColor: opts.colors || data.map((_, i) => i < 3 ? HEX.copper : HEX.forestMuted),
           borderColor: opts.borderColors || data.map((_, i) => i < 3 ? HEX.copper : HEX.forest),
           borderWidth: 1,
-          borderRadius: 4,
-          barPercentage: 0.65,
+          borderRadius: 3,
+          barPercentage: 0.7,
+          categoryPercentage: 0.85,
         }]
       },
       options: {

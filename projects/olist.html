@@ -86,8 +86,12 @@
             <span class="cs-meta-label">Analytical Tools &amp; Models</span>
             <div class="cs-meta-val cs-meta-tools-list">
               <span class="cs-meta-tool-tag">6P Framework</span>
+              <span class="cs-meta-tool-tag">STAR</span>
               <span class="cs-meta-tool-tag">BPMN</span>
+              <span class="cs-meta-tool-tag">Power/Interest Matrix</span>
               <span class="cs-meta-tool-tag">Nadler-Tushman</span>
+              <span class="cs-meta-tool-tag">Pareto Principle</span>
+              <span class="cs-meta-tool-tag">MoSCoW</span>
               <span class="cs-meta-tool-tag">Excel</span>
               <span class="cs-meta-tool-tag">Tableau</span>
               <span class="cs-meta-tool-tag">Draw.io</span>
@@ -146,7 +150,7 @@
               <strong style="color: var(--black-forest);">Business Question Formation:</strong> Applied the 6P Framework to pre-diagnose problems and form four testable hypotheses (H1–H4) before accessing the dataset. Predictions were documented upfront to ensure analytical integrity.
             </li>
             <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Stakeholder Mapping:</strong> Built a Power/Interest grid for six stakeholder groups — CEO, Operations & Logistics, Sales & Marketing, Investors, Sellers, and Customers — with tailored engagement strategies for each.
+              <strong style="color: var(--black-forest);">Stakeholder Mapping:</strong> Built a Power/Interest Matrix for six stakeholder groups — CEO, Operations & Logistics, Sales & Marketing, Investors, Sellers, and Customers — with tailored engagement strategies for each.
             </li>
             <li style="position: relative; padding-left: 2rem;">
               <strong style="color: var(--black-forest);">Process Mapping:</strong> Modelled the full order-to-delivery lifecycle using BPMN swimlane diagrams in Draw.io across four actors: Customer, Olist System, Seller, and Carrier — identifying three critical handoff points where delays compound.
@@ -173,7 +177,7 @@
           <div style="background-color: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 2rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 1.25rem;">
             <div>
               <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 1: Data Consolidation in Excel</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Imported 9 raw CSV files via Power Query into separate worksheets. Built a MASTER sheet (99,441 rows, 23 columns) using XLOOKUP to join orders, customers, items, products, sellers, payments, reviews, and geolocation on foreign keys. Filtered to 96,478 delivered orders and created 5 calculated columns: delivery_delay_days, delivery_status, delay_band, order_purchase_month_year, and freight_pct (freight as % of product price).</p>
+              <p style="font-size: 0.95rem; margin: 0;">Imported 9 raw CSV files via Power Query into separate worksheets. Built a MASTER sheet (99,441 rows, 23 columns) using XLOOKUP to join orders, customers, items, products, sellers, payments, reviews, and geolocation on foreign keys. Filtered to 96,478 delivered orders and created 8 calculated columns: delivery_delay_days, delivery_status, delay_band, order_purchase_month_year, freight_pct, and three additional fields for Lorenz curve inputs and concentration metrics.</p>
             </div>
             <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
               <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 2: Pivot Table Analysis (6 Tables)</strong>
@@ -181,7 +185,7 @@
             </div>
             <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
               <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 3: Tableau Dashboard (7 Visualisations)</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Connected Tableau Desktop to the DELIVERED_ONLY sheet. Built 7 charts: delay severity vs. review score (line), revenue by top 10 states (bar), freight % by state (bar), monthly growth trend (line), customers by state (map), sellers by state (map), and a GMV Pareto Lorenz curve using 8 custom LOD calculated fields to deduplicate revenue and compute the seller concentration ratio.</p>
+              <p style="font-size: 0.95rem; margin: 0;">Connected Tableau Desktop to the DELIVERED_ONLY sheet. Built 7 charts: delay severity vs. review score (line), revenue by top 10 states (bar), freight % by state (bar), monthly growth trend (line), customers by state (map), sellers by state (map), and a GMV Pareto Lorenz curve using 8 custom calculated fields (including LOD expressions like True GMV, Concentration Ratio, and Top 20% Sellers GMV) to deduplicate revenue and compute the seller concentration ratio.</p>
             </div>
           </div>
           <div style="margin-top: 2rem; overflow-x: auto;">
@@ -205,7 +209,7 @@
         <div class="cs-section">
           <h2 class="cs-section-title">4. The Analysis</h2>
           <p>
-            All four hypotheses were confirmed. The quantitative evidence revealed three operational dimensions of the same underlying problem:
+            All four hypotheses were confirmed. The quantitative evidence revealed that delivery failures, revenue concentration, seller imbalance, and freight inequality are not four separate problems — they are three dimensions of a single structural root cause: seller geographic concentration in São Paulo forces long-haul fulfilment across Brazil.
           </p>
           <div class="cs-analysis-grid">
             <div class="cs-analysis-card">
@@ -227,11 +231,20 @@
               </figure>
             </div>
             <div class="cs-analysis-card">
+              <strong>Growth Plateau — Market Saturation Signal</strong>
+              <p>Monthly order volume grew rapidly from near-zero in late 2016 to a peak of 7,289 orders in November 2017 — then flatlined between 6,000–7,000 orders/month through 2018. This plateau, combined with the geographic concentration above, suggests Olist exhausted growth in its core SP/RJ/MG markets without unlocking demand in underserved states.</p>
+              <figure class="narrative-chart narrative-chart--wide" aria-label="Line chart showing monthly order volume trend 2016-2018">
+                <div class="chart-badge">Peak: 7,289 orders/mo</div>
+                <canvas id="chart-olist-monthly-growth" style="height: 280px !important;"></canvas>
+                <figcaption>Fig 3 — Monthly Order Volume (2016–2018). Count of distinct orders per month showing rapid growth then plateau.</figcaption>
+              </figure>
+            </div>
+            <div class="cs-analysis-card">
               <strong>H3 — Seller GMV Pareto Concentration</strong>
               <p>Of 2,960 sellers, the top 592 (20%) generated 82.54% of GMV — stronger than the classic 80/20 rule. Platform health depends disproportionately on retaining a small, identifiable cohort of highly successful sellers.</p>
               <figure class="narrative-chart narrative-chart--wide" aria-label="Lorenz curve showing seller GMV concentration">
                 <canvas id="chart-olist-lorenz" style="height: 380px !important;"></canvas>
-                <figcaption>Fig 3 — GMV Pareto Distribution. % of Sellers vs. % of Total Running Sum of True GMV.</figcaption>
+                <figcaption>Fig 4 — GMV Pareto Distribution. % of Sellers vs. % of Total Running Sum of True GMV.</figcaption>
               </figure>
             </div>
             <div class="cs-analysis-card">
@@ -240,8 +253,37 @@
               <figure class="narrative-chart narrative-chart--wide" aria-label="Bar chart showing average freight percentage by state">
                 <div class="chart-badge">Northern Freight &gt; 50%</div>
                 <canvas id="chart-olist-freight" style="height: 320px !important;"></canvas>
-                <figcaption>Fig 4 — Freight % By State. Average of Freight Pct for each Customer State.</figcaption>
+                <figcaption>Fig 5 — Freight % By State. Average of Freight Pct for each Customer State.</figcaption>
               </figure>
+            </div>
+            <div class="cs-analysis-card">
+              <strong>The Root Cause — Seller-Customer Geographic Mismatch</strong>
+              <p>All four findings trace back to one structural problem: sellers are concentrated where customers already are, not where unmet demand exists. This forces long-haul fulfilment across Brazil, driving up both freight costs and delivery times for remote regions.</p>
+              <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+                <div style="background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 1.25rem;">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-tertiary); margin-bottom: 0.75rem;">Sellers (Top 4 States)</div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem;">
+                    <div style="display: flex; justify-content: space-between;"><span>SP</span><strong style="color: var(--copper);">1,764</strong></div>
+                    <div style="display: flex; justify-content: space-between;"><span>PR</span><strong>334</strong></div>
+                    <div style="display: flex; justify-content: space-between;"><span>MG</span><strong>233</strong></div>
+                    <div style="display: flex; justify-content: space-between;"><span>RJ</span><strong>162</strong></div>
+                  </div>
+                </div>
+                <div style="text-align: center; color: var(--copper); font-weight: 700; font-size: 0.8rem;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  <div style="margin-top: 0.25rem;">Long-haul<br>fulfilment</div>
+                </div>
+                <div style="background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 1.25rem;">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-tertiary); margin-bottom: 0.75rem;">Customers (Underserved)</div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem;">
+                    <div style="display: flex; justify-content: space-between;"><span>RR</span><span style="color: var(--copper); font-weight: 600;">60% freight</span></div>
+                    <div style="display: flex; justify-content: space-between;"><span>RO</span><span style="color: var(--copper); font-weight: 600;">58% freight</span></div>
+                    <div style="display: flex; justify-content: space-between;"><span>MA</span><span style="color: var(--copper); font-weight: 600;">54% freight</span></div>
+                    <div style="display: flex; justify-content: space-between;"><span>AM</span><span style="color: var(--copper); font-weight: 600;">50% freight</span></div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">Fig 6 — Seller concentration in SP forces cross-country shipping to northern customers, creating the freight burden (H4) and delivery delays (H1) simultaneously. Solving seller distribution addresses all three business gaps.</p>
             </div>
           </div>
         </div>
@@ -250,66 +292,80 @@
         <div class="cs-section" style="border-bottom: none;">
           <h2 class="cs-section-title">5. Business Recommendations</h2>
           <p>
-            These recommendations are based on analysis of Olist's 2016–2018 order, delivery, seller, and customer data. Each recommendation targets a specific gap identified in the analysis and is grounded in the dataset. Olist operates as a marketplace and commerce enabler — all recommendations stay within that operating model.
+            These recommendations are based on analysis of Olist's 2016–2018 order, delivery, seller, and customer data. Each targets a specific gap identified in the analysis. They are sequenced by dependency — logistics infrastructure must be in place before seller acquisition becomes effective. Seller tiering runs in parallel as a quick win.
           </p>
-          <div class="outcome-card">
-            <h3 class="outcome-title">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              MoSCoW Prioritised Recommendations
-            </h3>
-            <ul class="outcome-list">
-              <li class="outcome-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Logistics Partnerships in Northern States (Must Have):</strong> Customers in northern states are still placing orders despite paying freight costs that can exceed half the product price. That is not a market with no demand — it is a market with a logistics cost problem. Regional carrier partnerships, or an extension of Olist Envios coverage into the north would bring freight costs to a level where northern orders become economically viable for both sellers and customers at scale. <em>Owner: Operations & Logistics. Effort: Medium.</em>
-              </li>
-              <li class="outcome-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Reduce Transit Time in Remote Routes (Must Have):</strong> Late deliveries are not a minor inconvenience — they are a platform credibility problem. A 1.76-point review score gap between late and on-time orders is large enough to affect seller rankings, repeat purchase rates, and customer trust. The root cause is route complexity — northern states have longer distances, fewer carrier options, and infrastructure constraints the fulfilment workflow was never designed to handle. <em>Owner: Operations & Logistics. Effort: High.</em>
-              </li>
-              <li class="outcome-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Seller Tiering Based on GMV Contribution (Must Have):</strong> 592 sellers are currently generating the majority of platform revenue with no differentiated treatment. If a meaningful portion of them churn or reduce activity, the impact on GMV is immediate. Segmenting sellers into tiers and assigning dedicated support to the top tier protects the revenue base. Retention is cheaper than replacement. <em>Owner: Seller Success Team. Effort: Low.</em>
-              </li>
-              <li class="outcome-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                <strong>Seller Acquisition in Underserved States (Should Have):</strong> When 42% of revenue depends on one state, any disruption — regulatory, economic, or competitive — disproportionately affects the platform. A targeted seller acquisition programme in tier 2 and tier 3 states would reduce concentration risk, shorten the distance between sellers and northern customers, and open a growth channel competitors have not yet saturated. Most effective after logistics barriers are reduced. <em>Owner: Sales & Marketing. Effort: Medium.</em>
-              </li>
-            </ul>
-          </div>
 
-          <!-- MoSCoW Summary Table -->
-          <div style="margin-top: 2.5rem; overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--copper);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Recommendation</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Priority</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; font-weight: 700;">Rationale</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--divider);">
-                  <td style="padding: 0.75rem 1rem;">Logistics partnerships in northern states</td>
-                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
-                  <td style="padding: 0.75rem 1rem;">Directly removes highest-cost barrier for northern customers</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--divider);">
-                  <td style="padding: 0.75rem 1rem;">Reduce transit time in remote routes</td>
-                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
-                  <td style="padding: 0.75rem 1rem;">Flows from logistics infrastructure — addresses retention risk</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--divider);">
-                  <td style="padding: 0.75rem 1rem;">Seller tiering — protect top 20%</td>
-                  <td style="padding: 0.75rem 1rem; font-weight: 600; color: var(--copper);">Must Have</td>
-                  <td style="padding: 0.75rem 1rem;">Low effort, high impact, protects existing revenue base</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.75rem 1rem;">Seller acquisition in underserved states</td>
-                  <td style="padding: 0.75rem 1rem; font-weight: 600;">Should Have</td>
-                  <td style="padding: 0.75rem 1rem;">Most effective after logistics barriers are reduced</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- Merged Roadmap + Recommendations -->
+          <div style="position: relative; padding-left: 2.5rem; margin-top: 2.5rem;">
+            <!-- Vertical timeline line -->
+            <div style="position: absolute; left: 0.7rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--copper), var(--copper) 75%, rgba(58,107,53,0.4));"></div>
+            
+            <!-- Phase 1 -->
+            <div style="position: relative; padding-bottom: 2.5rem;">
+              <div style="position: absolute; left: -2.1rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--copper); border: 2px solid var(--cornsilk); box-shadow: 0 0 0 2px var(--copper);"></div>
+              <div style="display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--copper); background: rgba(176,108,37,0.1); padding: 0.2rem 0.6rem; border-radius: 3px;">Phase 1</span>
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cornsilk); background: var(--copper); padding: 0.2rem 0.6rem; border-radius: 3px;">Must Have</span>
+              </div>
+              <strong style="display: block; font-size: 1.05rem; color: var(--black-forest); margin-top: 0.5rem;">Logistics Partnerships in Northern States</strong>
+              <p style="font-size: 0.92rem; margin-top: 0.5rem; line-height: 1.6;">Customers in northern states are still placing orders despite paying freight costs that can exceed half the product price. That is not a market with no demand — it is a market with a logistics cost problem. Regional carrier partnerships would bring freight costs to a level where northern orders become economically viable at scale.</p>
+              <div style="margin-top: 0.75rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-tertiary);">
+                <span><strong>Owner:</strong> Operations & Logistics</span>
+                <span><strong>Effort:</strong> Medium</span>
+                <span><strong>Addresses:</strong> H4 — Freight &gt; 50% in northern states</span>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div style="position: relative; padding-bottom: 2.5rem;">
+              <div style="position: absolute; left: -2.1rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--copper); border: 2px solid var(--cornsilk); box-shadow: 0 0 0 2px var(--copper);"></div>
+              <div style="display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--copper); background: rgba(176,108,37,0.1); padding: 0.2rem 0.6rem; border-radius: 3px;">Phase 2</span>
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cornsilk); background: var(--copper); padding: 0.2rem 0.6rem; border-radius: 3px;">Must Have</span>
+              </div>
+              <strong style="display: block; font-size: 1.05rem; color: var(--black-forest); margin-top: 0.5rem;">Reduce Transit Time in Remote Routes</strong>
+              <p style="font-size: 0.92rem; margin-top: 0.5rem; line-height: 1.6;">A 1.76-point review score gap between late and on-time orders is large enough to affect seller rankings, repeat purchase rates, and customer trust. The root cause is route complexity — northern states have longer distances, fewer carrier options, and infrastructure constraints the fulfilment workflow was never designed to handle.</p>
+              <div style="margin-top: 0.75rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-tertiary);">
+                <span><strong>Owner:</strong> Operations & Logistics</span>
+                <span><strong>Effort:</strong> High</span>
+                <span><strong>Addresses:</strong> H1 — Late deliveries averaging 2.27 score</span>
+              </div>
+              <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-tertiary); font-style: italic;">↳ Depends on carrier partnerships from Phase 1</div>
+            </div>
+
+            <!-- Parallel -->
+            <div style="position: relative; padding-bottom: 2.5rem;">
+              <div style="position: absolute; left: -2.1rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--copper); border: 2px solid var(--cornsilk); box-shadow: 0 0 0 2px var(--copper);"></div>
+              <div style="display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--copper); background: rgba(176,108,37,0.1); padding: 0.2rem 0.6rem; border-radius: 3px;">Parallel</span>
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cornsilk); background: var(--copper); padding: 0.2rem 0.6rem; border-radius: 3px;">Must Have</span>
+              </div>
+              <strong style="display: block; font-size: 1.05rem; color: var(--black-forest); margin-top: 0.5rem;">Seller Tiering Based on GMV Contribution</strong>
+              <p style="font-size: 0.92rem; margin-top: 0.5rem; line-height: 1.6;">592 sellers generate the majority of platform revenue with no differentiated treatment. If a meaningful portion churn, the impact on GMV is immediate. Segmenting sellers into tiers and assigning dedicated support to the top tier protects the revenue base. Retention is cheaper than replacement.</p>
+              <div style="margin-top: 0.75rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-tertiary);">
+                <span><strong>Owner:</strong> Seller Success Team</span>
+                <span><strong>Effort:</strong> Low</span>
+                <span><strong>Addresses:</strong> H3 — Top 20% sellers = 82.5% GMV</span>
+              </div>
+              <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-tertiary); font-style: italic;">↳ Quick win — no infrastructure dependency, can start immediately</div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div style="position: relative; padding-bottom: 0.5rem;">
+              <div style="position: absolute; left: -2.1rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: rgba(58,107,53,0.6); border: 2px solid var(--cornsilk); box-shadow: 0 0 0 2px rgba(58,107,53,0.6);"></div>
+              <div style="display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(58,107,53,0.8); background: rgba(58,107,53,0.08); padding: 0.2rem 0.6rem; border-radius: 3px;">Phase 3</span>
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cornsilk); background: rgba(58,107,53,0.7); padding: 0.2rem 0.6rem; border-radius: 3px;">Should Have</span>
+              </div>
+              <strong style="display: block; font-size: 1.05rem; color: var(--black-forest); margin-top: 0.5rem;">Seller Acquisition in Underserved States</strong>
+              <p style="font-size: 0.92rem; margin-top: 0.5rem; line-height: 1.6;">When 42% of revenue depends on one state, any disruption disproportionately affects the platform. A targeted seller acquisition programme in tier 2 and tier 3 states would reduce concentration risk, shorten fulfilment distances, and open a growth channel competitors have not yet saturated.</p>
+              <div style="margin-top: 0.75rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-tertiary);">
+                <span><strong>Owner:</strong> Sales & Marketing</span>
+                <span><strong>Effort:</strong> Medium</span>
+                <span><strong>Addresses:</strong> H2 — SP = 42% of revenue</span>
+              </div>
+              <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-tertiary); font-style: italic;">↳ Most effective after logistics barriers are reduced</div>
+            </div>
           </div>
 
           <!-- What This Analysis Does Not Recommend -->
@@ -387,27 +443,21 @@
         [4622373, 1600069, 1426815, 665875, 605069, 463138, 447296, 273492, 254663, 246253],
         {
           colors: [
-            'rgba(180,175,165,0.75)', /* SP — grey/beige */
-            'rgba(170,140,200,0.75)', /* RJ — purple */
-            'rgba(90,160,80,0.75)',   /* MG — green */
-            'rgba(240,180,190,0.75)', /* RS — pink */
-            'rgba(220,200,100,0.75)', /* PR — yellow */
-            'rgba(160,130,100,0.75)', /* SC — brown */
-            'rgba(80,120,200,0.75)',  /* BA — blue */
-            'rgba(230,160,80,0.75)',  /* DF — orange */
-            'rgba(120,200,190,0.75)', /* GO — teal */
-            'rgba(220,100,100,0.75)', /* ES — red */
+            'rgba(176,108,37,0.85)',
+            'rgba(176,108,37,0.7)',
+            'rgba(176,108,37,0.6)',
+            'rgba(176,108,37,0.5)',
+            'rgba(176,108,37,0.4)',
+            'rgba(176,108,37,0.35)',
+            'rgba(176,108,37,0.3)',
+            'rgba(176,108,37,0.25)',
+            'rgba(176,108,37,0.22)',
+            'rgba(176,108,37,0.2)',
           ],
-          borderColors: [
-            'rgba(180,175,165,1)', 'rgba(170,140,200,1)', 'rgba(90,160,80,1)',
-            'rgba(240,180,190,1)', 'rgba(220,200,100,1)', 'rgba(160,130,100,1)',
-            'rgba(80,120,200,1)', 'rgba(230,160,80,1)', 'rgba(120,200,190,1)',
-            'rgba(220,100,100,1)',
-          ],
-          xTitle: 'Price ₹',
+          xTitle: 'Revenue (R$)',
           xTickFormat: function(v) {
-            if (v >= 1000000) return (v / 1000000).toFixed(1) + 'M';
-            if (v >= 1000) return (v / 1000) + 'K';
+            if (v >= 1000000) return 'R$' + (v / 1000000).toFixed(1) + 'M';
+            if (v >= 1000) return 'R$' + (v / 1000) + 'K';
             return v;
           },
           tooltipCallbacks: {
@@ -416,6 +466,23 @@
             }
           },
           aspectRatio: 1.4,
+        }
+      );
+
+      /* ── Monthly Growth Trend (Line Chart) ── */
+      NarrativeCharts.lineChart(
+        'chart-olist-monthly-growth',
+        ['Sep 16','Oct 16','Nov 16','Dec 16','Jan 17','Feb 17','Mar 17','Apr 17','May 17','Jun 17','Jul 17','Aug 17','Sep 17','Oct 17','Nov 17','Dec 17','Jan 18','Feb 18','Mar 18','Apr 18','May 18','Jun 18','Jul 18','Aug 18'],
+        [4,143,265,461,702,750,2023,2145,3546,3115,3891,4193,4285,4538,7289,5673,6729,7069,7175,6749,6749,6375,6292,6351],
+        {
+          yTitle: 'Orders / Month',
+          xTitle: 'Month',
+          aspectRatio: 2.2,
+          tooltipCallbacks: {
+            label: function(item) {
+              return item.raw.toLocaleString() + ' orders';
+            }
+          }
         }
       );
 
