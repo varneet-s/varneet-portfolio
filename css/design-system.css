@@ -17,8 +17,25 @@
   display: block;
   width: 100% !important;
   max-width: 100%;
-  height: 220px !important;
   margin: 0 auto;
+}
+
+/* Mobile: give charts breathing room */
+@media (max-width: 768px) {
+  .narrative-chart canvas {
+    height: 200px !important;
+  }
+
+  .narrative-chart--wide canvas {
+    height: 240px !important;
+  }
+}
+
+/* Desktop: respect inline heights, fallback to 280px */
+@media (min-width: 769px) {
+  .narrative-chart canvas {
+    height: 280px !important;
+  }
 }
 
 /* Floating badge for key data points overlaying charts */

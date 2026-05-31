@@ -135,8 +135,16 @@ p + p {
   h2 { font-size: max(1.5rem, clamp(1.5rem, 4vw, 1.85rem)); }
   h3 { font-size: max(1.25rem, clamp(1.25rem, 3.5vw, 1.5rem)); }
   
-  /* Body stays stable — no scaling needed */
-  p { font-size: 1rem; }
+  /* Tighter body text on mobile */
+  p { font-size: 0.92rem; }
+
+  /* Scale down inline-styled text in case studies */
+  .cs-body p,
+  .cs-section p,
+  .cs-analysis-card p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
 }
 
 
