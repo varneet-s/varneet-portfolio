@@ -69,6 +69,10 @@
   transform: translateY(-2px);
 }
 
+.exp-card.expanded .brand-icon {
+  filter: grayscale(0) opacity(1);
+}
+
 
 /* ==========================================================================
    RESET & FOUNDATIONS
@@ -614,21 +618,8 @@ header {
 .experience-timeline {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   position: relative;
-  padding-left: 3rem; /* Leave room for vertical timeline */
-}
-
-/* Vertical timeline track line */
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: 1.25rem;
-  top: 1.5rem;
-  bottom: 1.5rem;
-  width: 2px;
-  border-left: 2px dashed var(--copper);
-  opacity: 0.35;
 }
 
 .exp-card {
@@ -638,26 +629,6 @@ header {
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition-smooth);
-}
-
-.exp-card::before {
-  content: '';
-  position: absolute;
-  left: -1.75rem; /* Aligns perfectly on the vertical line (3rem - 1.75rem = 1.25rem) */
-  top: 2.2rem;
-  width: 12px;
-  height: 12px;
-  background-color: var(--cornsilk);
-  border: 3px solid var(--copper);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  transition: var(--transition-smooth);
-}
-
-.exp-card:hover::before {
-  background-color: var(--copper);
-  transform: translate(-50%, -50%) scale(1.25);
 }
 
 .exp-card:hover {
@@ -725,6 +696,32 @@ header {
 .exp-card.expanded .exp-details {
   max-height: 1200px;
   border-top: 1px solid var(--divider);
+}
+
+/* Brand color accents on cards */
+#exp-card-pharma {
+  border-left: 4px solid #cc0000;
+}
+#exp-card-pharma.expanded {
+  background-color: rgba(204, 0, 0, 0.02);
+}
+#exp-card-lla {
+  border-left: 4px solid #c0392b;
+}
+#exp-card-lla.expanded {
+  background-color: rgba(192, 57, 43, 0.02);
+}
+#exp-card-mad {
+  border-left: 4px solid #000;
+}
+#exp-card-mad.expanded {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+#exp-card-mccann {
+  border-left: 4px solid #6b2fa0;
+}
+#exp-card-mccann.expanded {
+  background-color: rgba(107, 47, 160, 0.02);
 }
 
 .exp-content {
@@ -1257,17 +1254,7 @@ header {
      MOBILE TIMELINE FIX — Restructure card layout for narrow viewports
      ==================================================================== */
   .experience-timeline {
-    padding-left: 1.75rem; /* Reduce timeline track indent */
-  }
-
-  .experience-timeline::before {
-    left: 0.6rem;
-  }
-
-  .exp-card::before {
-    left: -1.15rem;
-    width: 10px;
-    height: 10px;
+    padding-left: 0;
   }
 
   .exp-header {
