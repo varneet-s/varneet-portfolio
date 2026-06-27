@@ -1159,12 +1159,16 @@ header {
   transform: translateY(-2px);
 }
 
+.footer-social-link#footer-social-gmail:hover {
+  color: #ea4335;
+}
+
 .footer-social-link#footer-social-linkedin:hover {
   color: #0077b5;
 }
 
 .footer-social-link#footer-social-github:hover {
-  color: oklch(0.15 0 0); /* Sophisticated off-black */
+  color: #181717;
 }
 
 .footer-bottom {
@@ -1576,4 +1580,15 @@ header {
   .footer-callout-title {
     font-size: 1.35rem;
   }
+}
+
+/* Custom Dropdown Details */
+.services-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+.services-dropdown[open] .dropdown-icon {
+  transform: rotate(180deg);
+}
+.dropdown-icon {
+  transition: transform 0.3s ease;
 }
