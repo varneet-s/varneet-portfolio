@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-CQDBHK7BZF');
   </script>
 
@@ -19,129 +18,289 @@
   <link rel="stylesheet" href="css/typography.css">
 
   <style>
-    .now-card-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      max-width: 760px;
-      margin: 2rem 0 0 0;
+    /* ═══ NOW PAGE LAYOUT ═══ */
+    .now-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      column-gap: 5rem;
+      align-items: start;
     }
-    .now-card {
-      background: #FFFFFF;
-      border: 1.5px solid #111115;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 8px 24px rgba(17, 17, 21, 0.04);
-      transition: var(--transition-smooth);
+
+    @media (max-width: 760px) {
+      .now-section {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        padding: 3rem 1.5rem 0 1.5rem;
+      }
+      .now-left { position: static !important; }
     }
-    .now-card:hover {
-      transform: translateY(-3px);
-      border-color: #059669;
-      box-shadow: 0 14px 32px rgba(5, 150, 105, 0.1);
+
+    /* ── LEFT: Sticky intro ── */
+    .now-left {
+      position: sticky;
+      top: 5.5rem;
+      align-self: start;
     }
-    .now-date-badge {
+
+    .now-heading {
+      font-family: var(--font-display), sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #111115;
+      letter-spacing: -0.05em;
+      line-height: 1.0;
+      margin: 0;
+    }
+
+    .now-heading-dot {
       display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #7C3AED;
-      background: #F3E8FF;
-      border: 1px solid rgba(124, 58, 237, 0.2);
-      padding: 0.3rem 0.85rem;
-      border-radius: 100px;
-      margin-bottom: 1rem;
+      width: 10px;
+      height: 10px;
+      background: #02F5A4;
+      border-radius: 50%;
+      margin-left: 4px;
+      position: relative;
+      bottom: 8px;
     }
-    .now-list {
-      list-style: none;
+
+    .now-left p {
+      font-size: 0.92rem;
+      line-height: 1.82;
+      color: #6B6B77;
+      margin: 1.35rem 0 0 0;
+    }
+
+    /* ── RIGHT: Card Stack ── */
+    .now-right {
+      padding-bottom: 5rem;
+    }
+
+    /*
+      Direct sticky cards — no wrapper divs.
+      margin-bottom = scroll travel before next card slides in.
+      As card N pins at top:76px, card N+1 scrolls up from below
+      and slides OVER it because z-index(N+1) > z-index(N).
+    */
+    .now-card {
+      position: sticky;
+      top: 76px;
+      border-radius: 22px;
+      padding: 2.75rem 3rem;
+      min-height: 260px;
+      margin-bottom: 22rem;   /* tall scroll travel — only one card visible at a time */
+      transform-origin: top center;
+      transition: transform 0.35s cubic-bezier(0.33, 1, 0.68, 1),
+                  box-shadow 0.35s ease;
+    }
+
+    .now-card:last-child {
+      margin-bottom: 4rem;
+    }
+
+    /* Cards scale back subtly when covered — JS adds this class */
+    .now-card.is-covered {
+      transform: scale(0.96) translateY(-8px);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+    }
+
+    /* Stacking z-index: later cards go on top */
+    .now-card:nth-child(1) { z-index: 1; background: #8B9FE8; }
+    .now-card:nth-child(2) { z-index: 2; background: #5DD9A4; }
+    .now-card:nth-child(3) { z-index: 3; background: #A87BE8; }
+
+    .now-card-month {
+      font-family: var(--font-display), sans-serif;
+      font-size: clamp(3rem, 6vw, 4.75rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: rgba(255, 255, 255, 0.28);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .now-card-items {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      padding: 0;
+      gap: 0.9rem;
     }
-    .now-list li {
+
+    .now-card-items p {
       font-size: 1.05rem;
-      color: var(--text-primary);
-      position: relative;
-      padding-left: 1.5rem;
-      line-height: 1.6;
+      font-weight: 600;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0;
     }
-    .now-list li::before {
-      content: '⚡';
-      position: absolute;
-      left: 0;
-      top: 0.1em;
-      font-size: 0.9rem;
+
+    /* ── Free CTA ── */
+    .now-cta-section {
+      padding: 3rem 2.5rem;
+      background-color: #02F5A4;
+    }
+
+    .free-cta-card {
+      background: #ffffff !important;
+      border: 2px solid #111115 !important;
+      border-radius: 28px !important;
+      padding: 2.25rem 3rem !important;
+      max-width: 920px !important;
+      margin: 0 auto !important;
+      box-shadow: 4px 4px 0px #111115 !important;
+    }
+
+    @media (max-width: 640px) {
+      .free-cta-card { padding: 1.75rem 1.25rem !important; }
+      .now-card { padding: 2rem 1.75rem; min-height: 200px; }
     }
   </style>
 </head>
-<body>
+<body style="background-color: #FFFFFF; color: #111115;">
 
-  <!-- NAVIGATION BAR (3-Column Pill) -->
+  <!-- NAVIGATION BAR -->
   <header id="main-header">
     <div class="container nav-container">
       <nav class="nav-menu-3col" id="nav-menu-links">
         <div class="nav-links-left">
+          <a href="about.html" class="nav-link" id="nav-link-about">About</a>
           <a href="now.html" class="nav-link active" id="nav-link-now">Now</a>
-          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="writing.html" class="nav-link" id="nav-link-writing">Writing</a>
         </div>
-        <a href="index.html" class="nav-emblem-logo" id="logo-home">
-          <img src="assets/varneet-avatar.png" alt="Varneet" class="nav-emblem-icon">
+        <a href="index.html" class="nav-emblem-logo" id="logo-home" title="Varneet Singh — Home">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
         </a>
         <div class="nav-links-right">
-          <a href="now.html" class="nav-link active mobile-only-link" id="nav-link-now-mob">Now</a>
-          <a href="projects.html" class="nav-link mobile-only-link" id="nav-link-projects-mob">Projects</a>
-          <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
+          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="experience.html" class="nav-link" id="nav-link-experience">Career</a>
           <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-          <a href="contact.html" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
         </div>
       </nav>
-
       <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <main>
-    <!-- Simple Headline Header -->
-    <section class="simple-page-header">
-      <div class="container">
-        <h1 class="page-title"><span class="underline-green">Now</span></h1>
-        <p class="hero-subtitle" style="margin-bottom: 1.5rem;">
-          What I'm focused on right now — updated regularly inspired by Derek Sivers' <em>Now Page</em> movement.
-        </p>
 
-        <div class="now-card-stack">
-          <div class="now-card">
-            <span class="now-date-badge">August 2026 Focus</span>
-            <ul class="now-list">
-              <li>Building end-to-end operational analysis case studies in e-commerce (Olist dataset &amp; Vrinda retail audit).</li>
-              <li>Refining SQL query pipelines for high-volume order data analysis.</li>
-              <li>Interviewing for Business Analyst &amp; Product Operations roles in consumer tech.</li>
-              <li>Offering 2-week free operational audits for early-stage founders &amp; distributors.</li>
-            </ul>
+    <div class="now-section">
+
+      <!-- LEFT: Sticky heading -->
+      <div class="now-left">
+        <h1 class="now-heading">Now<span class="now-heading-dot"></span></h1>
+        <p>An up to date snapshot of what I'm doing right now &mdash; kept short.</p>
+        <p>I came across the &ldquo;Now page&rdquo; idea by Derek Sivers and thought it was a great way to stay honest about what I'm actually focused on.</p>
+        <p>So here we go &#9994;</p>
+      </div>
+
+      <!-- RIGHT: direct sticky cards — no wrappers -->
+      <div class="now-right" id="now-card-stack">
+
+        <div class="now-card" id="card-aug">
+          <div class="now-card-month">August 26</div>
+          <div class="now-card-items">
+            <p>Building and shipping this portfolio</p>
+            <p>Freelance data consulting at I.P. Pharma</p>
+            <p>Daily SQL practice &mdash; window functions and complex joins</p>
           </div>
+        </div>
+
+        <div class="now-card" id="card-jul">
+          <div class="now-card-month">July 26</div>
+          <div class="now-card-items">
+            <p>Reading <em>Start With Why</em> by Simon Sinek</p>
+            <p>Completed the Microsoft Business Analyst Specialization</p>
+            <p>Keeping a consistent daily routine in Ludhiana</p>
+          </div>
+        </div>
+
+        <div class="now-card" id="card-jun">
+          <div class="now-card-month">June 26</div>
+          <div class="now-card-items">
+            <p>Completed the Deloitte Data Analytics simulation</p>
+            <p>Went deep on Visio BPMN process modeling</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="now-cta-section" id="free-services-section">
+      <div class="free-cta-card">
+        <h2 style="color: #111115; font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 0.65rem 0;">
+          Test My Data Skills <span class="underline-green">Free For 2 Weeks</span>&mdash;<br>No Risk, Real Results.
+        </h2>
+        <p style="color: #4B4B55; font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.65; margin: 0 0 1.1rem 0; max-width: 70ch;">
+          Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span style="display: inline-flex; align-items: center; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 800; padding: 0.15rem 0.65rem; border-radius: 100px; border: 1.5px solid #111115; vertical-align: middle; line-height: 1.4;">14 days</span> so you can evaluate my skills risk-free.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">&#10003; Automated Dashboards &amp; Reporting</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">&#10003; Process Optimization &amp; SQL Queries</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">&#10003; Clear Business &amp; Data Insights</span>
+        </div>
+        <div>
+          <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer" id="footer-section">
-    <div class="footer-bottom">
-      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div>&copy; 2026 Varneet Singh. All Rights Reserved.</div>
-        <div style="display: flex; gap: 1.5rem; align-items: center;">
-          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
-          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
-          <a href="mailto:varneetsingh45@gmail.com" class="footer-social-link">Email</a>
-        </div>
+  <!-- FOOTER -->
+  <footer id="main-footer" style="background: #ffffff; padding: 2.5rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh" style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #111115;">
+        </a>
+        <nav style="display: flex; gap: 1.25rem; font-weight: 600; font-size: 0.95rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="now.html" class="nav-link">Now</a>
+          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="experience.html" class="nav-link">Career</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link">Resume</a>
+        </nav>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#6e40c9'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#EA4335'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
       </div>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    // ── Stacking card scale-down effect ──
+    (function () {
+      const cards   = Array.from(document.querySelectorAll('.now-card'));
+      const STICKY_TOP = 76;
+
+      function onScroll() {
+        cards.forEach((card, i) => {
+          const covered = cards.slice(i + 1).some(laterCard => {
+            const rect = laterCard.getBoundingClientRect();
+            return rect.top <= STICKY_TOP + 4;
+          });
+          card.classList.toggle('is-covered', covered);
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 </body>
 </html>

@@ -13,37 +13,250 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Timeline &amp; Frameworks | Varneet Singh</title>
-  <meta name="description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh, featuring click-to-expand details.">
+  <title>Work Experience | Varneet Singh</title>
+  <meta name="description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh. Click any card to open the full Stripe Press detail view.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/typography.css">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Career Timeline & Frameworks | Varneet Singh">
-  <meta property="og:description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh, featuring click-to-expand details.">
+  <meta property="og:description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh.">
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/experience-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/experience.html">
   <meta property="og:type" content="website">
-</head>
-<body>
 
-  <!-- HEADER & NAV (3-Column Pill) -->
+  <style>
+    /* ── Single Card CTA Layout ── */
+    .free-cta-card {
+      background: #ffffff !important;
+      border: 2px solid #111115 !important;
+      border-radius: 28px !important;
+      padding: 2.25rem 3.5rem !important;
+      width: 100% !important;
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      text-align: left !important;
+      box-shadow: 4px 4px 0px #111115 !important;
+    }
+    @media (max-width: 640px) {
+      .free-cta-card {
+        padding: 1.75rem 1.25rem !important;
+        width: 100% !important;
+      }
+    }
+
+    /* ── Fixed Left Stripe Press Slit Lines Rail (press.stripe.com style) ── */
+    .stripe-fixed-lines-rail {
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    @media (max-width: 1150px) {
+      .stripe-fixed-lines-rail {
+        display: none;
+      }
+    }
+
+    .stripe-line-bar {
+      width: 24px;
+      height: 3.5px;
+      background: rgba(17, 17, 21, 0.22);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .stripe-line-bar:hover {
+      width: 40px;
+      background: #111115;
+    }
+
+    .stripe-line-bar.active {
+      width: 48px;
+      background: #02F5A4;
+      box-shadow: 0 0 10px rgba(2, 245, 164, 0.75);
+    }
+
+    /* Hover Tooltip Label: ONLY APPEARS ON HOVER (Dormant when idle!) */
+    .stripe-line-bar::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 58px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #111115;
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
+    .stripe-line-bar:hover::after {
+      opacity: 1;
+    }
+
+    /* ── Main Container Margins (Zero Overlap!) ── */
+    .exp-main-container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 1151px) {
+      .exp-main-container {
+        margin-left: 180px;
+      }
+    }
+
+    /* ── Clean Experience Cards (Clickable to open Stripe detail view) ── */
+    .exp-card-item {
+      background: #FFFFFF;
+      border: 1.5px solid #111115;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: 0 4px 16px rgba(17, 17, 21, 0.04);
+      cursor: pointer;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+    }
+
+    .exp-card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(17, 17, 21, 0.1);
+      border-color: #02F5A4;
+    }
+
+    .exp-card-item.stripe-active-card {
+      border-color: #111115;
+      box-shadow: 0 16px 36px rgba(17, 17, 21, 0.1), 0 0 0 2px #02F5A4;
+    }
+
+    /* ── Stripe Press Full Detail Overlay Page (Matching press.stripe.com/poor-charlies-almanack) ── */
+    .stripe-press-pop-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease, background-color 0.35s ease;
+    }
+
+    .stripe-press-pop-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .stripe-press-pop-content {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 100%;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+    }
+
+    @media (max-width: 900px) {
+      .stripe-press-pop-content {
+        grid-template-columns: 1fr;
+        padding: 5rem 1.5rem 3rem 1.5rem;
+        gap: 2.5rem;
+      }
+    }
+
+    .stripe-press-pop-back {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 10001;
+      background: #FFFFFF;
+      border: 1.5px solid #111115;
+      padding: 0.55rem 1.35rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #111115;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+
+    .stripe-press-pop-back:hover {
+      background: #111115;
+      color: #FFFFFF;
+    }
+
+    /* 3D Standing Book (Left side of Stripe popup view) */
+    .stripe-pop-book-wrap {
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stripe-pop-3d-book {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 3 / 4;
+      background: #FFFFFF;
+      border: 2px solid #111115;
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: -16px 22px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.04);
+      transform: rotateY(-16deg) rotateX(4deg);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stripe-press-pop-overlay.active .stripe-pop-3d-book {
+      transform: rotateY(-10deg) rotateX(2deg) scale(1.0);
+    }
+  </style>
+</head>
+<body style="background-color: #FFFFFF; color: #111115;">
+
+  <!-- SITE HEADER -->
   <header id="main-header">
     <div class="container nav-container">
       <nav class="nav-menu-3col" id="nav-menu-links">
         <div class="nav-links-left">
+          <a href="about.html" class="nav-link" id="nav-link-about">About</a>
           <a href="now.html" class="nav-link" id="nav-link-now">Now</a>
-          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="writing.html" class="nav-link" id="nav-link-writing">Writing</a>
         </div>
-        <a href="index.html" class="nav-emblem-logo" id="logo-home">
+        <a href="index.html" class="nav-emblem-logo" id="logo-home" title="Varneet Singh — Home">
           <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
         </a>
         <div class="nav-links-right">
-          <a href="now.html" class="nav-link mobile-only-link" id="nav-link-now-mob">Now</a>
-          <a href="projects.html" class="nav-link mobile-only-link" id="nav-link-projects-mob">Projects</a>
-          <a href="experience.html" class="nav-link active" id="nav-link-experience">Career Timeline</a>
+          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="experience.html" class="nav-link active" id="nav-link-experience">Career</a>
           <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-          <a href="contact.html" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
         </div>
       </nav>
       <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
@@ -52,253 +265,238 @@
     </div>
   </header>
 
-  <main>
-    <!-- Simple Headline Header -->
-    <section class="simple-page-header">
-      <div class="container">
-        <h1 class="page-title"><span class="underline-green">Career Timeline &amp; Frameworks</span></h1>
-        <p class="hero-subtitle" style="margin-bottom: 0;">
-          Applying business analyst methodologies to real-world corporate, digital, and operational challenges. Click each card to reveal full framework-driven details.
-        </p>
-      </div>
-    </section>
+  <!-- Stripe Press Fixed Left Lines Scroll Indicator (Slit Bars) -->
+  <aside class="stripe-fixed-lines-rail" id="lines-rail">
+    <div class="stripe-line-bar active" data-target="card-pharma" data-label="2026 • I.P. Pharma"></div>
+    <div class="stripe-line-bar" data-target="card-lla" data-label="2024-25 • Labour Law Advisor"></div>
+    <div class="stripe-line-bar" data-target="card-mad" data-label="2024 • Mad Influence"></div>
+    <div class="stripe-line-bar" data-target="card-mccann" data-label="2023 • MRM / McCann"></div>
+    <div class="stripe-line-bar" data-target="sec-certs" data-label="Certifications"></div>
+  </aside>
 
-    <!-- Career Timeline -->
-    <section class="career-timeline-section" style="padding-bottom: 6rem;">
-      <div class="container">
+  <main>
+    <div class="exp-main-container">
+      
+      <!-- Page Headline Header -->
+      <section class="simple-page-header" style="padding-top: 3rem; padding-bottom: 2rem; text-align: left;">
+        <h1 class="page-title"><span class="underline-green">Work Experience</span></h1>
+        <p class="hero-subtitle" style="margin-bottom: 0;">
+          Applying business analyst methodologies to real-world corporate, digital, and operational challenges. Click any card below to view full details.
+        </p>
+      </section>
+
+      <!-- Experience Cards Section -->
+      <section class="career-timeline-section">
         <div class="experience-timeline">
           
-          <!-- Job 1: I.P. Pharma -->
-          <div class="exp-card" id="exp-card-pharma">
-            <div class="exp-header">
+          <!-- Card 1: I.P. Pharma -->
+          <div class="exp-card-item" id="card-pharma" data-pop-id="pharma">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
               <div style="display: flex; align-items: center; gap: 1.25rem;">
-                <a href="projects/pharma.html" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid oklch(0.25 0.04 120 / 0.1); border-radius: 8px; flex-shrink: 0; overflow: hidden;" title="View I.P. Pharma Case Study">
-                  <img src="assets/logos/I_P_Pharma_Logo.jpg" alt="I.P. Pharma logo" width="40" height="40" style="object-fit: cover;">
-                </a>
-                <div class="exp-header-info">
-                  <h3 class="exp-company"><a href="projects/pharma.html" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">I.P. Pharma</a></h3>
-                  <div class="exp-role-strip">
-                    <span class="exp-role">Freelance Consultant</span>
-                    <span class="exp-dates">Jan 2026 &ndash; Present</span>
-                  </div>
+                <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid #111115; border-radius: 10px; flex-shrink: 0; overflow: hidden;">
+                  <img src="assets/logos/I_P_Pharma_Logo.jpg" alt="I.P. Pharma logo" width="44" height="44" style="object-fit: cover;">
                 </div>
-              </div>
-              <div class="exp-header-right">
-                <span class="exp-location">Ludhiana</span>
-                <div class="exp-toggle-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-              </div>
-            </div>
-            <div class="exp-details">
-              <div class="exp-content">
-                <p class="exp-summary">
-                  Optimizing stock management and representative sales tracking pipelines for a regional, tier-2 city pharmaceutical distributor. Resolving field communication barriers and establishing automated spreadsheet workflows.
-                </p>
                 <div>
-                  <h4 class="exp-framework-title">PAPAO Analysis Breakdown</h4>
-                  <div class="papao-grid">
-                    <div class="papao-item">
-                      <div class="papao-label">Problem</div>
-                      <div class="papao-text">
-                        <ul style="list-style-type: disc; padding-left: 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                          <li>Sales representatives operating in highly rigid field environments with manual stock tracking.</li>
-                          <li>Invoicing procedures experiencing persistent lag times due to paper-based logs.</li>
-                          <li>Supply chain buffers failing to capture seasonal variations, causing frequent medicine stockouts.</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Approach</div>
-                      <div class="papao-text">Structuring inventory mapping in Excel to automate order sheets and establish real-time reporting protocols.</div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Process</div>
-                      <div class="papao-text">Standardizing core stock buffers and dispatch workflows, ensuring sales invoices are verified and orders dispatched within 24 hours.</div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Analysis</div>
-                      <div class="papao-text">Identifying inventory lag points, pinpointing specific slow-moving medicine categories causing capital stagnation.</div>
-                    </div>
-                    <div class="papao-item" style="grid-column: 1 / -1;">
-                      <div class="papao-label" style="color: var(--copper);">Outcome</div>
-                      <div class="papao-text"><strong>Reporting latency reduced from 3 days to real-time.</strong> Automated forecasting prevents essential stockouts by 25% and frees up tied-up capital.</div>
-                    </div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: #111115; margin: 0;">I.P. Pharma</h3>
+                  <div style="display: flex; align-items: center; gap: 0.85rem; margin-top: 0.25rem;">
+                    <span style="font-weight: 700; color: var(--copper); font-size: 0.95rem;">Freelance Consultant</span>
+                    <span style="font-size: 0.85rem; color: #666; font-weight: 600;">Jan 2026 &ndash; Present</span>
                   </div>
                 </div>
+              </div>
+              <span style="font-weight: 700; color: #111115; font-size: 0.92rem;">Ludhiana</span>
+            </div>
+            <p style="font-size: 1rem; color: #4B4B55; line-height: 1.65; margin: 0;">
+              Optimizing stock management and representative sales tracking pipelines for a regional, tier-2 city pharmaceutical distributor. Resolving field communication barriers and establishing automated spreadsheet workflows.
+            </p>
+          </div>
+
+          <!-- Card 2: Labour Law Advisor -->
+          <div class="exp-card-item" id="card-lla" data-pop-id="lla">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #c0392b; border: 1.5px solid #111115; border-radius: 10px; flex-shrink: 0; overflow: hidden;">
+                  <img src="assets/logos/lla-logo.png" alt="Labour Law Advisor logo" width="36" height="32" style="object-fit: contain;">
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: #111115; margin: 0;">Labour Law Advisor</h3>
+                  <div style="display: flex; align-items: center; gap: 0.85rem; margin-top: 0.25rem;">
+                    <span style="font-weight: 700; color: var(--copper); font-size: 0.95rem;">Social Media Manager</span>
+                    <span style="font-size: 0.85rem; color: #666; font-weight: 600;">Aug 2024 &ndash; Jul 2025</span>
+                  </div>
+                </div>
+              </div>
+              <span style="font-weight: 700; color: #111115; font-size: 0.92rem;">Jaipur</span>
+            </div>
+            <p style="font-size: 1rem; color: #4B4B55; line-height: 1.65; margin: 0;">
+              Led end-to-end data and operational mapping for community-led products and digital brands. Handled audience acquisition, standardized media processing, and grew Jagruk.Shop by 10x.
+            </p>
+          </div>
+
+          <!-- Card 3: Mad Influence -->
+          <div class="exp-card-item" id="card-mad" data-pop-id="mad">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #000; border: 1.5px solid #111115; border-radius: 10px; flex-shrink: 0; overflow: hidden;">
+                  <img src="assets/logos/mad-influence-logo.png" alt="Mad Influence logo" width="38" height="38" style="object-fit: contain;">
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: #111115; margin: 0;">Mad Influence</h3>
+                  <div style="display: flex; align-items: center; gap: 0.85rem; margin-top: 0.25rem;">
+                    <span style="font-weight: 700; color: var(--copper); font-size: 0.95rem;">Data Research Intern</span>
+                    <span style="font-size: 0.85rem; color: #666; font-weight: 600;">Mar 2024 &ndash; Jul 2024</span>
+                  </div>
+                </div>
+              </div>
+              <span style="font-weight: 700; color: #111115; font-size: 0.92rem;">Noida</span>
+            </div>
+            <p style="font-size: 1rem; color: #4B4B55; line-height: 1.65; margin: 0;">
+              Assisted in influencer campaign operations, tracking data, and building Excel-based client reporting templates for corporate brand partners.
+            </p>
+          </div>
+
+          <!-- Card 4: MRM/McCann -->
+          <div class="exp-card-item" id="card-mccann" data-pop-id="mccann">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 1.25rem;">
+                <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #6b2fa0; border: 1.5px solid #111115; border-radius: 10px; flex-shrink: 0; overflow: hidden;">
+                  <img src="assets/logos/mrm-logo.svg" alt="MRM McCann logo" width="38" height="14" style="object-fit: contain;">
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: #111115; margin: 0;">MRM / McCann</h3>
+                  <div style="display: flex; align-items: center; gap: 0.85rem; margin-top: 0.25rem;">
+                    <span style="font-weight: 700; color: var(--copper); font-size: 0.95rem;">Account Management Intern</span>
+                    <span style="font-size: 0.85rem; color: #666; font-weight: 600;">Sep 2023 &ndash; Dec 2023</span>
+                  </div>
+                </div>
+              </div>
+              <span style="font-weight: 700; color: #111115; font-size: 0.92rem;">Gurgaon</span>
+            </div>
+            <p style="font-size: 1rem; color: #4B4B55; line-height: 1.65; margin: 0;">
+              Supported senior planners in ad spend tracking and budget allocation checks across diverse multi-channel campaigns.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section class="certifications" id="sec-certs" style="border-top: 1px solid var(--divider); padding: 4rem 0 6rem 0;">
+        <h2 class="section-title" style="margin-bottom: 2rem;"><span class="underline-green">Professional Certifications</span></h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem;">
+
+          <!-- Cert 1: Microsoft -->
+          <div class="exp-card-item" data-pop-id="cert-msft" style="margin-bottom: 0;">
+            <div style="display: flex; gap: 1.25rem; align-items: flex-start;">
+              <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #0078d4; border-radius: 8px; flex-shrink: 0; overflow: hidden; border: 1px solid #111115;">
+                <img src="assets/logos/microsoft-logo.png" alt="Microsoft logo" width="28" height="28" style="object-fit: contain;">
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #111115; margin-bottom: 0.25rem;">Microsoft Business Analyst Specialization</h3>
+                <p style="font-size: 0.88rem; color: #666; font-weight: 600; margin-bottom: 0.4rem;">Coursera / Microsoft &bull; March 2026</p>
+                <p style="font-size: 0.92rem; color: #4B4B55; margin: 0; line-height: 1.5;">Rigorous training in Power BI, data warehousing, Visio BPMN modeling, and requirements engineering.</p>
               </div>
             </div>
           </div>
 
-          <!-- Job 2: Labour Law Advisor -->
-          <div class="exp-card" id="exp-card-lla">
-            <div class="exp-header">
-              <div style="display: flex; align-items: center; gap: 1.25rem;">
-                <a href="https://www.youtube.com/@LabourLawAdvisor" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #c0392b; border: 1px solid #a93226; border-radius: 8px; flex-shrink: 0; overflow: hidden;" title="Visit Labour Law Advisor">
-                  <img src="assets/logos/lla-logo.png" alt="Labour Law Advisor logo" width="32" height="28" style="object-fit: contain;">
-                </a>
-                <div class="exp-header-info">
-                  <h3 class="exp-company"><a href="https://www.youtube.com/@LabourLawAdvisor" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">Labour Law Advisor</a></h3>
-                  <div class="exp-role-strip">
-                    <span class="exp-role">Social Media Manager</span>
-                    <span class="exp-dates">Aug 2024 &ndash; Jul 2025</span>
-                  </div>
-                </div>
+          <!-- Cert 2: Deloitte -->
+          <div class="exp-card-item" data-pop-id="cert-deloitte" style="margin-bottom: 0;">
+            <div style="display: flex; gap: 1.25rem; align-items: flex-start;">
+              <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px; flex-shrink: 0; overflow: hidden; border: 1px solid #111115;">
+                <img src="assets/logos/deloitte-logo.png" alt="Deloitte logo" width="28" height="28" style="object-fit: contain;">
               </div>
-              <div class="exp-header-right">
-                <span class="exp-location">Jaipur</span>
-                <div class="exp-toggle-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-              </div>
-            </div>
-            <div class="exp-details">
-              <div class="exp-content">
-                <p class="exp-summary">
-                  Led end-to-end data and operational mapping for community-led products and digital brands. Handled audience acquisition, standardized media processing, and coordinated cross-functional product pipelines.
-                </p>
-                <div>
-                  <h4 class="exp-framework-title">PAPAO Analysis Breakdown</h4>
-                  <div class="papao-grid">
-                    <div class="papao-item">
-                      <div class="papao-label">Problem</div>
-                      <div class="papao-text">Unstructured organic conversion funnels for consulting packages and low brand community integration on new initiatives.</div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Approach</div>
-                      <div class="papao-text">Mapped target customer demographic behavior and created standardized SEO pipelines to maximize digital assets.</div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Process</div>
-                      <div class="papao-text">Standardized search metadata for 50+ high-traffic business videos. Created operational brand pages and launched targeted newsletters.</div>
-                    </div>
-                    <div class="papao-item">
-                      <div class="papao-label">Analysis</div>
-                      <div class="papao-text">Maintained weekly and monthly analytics sheets, tracking retention trends and click funnels using Google Analytics and Excel.</div>
-                    </div>
-                    <div class="papao-item" style="grid-column: 1 / -1;">
-                      <div class="papao-label" style="color: var(--copper);">Outcome</div>
-                      <div class="papao-text"><strong>Grew Jagruk.Shop social following from 400 to 4,000+ organic, highly targeted followers (10x growth).</strong> Video search click-through rate (CTR) increased by 15% across optimized playlists.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Job 3: Mad Influence -->
-          <div class="exp-card" id="exp-card-mad">
-            <div class="exp-header">
-              <div style="display: flex; align-items: center; gap: 1.25rem;">
-                <a href="https://madinfluence.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #000; border: 1px solid #222; border-radius: 8px; flex-shrink: 0; overflow: hidden;" title="Visit Mad Influence">
-                  <img src="assets/logos/mad-influence-logo.png" alt="Mad Influence logo" width="36" height="36" style="object-fit: contain;">
-                </a>
-                <div class="exp-header-info">
-                  <h3 class="exp-company"><a href="https://madinfluence.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">Mad Influence</a></h3>
-                  <div class="exp-role-strip">
-                    <span class="exp-role">Data Research Intern</span>
-                    <span class="exp-dates">Mar 2024 &ndash; Jul 2024</span>
-                  </div>
-                </div>
-              </div>
-              <div class="exp-header-right">
-                <span class="exp-location">Noida</span>
-                <div class="exp-toggle-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-              </div>
-            </div>
-            <div class="exp-details">
-              <div class="exp-content">
-                <p class="exp-summary">
-                  Assisted in influencer campaign operations, tracking data, and building Excel-based client reporting templates for corporate brand partners.
-                </p>
-                <div>
-                  <h4 class="exp-framework-title">STAR Methodology Details</h4>
-                  <ul class="star-list">
-                    <li class="star-list-item"><strong>Situation:</strong> The marketing agency managed diverse, multi-creator brand campaigns, but lacked standardized performance reports for corporate clients.</li>
-                    <li class="star-list-item"><strong>Task:</strong> Aggregate data, calculate key reach/engagement metrics, and build professional dashboard reports to present campaign ROI.</li>
-                    <li class="star-list-item"><strong>Action:</strong> Engineered robust Excel reporting templates, pulling cross-platform metrics (Instagram/YouTube) and utilizing automated lookup formulas to eliminate manual entry errors.</li>
-                    <li class="star-list-item"><strong>Result:</strong> Successfully managed reporting structures for 5+ major corporate campaigns, **reducing client reporting delivery time by 40%** and improving metric accuracy.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Job 4: MRM/McCann -->
-          <div class="exp-card" id="exp-card-mccann">
-            <div class="exp-header">
-              <div style="display: flex; align-items: center; gap: 1.25rem;">
-                <a href="https://www.mrm.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" class="brand-icon" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #6b2fa0; border: 1px solid #5a2888; border-radius: 8px; flex-shrink: 0; overflow: hidden;" title="Visit MRM/McCann">
-                  <img src="assets/logos/mrm-logo.svg" alt="MRM McCann logo" width="36" height="12" style="object-fit: contain;">
-                </a>
-                <div class="exp-header-info">
-                  <h3 class="exp-company"><a href="https://www.mrm.com/" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="color: inherit; text-decoration: none;">MRM / McCann</a></h3>
-                  <div class="exp-role-strip">
-                    <span class="exp-role">Account Management Intern</span>
-                    <span class="exp-dates">Sep 2023 &ndash; Dec 2023</span>
-                  </div>
-                </div>
-              </div>
-              <div class="exp-header-right">
-                <span class="exp-location">Gurgaon</span>
-                <div class="exp-toggle-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-              </div>
-            </div>
-            <div class="exp-details">
-              <div class="exp-content">
-                <p class="exp-summary">
-                  Supported senior planners in ad spend tracking and budget allocation checks across diverse multi-channel campaigns.
-                </p>
-                <div>
-                  <h4 class="exp-framework-title">STAR Methodology Details</h4>
-                  <ul class="star-list">
-                    <li class="star-list-item"><strong>Situation:</strong> The media planning team required daily auditing of ad network logs to identify underperforming channel investments and budget leakage.</li>
-                    <li class="star-list-item"><strong>Task:</strong> Standardize and clean massive weekly media spends, mapping efficiency metrics to detect channel cost variances.</li>
-                    <li class="star-list-item"><strong>Action:</strong> Structuring ad logs using Excel Pivot Tables and conditional scripts to automatically flag cost-per-click (CPC) anomalies.</li>
-                    <li class="star-list-item"><strong>Result:</strong> Assisted in monitoring budgets for 3+ major client portfolios, **reallocating underutilized funds to save approximately 8% in wasteful spend.**</li>
-                  </ul>
-                </div>
+              <div style="flex: 1;">
+                <h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: #111115; margin-bottom: 0.25rem;">Deloitte Data Analytics Simulation</h3>
+                <p style="font-size: 0.88rem; color: #666; font-weight: 600; margin-bottom: 0.4rem;">Forage / Deloitte &bull; June 2025</p>
+                <p style="font-size: 0.92rem; color: #4B4B55; margin: 0; line-height: 1.5;">Completed data validation, dashboard creation, client reporting, and telemetry anomaly diagnosis simulation.</p>
               </div>
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Certifications Section -->
-    <section class="certifications" style="border-top: 1px solid var(--divider); padding: 6rem 0 8rem 0; background-color: rgba(40, 54, 24, 0.005);">
-      <div class="container">
-        <h2 class="section-title" style="margin-bottom: 3rem;">Professional Certifications</h2>
+    </div>
+
+    <!-- Stripe Press Full Detail Page Overlay (Matching press.stripe.com/poor-charlies-almanack) -->
+    <div class="stripe-press-pop-overlay" id="stripe-pop-overlay">
+      <button class="stripe-press-pop-back" id="stripe-pop-back">&larr; Back to Career Timeline</button>
+      
+      <div class="stripe-press-pop-content">
         
-        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-
-          <div style="display: flex; gap: 1.5rem; padding: 2rem; border: 1px solid var(--divider); border-radius: 8px; background-color: var(--cornsilk); border-left: 4px solid #0078d4;">
-            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #0078d4; border-radius: 8px; flex-shrink: 0; overflow: hidden;">
-              <img src="assets/logos/microsoft-logo.png" alt="Microsoft logo" width="28" height="28" style="object-fit: contain;">
-            </div>
+        <!-- Left Side: 3D Standing Book Cover -->
+        <div class="stripe-pop-book-wrap">
+          <div class="stripe-pop-3d-book" id="pop-book-card">
+            <div style="font-size: 0.75rem; font-weight: 800; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em; color: #111115;" id="pop-book-tag">STRIPE PRESS EDITION</div>
             <div>
-              <h3 style="font-size: 1.2rem; color: var(--black-forest); margin-bottom: 0.25rem;">
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-decoration-color: var(--copper); text-underline-offset: 4px;">Microsoft Business Analyst Specialization &rarr;</a>
-              </h3>
-              <p style="font-size: 0.95rem; color: var(--text-tertiary); margin-bottom: 0.5rem;">Coursera / Microsoft &bull; March 2026</p>
-              <p style="font-size: 0.95rem;">Rigorous training in Power BI, data warehousing, and enterprise data models.</p>
+              <div style="width: 60px; height: 60px; border-radius: 12px; background: #FFFFFF; border: 1.5px solid rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.12);" id="pop-book-icon"><img id="pop-book-logo" src="" alt="Company logo" style="width: 46px; height: 46px; object-fit: contain;"></div>
+              <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 900; color: #111115; line-height: 1.15; margin-bottom: 0.5rem;" id="pop-book-title">I.P. Pharma</h2>
+              <div style="font-size: 0.9rem; font-weight: 700; color: #555;" id="pop-book-role">Freelance Consultant</div>
             </div>
+            <div style="font-size: 0.8rem; font-weight: 800; color: #111115; border-top: 1.5px solid #111115; padding-top: 0.75rem;" id="pop-book-meta">VARNEET SINGH &bull; 2026</div>
+          </div>
+        </div>
+
+        <!-- Right Side: Content & PAPAO / STAR Narrative -->
+        <div>
+          <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: #FFFFFF !important; text-shadow: 0 2px 14px rgba(0,0,0,0.4); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 0.5rem;" id="pop-title">I.P. Pharma</h1>
+          <div style="font-family: Georgia, serif; font-style: italic; font-size: 1.25rem; color: rgba(255,255,255,0.92); margin-bottom: 1.5rem;" id="pop-subtitle">Freelance Consultant &bull; Jan 2026 &ndash; Present &bull; Ludhiana</div>
+          
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.75rem; flex-wrap: wrap;" id="pop-pills">
+            <span style="border: 1.5px solid #111115; padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; color: #111115; background: rgba(255, 255, 255, 0.88);">PAPAO Model</span>
           </div>
 
-          <div style="display: flex; gap: 1.5rem; padding: 2rem; border: 1px solid var(--divider); border-radius: 8px; background-color: var(--cornsilk); border-left: 4px solid #86bc25;">
-            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px; flex-shrink: 0; overflow: hidden;">
-              <img src="assets/logos/deloitte-logo.png" alt="Deloitte logo" width="28" height="28" style="object-fit: contain;">
-            </div>
-            <div>
-              <h3 style="font-size: 1.2rem; color: var(--black-forest); margin-bottom: 0.25rem;">Deloitte Australia Data Analytics Job Simulation</h3>
-              <p style="font-size: 0.95rem; color: var(--text-tertiary); margin-bottom: 0.5rem;">Forage / Deloitte &bull; June 2025</p>
-              <p style="font-size: 0.95rem;">Completed data validation, dashboard creation, and client communications simulation.</p>
-            </div>
+          <div style="font-family: Georgia, serif; font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.95); margin-bottom: 2rem;" id="pop-quote">
+            Optimizing stock management and representative sales tracking pipelines for a regional pharmaceutical distributor. Resolving field communication barriers and establishing automated spreadsheet workflows.
+          </div>
+
+          <div style="margin-bottom: 2.5rem;" id="pop-breakdown">
+            <!-- Dynamic PAPAO / STAR Content -->
+          </div>
+
+          <div>
+            <a href="#" target="_blank" rel="noopener" class="cta-button" id="pop-cta" style="background: #111115 !important; color: #FFFFFF !important; border-color: #111115 !important; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">View Case Study &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2 WEEKS FREE SERVICES -->
+    <section class="free-services" id="free-services-section" style="padding: 3rem 0; background-color: #02F5A4 !important;">
+      <div class="container">
+
+        <!-- Single Centered White Card -->
+        <div class="free-cta-card">
+
+          <!-- Headline -->
+          <h2 style="color: #111115; font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 0.65rem 0;">
+            Test My Data Skills <span class="highlight" style="color: #111115;"><span class="underline-green">Free For 2 Weeks</span></span>&mdash;<br>No Risk, Real Results.
+          </h2>
+
+          <!-- Subheadline -->
+          <p style="color: #4B4B55; font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.65; margin: 0 0 1.1rem 0; max-width: 70ch;">
+            Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span style="display: inline-flex; align-items: center; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 800; padding: 0.15rem 0.65rem; border-radius: 100px; border: 1.5px solid #111115; vertical-align: middle; line-height: 1.4;">14 days</span> so you can evaluate my skills risk-free.
+          </p>
+
+          <!-- What you get: inline pill tags -->
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-start; margin-bottom: 1.5rem;">
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Automated Dashboards &amp; Reporting
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Process Optimization &amp; SQL Queries
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Clear Business &amp; Data Insights
+            </span>
+          </div>
+
+          <!-- Tally Form -->
+          <div style="text-align: left;">
+            <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
           </div>
 
         </div>
@@ -307,22 +505,363 @@
 
   </main>
 
-  <!-- ==========================================================================
-       FOOTER & CALLOUT
-       ========================================================================== -->
-  <footer class="footer" id="footer-section">
-    <div class="footer-bottom">
-      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div>&copy; 2026 Varneet Singh. All Rights Reserved.</div>
-        <div style="display: flex; gap: 1.5rem; align-items: center;">
-          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
-          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
-          <a href="mailto:varneetsingh45@gmail.com" class="footer-social-link">Email</a>
-        </div>
+  <!-- FOOTER -->
+  <footer id="main-footer" style="background: #ffffff; padding: 2.5rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      
+      <!-- Left: Logo emblem & links -->
+      <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh" style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #111115;">
+        </a>
+        <nav style="display: flex; gap: 1.25rem; font-weight: 600; font-size: 0.95rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="now.html" class="nav-link">Now</a>
+          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="experience.html" class="nav-link">Career</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link">Resume</a>
+        </nav>
       </div>
+
+      <!-- Right: Social icons -->
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#6e40c9'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#EA4335'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+      </div>
+
     </div>
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Master Stripe Press Edition Data
+      // EXACT User Directives:
+      // - MRM is PURPLE (#6B2FA0)
+      // - MAD is BLACK (#111115)
+      // - LLA is RED (#C0392B)
+      // - Colors are soft/pastel so text contrast is 100% crystal clear!
+      const popData = {
+        "pharma": {
+          bg: "#2B5B84",
+          logoSrc: "assets/logos/I_P_Pharma_Logo.jpg",
+          logoStyle: "object-fit: cover; border-radius: 6px;",
+          tag: "FREELANCE CONSULTING",
+          title: "I.P. Pharma",
+          role: "Freelance Consultant",
+          meta: "VARNEET SINGH &bull; 2026",
+          subtitle: "Freelance Consultant &bull; Jan 2026 &ndash; Present &bull; Ludhiana",
+          pills: ["PAPAO Model", "Inventory Automation", "Real-Time Tracking"],
+          quote: "Optimizing stock management and representative sales tracking pipelines for a regional pharmaceutical distributor. Resolving field communication barriers and establishing automated spreadsheet workflows.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">PAPAO Analysis Breakdown</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div><strong style="color: #111115;">Problem:</strong> Sales representatives operating in highly rigid field environments with manual stock tracking; Invoicing procedures experiencing persistent lag times due to paper-based logs; Supply chain buffers failing to capture seasonal variations, causing frequent medicine stockouts.</div>
+              <div><strong style="color: #111115;">Approach:</strong> Structuring inventory mapping in Excel to automate order sheets and establish real-time reporting protocols.</div>
+              <div><strong style="color: #111115;">Process:</strong> Standardizing core stock buffers and dispatch workflows, ensuring sales invoices are verified and orders dispatched within 24 hours.</div>
+              <div><strong style="color: #111115;">Analysis:</strong> Identifying inventory lag points, pinpointing specific slow-moving medicine categories causing capital stagnation.</div>
+              <div style="padding-top: 0.5rem; border-top: 1.5px solid #111115;"><strong style="color: #111115;">Outcome:</strong> <strong>Reporting latency reduced from 3 days to real-time.</strong> Automated forecasting prevents essential stockouts by 25% and frees up tied-up capital.</div>
+            </div>
+          `,
+          ctaUrl: "projects/pharma.html",
+          ctaText: "View Full I.P. Pharma Case Study &rarr;"
+        },
+        "lla": {
+          bg: "#D05A4E",
+          logoSrc: "assets/logos/lla-logo.png",
+          logoStyle: "object-fit: contain;",
+          tag: "DIGITAL & COMMUNITY OPS",
+          title: "Labour Law Advisor",
+          role: "Social Media Manager",
+          meta: "VARNEET SINGH &bull; 2024-25",
+          subtitle: "Social Media Manager &bull; Aug 2024 &ndash; Jul 2025 &bull; Jaipur",
+          pills: ["PAPAO Model", "SEO Pipelines", "10x Community Growth"],
+          quote: "Led end-to-end data and operational mapping for community-led products and digital brands. Handled audience acquisition, standardized media processing, and coordinated cross-functional product pipelines.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">PAPAO Analysis Breakdown</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div><strong style="color: #111115;">Problem:</strong> Unstructured organic conversion funnels for consulting packages and low brand community integration on new initiatives.</div>
+              <div><strong style="color: #111115;">Approach:</strong> Mapped target customer demographic behavior and created standardized SEO pipelines to maximize digital assets.</div>
+              <div><strong style="color: #111115;">Process:</strong> Standardized search metadata for 50+ high-traffic business videos. Created operational brand pages and launched targeted newsletters.</div>
+              <div><strong style="color: #111115;">Analysis:</strong> Maintained weekly and monthly analytics sheets, tracking retention trends and click funnels using Google Analytics and Excel.</div>
+              <div style="padding-top: 0.5rem; border-top: 1.5px solid #111115;"><strong style="color: #111115;">Outcome:</strong> <strong>Grew Jagruk.Shop social following from 400 to 4,000+ organic, highly targeted followers (10x growth).</strong> Video search click-through rate (CTR) increased by 15% across optimized playlists.</div>
+            </div>
+          `,
+          ctaUrl: "https://www.youtube.com/@LabourLawAdvisor",
+          ctaText: "Visit LLA YouTube Channel ↗"
+        },
+        "mad": {
+          bg: "#18181C",
+          logoSrc: "assets/logos/mad-influence-logo.png",
+          logoStyle: "object-fit: contain;",
+          tag: "DATA ANALYTICS INTERN",
+          title: "Mad Influence",
+          role: "Data Research Intern",
+          meta: "VARNEET SINGH &bull; 2024",
+          subtitle: "Data Research Intern &bull; Mar 2024 &ndash; Jul 2024 &bull; Noida",
+          pills: ["STAR Framework", "Excel Dashboards", "40% Latency Cut"],
+          quote: "Assisted in influencer campaign operations, tracking data, and building Excel-based client reporting templates for corporate brand partners.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">STAR Methodology Details</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div><strong style="color: #111115;">Situation:</strong> The marketing agency managed diverse, multi-creator brand campaigns, but lacked standardized performance reports for corporate clients.</div>
+              <div><strong style="color: #111115;">Task:</strong> Aggregate data, calculate key reach/engagement metrics, and build professional dashboard reports to present campaign ROI.</div>
+              <div><strong style="color: #111115;">Action:</strong> Engineered robust Excel reporting templates, pulling cross-platform metrics (Instagram/YouTube) and utilizing automated lookup formulas to eliminate manual entry errors.</div>
+              <div style="padding-top: 0.5rem; border-top: 1.5px solid #111115;"><strong style="color: #111115;">Result:</strong> Successfully managed reporting structures for 5+ major corporate campaigns, <strong>reducing client reporting delivery time by 40%</strong> and improving metric accuracy.</div>
+            </div>
+          `,
+          ctaUrl: "https://madinfluence.com/",
+          ctaText: "Visit Mad Influence ↗"
+        },
+        "mccann": {
+          bg: "#7B5EA7",
+          logoSrc: "assets/logos/mrm-logo.svg",
+          logoStyle: "object-fit: contain; filter: brightness(0);",
+          tag: "MEDIA SPEND AUDIT",
+          title: "MRM / McCann",
+          role: "Account Management Intern",
+          meta: "VARNEET SINGH &bull; 2023",
+          subtitle: "Account Management Intern &bull; Sep 2023 &ndash; Dec 2023 &bull; Gurgaon",
+          pills: ["STAR Framework", "CPC Anomaly Tracking", "8% Budget Saved"],
+          quote: "Supported senior planners in ad spend tracking and budget allocation checks across diverse multi-channel campaigns.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">STAR Methodology Details</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div><strong style="color: #111115;">Situation:</strong> The media planning team required daily auditing of ad network logs to identify underperforming channel investments and budget leakage.</div>
+              <div><strong style="color: #111115;">Task:</strong> Standardize and clean massive weekly media spends, mapping efficiency metrics to detect channel cost variances.</div>
+              <div><strong style="color: #111115;">Action:</strong> Structuring ad logs using Excel Pivot Tables and conditional scripts to automatically flag cost-per-click (CPC) anomalies.</div>
+              <div style="padding-top: 0.5rem; border-top: 1.5px solid #111115;"><strong style="color: #111115;">Result:</strong> Assisted in monitoring budgets for 3+ major client portfolios, <strong>reallocating underutilized funds to save approximately 8% in wasteful spend.</strong></div>
+            </div>
+          `,
+          ctaUrl: "https://www.mrm.com/",
+          ctaText: "Visit MRM McCann ↗"
+        },
+        "cert-msft": {
+          bg: "#3B7EA1",
+          logoSrc: "assets/logos/microsoft-logo.png",
+          logoStyle: "object-fit: contain;",
+          tag: "MICROSOFT PROFESSIONAL TRACK",
+          title: "Microsoft Business Analyst Specialization",
+          role: "Specialization Track",
+          meta: "MICROSOFT &bull; 2026",
+          subtitle: "Coursera / Microsoft &bull; March 2026",
+          pills: ["Requirements Engineering", "MS Visio BPMN", "Power BI Models"],
+          quote: "Advanced 6-course professional track covering requirements gathering, backlog management, Power BI data models, and Visio process flow engineering.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem;">Curriculum Modules</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div>&bull; <strong>Requirements Engineering:</strong> Functional vs Non-Functional requirements decomposition.</div>
+              <div>&bull; <strong>Process Modeling:</strong> MS Visio BPMN 2.0 flowcharts &amp; swimlanes.</div>
+              <div>&bull; <strong>Agile Execution:</strong> Epics, User Stories, and Backlog Refinement.</div>
+              <div>&bull; <strong>Data Visualization:</strong> Power BI dashboards &amp; data warehousing concepts.</div>
+            </div>
+          `,
+          ctaUrl: "https://coursera.org/share/c34218bdf0dd290456336eda30f04592",
+          ctaText: "View Verified Microsoft Credential ↗"
+        },
+        "cert-deloitte": {
+          bg: "#2C3531",
+          logoSrc: "assets/logos/deloitte-logo.png",
+          logoStyle: "object-fit: contain; filter: brightness(0) invert(1);",
+          tag: "DELOITTE SIMULATION",
+          title: "Deloitte Data Analytics Simulation",
+          role: "Analytics Simulation",
+          meta: "DELOITTE &bull; 2025",
+          subtitle: "Forage / Deloitte &bull; June 2025",
+          pills: ["Data Quality Check", "Client Dashboards", "Telemetry Audits"],
+          quote: "Hands-on data cleaning, dashboard creation, client reporting, and telemetry anomaly diagnosis simulating real Deloitte client engagements.",
+          breakdownHtml: `
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: #86BC25; margin-bottom: 1rem;">Simulation Tasks &amp; Deliverables</h4>
+            <div style="background: #FFFFFF; border: 1.5px solid #111115; border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: #111115; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+              <div>&bull; <strong>Data Cleaning &amp; Quality Check:</strong> Identified telemetry anomalies and missing demographic attributes.</div>
+              <div>&bull; <strong>Executive Dashboard:</strong> Built clean Tableau / Excel visualization for client leadership.</div>
+              <div>&bull; <strong>Strategic Communication:</strong> Drafted concise executive summaries and strategic recommendations.</div>
+            </div>
+          `,
+          ctaUrl: "https://www.theforage.com/",
+          ctaText: "View Deloitte Verification ↗"
+        }
+      };
+
+      // Helper function to decode HTML text properly
+      function decodeHtmlEntities(str) {
+        const txt = document.createElement("textarea");
+        txt.innerHTML = str;
+        return txt.value;
+      }
+
+      // Overlay Pop Elements
+      const popOverlay = document.getElementById("stripe-pop-overlay");
+      const popBack = document.getElementById("stripe-pop-back");
+
+      const bookTag = document.getElementById("pop-book-tag");
+      const bookTitle = document.getElementById("pop-book-title");
+      const bookRole = document.getElementById("pop-book-role");
+      const bookMeta = document.getElementById("pop-book-meta");
+
+      const popTitle = document.getElementById("pop-title");
+      const popSubtitle = document.getElementById("pop-subtitle");
+      const popPills = document.getElementById("pop-pills");
+      const popQuote = document.getElementById("pop-quote");
+      const popBreakdown = document.getElementById("pop-breakdown");
+      const popCta = document.getElementById("pop-cta");
+
+        const popBookLogo = document.getElementById("pop-book-logo");
+
+      let currentActivePopKey = null;
+
+      function openStripePopView(key, pushHistory = true) {
+        const item = popData[key];
+        if (!item) return;
+
+        currentActivePopKey = key;
+        popOverlay.style.backgroundColor = item.bg;
+
+        // Update brand logo on the 3D book card
+        if (popBookLogo && item.logoSrc) {
+          popBookLogo.src = item.logoSrc;
+          popBookLogo.alt = item.title + " logo";
+          popBookLogo.style.cssText = "width: 46px; height: 46px; " + (item.logoStyle || "object-fit: contain;");
+        }
+
+        bookTag.textContent = decodeHtmlEntities(item.tag);
+        bookTitle.textContent = decodeHtmlEntities(item.title);
+        bookRole.textContent = decodeHtmlEntities(item.role);
+        bookMeta.innerHTML = item.meta;
+
+        popTitle.textContent = decodeHtmlEntities(item.title);
+        popTitle.style.color = "#FFFFFF";
+        popSubtitle.innerHTML = item.subtitle;
+        popQuote.textContent = decodeHtmlEntities(item.quote);
+        popBreakdown.innerHTML = item.breakdownHtml;
+
+        popPills.innerHTML = item.pills.map(p => `<span style="border: 1.5px solid #111115; padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; color: #111115; background: rgba(255, 255, 255, 0.9);">${p}</span>`).join("");
+        popCta.href = item.ctaUrl;
+        popCta.innerHTML = item.ctaText;
+
+        popOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        // Push state into Browser History for Browser/Mouse Back Button Support!
+        if (pushHistory) {
+          history.pushState({ expPopKey: key }, "", `#${key}`);
+        }
+      }
+
+      function closeStripePopView(popHistoryBack = false) {
+        if (!popOverlay.classList.contains("active")) return;
+
+        popOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+        currentActivePopKey = null;
+
+        if (popHistoryBack && window.location.hash) {
+          history.back();
+        } else if (!popHistoryBack && window.location.hash) {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }
+
+      // Attach Click-to-Pop to all cards
+      document.querySelectorAll(".exp-card-item").forEach(card => {
+        card.addEventListener("click", () => {
+          const key = card.getAttribute("data-pop-id");
+          if (key) openStripePopView(key, true);
+        });
+      });
+
+      // Back Button Handler
+      popBack.addEventListener("click", () => {
+        closeStripePopView(true);
+      });
+
+      // Browser Back & Forward Mouse Button Navigation Engine
+      window.addEventListener("popstate", (e) => {
+        if (e.state && e.state.expPopKey) {
+          openStripePopView(e.state.expPopKey, false);
+        } else {
+          closeStripePopView(false);
+        }
+      });
+
+      // Keyboard ESC key handler
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && popOverlay.classList.contains("active")) {
+          closeStripePopView(true);
+        }
+      });
+
+      // Check URL Hash on Initial Page Load (e.g. experience.html#pharma)
+      if (window.location.hash) {
+        const initialKey = window.location.hash.replace("#", "");
+        if (popData[initialKey]) {
+          openStripePopView(initialKey, false);
+        }
+      }
+
+      // Stripe Press Line Bars Scroll Engine
+      const bars = document.querySelectorAll(".stripe-line-bar");
+      const expCards = [
+        document.getElementById("card-pharma"),
+        document.getElementById("card-lla"),
+        document.getElementById("card-mad"),
+        document.getElementById("card-mccann"),
+        document.getElementById("sec-certs")
+      ];
+
+      function updateLineBars() {
+        const scrollPos = window.scrollY + (window.innerHeight * 0.35);
+
+        let activeIndex = 0;
+        expCards.forEach((card, index) => {
+          if (!card) return;
+          const top = card.offsetTop;
+          const height = card.offsetHeight;
+
+          if (scrollPos >= top - 80) {
+            activeIndex = index;
+          }
+
+          if (window.scrollY + (window.innerHeight * 0.75) >= top && window.scrollY <= top + height) {
+            card.classList.add("stripe-active-card");
+          } else {
+            card.classList.remove("stripe-active-card");
+          }
+        });
+
+        bars.forEach((bar, index) => {
+          if (index === activeIndex) {
+            bar.classList.add("active");
+          } else {
+            bar.classList.remove("active");
+          }
+        });
+      }
+
+      bars.forEach(bar => {
+        bar.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = bar.getAttribute("data-target");
+          const targetCard = document.getElementById(targetId);
+          if (targetCard) {
+            const yOffset = -120;
+            const y = targetCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        });
+      });
+
+      window.addEventListener("scroll", updateLineBars, { passive: true });
+      updateLineBars();
+    });
+  </script>
 </body>
 </html>

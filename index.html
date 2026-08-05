@@ -27,50 +27,39 @@
   <meta property="og:type" content="website">
 
   <style>
-    /* ── Sam Dickie Green Card — 2 Weeks Free ── */
-    .free-box-green {
-      background: #10B981;
+    /* ── Single Card CTA Layout ── */
+    .free-cta-card {
+      background: #ffffff;
+      border: 2px solid #111115;
       border-radius: 28px;
-      padding: 3.5rem;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      padding: 2.25rem 3.5rem;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+      box-shadow: 4px 4px 0px #111115;
     }
-
-    @media (min-width: 860px) {
-      .free-box-green {
-        flex-direction: row;
-        align-items: stretch;
-        justify-content: space-between;
-        gap: 2.5rem;
+    @media (max-width: 640px) {
+      .free-cta-card {
+        padding: 1.75rem 1.25rem;
+        width: 100%;
       }
-    }
-
-    .free-box-green::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 260px;
-      height: 260px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 50%;
     }
 
     .free-box-inner {
       background: #ffffff;
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 2.5rem;
-      flex: 1 1 55%;
       position: relative;
       z-index: 1;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
     }
 
     .free-badge {
       display: inline-block;
-      background: #10B981;
+      background: #02F5A4;
       color: #fff;
       font-size: 0.78rem;
       font-weight: 800;
@@ -103,15 +92,10 @@
       position: relative;
       z-index: 1;
       color: #fff;
-      flex: 1 1 40%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-top: 2rem;
-    }
-
-    @media (min-width: 860px) {
-      .free-aside { margin-top: 0; }
+      padding: 1rem 0;
     }
 
     .free-aside-headline {
@@ -168,7 +152,7 @@
     }
 
     .sam-featured-item:hover {
-      border-color: #059669;
+      border-color: #02F5A4;
       transform: translateY(-3px);
       box-shadow: 0 12px 28px rgba(5,150,105,0.1);
     }
@@ -184,7 +168,7 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #059669;
+      color: #02F5A4;
     }
 
     .sam-featured-title {
@@ -217,9 +201,9 @@
     }
 
     .sam-featured-item:hover .sam-featured-arrow {
-      background: #059669;
+      background: #02F5A4;
       color: #FFFFFF;
-      border-color: #059669;
+      border-color: #02F5A4;
     }
 
     @media (max-width: 640px) {
@@ -237,15 +221,16 @@
 
 <body>
 
-  <!-- NAVIGATION BAR (3-Column layout: Links Left | Centered Avatar | Links Right + CTA) -->
+  <!-- NAVIGATION BAR (Exact Chronology: About - Now - Writing - Logo - Projects - Career - Resume) -->
   <header id="main-header">
     <div class="container nav-container">
       <nav class="nav-menu-3col" id="nav-menu-links">
         
         <!-- Left Links -->
         <div class="nav-links-left">
+          <a href="about.html" class="nav-link" id="nav-link-about">About</a>
           <a href="now.html" class="nav-link" id="nav-link-now">Now</a>
-          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="writing.html" class="nav-link" id="nav-link-writing">Writing</a>
         </div>
 
         <!-- Center Emblem Avatar -->
@@ -253,13 +238,12 @@
           <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
         </a>
 
-        <!-- Right Links & CTA (also acts as full mobile drawer) -->
+        <!-- Right Links & CTA -->
         <div class="nav-links-right">
-          <a href="now.html" class="nav-link mobile-only-link" id="nav-link-now-mob">Now</a>
-          <a href="projects.html" class="nav-link mobile-only-link" id="nav-link-projects-mob">Projects</a>
-          <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
+          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+          <a href="experience.html" class="nav-link" id="nav-link-experience">Career</a>
           <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-          <a href="contact.html" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
         </div>
 
       </nav>
@@ -275,169 +259,268 @@
   <!-- MAIN CONTENT -->
   <main>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero-section">
-      <div class="container">
-        <div class="hero-split">
+    <!-- HERO SECTION (Purple #BBA0EF Background with Crisp Clear Circles) -->
+    <section class="hero" id="hero-section" style="background-color: #BBA0EF !important; padding: 8rem 0 4.5rem 0; margin-top: -6.75rem; position: relative;">
+      <!-- Crisp Clear Background Circles (Sharp Edges, 100% Visible) -->
+      <span class="bg-circle bg-circle-green" style="width: 38px; height: 38px; top: 18%; left: 5%;"></span>
+      <span class="bg-circle bg-circle-white" style="width: 44px; height: 44px; top: 15%; right: 8%;"></span>
+      <span class="bg-circle bg-circle-blue" style="width: 32px; height: 32px; top: 48%; right: 4%;"></span>
+      <span class="bg-circle bg-circle-green" style="width: 28px; height: 28px; bottom: 18%; left: 10%;"></span>
+      <span class="bg-circle bg-circle-white" style="width: 36px; height: 36px; bottom: 12%; right: 24%;"></span>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="hero-split" style="display: grid; grid-template-columns: 1fr 280px; gap: 3.5rem; align-items: center;">
 
           <!-- Left Copy -->
           <div class="hero-content" style="position: relative; z-index: 2;">
-            
-            <div class="hero-tagline-quote" style="border-left: 4px solid #10B981; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-              <h1 class="hero-title" style="margin: 0; font-size: clamp(2.1rem, 3.8vw, 3.2rem); line-height: 1.18;">
-                Better decisions don't come from more data.<br>
-                They come from someone who knows how to <span class="underline-green">read it</span>.
-              </h1>
-            </div>
+            <h1 class="hero-title" style="margin: 0 0 1.5rem 0; font-size: clamp(1.9rem, 3.2vw, 2.75rem); line-height: 1.25; letter-spacing: -0.02em; font-weight: 700; color: #111115 !important;">
+              Better <span class="highlight" style="color: #111115;">decisions</span> don't come from more data.<br>
+              They come from someone who knows how to <span class="highlight" style="color: #111115;">read it</span>.
+            </h1>
 
-            <p class="hero-subtitle" style="margin-bottom: 2rem;">
+            <p class="hero-subtitle" style="color: #1E1E26; font-size: clamp(1.05rem, 1.6vw, 1.2rem); line-height: 1.65; max-width: 800px; margin-bottom: 2.2rem; font-weight: 500;">
               I turn messy spreadsheets, scattered customer orders, and broken team workflows into clear, simple answers so you can make decisions fast &mdash; without the guesswork.
             </p>
 
-            <div class="hero-ctas" style="margin-bottom: 2.5rem;">
-              <a href="projects.html" class="cta-button" id="hero-cta-projects">
+            <div class="hero-ctas" style="display: flex; gap: 1rem; align-items: center;">
+              <a href="projects.html" class="cta-button" id="hero-cta-projects" style="background-color: #02f5a4; color: #111115 !important; border: 1.5px solid #111115; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 100px;">
                 Explore My Work
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </a>
-              <a href="resume.pdf" target="_blank" rel="noopener" class="secondary-button" id="hero-cta-resume">
+              <a href="resume.pdf" target="_blank" rel="noopener" class="secondary-button" id="hero-cta-resume" style="background-color: #02F5A4; color: #ffffff !important; border: 1.5px solid #111115; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 100px;">
                 Download Resume
               </a>
-              <a href="experience.html" class="secondary-button" id="hero-cta-exp">
-                View Career Timeline
-              </a>
-            </div>
-
-            <!-- Metrics Strip -->
-            <div class="metrics-strip">
-              <div class="metric-card">
-                <span class="metric-number">2+ Years</span>
-                <span class="metric-label">Operational Data Work</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">99,000+</span>
-                <span class="metric-label">Records Analysed</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">3+</span>
-                <span class="metric-label">End-to-End Case Studies</span>
-              </div>
             </div>
           </div>
 
           <!-- Right Avatar Image -->
-          <div class="hero-avatar-wrap" style="position: relative; z-index: 1;">
+          <div class="hero-avatar-wrap" style="position: relative; z-index: 1; text-align: center;">
             <img
               src="assets/varneet-avatar.png"
               alt="Illustrated portrait of Varneet Singh"
               class="hero-avatar-img"
               width="260"
               height="310"
+              style="border-radius: 20px; border: 2px solid #111115; box-shadow: 0 12px 30px rgba(0,0,0,0.12); background-color: #ffffff;"
             >
+          </div>
+
+        </div>
+
+        <!-- Metrics Strip (Placed Below Copy & Avatar) -->
+        <div class="metrics-strip" style="margin-top: 3.5rem; padding-top: 2rem; border-top: 1.5px solid rgba(255, 255, 255, 0.2); display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <div class="metric-card" style="background: #02f5a4; padding: 1.25rem 1.5rem; border-radius: 16px; border: 1.5px solid #111115; box-shadow: 0 8px 24px rgba(2, 245, 164, 0.25);">
+            <span class="metric-number" style="font-size: 1.9rem; font-weight: 800; color: #111115; display: block; margin-bottom: 0.25rem;">2+ Years</span>
+            <span class="metric-label" style="font-size: 0.95rem; color: #111115; font-weight: 700;">Operational Data Work</span>
+          </div>
+          <div class="metric-card" style="background: #02f5a4; padding: 1.25rem 1.5rem; border-radius: 16px; border: 1.5px solid #111115; box-shadow: 0 8px 24px rgba(2, 245, 164, 0.25);">
+            <span class="metric-number" style="font-size: 1.9rem; font-weight: 800; color: #111115; display: block; margin-bottom: 0.25rem;">99,000+</span>
+            <span class="metric-label" style="font-size: 0.95rem; color: #111115; font-weight: 700;">Records Analysed</span>
+          </div>
+          <div class="metric-card" style="background: #02f5a4; padding: 1.25rem 1.5rem; border-radius: 16px; border: 1.5px solid #111115; box-shadow: 0 8px 24px rgba(2, 245, 164, 0.25);">
+            <span class="metric-number" style="font-size: 1.9rem; font-weight: 800; color: #111115; display: block; margin-bottom: 0.25rem;">3+</span>
+            <span class="metric-label" style="font-size: 0.95rem; color: #111115; font-weight: 700;">End-to-End Case Studies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO SECTION (Sam Dickie Exact Centered Design) -->
+    <section class="what-i-do" id="what-i-do-section" style="padding: 5rem 0; border-top: 1px solid var(--divider); position: relative; overflow: hidden;">
+      <!-- Crisp Clear Background Circles (Sam Dickie Exact Style) -->
+      <span class="bg-circle bg-circle-green" style="width: 32px; height: 32px; top: 12%; right: 6%;"></span>
+      <span class="bg-circle bg-circle-purple" style="width: 28px; height: 28px; top: 48%; left: 3%;"></span>
+      <span class="bg-circle bg-circle-blue" style="width: 24px; height: 24px; bottom: 15%; right: 10%;"></span>
+      <span class="bg-circle bg-circle-green" style="width: 20px; height: 20px; bottom: 8%; left: 8%;"></span>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        
+        <!-- Left-Aligned Header & Subtitle -->
+        <div style="margin-bottom: 3.5rem; text-align: left;">
+          <h2 class="section-title" style="font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 1.25rem; text-align: left;">
+            <span class="highlight">What I Do</span>
+          </h2>
+          <p style="font-size: 1.15rem; font-weight: 700; color: #111115; max-width: 850px; line-height: 1.6; margin: 0; text-align: left;">
+            I help e-commerce &amp; consumer tech teams turn messy operational data into structured, repeatable business decisions.
+          </p>
+        </div>
+
+        <!-- 2-Column Grid with Pure Green Stroke Icons -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem 4rem; text-align: left;">
+
+          <!-- Feature 1 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M9 3v18"></path>
+                <path d="M14 9h4"></path>
+                <path d="M14 15h4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">Process Mapping &amp; BPMN</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Document end-to-end operational workflows, identify bottleneck drop-offs, and map optimized AS-IS vs TO-BE SOPs.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">Automated Dashboards</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Build zero-upkeep Excel &amp; Tableau models tracking daily GMV, SKU inventory health, and rep fulfillment velocity.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">E-Commerce Data Audits</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Analyze 99,000+ transaction records — isolating freight burdens, seller concentration risks, customer cohorts, and regional sales.</p>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">GAP &amp; Root Cause Analysis</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Apply Nadler-Tushman &amp; Fishbone models to pinpoint misalignment between operational processes and revenue goals.</p>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">Customer Development</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Identify core customer pain points through structured qualitative feedback and quantitative order data analysis.</p>
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+            <div style="flex-shrink: 0; padding-top: 2px;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#02f5a4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700; color: #111115; margin-bottom: 0.5rem; font-family: var(--font-display);">Product Specs &amp; Requirements</h3>
+              <p style="font-size: 1.02rem; color: #4B4B55; line-height: 1.6; margin: 0;">Translate frontline operational needs into concise BRDs, user stories, and acceptance criteria for engineering teams.</p>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- FEATURED CASE STUDIES (Sam Dickie Content List Style) -->
-    <section class="projects" id="selected-projects-section" style="padding: 4rem 0; border-top: 1px solid var(--divider);">
+    <!-- FEATURED CASE STUDIES (3-Column Grid) -->
+    <section class="projects" id="selected-projects-section" style="padding: 4rem 0; background-color: #4C82B8; border-top: 1px solid var(--divider);">
       <div class="container">
         <div class="section-header" style="margin-bottom: 2.5rem;">
           <div>
-            <h2 class="section-title">Featured Case Studies</h2>
+            <h2 class="section-title"><span class="highlight">Selected Case Studies</span></h2>
             <p class="section-desc">Practical application of frameworks, data modeling, and process optimization.</p>
           </div>
           <a href="projects.html" class="secondary-button" style="color: var(--copper); border-color: var(--copper); white-space: nowrap;">View All Projects &rarr;</a>
         </div>
 
-        <div class="sam-featured-list">
+        <div class="projects-grid">
           
-          <!-- Case Study 1 -->
-          <a href="projects/olist.html" class="sam-featured-item">
-            <div class="sam-featured-left">
-              <span class="sam-featured-tag">Business Analysis &bull; 99,000 Records</span>
-              <h3 class="sam-featured-title">Olist E-Commerce Business Analysis</h3>
-              <p class="sam-featured-desc">Audited marketplace order delays, seller GMV distribution, and freight cost burden using Excel, Tableau, and BPMN models.</p>
+          <!-- Case Study 1: Olist -->
+          <a href="projects/olist.html" class="project-card-grid">
+            <div class="project-card-thumb-wrap">
+              <span class="project-number-tag">#01</span>
+              <img src="assets/olist-preview.png" alt="Olist E-Commerce Business Analysis" class="project-card-thumb">
             </div>
-            <div class="sam-featured-arrow">&rarr;</div>
+            <div class="project-card-body">
+              <div class="project-meta" style="margin-bottom: 0.5rem;">
+                <span class="label-role badge-business">Business Analysis</span>
+              </div>
+              <h3 class="project-card-title">Olist E-Commerce Case Study</h3>
+              <p class="project-card-desc">Analysed ~99,000 orders from Brazil's largest marketplace aggregator across four pre-formed business hypotheses — delivery delays, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel, Tableau, and BPMN.</p>
+              <div class="project-card-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Tableau</span>
+                <span class="tool-tag">BPMN Workflow</span>
+                <span class="tool-tag">GAP Analysis</span>
+              </div>
+              <div class="project-card-cta">View Case Study &rarr;</div>
+            </div>
           </a>
 
-          <!-- Case Study 2 -->
-          <a href="projects/pharma.html" class="sam-featured-item">
-            <div class="sam-featured-left">
-              <span class="sam-featured-tag">Operations Analyst &bull; Live System</span>
-              <h3 class="sam-featured-title">I.P. Pharma Operational Dashboard</h3>
-              <p class="sam-featured-desc">Engineered automated stock management and representative tracking system for a tier-2 pharmaceutical distributor.</p>
+          <!-- Case Study 2: I.P. Pharma -->
+          <a href="projects/pharma.html" class="project-card-grid">
+            <div class="project-card-thumb-wrap">
+              <span class="project-number-tag">#02</span>
+              <img src="assets/pharma-preview.jpg" alt="I.P. Pharma Operational Dashboard" class="project-card-thumb">
             </div>
-            <div class="sam-featured-arrow">&rarr;</div>
+            <div class="project-card-body">
+              <div class="project-meta" style="margin-bottom: 0.5rem;">
+                <span class="label-role badge-business">Operations Analyst</span>
+              </div>
+              <h3 class="project-card-title">I.P. Pharma Operational Audit</h3>
+              <p class="project-card-desc">Analysed ~45,000 inventory SKU movements across 120+ retail chemist accounts — addressing order fulfillment bottlenecks, rep route latency, and stockout frequency — using Excel formulas, data modeling, and inventory flow controls.</p>
+              <div class="project-card-tools">
+                <span class="tool-tag">Excel Automation</span>
+                <span class="tool-tag">Inventory Controls</span>
+                <span class="tool-tag">Data Modeling</span>
+                <span class="tool-tag">Field Rep Tracking</span>
+              </div>
+              <div class="project-card-cta">View Case Study &rarr;</div>
+            </div>
           </a>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT I DO SECTION -->
-    <section class="what-i-do" id="what-i-do-section" style="padding: 4rem 0; border-top: 1px solid var(--divider);">
-      <div class="container">
-        <div class="what-i-do-header">
-          <h2 class="section-title">What I Do</h2>
-          <p class="section-desc" style="margin-top: 0.5rem;">
-            I help e-commerce &amp; consumer tech teams turn messy operational data into structured, repeatable business decisions.
-          </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#059669'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(5, 150, 105, 0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #059669;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <!-- Case Study 3: Vrinda Store -->
+          <a href="projects/vrinda.html" class="project-card-grid">
+            <div class="project-card-thumb-wrap">
+              <span class="project-number-tag">#03</span>
+              <img src="assets/vrinda-preview.jpg" alt="Vrinda Store Annual Sales Analysis" class="project-card-thumb">
             </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Process Mapping &amp; BPMN</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Document workflows, identify bottlenecks, and map optimized SOPs.</p>
-          </div>
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#2563EB'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(37, 99, 235, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #2563EB;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <div class="project-card-body">
+              <div class="project-meta" style="margin-bottom: 0.5rem;">
+                <span class="label-role badge-data">Data Analytics</span>
+              </div>
+              <h3 class="project-card-title">Vrinda Store Annual Audit</h3>
+              <p class="project-card-desc">Analysed ~31,000 transaction records across 12 sales channels — isolating channel order volume drop-offs, customer gender purchase splits, and regional fulfillment states — using Excel pivot tables, charts, and customer segmentation.</p>
+              <div class="project-card-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Pivot Tables</span>
+                <span class="tool-tag">Data Visualization</span>
+                <span class="tool-tag">Customer Segmentation</span>
+              </div>
+              <div class="project-card-cta">View Case Study &rarr;</div>
             </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Automated Dashboards</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Zero-upkeep Excel &amp; Tableau models tracking GMV, inventory, and sales performance.</p>
-          </div>
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#059669'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(5, 150, 105, 0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #059669;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">E-Commerce Data Audits</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Analyze <span class="highlight-pill">99,000+</span> orders — freight costs, seller concentration, cohorts, and regional sales.</p>
-          </div>
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#D97706'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(217, 119, 6, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #D97706;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">GAP &amp; Root Cause Analysis</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Nadler-Tushman models to isolate gaps between current state and business goals.</p>
-          </div>
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#7C3AED'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(124, 58, 237, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #7C3AED;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">SQL &amp; Data Pipeline Cleanup</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Normalize messy transaction data, write optimized SQL queries and relational schemas.</p>
-          </div>
-
-          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#7C3AED'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
-            <div style="width: 42px; height: 42px; background: rgba(124, 58, 237, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #7C3AED;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            </div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Product &amp; Stakeholder Bridge</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Translate business requirements into technical specs, bridging ops teams and developers.</p>
-          </div>
+          </a>
 
         </div>
       </div>
@@ -448,7 +531,7 @@
       <div class="container">
         <div class="section-header" style="margin-bottom: 2.5rem;">
           <div>
-            <h2 class="section-title">What Others Say</h2>
+            <h2 class="section-title"><span class="highlight">What Others Say</span></h2>
             <p class="section-desc">Feedback from managers, teams, and clients.</p>
           </div>
         </div>
@@ -473,33 +556,40 @@
       </div>
     </section>
 
-    <!-- 2 WEEKS FREE SERVICES (Sam Dickie Full-Width Green Section with Embedded Tally Form) -->
-    <section class="free-services" id="free-services-section" style="padding: 4rem 0;">
+    <!-- 2 WEEKS FREE SERVICES -->
+    <section class="free-services" id="free-services-section" style="padding: 3rem 0; background-color: #02F5A4 !important;">
       <div class="container">
-        <div class="free-box-green">
 
-          <!-- Inner White Card with Embedded Tally Form -->
-          <div class="free-box-inner">
-            <span class="free-badge">FREE ENGAGEMENT</span>
-            <h2 class="free-box-headline">2 Weeks Free.<br>No Retainer. No Commitment.</h2>
-            <p class="free-box-desc">
-              Send me a message below with a real operational spreadsheet or workflow issue &mdash; I'll show you how I work for zero risk.
-            </p>
+        <!-- Single Centered White Card -->
+        <div class="free-cta-card">
 
-            <!-- Embedded Tally Form -->
-            <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="260" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
-            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+          <!-- Headline -->
+          <h2 style="color: #111115; font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 0.65rem 0;">
+            Test My Data Skills <span class="highlight" style="color: #111115;"><span class="underline-green">Free For 2 Weeks</span></span>&mdash;<br>No Risk, Real Results.
+          </h2>
+
+          <!-- Subheadline -->
+          <p style="color: #4B4B55; font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.65; margin: 0 0 1.1rem 0; max-width: 70ch;">
+            Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span style="display: inline-flex; align-items: center; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 800; padding: 0.15rem 0.65rem; border-radius: 100px; border: 1.5px solid #111115; vertical-align: middle; line-height: 1.4;">14 days</span> so you can evaluate my skills risk-free.
+          </p>
+
+          <!-- What you get: inline pill tags -->
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-start; margin-bottom: 1.5rem;">
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Automated Dashboards &amp; Reporting
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Process Optimization &amp; SQL Queries
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
+              <span style="font-size: 0.82rem;">&#10003;</span> Clear Business &amp; Data Insights
+            </span>
           </div>
 
-          <!-- Right Floating Details on Green -->
-          <div class="free-aside">
-            <div class="free-aside-headline">What you get in 2 weeks</div>
-            <p class="free-aside-desc">A structured operational audit, clear data insights, and actionable recommendations delivered in 14 days.</p>
-            <ul class="free-aside-list">
-              <li><span>&check;</span> Dashboard &amp; Reporting Setup</li>
-              <li><span>&check;</span> Process &amp; Workflow Audits</li>
-              <li><span>&check;</span> Data Cleaning &amp; SQL Queries</li>
-            </ul>
+          <!-- Tally Form -->
+          <div style="text-align: left;">
+            <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
           </div>
 
         </div>
@@ -508,40 +598,60 @@
 
   </main>
 
-  <!-- FOOTER (Sam Dickie Minimal Footer) -->
-  <footer class="footer" id="footer-section">
-    <div class="footer-bottom">
-      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <div>&copy; 2026 Varneet Singh. All Rights Reserved.</div>
-        <div style="display: flex; gap: 1.5rem; align-items: center;">
-          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
-          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
-          <a href="mailto:varneetsingh45@gmail.com" class="footer-social-link">Email</a>
-        </div>
+  <!-- FOOTER -->
+  <footer id="main-footer" style="background: #ffffff; padding: 2.5rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+      
+      <!-- Left: Logo emblem & links -->
+      <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;">
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh" style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #111115;">
+        </a>
+        <nav style="display: flex; gap: 1.25rem; font-weight: 600; font-size: 0.95rem;">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="now.html" class="nav-link">Now</a>
+          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="experience.html" class="nav-link">Career</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link">Resume</a>
+        </nav>
       </div>
+
+      <!-- Right: Social icons -->
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#6e40c9'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#EA4335'" onmouseout="this.style.color='#111115'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+      </div>
+
     </div>
   </footer>
 
   <script src="js/script.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
           }
         });
       }, { threshold: 0.08 });
 
-      document.querySelectorAll('section, .sam-featured-item, .testimonial-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
+      document.querySelectorAll("section, .sam-featured-item, .testimonial-card").forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
         observer.observe(el);
       });
     });
   </script>
 </body>
-
 </html>
