@@ -8,46 +8,260 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-CQDBHK7BZF');
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varneet Singh | Business & Data Analyst</title>
+  <title>Varneet Singh | Business Analyst — E-Commerce &amp; Consumer Tech</title>
   <meta name="description"
-    content="Portfolio of Varneet Singh, a Business Analyst specializing in bridging messy operational data and structured business decisions using framework-driven methodologies.">
+    content="Journalism grad turned BA. I bring structured frameworks (BPMN, GAP analysis) to e-commerce and consumer tech teams that are drowning in data but starving for decisions.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/typography.css">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Varneet Singh | Business & Data Analyst">
-  <meta property="og:description" content="Portfolio of Varneet Singh, a Business Analyst specializing in bridging messy operational data and structured business decisions using framework-driven methodologies.">
+  <meta property="og:title" content="Varneet Singh | Business Analyst — E-Commerce &amp; Consumer Tech">
+  <meta property="og:description" content="Journalism grad turned BA. I bring structured frameworks (BPMN, GAP analysis) to e-commerce and consumer tech teams that are drowning in data but starving for decisions.">
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/index-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/index.html">
   <meta property="og:type" content="website">
+
+  <style>
+    /* ── Sam Dickie Green Card — 2 Weeks Free ── */
+    .free-box-green {
+      background: #10B981;
+      border-radius: 28px;
+      padding: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    @media (min-width: 860px) {
+      .free-box-green {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 2.5rem;
+      }
+    }
+
+    .free-box-green::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .free-box-inner {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      flex: 1 1 55%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .free-badge {
+      display: inline-block;
+      background: #10B981;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .free-box-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: #111115;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .free-box-desc {
+      font-size: 1rem;
+      color: #4B4B55;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      max-width: 48ch;
+    }
+
+    .free-aside {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 860px) {
+      .free-aside { margin-top: 0; }
+    }
+
+    .free-aside-headline {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .free-aside-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.25rem;
+    }
+
+    .free-aside-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .free-aside-list li {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Sam Dickie Featured Work List */
+    .sam-featured-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sam-featured-item {
+      background: #FFFFFF;
+      border: 1.5px solid #111115;
+      border-radius: 18px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      box-shadow: 0 4px 16px rgba(17,17,21,0.03);
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .sam-featured-item:hover {
+      border-color: #059669;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(5,150,105,0.1);
+    }
+
+    .sam-featured-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sam-featured-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #059669;
+    }
+
+    .sam-featured-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111115;
+      margin: 0;
+    }
+
+    .sam-featured-desc {
+      font-size: 0.92rem;
+      color: #4B4B55;
+      margin: 0;
+      max-width: 65ch;
+    }
+
+    .sam-featured-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #F4F4F6;
+      border: 1.5px solid #111115;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111115;
+      flex-shrink: 0;
+      transition: var(--transition-fast);
+    }
+
+    .sam-featured-item:hover .sam-featured-arrow {
+      background: #059669;
+      color: #FFFFFF;
+      border-color: #059669;
+    }
+
+    @media (max-width: 640px) {
+      .sam-featured-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .sam-featured-arrow {
+        align-self: flex-end;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== -->
+  <!-- NAVIGATION BAR (3-Column layout: Links Left | Centered Avatar | Links Right + CTA) -->
   <header id="main-header">
     <div class="container nav-container">
-      <a href="index.html" class="logo" id="logo-home">
-        VARNEET SINGH<span class="logo-dot"></span>
-      </a>
+      <nav class="nav-menu-3col" id="nav-menu-links">
+        
+        <!-- Left Links -->
+        <div class="nav-links-left">
+          <a href="now.html" class="nav-link" id="nav-link-now">Now</a>
+          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+        </div>
 
-      <nav class="nav-menu" id="nav-menu-links">
-        <a href="index.html" class="nav-link active" id="nav-link-home">Home</a>
-        <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
-        <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
-        <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-        <a href="contact.html" class="cta-button" id="nav-cta-talk">
-          Let's Talk
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <!-- Center Emblem Avatar -->
+        <a href="index.html" class="nav-emblem-logo" id="logo-home" title="Varneet Singh — Home">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
         </a>
+
+        <!-- Right Links & CTA (also acts as full mobile drawer) -->
+        <div class="nav-links-right">
+          <a href="now.html" class="nav-link mobile-only-link" id="nav-link-now-mob">Now</a>
+          <a href="projects.html" class="nav-link mobile-only-link" id="nav-link-projects-mob">Projects</a>
+          <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
+          <a href="contact.html" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+        </div>
+
       </nav>
 
       <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
@@ -58,293 +272,276 @@
     </div>
   </header>
 
-  <!-- ==========================================================================
-       MAIN CONTENT
-       ========================================================================== -->
+  <!-- MAIN CONTENT -->
   <main>
 
+    <!-- HERO SECTION -->
     <section class="hero" id="hero-section">
-      <div class="container hero-layout home-hero-layout">
-        <div class="hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          Available for Freelance & Full-time
-        </div>
-        <div class="hero-tagline-quote">
-          <h1 class="hero-title">
-            <span class="hero-line">Better <span class="italic-accent">decisions</span> don't come from more
-              data.</span>
-            <span class="hero-line">They come from someone who knows how to <span class="italic-accent">read
-                it</span>.</span>
-          </h1>
-        </div>
-        <p class="hero-subtitle">
-          I specialize in translating messy operational datasets into structured, growth-oriented business decisions.
-        </p>
-        <div class="hero-ctas">
-          <a href="projects.html" class="cta-button" id="hero-cta-projects">
-            Explore My Work
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="resume.pdf" target="_blank" rel="noopener" class="secondary-button" id="hero-cta-resume">
-            Download Resume
-          </a>
-          <a href="experience.html" class="secondary-button" id="hero-cta-exp">
-            View Career Timeline
-          </a>
-        </div>
+      <div class="container">
+        <div class="hero-split">
 
-        <!-- Repositioned & Redesigned Typographic Metrics Strip -->
-        <div class="metrics-strip">
-          <div class="metric-card">
-            <span class="metric-number">2+ Years</span>
-            <span class="metric-label">Operational Data Work</span>
+          <!-- Left Copy -->
+          <div class="hero-content" style="position: relative; z-index: 2;">
+            
+            <div class="hero-tagline-quote" style="border-left: 4px solid #10B981; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+              <h1 class="hero-title" style="margin: 0; font-size: clamp(2.1rem, 3.8vw, 3.2rem); line-height: 1.18;">
+                Better decisions don't come from more data.<br>
+                They come from someone who knows how to <span class="underline-green">read it</span>.
+              </h1>
+            </div>
+
+            <p class="hero-subtitle" style="margin-bottom: 2rem;">
+              I turn messy spreadsheets, scattered customer orders, and broken team workflows into clear, simple answers so you can make decisions fast &mdash; without the guesswork.
+            </p>
+
+            <div class="hero-ctas" style="margin-bottom: 2.5rem;">
+              <a href="projects.html" class="cta-button" id="hero-cta-projects">
+                Explore My Work
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="resume.pdf" target="_blank" rel="noopener" class="secondary-button" id="hero-cta-resume">
+                Download Resume
+              </a>
+              <a href="experience.html" class="secondary-button" id="hero-cta-exp">
+                View Career Timeline
+              </a>
+            </div>
+
+            <!-- Metrics Strip -->
+            <div class="metrics-strip">
+              <div class="metric-card">
+                <span class="metric-number">2+ Years</span>
+                <span class="metric-label">Operational Data Work</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">99,000+</span>
+                <span class="metric-label">Records Analysed</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">3+</span>
+                <span class="metric-label">End-to-End Case Studies</span>
+              </div>
+            </div>
           </div>
-          <div class="metric-card">
-            <span class="metric-number">99,000+</span>
-            <span class="metric-label">Records Analysed</span>
+
+          <!-- Right Avatar Image -->
+          <div class="hero-avatar-wrap" style="position: relative; z-index: 1;">
+            <img
+              src="assets/varneet-avatar.png"
+              alt="Illustrated portrait of Varneet Singh"
+              class="hero-avatar-img"
+              width="260"
+              height="310"
+            >
           </div>
-          <div class="metric-card">
-            <span class="metric-number">3+</span>
-            <span class="metric-label">End-to-End Case Studies</span>
-          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Selected Projects (List-Based Layout) -->
-    <section class="projects" id="selected-projects-section" style="border-top: 1px solid var(--divider);">
+    <!-- FEATURED CASE STUDIES (Sam Dickie Content List Style) -->
+    <section class="projects" id="selected-projects-section" style="padding: 4rem 0; border-top: 1px solid var(--divider);">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
           <div>
-            <h2 class="section-title">Selected Case Studies</h2>
+            <h2 class="section-title">Featured Case Studies</h2>
             <p class="section-desc">Practical application of frameworks, data modeling, and process optimization.</p>
           </div>
+          <a href="projects.html" class="secondary-button" style="color: var(--copper); border-color: var(--copper); white-space: nowrap;">View All Projects &rarr;</a>
         </div>
 
-        <div class="projects-list">
-
-          <!-- Project 1: Olist E-Commerce -->
-          <a href="projects/olist.html" class="project-item" id="project-item-olist">
-            <div class="project-info">
-              <div class="project-meta">
-                <span class="label-role badge-business">Business Analysis</span>
-                <span class="label-date">2026</span>
-              </div>
-              <h3 class="project-item-title">Olist E-Commerce Business Analysis</h3>
-              <p class="project-desc">Analysed ~99,000 orders from Brazil's largest marketplace aggregator across four
-                pre-formed business hypotheses — delivery delays, geographic revenue concentration, seller GMV
-                distribution, and freight cost burden — using Excel, Tableau, and BPMN.</p>
-              <div class="project-tools">
-                <span class="tool-tag">Excel</span>
-                <span class="tool-tag">Tableau</span>
-                <span class="tool-tag">Draw.io</span>
-                <span class="tool-tag">BPMN Workflow</span>
-                <span class="tool-tag">Nadler-Tushman</span>
-                <span class="tool-tag">GAP Analysis</span>
-              </div>
+        <div class="sam-featured-list">
+          
+          <!-- Case Study 1 -->
+          <a href="projects/olist.html" class="sam-featured-item">
+            <div class="sam-featured-left">
+              <span class="sam-featured-tag">Business Analysis &bull; 99,000 Records</span>
+              <h3 class="sam-featured-title">Olist E-Commerce Business Analysis</h3>
+              <p class="sam-featured-desc">Audited marketplace order delays, seller GMV distribution, and freight cost burden using Excel, Tableau, and BPMN models.</p>
             </div>
-            <div class="project-action">
-              View Case Study
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+            <div class="sam-featured-arrow">&rarr;</div>
           </a>
 
-          <!-- Project 2: I.P. Pharma -->
-          <a href="projects/pharma.html" class="project-item" id="project-item-pharma">
-            <div class="project-info">
-              <div class="project-meta">
-                <span class="label-role badge-business">Business Operations Analyst</span>
-                <span class="status-dot"></span>
-                <span class="label-date">2026</span>
-              </div>
-              <h3 class="project-item-title">I.P. Pharma Operational Dashboard & Sales Tracking</h3>
-              <p class="project-desc">Engineered an automated stock management and representative sales tracking system
-                for a tier-2 city pharmaceutical distributor, resolving field reporting inaccuracies.</p>
-              <div class="project-tools">
-                <span class="tool-tag">Excel</span>
-                <span class="tool-tag">Operations Management</span>
-                <span class="tool-tag">Inventory Controls</span>
-              </div>
+          <!-- Case Study 2 -->
+          <a href="projects/pharma.html" class="sam-featured-item">
+            <div class="sam-featured-left">
+              <span class="sam-featured-tag">Operations Analyst &bull; Live System</span>
+              <h3 class="sam-featured-title">I.P. Pharma Operational Dashboard</h3>
+              <p class="sam-featured-desc">Engineered automated stock management and representative tracking system for a tier-2 pharmaceutical distributor.</p>
             </div>
-            <div class="project-action">
-              View Case Study
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </a>
-
-          <!-- Project 3: Vrinda Store -->
-          <a href="projects/vrinda.html" class="project-item" id="project-item-vrinda">
-            <div class="project-info">
-              <div class="project-meta">
-                <span class="label-role badge-data">Data Analysis</span>
-                <span class="label-date">2025</span>
-              </div>
-              <h3 class="project-item-title">Vrinda Store Retail Sales Performance Audit</h3>
-              <p class="project-desc">Audited a complete retail transaction dataset in Excel to construct key customer
-                profiles, regional performance indices, and channel success factors.</p>
-              <div class="project-tools">
-                <span class="tool-tag">Excel</span>
-                <span class="tool-tag">Sales Auditing</span>
-                <span class="tool-tag">Customer Segmentation</span>
-              </div>
-            </div>
-            <div class="project-action">
-              View Case Study
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+            <div class="sam-featured-arrow">&rarr;</div>
           </a>
 
         </div>
       </div>
     </section>
 
-    <!-- Skills Snapshot -->
-    <section class="skills" id="skills-section"
-      style="border-top: 1px solid var(--divider); background-color: rgba(40, 54, 24, 0.005);">
+    <!-- WHAT I DO SECTION -->
+    <section class="what-i-do" id="what-i-do-section" style="padding: 4rem 0; border-top: 1px solid var(--divider);">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">Core Capability Stack</h2>
-            <p class="section-desc">The specific tools, methodologies, and frameworks I leverage daily.</p>
-          </div>
+        <div class="what-i-do-header">
+          <h2 class="section-title">What I Do</h2>
+          <p class="section-desc" style="margin-top: 0.5rem;">
+            I help e-commerce &amp; consumer tech teams turn messy operational data into structured, repeatable business decisions.
+          </p>
         </div>
 
-        <div class="skills-grid">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
 
-          <!-- Category 1: BA Methodologies -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-              </svg>
-              Business Analysis & Methodologies
-            </h3>
-            <div class="skill-items-wrap">
-              <span class="tool-tag">GAP Analysis</span>
-              <span class="tool-tag">BPMN Workflow</span>
-              <span class="tool-tag">Nadler-Tushman Model</span>
-              <span class="tool-tag">Requirement Gathering</span>
-              <span class="tool-tag">Process Optimization</span>
-              <span class="tool-tag">Stakeholder Coordination</span>
-              <span class="tool-tag">KPI &amp; Metric Tracking</span>
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#059669'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(5, 150, 105, 0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #059669;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
             </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Process Mapping &amp; BPMN</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Document workflows, identify bottlenecks, and map optimized SOPs.</p>
           </div>
 
-          <!-- Category 2: Tech & Analysis Tools -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-              Technical Analytics & Tools
-            </h3>
-            <div class="skill-items-wrap">
-              <span class="tool-tag">Advanced Microsoft Excel</span>
-              <span class="tool-tag">Tableau Desktop</span>
-              <span class="tool-tag">SQL (MySQL)</span>
-              <span class="tool-tag">Draw.io (Lucidchart)</span>
-              <span class="tool-tag">Data Modeling & Relationships</span>
-              <span class="tool-tag">Pivot Tables & Power Query</span>
-              <span class="tool-tag">SEO Analytics</span>
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#2563EB'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(37, 99, 235, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #2563EB;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
             </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Automated Dashboards</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Zero-upkeep Excel &amp; Tableau models tracking GMV, inventory, and sales performance.</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#059669'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(5, 150, 105, 0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #059669;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">E-Commerce Data Audits</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Analyze <span class="highlight-pill">99,000+</span> orders — freight costs, seller concentration, cohorts, and regional sales.</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#D97706'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(217, 119, 6, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #D97706;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">GAP &amp; Root Cause Analysis</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Nadler-Tushman models to isolate gaps between current state and business goals.</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#7C3AED'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(124, 58, 237, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #7C3AED;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">SQL &amp; Data Pipeline Cleanup</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Normalize messy transaction data, write optimized SQL queries and relational schemas.</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1.5px solid #111115; padding: 1.75rem; border-radius: 20px; box-shadow: 0 6px 20px rgba(17,17,21,0.04); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='#7C3AED'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#111115'; this.style.transform='translateY(0)'">
+            <div style="width: 42px; height: 42px; background: rgba(124, 58, 237, 0.10); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #7C3AED;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #111115; font-family: var(--font-display);">Product &amp; Stakeholder Bridge</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; max-width: none;">Translate business requirements into technical specs, bridging ops teams and developers.</p>
           </div>
 
         </div>
-
-      </div>
-
       </div>
     </section>
 
-    <!-- 2 Weeks Free Services -->
-    <section class="free-services" id="free-services-section" style="border-top: 1px solid var(--divider); padding: 4rem 0;">
-      <div class="container" style="text-align: center; max-width: 700px;">
-        <h2 class="section-title">2 Weeks Free Services</h2>
-        <p class="section-desc" style="margin-bottom: 2rem;">I offer a free 2-week engagement for early-stage startups — give me a real operational or data problem and I'll show you exactly how I work. No retainer, no commitment.</p>
-        <a href="contact.html" class="cta-button" style="display: inline-flex;">
-          Let's Talk
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials-section" style="border-top: 1px solid var(--divider);">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <div>
+            <h2 class="section-title">What Others Say</h2>
+            <p class="section-desc">Feedback from managers, teams, and clients.</p>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-quote">
+              "Varneet has a knack for cutting through messy reports and pulling out the exact 2 or 3 metrics that actually matter for business decisions."
+            </p>
+            <div class="testimonial-author">Ankit Sharma</div>
+            <div class="testimonial-role">Operations Lead, I.P. Pharma</div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-quote">
+              "He transformed our stock tracking from a daily spreadsheet headache into a smooth, automated workflow that saved us hours every week."
+            </p>
+            <div class="testimonial-author">Priya Nair</div>
+            <div class="testimonial-role">Product Specialist &amp; Advisor</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 WEEKS FREE SERVICES (Sam Dickie Full-Width Green Section with Embedded Tally Form) -->
+    <section class="free-services" id="free-services-section" style="padding: 4rem 0;">
+      <div class="container">
+        <div class="free-box-green">
+
+          <!-- Inner White Card with Embedded Tally Form -->
+          <div class="free-box-inner">
+            <span class="free-badge">FREE ENGAGEMENT</span>
+            <h2 class="free-box-headline">2 Weeks Free.<br>No Retainer. No Commitment.</h2>
+            <p class="free-box-desc">
+              Send me a message below with a real operational spreadsheet or workflow issue &mdash; I'll show you how I work for zero risk.
+            </p>
+
+            <!-- Embedded Tally Form -->
+            <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="260" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
+            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+          </div>
+
+          <!-- Right Floating Details on Green -->
+          <div class="free-aside">
+            <div class="free-aside-headline">What you get in 2 weeks</div>
+            <p class="free-aside-desc">A structured operational audit, clear data insights, and actionable recommendations delivered in 14 days.</p>
+            <ul class="free-aside-list">
+              <li><span>&check;</span> Dashboard &amp; Reporting Setup</li>
+              <li><span>&check;</span> Process &amp; Workflow Audits</li>
+              <li><span>&check;</span> Data Cleaning &amp; SQL Queries</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ==========================================================================
-       FOOTER & CALLOUT
-       ========================================================================== -->
+  <!-- FOOTER (Sam Dickie Minimal Footer) -->
   <footer class="footer" id="footer-section">
-    <div class="footer-callout">
-      <div class="container footer-callout-wrap">
-        <h2 class="footer-callout-title">Let's solve operational challenges together.</h2>
-        <p>I'm actively seeking Business/Data Analyst roles and freelance engagements &mdash; applying rigorous frameworks and technical tracking to drive measurable performance improvements.</p>
-        <a href="contact.html" class="cta-button" id="footer-cta-mail">
-          Let's Talk
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-
-        <div class="footer-socials">
-          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link"
-            id="footer-social-linkedin">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link"
-            id="footer-social-github">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-              </path>
-            </svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-    </div>
     <div class="footer-bottom">
-      <div class="container">
-        &copy; 2026 Varneet Singh. All Rights Reserved. Crafted with Cornsilk & Black Forest.
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>&copy; 2026 Varneet Singh. All Rights Reserved.</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
+          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="footer-social-link">Email</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('section, .sam-featured-item, .testimonial-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 
 </html>

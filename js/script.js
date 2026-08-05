@@ -4,22 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
+  const navLinksRight = document.querySelector('.nav-links-right');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  if (hamburger && navMenu) {
+  if (hamburger) {
+    const mobileTarget = navLinksRight || navMenu;
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      
-      // Prevent body scrolling when mobile menu is open
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      if (mobileTarget) mobileTarget.classList.toggle('active');
+      document.body.style.overflow = (mobileTarget && mobileTarget.classList.contains('active')) ? 'hidden' : '';
     });
 
-    // Close mobile menu when a nav link is clicked
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (mobileTarget) mobileTarget.classList.remove('active');
         document.body.style.overflow = '';
       });
     });
@@ -121,4 +120,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ==========================================================================
+  // SAM DICKIE STYLE HEADER SCROLL REVEAL (Hide on down, center expand on up)
+  // ==========================================================================
+  const header = document.querySelector('#main-header');
+  let lastScrollTop = 0;
+
+  if (header) {
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > 120) {
+        if (scrollTop > lastScrollTop) {
+          // Scrolling DOWN -> Hide navbar
+          header.classList.add('nav-hidden');
+          header.classList.remove('nav-revealed');
+        } else {
+          // Scrolling UP -> Reveal navbar from center
+          if (header.classList.contains('nav-hidden')) {
+            header.classList.remove('nav-hidden');
+            header.classList.add('nav-revealed');
+          }
+        }
+      } else {
+        // At top of page
+        header.classList.remove('nav-hidden');
+        header.classList.remove('nav-revealed');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
+  }
 });

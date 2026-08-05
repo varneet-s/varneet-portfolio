@@ -1,61 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Satoshi:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root {
-  /* ── Base Palette ─────────────────────────────────────────── */
-  --cornsilk:      oklch(0.98 0.006 85);   /* warm linen background */
-  --black-forest:  oklch(0.25 0.04 120);   /* deep organic green — primary text */
+  /* ── Sam Dickie Signature Palette (Fresh Light Theme) ── */
+  --bg-dark:         #F4F4F6;   /* Clean light grey canvas */
+  --bg-dark-elevated:#FFFFFF;   /* Pure white card surface */
+  --bg-card:         #FFFFFF;   /* Elevated card surface */
+  --bg-card-hover:   #FAFAFC;   /* Card hover surface */
+  --cornsilk:        #F4F4F6;   /* Main canvas background */
+  --black-forest:    #111115;   /* Deep charcoal — primary text */
 
   /* ── Text Tones ───────────────────────────────────────────── */
-  --text-primary:   var(--black-forest);
-  --text-secondary: oklch(0.25 0.04 120 / 0.75);
-  --text-tertiary:  oklch(0.25 0.04 120 / 0.55);
+  --text-primary:   #111115;
+  --text-secondary: #4B4B55;
+  --text-tertiary:  #8E8E9A;
 
-  /* ── 5-Colour Semantic Accent System ─────────────────────── */
+  /* ── Sam Dickie Accent System (Mint Green + Playful Pastel Pop) ── */
+  --copper:         #059669;   /* Signature Mint Green accent */
+  --copper-muted:   rgba(5, 150, 105, 0.10);
+  --copper-hover:   #047857;
+  --purple-accent:  #7C3AED;   /* Playful Violet accent for badges */
 
-  /* 1. Copper — primary action: CTAs, nav underlines, buttons, logo dot */
-  --copper:         oklch(0.55 0.15 45);
-  --copper-muted:   oklch(0.55 0.15 45 / 0.12);
-  --copper-hover:   oklch(0.50 0.15 45);
+  /* ── Domain Accents ───────────────────────────────────────── */
+  --status-green:         #059669;
+  --status-green-muted:   rgba(5, 150, 105, 0.10);
+  --status-green-border:  rgba(5, 150, 105, 0.25);
+  --status-green-dot:     #10B981;
 
-  /* 2. Status Green — live/available state only */
-  --status-green:         oklch(0.40 0.13 132);
-  --status-green-muted:   oklch(0.40 0.13 132 / 0.10);
-  --status-green-border:  oklch(0.40 0.13 132 / 0.22);
-  --status-green-dot:     oklch(0.45 0.16 132);
+  --teal:           #2563EB;
+  --teal-muted:     rgba(37, 99, 235, 0.10);
+  --teal-border:    rgba(37, 99, 235, 0.22);
+  --teal-text:      #2563EB;
 
-  /* 3. Teal — data & analytics domain */
-  --teal:           oklch(0.42 0.11 200);
-  --teal-muted:     oklch(0.42 0.11 200 / 0.10);
-  --teal-border:    oklch(0.42 0.11 200 / 0.22);
-  --teal-text:      oklch(0.28 0.09 200);
+  --amber:          #D97706;
+  --amber-muted:    rgba(217, 119, 6, 0.10);
+  --amber-border:   rgba(217, 119, 6, 0.22);
+  --amber-text:     #D97706;
 
-  /* 4. Amber — business strategy domain */
-  --amber:          oklch(0.58 0.13 68);
-  --amber-muted:    oklch(0.58 0.13 68 / 0.10);
-  --amber-border:   oklch(0.58 0.13 68 / 0.22);
-  --amber-text:     oklch(0.38 0.10 68);
-
-  /* 5. Slate — informational / pending */
-  --slate:          oklch(0.48 0.08 255);
-  --slate-muted:    oklch(0.48 0.08 255 / 0.10);
-  --slate-border:   oklch(0.48 0.08 255 / 0.22);
-  --slate-text:     oklch(0.30 0.07 255);
+  --slate:          #64748B;
+  --slate-muted:    rgba(100, 116, 139, 0.10);
+  --slate-border:   rgba(100, 116, 139, 0.22);
+  --slate-text:     #475569;
 
   /* ── Layout & Utility ─────────────────────────────────────── */
-  --divider:        oklch(0.25 0.04 120 / 0.08);
-  --tag-bg:         oklch(0.25 0.04 120 / 0.04);
-  --tag-border:     oklch(0.25 0.04 120 / 0.12);
+  --divider:        rgba(17, 17, 21, 0.08);
+  --tag-bg:         rgba(11, 11, 15, 0.04);
+  --tag-border:     rgba(11, 11, 15, 0.12);
 
   /* ── Typography ───────────────────────────────────────────── */
-  --font-display: 'Lora', serif;
+  --font-display: 'Poppins', sans-serif;
   --font-sans:    'Satoshi', sans-serif;
 
-  /* ── Transitions ──────────────────────────────────────────── */
-  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast:   all 0.15s ease-out;
+  /* ── Transitions & Motion ──────────────────────────────────── */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast:   all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Global SVG Logo & Brand Icon Grayscale-to-Color Transition */
@@ -83,6 +83,12 @@
   padding: 0;
 }
 
+html {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
 body {
   background-color: var(--cornsilk);
   color: var(--text-primary);
@@ -93,6 +99,28 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Sam Dickie style floating dots ambient background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 12% 20%, rgba(16, 185, 129, 0.25) 0px, transparent 18px),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.22) 0px, transparent 24px),
+    radial-gradient(circle at 78% 70%, rgba(59, 130, 246, 0.20) 0px, transparent 20px),
+    radial-gradient(circle at 18% 75%, rgba(244, 114, 182, 0.22) 0px, transparent 16px),
+    radial-gradient(circle at 50% 48%, rgba(16, 185, 129, 0.15) 0px, transparent 22px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 a {
@@ -119,8 +147,8 @@ img {
    ========================================================================== */
 h1, h2, h3, h4, .font-serif {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 p {
@@ -131,9 +159,9 @@ p {
 
 .italic-accent {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   color: var(--copper);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -143,7 +171,8 @@ p {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 main {
@@ -151,7 +180,16 @@ main {
 }
 
 section {
-  padding: 8rem 0;
+  padding: 4rem 0;
+}
+
+/* C3 FIX: Tighten padding on projects and skills section */
+.projects {
+  padding-bottom: 2rem !important;
+}
+
+.skills {
+  padding-top: 2rem !important;
 }
 
 /* ==========================================================================
@@ -159,20 +197,155 @@ section {
    ========================================================================== */
 header {
   position: sticky;
-  top: 0;
+  top: 1.25rem;
   z-index: 100;
-  background-color: oklch(0.95 0.008 85 / 0.9); /* slightly darker warm tint for nav */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--divider);
-  transition: var(--transition-smooth);
+  background: #ffffff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid #111115;
+  width: calc(100% - 3rem);
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  border-radius: 100px;
+  box-shadow: 0 12px 32px rgba(17, 17, 21, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  overflow: hidden;
+}
+
+/* Sam Dickie Nav Hide on scroll down / reveal on scroll up */
+header.nav-hidden {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Emil: Reveal should be calm, not theatrical. No scale explosion. */
+header.nav-revealed {
+  animation: navRevealCenter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes navRevealCenter {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4.5rem;
+  height: 4.25rem;
+  padding: 0 1.75rem;
+}
+
+/* Sam Dickie style: 3-column navbar with avatar in exact center */
+.nav-menu-3col {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-links-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.nav-emblem-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-emblem-logo span {
+  display: none;
+}
+
+.nav-emblem-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--copper);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-emblem-logo:hover .nav-emblem-icon {
+  transform: rotate(12deg) scale(1.1);
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
+}
+
+.nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.mobile-only-link {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only-link {
+    display: block;
+  }
+}
+
+/* Sam Dickie typography accents: Green Underline Heading & Pill Highlight */
+.underline-green {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-green::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 6px;
+  background-color: #10B981;
+  z-index: -1;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #10B981;
+  color: #111115 !important;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.9em;
+  margin: 0 0.2rem;
+  line-height: 1.2;
+}
+
+/* Minimal page headers for non-home pages */
+.simple-page-header {
+  padding: 4rem 0 2rem 0;
+}
+
+.simple-page-header .page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #111115;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
 .logo {
@@ -195,7 +368,9 @@ header {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .nav-link {
@@ -230,7 +405,7 @@ header {
 /* CTA Pill Button */
 .cta-button {
   background-color: var(--copper);
-  color: var(--cornsilk) !important;
+  color: oklch(0.97 0.005 295) !important;
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 600;
@@ -247,7 +422,7 @@ header {
   background-color: transparent;
   color: var(--copper) !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.15);
+  box-shadow: 0 4px 16px oklch(0.40 0.14 295 / 0.18);
 }
 
 .cta-button:active {
@@ -277,8 +452,8 @@ header {
    HERO SECTION
    ========================================================================== */
 .hero {
-  padding: 8rem 0 6rem 0;
-  background-color: rgba(40, 54, 24, 0.025);
+  padding: 5rem 0 4rem 0;
+  background: transparent;
   border-bottom: 1px solid var(--divider);
 }
 
@@ -336,6 +511,7 @@ header {
 .hero-ctas {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
   margin-bottom: 3.5rem;
 }
@@ -389,15 +565,20 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 0;
-  border-bottom: 1px solid var(--divider);
+  padding: 2.5rem 2rem;
+  border: 1.5px solid #111115;
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(17, 17, 21, 0.04);
   transition: var(--transition-smooth);
 }
 
 .project-item:hover {
-  background-color: rgba(40, 54, 24, 0.015);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  background-color: #ffffff;
+  border-color: var(--copper);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(17, 17, 21, 0.08);
 }
 
 .project-info {
@@ -1180,6 +1361,294 @@ header {
 }
 
 /* ==========================================================================
+   TL;DR / KEY TAKEAWAYS BOX (case study pages)
+   ========================================================================== */
+.cs-tldr {
+  margin: 2.5rem 0 0 0;
+  border-left: 3px solid var(--copper);
+  background-color: oklch(0.40 0.14 295 / 0.04);
+  border: 1px solid oklch(0.40 0.14 295 / 0.18);
+  border-left: 3px solid var(--copper);
+  border-radius: 0 8px 8px 0;
+  padding: 1.75rem 2rem;
+}
+
+.cs-tldr-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--copper);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cs-tldr-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cs-tldr-item {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.97rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cs-tldr-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--copper);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   TESTIMONIAL STRIP (homepage)
+   ========================================================================== */
+.testimonials {
+  padding: 5rem 0;
+  border-top: 1px solid var(--divider);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  border: 1.5px solid #111115;
+  border-radius: 24px;
+  padding: 2.25rem;
+  box-shadow: 0 10px 30px rgba(17, 17, 21, 0.05);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--copper);
+  box-shadow: 0 18px 40px rgba(5, 150, 105, 0.12);
+}
+
+.testimonial-quote {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  font-style: normal;
+  margin-bottom: 1.5rem;
+  max-width: none;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple-accent);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   HERO AVATAR (homepage split layout)
+   ========================================================================== */
+
+.hero-split {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2.5rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .hero-split {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+  .hero-content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .hero-avatar-wrap {
+    flex-shrink: 0;
+  }
+}
+
+.hero-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .hero-avatar-wrap {
+    width: auto;
+  }
+}
+
+.hero-avatar-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 28px;
+  object-fit: cover;
+  object-position: top center;
+  border: 3px solid var(--copper);
+  box-shadow: 0 0 0 8px rgba(5, 150, 105, 0.08),
+              0 24px 48px rgba(5, 150, 105, 0.14);
+}
+
+@media (min-width: 860px) {
+  .hero-avatar-img {
+    width: 260px;
+    height: 310px;
+  }
+}
+
+/* ==========================================================================
+   CAREER PATH STRIP (homepage)
+   ========================================================================== */
+.career-path {
+  border-top: 1px solid var(--divider);
+  padding: 5rem 0;
+  background-color: oklch(0.40 0.14 295 / 0.02);
+}
+
+.career-path-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.career-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 160px;
+  text-align: center;
+}
+
+.career-node-label {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.career-node-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.career-node-year {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-sans);
+}
+
+.career-node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--copper);
+  margin-bottom: 0.25rem;
+}
+
+.career-node.career-node-current .career-node-dot {
+  background-color: var(--status-green-dot);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.career-node.career-node-next .career-node-dot {
+  background-color: transparent;
+  border: 2px dashed var(--copper);
+  opacity: 0.5;
+}
+
+.career-connector {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--copper) 0%, oklch(0.40 0.14 295 / 0.3) 100%);
+  min-width: 40px;
+  position: relative;
+  top: -28px;
+}
+
+.career-connector.connector-next {
+  background: var(--divider);
+  border-top: 1px dashed oklch(0.40 0.14 295 / 0.25);
+  height: 0;
+}
+
+/* ==========================================================================
+   CASE STUDY MID-PAGE CTA
+   ========================================================================== */
+.cs-mid-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin: 3rem 0;
+}
+
+.cs-mid-cta-text {
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  max-width: 50ch;
+}
+
+.cs-mid-cta-text strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .cs-mid-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
    MOBILE RESPONSIVENESS & ACTIVE STATES
    ========================================================================== */
 .hamburger.active span:nth-child(1) {
@@ -1198,8 +1667,21 @@ header {
   .hamburger {
     display: flex;
   }
-  
-  .nav-menu {
+
+  /* On mobile: 3-col grid collapses to flex row (avatar left/center, hamburger right) */
+  .nav-menu-3col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-links-left {
+    display: none;
+  }
+
+  /* Slide-out mobile drawer */
+  .nav-links-right {
     position: fixed;
     top: 4.5rem;
     left: 0;
@@ -1209,20 +1691,22 @@ header {
     border-top: 1px solid var(--divider);
     flex-direction: column;
     padding: 3rem 2rem;
-    gap: 2rem;
+    gap: 1.5rem;
     transform: translateX(100%);
     transition: var(--transition-smooth);
     align-items: flex-start;
+    display: flex;
+    z-index: 99;
   }
-  
-  .nav-menu.active {
+
+  .nav-links-right.active {
     transform: translateX(0);
   }
-  
-  .nav-menu .cta-button {
+
+  .nav-links-right .cta-button {
     width: 100%;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   
   section {
@@ -1385,13 +1869,23 @@ header {
   max-width: none;
 }
 
-/* Reduced motion */
+/* Reduced motion — expanded to cover all animated elements */
 @media (prefers-reduced-motion: reduce) {
-  .project-item {
-    transition: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  .filter-badge {
-    transition: none !important;
+
+  header.nav-revealed {
+    animation: none !important;
+  }
+
+  .hero-avatar-img {
+    animation: none !important;
   }
 }
 

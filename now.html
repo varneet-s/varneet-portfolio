@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQDBHK7BZF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CQDBHK7BZF');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Now | Varneet Singh</title>
+  <meta name="description" content="What Varneet Singh is working on right now — current focus, learning, and projects.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/typography.css">
+
+  <style>
+    .now-card-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 760px;
+      margin: 2rem 0 0 0;
+    }
+    .now-card {
+      background: #FFFFFF;
+      border: 1.5px solid #111115;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(17, 17, 21, 0.04);
+      transition: var(--transition-smooth);
+    }
+    .now-card:hover {
+      transform: translateY(-3px);
+      border-color: #059669;
+      box-shadow: 0 14px 32px rgba(5, 150, 105, 0.1);
+    }
+    .now-date-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7C3AED;
+      background: #F3E8FF;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .now-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0;
+    }
+    .now-list li {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      position: relative;
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    .now-list li::before {
+      content: '⚡';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR (3-Column Pill) -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <nav class="nav-menu-3col" id="nav-menu-links">
+        <div class="nav-links-left">
+          <a href="now.html" class="nav-link active" id="nav-link-now">Now</a>
+          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
+        </div>
+        <a href="index.html" class="nav-emblem-logo" id="logo-home">
+          <img src="assets/varneet-avatar.png" alt="Varneet" class="nav-emblem-icon">
+        </a>
+        <div class="nav-links-right">
+          <a href="now.html" class="nav-link active mobile-only-link" id="nav-link-now-mob">Now</a>
+          <a href="projects.html" class="nav-link mobile-only-link" id="nav-link-projects-mob">Projects</a>
+          <a href="experience.html" class="nav-link" id="nav-link-experience">Career Timeline</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
+          <a href="contact.html" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+        </div>
+      </nav>
+
+      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Simple Headline Header -->
+    <section class="simple-page-header">
+      <div class="container">
+        <h1 class="page-title"><span class="underline-green">Now</span></h1>
+        <p class="hero-subtitle" style="margin-bottom: 1.5rem;">
+          What I'm focused on right now — updated regularly inspired by Derek Sivers' <em>Now Page</em> movement.
+        </p>
+
+        <div class="now-card-stack">
+          <div class="now-card">
+            <span class="now-date-badge">August 2026 Focus</span>
+            <ul class="now-list">
+              <li>Building end-to-end operational analysis case studies in e-commerce (Olist dataset &amp; Vrinda retail audit).</li>
+              <li>Refining SQL query pipelines for high-volume order data analysis.</li>
+              <li>Interviewing for Business Analyst &amp; Product Operations roles in consumer tech.</li>
+              <li>Offering 2-week free operational audits for early-stage founders &amp; distributors.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-section">
+    <div class="footer-bottom">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>&copy; 2026 Varneet Singh. All Rights Reserved.</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
+          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="footer-social-link">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
