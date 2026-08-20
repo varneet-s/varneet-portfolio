@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work Experience | Varneet Singh</title>
   <meta name="description" content="Professional career history and Business Analysis frameworks timeline of Varneet Singh. Click any card to open the full Stripe Press detail view.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.1">
   <link rel="stylesheet" href="css/typography.css">
 
   <!-- Open Graph Meta Tags -->
@@ -157,6 +157,11 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease, background-color 0.35s ease;
+    }
+
+    html.pop-active, html.pop-active body {
+      overflow: hidden !important;
+      height: 100vh !important;
     }
 
     .stripe-press-pop-overlay.active {
@@ -384,7 +389,7 @@
       <section class="certifications" id="sec-certs" style="border-top: 1px solid var(--divider); padding: 4rem 0 6rem 0;">
         <h2 class="section-title" style="margin-bottom: 2rem;"><span class="underline-green">Professional Certifications</span></h2>
         
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem;">
+        <div class="certs-grid">
 
           <!-- Cert 1: Microsoft -->
           <div class="exp-card-item" data-pop-id="cert-msft" style="margin-bottom: 0;">
@@ -748,7 +753,7 @@
         popCta.innerHTML = item.ctaText;
 
         popOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+        document.documentElement.classList.add("pop-active");
 
         // Push state into Browser History for Browser/Mouse Back Button Support!
         if (pushHistory) {
@@ -760,7 +765,7 @@
         if (!popOverlay.classList.contains("active")) return;
 
         popOverlay.classList.remove("active");
-        document.body.style.overflow = "auto";
+        document.documentElement.classList.remove("pop-active");
         currentActivePopKey = null;
 
         if (popHistoryBack && window.location.hash) {
@@ -769,6 +774,25 @@
           history.replaceState(null, "", window.location.pathname + window.location.search);
         }
       }
+
+      // Backdrop overlay click-to-dismiss handler (clicking in empty space closes detail view)
+      popOverlay.addEventListener("click", (e) => {
+        const bookCard = document.getElementById("pop-book-card");
+        const rightSideContent = document.querySelector(".stripe-press-pop-content > div:last-child");
+        
+        // If the user clicked directly on the outer backdrop, the inner grid wrapper,
+        // the left-side book column wrapper, or the right-side content column wrapper itself,
+        // it means they clicked on empty space (not text/buttons), so close the detail!
+        const isBackdropClick = 
+          e.target === popOverlay ||
+          e.target.classList.contains("stripe-press-pop-content") ||
+          e.target.classList.contains("stripe-pop-book-wrap") ||
+          e.target === rightSideContent;
+          
+        if (isBackdropClick) {
+          closeStripePopView(true);
+        }
+      });
 
       // Attach Click-to-Pop to all cards
       document.querySelectorAll(".exp-card-item").forEach(card => {

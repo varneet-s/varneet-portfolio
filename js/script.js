@@ -1,27 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // MOBILE NAVIGATION DRAWER
+  // MOBILE NAVIGATION DRAWER & DYNAMIC LINKS
   // ==========================================================================
+  const navLinksLeft = document.querySelector('.nav-links-left');
+  const navLinksRight = document.querySelector('.nav-links-right');
+
+  // Clone left side links (About, Now, Writing) into right side links container for mobile layout
+  if (navLinksLeft && navLinksRight) {
+    const leftLinks = navLinksLeft.querySelectorAll('.nav-link');
+    // Prepend in reverse order so they appear at the beginning of the drawer in correct order
+    Array.from(leftLinks).reverse().forEach(link => {
+      const cloned = link.cloneNode(true);
+      cloned.classList.add('mobile-only-link');
+      cloned.id = cloned.id ? cloned.id + '-mobile' : '';
+      navLinksRight.insertBefore(cloned, navLinksRight.firstChild);
+    });
+  }
+
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
-  const navLinksRight = document.querySelector('.nav-links-right');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileTarget = navLinksRight || navMenu;
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-only-link');
 
   if (hamburger) {
-    const mobileTarget = navLinksRight || navMenu;
+    let savedScrollY = 0;
+
+    // Create dim overlay element once
+    const dimOverlay = document.createElement('div');
+    dimOverlay.className = 'nav-dim-overlay';
+    document.body.appendChild(dimOverlay);
+
+    function openMenu() {
+      savedScrollY = window.scrollY;
+      hamburger.classList.add('active');
+      if (mobileTarget) mobileTarget.classList.add('active');
+      dimOverlay.classList.add('active');
+      document.body.style.top = `-${savedScrollY}px`;
+      document.documentElement.classList.add('menu-active');
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      if (mobileTarget) mobileTarget.classList.remove('active');
+      dimOverlay.classList.remove('active');
+      document.documentElement.classList.remove('menu-active');
+      document.body.style.top = '';
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+    }
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      if (mobileTarget) mobileTarget.classList.toggle('active');
-      document.body.style.overflow = (mobileTarget && mobileTarget.classList.contains('active')) ? 'hidden' : '';
+      const isOpen = mobileTarget && mobileTarget.classList.contains('active');
+      isOpen ? closeMenu() : openMenu();
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        if (mobileTarget) mobileTarget.classList.remove('active');
-        document.body.style.overflow = '';
+        closeMenu();
       });
     });
+
+    // Tap empty space on glass drawer to close
+    if (mobileTarget) {
+      mobileTarget.addEventListener('click', (e) => {
+        const isLink = e.target.closest('a, button');
+        if (!isLink) closeMenu();
+      });
+    }
+
+    // Tap dim overlay to close
+    dimOverlay.addEventListener('click', closeMenu);
   }
 
   // ==========================================================================
@@ -126,30 +173,59 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const header = document.querySelector('#main-header');
   let lastScrollTop = 0;
+  let ticking = false;
 
   if (header) {
     window.addEventListener('scroll', () => {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > 120) {
-        if (scrollTop > lastScrollTop) {
-          // Scrolling DOWN -> Hide navbar
-          header.classList.add('nav-hidden');
-          header.classList.remove('nav-revealed');
-        } else {
-          // Scrolling UP -> Reveal navbar from center
-          if (header.classList.contains('nav-hidden')) {
-            header.classList.remove('nav-hidden');
-            header.classList.add('nav-revealed');
-          }
-        }
-      } else {
-        // At top of page
-        header.classList.remove('nav-hidden');
-        header.classList.remove('nav-revealed');
+      // If mobile menu is open, disable scroll-hide logic entirely to prevent the active menu from vanishing
+      if (mobileTarget && mobileTarget.classList.contains('active')) {
+        return;
       }
-      
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          if (scrollTop > 120) {
+            if (scrollTop > lastScrollTop) {
+              // Scrolling DOWN -> Hide navbar
+              header.classList.add('nav-hidden');
+              header.classList.remove('nav-revealed');
+            } else {
+              // Scrolling UP -> Reveal navbar from center
+              if (header.classList.contains('nav-hidden')) {
+                header.classList.remove('nav-hidden');
+                header.classList.add('nav-revealed');
+              }
+            }
+          } else {
+            // At top of page
+            header.classList.remove('nav-hidden');
+            header.classList.remove('nav-revealed');
+          }
+          
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
     }, { passive: true });
   }
+
+  // ==========================================================================
+  // GLOBAL SCROLL REVEAL ANIMATIONS
+  // ==========================================================================
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('section, .sam-featured-item, .testimonial-card, .exp-card-item, .cs-analysis-card, .metrics-strip').forEach(el => {
+    el.classList.add('reveal-on-scroll');
+    revealObserver.observe(el);
+  });
 });

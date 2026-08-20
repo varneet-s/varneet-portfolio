@@ -358,23 +358,45 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="../js/charts.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, { threshold: 0.08 });
+    document.addEventListener('DOMContentLoaded', function () {
+      NarrativeCharts.applyDefaults();
 
-      document.querySelectorAll("section, .sam-featured-item, .testimonial-card").forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = "opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
-        observer.observe(el);
-      });
+      /* Demographics — Gender revenue split */
+      NarrativeCharts.doughnutChart(
+        'chart-vrinda-gender',
+        ['Women (30–45)', 'Men & Other'],
+        [65, 35],
+        {
+          colors: ['#b06c25', 'rgba(40,54,24,0.12)'],
+        }
+      );
+
+      /* Geographic clusters — Top 5 states */
+      NarrativeCharts.horizontalBar(
+        'chart-vrinda-states',
+        ['Maharashtra', 'Karnataka', 'Uttar Pradesh', 'Telangana', 'Tamil Nadu'],
+        [2450, 1890, 1620, 1380, 1250],
+        {
+          colors: ['#3a6b35', '#3a6b35', 'rgba(40,54,24,0.15)', 'rgba(40,54,24,0.15)', 'rgba(40,54,24,0.15)'],
+          borderColors: ['#283618', '#283618', 'rgba(40,54,24,0.3)', 'rgba(40,54,24,0.3)', 'rgba(40,54,24,0.3)'],
+          aspectRatio: 2.2,
+        }
+      );
+
+      /* Channels */
+      NarrativeCharts.horizontalBar(
+        'chart-vrinda-channels',
+        ['Amazon', 'Flipkart', 'Myntra', 'Ajio', 'Others'],
+        [35, 26, 19.4, 10, 9.6],
+        {
+          colors: ['#b06c25', '#b06c25', '#b06c25', 'rgba(176,108,37,0.3)', 'rgba(176,108,37,0.1)'],
+          borderColors: ['#b06c25', '#b06c25', '#b06c25', 'rgba(176,108,37,0.5)', 'rgba(176,108,37,0.3)'],
+          yTickFormat: function(v) { return v + '%'; },
+          aspectRatio: 2.5,
+        }
+      );
     });
   </script>
 </body>

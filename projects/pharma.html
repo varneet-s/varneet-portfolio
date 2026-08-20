@@ -101,7 +101,7 @@
         <div class="cs-meta-wrap">
           <div class="cs-meta-item">
             <span class="cs-meta-label">My Role</span>
-            <span class="cs-meta-val">Business Operations Analyst</span>
+            <span class="cs-meta-val">Business Operations Manager</span>
           </div>
           <div class="cs-meta-item">
             <span class="cs-meta-label">Analytical Tools &amp; Models</span>
@@ -329,23 +329,31 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="../js/charts.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, { threshold: 0.08 });
+    document.addEventListener('DOMContentLoaded', function () {
+      NarrativeCharts.applyDefaults();
 
-      document.querySelectorAll("section, .sam-featured-item, .testimonial-card").forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = "opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
-        observer.observe(el);
-      });
+      /* Shelf capacity utilization */
+      NarrativeCharts.doughnutChart(
+        'chart-pharma-shelf',
+        ['Active Stock (Turnover OK)', 'Frozen / Slow-Moving'],
+        [80, 20],
+        {
+          colors: ['#3a6b35', 'rgba(176,108,37,0.8)'],
+        }
+      );
+
+      /* Stockout reduction */
+      NarrativeCharts.lineChart(
+        'chart-pharma-stockout',
+        ['Baseline', 'Month 1', 'Month 2', 'Month 3'],
+        [40, 38, 32, 30],
+        {
+          yTitle: 'Monthly Stockouts',
+          aspectRatio: 2.5,
+        }
+      );
     });
   </script>
 </body>

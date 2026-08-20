@@ -107,7 +107,7 @@
     }
 
     /* Stacking z-index: later cards go on top */
-    .now-card:nth-child(1) { z-index: 1; background: #8B9FE8; }
+    .now-card:nth-child(1) { z-index: 1; background: #1A1A2E; }
     .now-card:nth-child(2) { z-index: 2; background: #5DD9A4; }
     .now-card:nth-child(3) { z-index: 3; background: #A87BE8; }
 
@@ -153,7 +153,13 @@
 
     @media (max-width: 640px) {
       .free-cta-card { padding: 1.75rem 1.25rem !important; }
-      .now-card { padding: 2rem 1.75rem; min-height: 200px; }
+      .now-card {
+        padding: 2rem 1.75rem;
+        min-height: 280px;
+        max-width: 320px;  /* narrower card */
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   </style>
 </head>
@@ -192,7 +198,7 @@
       <div class="now-left">
         <h1 class="now-heading">Now<span class="now-heading-dot"></span></h1>
         <p>An up to date snapshot of what I'm doing right now &mdash; kept short.</p>
-        <p>I came across the &ldquo;Now page&rdquo; idea by Derek Sivers and thought it was a great way to stay honest about what I'm actually focused on.</p>
+        <p>I came across Sam Dickie's portfolio and liked how he designed his Now page &mdash; it felt honest and minimal, something worth trying for myself.</p>
         <p>So here we go &#9994;</p>
       </div>
 
@@ -202,26 +208,7 @@
         <div class="now-card" id="card-aug">
           <div class="now-card-month">August 26</div>
           <div class="now-card-items">
-            <p>Building and shipping this portfolio</p>
-            <p>Freelance data consulting at I.P. Pharma</p>
-            <p>Daily SQL practice &mdash; window functions and complex joins</p>
-          </div>
-        </div>
-
-        <div class="now-card" id="card-jul">
-          <div class="now-card-month">July 26</div>
-          <div class="now-card-items">
-            <p>Reading <em>Start With Why</em> by Simon Sinek</p>
-            <p>Completed the Microsoft Business Analyst Specialization</p>
-            <p>Keeping a consistent daily routine in Ludhiana</p>
-          </div>
-        </div>
-
-        <div class="now-card" id="card-jun">
-          <div class="now-card-month">June 26</div>
-          <div class="now-card-items">
-            <p>Completed the Deloitte Data Analytics simulation</p>
-            <p>Went deep on Visio BPMN process modeling</p>
+            <p>Reading <em>1984</em> by George Orwell</p>
           </div>
         </div>
 

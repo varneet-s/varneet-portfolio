@@ -12,14 +12,14 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Varneet Singh — Business Analyst</title>
-  <meta name="description" content="Learn about Varneet Singh — Business Operations Analyst specializing in process optimization, data-driven decisions, Excel, SQL, and Tableau.">
+  <title>About | Varneet Singh — Business Operations Manager</title>
+  <meta name="description" content="Learn about Varneet Singh — Business Operations Manager specializing in process optimization, data-driven decisions, Excel, SQL, and Tableau.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/typography.css">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="About | Varneet Singh — Business Analyst">
-  <meta property="og:description" content="Business Operations Analyst specializing in process optimization and data analysis.">
+  <meta property="og:title" content="About | Varneet Singh — Business Operations Manager">
+  <meta property="og:description" content="Business Operations Manager specializing in process optimization and data analysis.">
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/index-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/about.html">
   <meta property="og:type" content="website">
@@ -76,8 +76,11 @@
     @media (max-width: 780px) {
       .sd-grid-2col {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
       }
+      /* On mobile: profile card floats to top before intro text */
+      .sd-grid-2col > .sd-text-body { order: 2; }
+      .sd-grid-2col > .sd-profile-card { order: 1; }
     }
 
     .sd-text-body p {
@@ -238,6 +241,66 @@
       color: #111115;
     }
 
+    /* ── Progress Bar Skills ── */
+    .sd-skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .sd-skill-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sd-skill-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .sd-skill-bar-name {
+      font-family: var(--font-display), sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #111115;
+    }
+
+    .sd-skill-bar-meta {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888896;
+      letter-spacing: 0.02em;
+    }
+
+    .sd-skill-bar-track {
+      width: 100%;
+      height: 10px;
+      background: #EBEBF0;
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    @keyframes skillFillIn {
+      from { width: 0%; }
+      to   { width: var(--skill-pct); }
+    }
+
+    .sd-skill-bar-fill {
+      height: 100%;
+      width: var(--skill-pct);
+      border-radius: 100px;
+      animation: skillFillIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .sd-skill-bar-desc {
+      font-size: 0.9rem;
+      color: #555562;
+      line-height: 1.55;
+    }
+
     /* ── CTA Section Card ── */
     .free-cta-card {
       background: #ffffff !important;
@@ -298,7 +361,7 @@
 
           <div class="sd-text-body">
             <p>
-              A business operations analyst with a passion at the intersection of data, process efficiency, and business strategy. By day I analyze supply chain data and operational workflows at I.P. Pharma, and by night I build interactive data models, practice advanced SQL, and write about analytical frameworks.
+              A business operations manager with a passion at the intersection of data, process efficiency, and business strategy. By day I oversee supply chain data and operational workflows at I.P. Pharma, and by night I build interactive data models, practice advanced SQL, and write about analytical frameworks.
             </p>
             <p>
               I'm currently focused on expanding my portfolio of <a href="projects.html">real-world case studies</a>, mastering complex SQL join patterns, and exploring automated reporting architectures for growing businesses.
@@ -310,7 +373,7 @@
         <div class="sd-profile-card">
           <img src="assets/varneet-avatar.png" alt="Varneet Singh" class="sd-profile-img">
           <div class="sd-profile-name">Varneet Singh</div>
-          <div class="sd-profile-sub">Business Operations Analyst</div>
+          <div class="sd-profile-sub">Business Analyst</div>
           <span class="sd-badge-pill">Ludhiana, India</span>
         </div>
 
@@ -359,7 +422,7 @@
         </div>
 
         <p>
-          My other interests include supply chain analytics, behavioral psychology, listening to deep-dive analytical podcasts, following international cricket, and continuous self-education.
+          Outside of work, I read a lot — mostly fiction and classics. Right now I'm working through <em>1984</em> by George Orwell. I try to run regularly and use it as unwind time. I enjoy travelling when I get the chance — new places are a good way to reset. I also spend time on continuous self-learning, usually through books and long-form content rather than short videos.
         </p>
       </div>
     </section>
@@ -373,7 +436,7 @@
 
       <div class="sd-text-body">
         <p>
-          Currently, I work as a <strong>Business Operations Analyst at I.P. Pharma</strong> (since January 2026). In this role, I manage inventory tracking models, analyze stock-level variations, and automate daily reporting routines for executive leadership.
+          Currently, I work as a <strong>Business Operations Manager at I.P. Pharma</strong> (since January 2026). In this role, I manage inventory tracking models, analyze stock-level variations, and automate daily reporting routines for executive leadership.
         </p>
         <p>
           Previously, I spent a year at <a href="https://www.youtube.com/@LabourLawAdvisor" target="_blank" rel="noopener">Labour Law Advisor</a> as a Growth &amp; Content Operations Specialist, scaling their e-commerce brand <a href="https://jagruk.shop/" target="_blank" rel="noopener">Jagruk.Shop</a> from 400 to 4,000+ followers while setting up standard operating procedures (SOPs).
@@ -390,36 +453,48 @@
 
       <div class="sd-skills-wrapper">
 
-        <div class="sd-skill-card">
-          <div class="sd-skill-title">
-            <span>Microsoft Excel</span>
-            <span class="sd-skill-level">Advanced</span>
+        <div class="sd-skill-bar-item">
+          <div class="sd-skill-bar-header">
+            <span class="sd-skill-bar-name">Microsoft Excel</span>
+            <span class="sd-skill-bar-meta">Advanced &middot; 90%</span>
           </div>
-          <div class="sd-skill-desc">Pivot tables, XLOOKUP, nested logic, data modeling, &amp; executive dashboard design.</div>
+          <div class="sd-skill-bar-track">
+            <div class="sd-skill-bar-fill" style="--skill-pct: 90%; background: #02F5A4;"></div>
+          </div>
+          <div class="sd-skill-bar-desc">Pivot tables, XLOOKUP, nested logic, data modeling &amp; executive dashboard design.</div>
         </div>
 
-        <div class="sd-skill-card">
-          <div class="sd-skill-title">
-            <span>SQL &amp; Databases</span>
-            <span class="sd-skill-level">Intermediate</span>
+        <div class="sd-skill-bar-item">
+          <div class="sd-skill-bar-header">
+            <span class="sd-skill-bar-name">SQL &amp; Databases</span>
+            <span class="sd-skill-bar-meta">Intermediate &middot; 65%</span>
           </div>
-          <div class="sd-skill-desc">Window functions, CTEs, complex joins, data aggregation, &amp; query optimization.</div>
+          <div class="sd-skill-bar-track">
+            <div class="sd-skill-bar-fill" style="--skill-pct: 65%; background: #7B61FF;"></div>
+          </div>
+          <div class="sd-skill-bar-desc">Window functions, CTEs, complex joins, data aggregation &amp; query optimization.</div>
         </div>
 
-        <div class="sd-skill-card">
-          <div class="sd-skill-title">
-            <span>Tableau &amp; Power BI</span>
-            <span class="sd-skill-level">Intermediate</span>
+        <div class="sd-skill-bar-item">
+          <div class="sd-skill-bar-header">
+            <span class="sd-skill-bar-name">Tableau &amp; Power BI</span>
+            <span class="sd-skill-bar-meta">Intermediate &middot; 60%</span>
           </div>
-          <div class="sd-skill-desc">Interactive dashboard creation, KPI tracking, &amp; visual storytelling.</div>
+          <div class="sd-skill-bar-track">
+            <div class="sd-skill-bar-fill" style="--skill-pct: 60%; background: #FFB347;"></div>
+          </div>
+          <div class="sd-skill-bar-desc">Interactive dashboard creation, KPI tracking &amp; visual storytelling.</div>
         </div>
 
-        <div class="sd-skill-card">
-          <div class="sd-skill-title">
-            <span>Process Modeling (BPMN)</span>
-            <span class="sd-skill-level">Intermediate</span>
+        <div class="sd-skill-bar-item">
+          <div class="sd-skill-bar-header">
+            <span class="sd-skill-bar-name">Process Modeling (BPMN)</span>
+            <span class="sd-skill-bar-meta">Intermediate &middot; 55%</span>
           </div>
-          <div class="sd-skill-desc">MS Visio workflow mapping, bottleneck identification, &amp; SOP creation.</div>
+          <div class="sd-skill-bar-track">
+            <div class="sd-skill-bar-fill" style="--skill-pct: 55%; background: #FF6B8A;"></div>
+          </div>
+          <div class="sd-skill-bar-desc">MS Visio workflow mapping, bottleneck identification &amp; SOP creation.</div>
         </div>
 
       </div>
