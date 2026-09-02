@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (headerEl) {
     const activePage = headerEl.getAttribute('data-active') || '';
     headerEl.innerHTML = renderNav(activePage);
+
+    // Ensure #mobile-nav is attached directly to document.body to avoid CSS header transform traps
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav && mobileNav.parentElement !== document.body) {
+      document.body.appendChild(mobileNav);
+    }
   }
 
   // 2. Inject Footer if #main-footer exists
