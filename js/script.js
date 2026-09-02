@@ -1,162 +1,123 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Mobile navigation event delegation handled cleanly via main.ts
-});
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile Navigation Click Event Delegation
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    if (!target) return;
 
-  // ==========================================================================
-  // PROJECT FILTER ENGINE
-  // ==========================================================================
-  const filterBar = document.querySelector('.filter-bar');
+    var toggle = target.closest('.menu-toggle, #mobile-menu-toggle, .mobile-menu-btn');
+    var closeBtn = target.closest('#mobile-menu-close, .mobile-nav-close');
+    var nav = document.getElementById('mobile-nav');
 
-  if (filterBar) {
-    const badges = filterBar.querySelectorAll('.filter-badge');
-    const projectList = document.querySelector('.bento-grid, .projects-grid, .projects-list');
-    const cards = projectList ? projectList.querySelectorAll('.project-item') : [];
-    const emptyState = projectList ? projectList.querySelector('.filter-empty-state') : null;
-
-    function applyFilter(filterValue) {
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        if (filterValue === 'all') {
-          card.classList.remove('filter-hidden');
-          card.removeAttribute('hidden');
-          visibleCount++;
-        } else {
-          const category = card.getAttribute('data-category');
-          const status = card.getAttribute('data-status');
-          const matches = category === filterValue || status === filterValue;
-
-          if (matches) {
-            card.classList.remove('filter-hidden');
-            card.removeAttribute('hidden');
-            visibleCount++;
-          } else {
-            card.classList.add('filter-hidden');
-            card.setAttribute('hidden', '');
-          }
-        }
-      });
-
-      // Empty state
-      if (emptyState) {
-        if (visibleCount === 0) {
-          emptyState.removeAttribute('hidden');
-        } else {
-          emptyState.setAttribute('hidden', '');
-        }
+    if (toggle && nav) {
+      e.preventDefault();
+      var isOpen = nav.getAttribute('data-state') === 'open' || nav.classList.contains('active');
+      if (isOpen) {
+        nav.setAttribute('data-state', 'closed');
+        nav.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.removeAttribute('data-nav-open');
+        document.body.style.overflow = '';
+      } else {
+        nav.setAttribute('data-state', 'open');
+        nav.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.setAttribute('data-nav-open', 'true');
+        document.body.style.overflow = 'hidden';
       }
+    } else if (closeBtn && nav) {
+      e.preventDefault();
+      nav.setAttribute('data-state', 'closed');
+      nav.classList.remove('active');
+      document.body.removeAttribute('data-nav-open');
+      document.body.style.overflow = '';
+    } else if (nav && (nav.getAttribute('data-state') === 'open' || nav.classList.contains('active')) && target.closest('#mobile-nav a')) {
+      nav.setAttribute('data-state', 'closed');
+      nav.classList.remove('active');
+      document.body.removeAttribute('data-nav-open');
+      document.body.style.overflow = '';
     }
+  });
 
-    badges.forEach(badge => {
-      badge.addEventListener('click', () => {
-        const filterValue = badge.getAttribute('data-filter');
-        const isAlreadyActive = badge.classList.contains('active');
+  // Project Filter Engine
+  var filterBar = document.querySelector('.filter-bar');
+  if (filterBar) {
+    var badges = filterBar.querySelectorAll('.filter-badge');
+    var projectList = document.querySelector('.bento-grid, .projects-grid, .projects-list');
+    var cards = projectList ? projectList.querySelectorAll('.project-item') : [];
+    var emptyState = projectList ? projectList.querySelector('.filter-empty-state') : null;
 
-        // Deactivate all badges
-        badges.forEach(b => {
+    badges.forEach(function(badge) {
+      badge.addEventListener('click', function() {
+        var filterValue = badge.getAttribute('data-filter') || 'all';
+        var visibleCount = 0;
+
+        badges.forEach(function(b) {
           b.classList.remove('active');
           b.setAttribute('aria-pressed', 'false');
         });
 
-        // If clicking the active badge, reset to "All"
-        if (isAlreadyActive && filterValue !== 'all') {
-          const allBadge = filterBar.querySelector('[data-filter="all"]');
-          allBadge.classList.add('active');
-          allBadge.setAttribute('aria-pressed', 'true');
-          applyFilter('all');
-        } else {
-          badge.classList.add('active');
-          badge.setAttribute('aria-pressed', 'true');
-          applyFilter(filterValue);
+        badge.classList.add('active');
+        badge.setAttribute('aria-pressed', 'true');
+
+        cards.forEach(function(card) {
+          if (filterValue === 'all') {
+            card.classList.remove('filter-hidden');
+            card.removeAttribute('hidden');
+            visibleCount++;
+          } else {
+            var category = card.getAttribute('data-category');
+            var status = card.getAttribute('data-status');
+            if (category === filterValue || status === filterValue) {
+              card.classList.remove('filter-hidden');
+              card.removeAttribute('hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('filter-hidden');
+              card.setAttribute('hidden', '');
+            }
+          }
+        });
+
+        if (emptyState) {
+          if (visibleCount === 0) emptyState.removeAttribute('hidden');
+          else emptyState.setAttribute('hidden', '');
         }
       });
     });
   }
 
-  // ==========================================================================
-  // EXPERIENCE ACCORDION (PAPAO / STAR DETAILS)
-  // ==========================================================================
-  const expHeaders = document.querySelectorAll('.exp-header');
-
-  expHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-      const card = header.closest('.exp-card');
-      const isExpanded = card.classList.contains('expanded');
-      
-      // OPTIONAL accordion behavior: Close all other cards first
-      document.querySelectorAll('.exp-card').forEach(otherCard => {
-        if (otherCard !== card) {
-          otherCard.classList.remove('expanded');
-        }
-      });
-      
-      // Toggle current card
-      if (isExpanded) {
-        card.classList.remove('expanded');
-      } else {
-        card.classList.add('expanded');
-      }
-    });
-  });
-
-  // ==========================================================================
-  // SAM DICKIE STYLE HEADER SCROLL REVEAL (Hide on down, center expand on up)
-  // ==========================================================================
-  const header = document.querySelector('#main-header');
-  let lastScrollTop = 0;
-  let ticking = false;
+  // Header Scroll Hide / Reveal Logic
+  var header = document.querySelector('#main-header');
+  var lastScrollTop = 0;
+  var ticking = false;
 
   if (header) {
-    window.addEventListener('scroll', () => {
-      // If mobile menu is open, disable scroll-hide logic entirely to prevent the active menu from vanishing
-      if (mobileTarget && mobileTarget.classList.contains('active')) {
-        return;
-      }
+    window.addEventListener('scroll', function() {
+      var nav = document.getElementById('mobile-nav');
+      if (nav && (nav.getAttribute('data-state') === 'open' || nav.classList.contains('active'))) return;
 
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
+        window.requestAnimationFrame(function() {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           if (scrollTop > 120) {
             if (scrollTop > lastScrollTop) {
-              // Scrolling DOWN -> Hide navbar
               header.classList.add('nav-hidden');
               header.classList.remove('nav-revealed');
             } else {
-              // Scrolling UP -> Reveal navbar from center
               if (header.classList.contains('nav-hidden')) {
                 header.classList.remove('nav-hidden');
                 header.classList.add('nav-revealed');
               }
             }
           } else {
-            // At top of page
             header.classList.remove('nav-hidden');
             header.classList.remove('nav-revealed');
           }
-          
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
           ticking = false;
         });
-        
         ticking = true;
       }
     }, { passive: true });
   }
-
-  // ==========================================================================
-  // GLOBAL SCROLL REVEAL ANIMATIONS
-  // ==========================================================================
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('section, .sam-featured-item, .testimonial-card, .exp-card-item, .cs-analysis-card, .metrics-strip').forEach(el => {
-    el.classList.add('reveal-on-scroll');
-    revealObserver.observe(el);
-  });
 });
