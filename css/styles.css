@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800;900&family=Satoshi:wght@400;700;900&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root {
+  /* ── Typography Variables ── */
+  --font-display:    'Anton', 'Poppins', sans-serif;
+  --font-sans:       'Poppins', 'Satoshi', sans-serif;
+
   /* ── Local Studio & Signal-A Minimal Brutalist Palette ── */
   --bg-dark:         #FFFDF5;   /* Warm Cream Canvas (exact match from localstudio.fr reference) */
   --bg-dark-elevated:#FFFFFF;   /* Crisp white elevated card surface */
@@ -201,33 +205,32 @@ header.nav-revealed {
   width: 100%;
   max-width: 100vw;
   margin: 0;
-  padding: 0 2.5rem;
+  padding: 1rem 3rem;
   box-sizing: border-box;
 }
 
-/* ── Navbar New Layout (Logo left → Links → CTA right) ── */
-.nav-layout-left {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
+/* ── Navbar New Layout (Spaced across entire top bar like localstudio.fr) ── */
 .nav-logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-menu-links {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  max-width: 65%;
+  margin: 0 auto;
 }
 
 .nav-layout-right {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .mobile-menu-btn {

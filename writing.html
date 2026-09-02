@@ -15,26 +15,28 @@
     <!-- Dynamic Header Navigation Bar -->
     <header id="main-header" data-active="writing">
     <div class="container nav-container">
-      <div class="nav-layout-left">
-        <a href="index.html" class="nav-logo-link" id="logo-home" title="Varneet Singh — Home">
-          <svg class="nav-logo-svg" viewBox="0 0 240 50" width="150" height="32" fill="none">
-            <text x="0" y="34" font-family="'Poppins', sans-serif" font-size="28" font-weight="900" letter-spacing="-0.04em" fill="#0C0D0E">VARNEET</text>
-            <path d="M142 36 L160 22 L175 28 L198 12 M198 12 L206 12 L206 20" stroke="#FF3B00" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="160" cy="22" r="2.5" fill="#FF3B00"/>
-            <circle cx="175" cy="28" r="2.5" fill="#FF3B00"/>
-            <circle cx="198" cy="12" r="3" fill="#FF3B00"/>
-          </svg>
-        </a>
-        <nav class="nav-menu-links">
-          <a href="projects.html" class="nav-link ">Work</a>
-          <a href="experience.html" class="nav-link ">Experience</a>
-          <a href="writing.html" class="nav-link active">Writing</a>
-          <a href="about.html" class="nav-link ">About</a>
-        </nav>
-      </div>
+      <a href="index.html" class="nav-logo-link" id="logo-home" title="Varneet Singh — Home">
+        <svg class="nav-logo-svg" viewBox="0 0 240 50" width="150" height="32" fill="none">
+          <text x="0" y="34" font-family="'Anton', 'Poppins', sans-serif" font-size="32" font-weight="900" letter-spacing="-0.04em" fill="#0C0D0E">VARNEET</text>
+          <path d="M142 36 L160 22 L175 28 L198 12 M198 12 L206 12 L206 20" stroke="#FF3B00" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="160" cy="22" r="2.5" fill="#FF3B00"/>
+          <circle cx="175" cy="28" r="2.5" fill="#FF3B00"/>
+          <circle cx="198" cy="12" r="3" fill="#FF3B00"/>
+        </svg>
+      </a>
+      
+      <nav class="nav-menu-links">
+        <a href="projects.html" class="nav-link ">Work</a>
+        <a href="experience.html" class="nav-link ">Experience</a>
+        <a href="writing.html" class="nav-link active">Writing</a>
+        <a href="about.html" class="nav-link ">About</a>
+      </nav>
 
       <div class="nav-layout-right">
-        <a href="index.html#contact" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
+        <a href="index.html#contact" class="cta-button" id="nav-cta-talk">
+          Let's Talk
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
         <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">MENU</button>
       </div>
     </div>
@@ -151,7 +153,27 @@
     </main>
 
     <!-- Dynamic Footer -->
-    <footer id="main-footer"></footer>
+    <footer id="main-footer" class="site-footer">
+    <div class="local-footer-banner">
+      <div class="local-footer-bg-title">VARNEET</div>
+      
+      <div class="local-footer-content">
+        <div class="local-footer-avatar-wrap">
+          <img src="assets/varneet-avatar.png" alt="Varneet Singh — Illustrated Portrait" class="local-footer-avatar-img">
+          <a href="mailto:varneetsingh45@gmail.com" class="local-footer-email-badge">
+            VARNEETSINGH45@GMAIL.COM &rarr;
+          </a>
+        </div>
+
+        <div class="local-footer-bottom-bar">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="local-footer-pill">LINKEDIN</a>
+          <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="local-footer-pill">GITHUB</a>
+          <a href="resume.pdf" target="_blank" rel="noopener" class="local-footer-pill">RESUME</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="local-footer-pill">EMAIL</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   </div>
 
   <script type="module" src="src/main.ts"></script>
