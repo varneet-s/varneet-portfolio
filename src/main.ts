@@ -30,10 +30,10 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
 MobileNavManager.init();
 SkeletonLoader.init();
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Inject Nav if #main-header is empty
+function initApp(): void {
+  // 1. Inject Nav into #main-header
   const headerEl = document.getElementById('main-header');
-  if (headerEl && !headerEl.children.length) {
+  if (headerEl) {
     const activePage = headerEl.getAttribute('data-active') || '';
     headerEl.innerHTML = renderNav(activePage);
   }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Ensure #mobile-nav exists and is attached directly to document.body
   MobileNavManager.ensureDrawerInBody();
 
-  // 3. Inject Footer if #main-footer is empty
+  // 3. Inject Footer if #main-footer exists and is empty
   const footerEl = document.getElementById('main-footer');
   if (footerEl && !footerEl.children.length) {
     footerEl.innerHTML = renderFooter();
@@ -162,4 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('reveal-on-scroll');
     revealObserver.observe(el);
   });
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
+}
