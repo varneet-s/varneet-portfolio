@@ -53,7 +53,7 @@ export class MobileNavManager {
       nav.setAttribute('data-state', 'closed');
       nav.innerHTML = `
         <div class="mobile-nav-header">
-          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">BACK</button>
+          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');n.classList.remove('active');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}return false;">BACK</button>
         </div>
         <div class="mobile-nav-links">
           <a href="${prefix}projects.html" class="mobile-nav-card">WORK</a>

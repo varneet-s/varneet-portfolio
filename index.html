@@ -29,13 +29,13 @@
         <a href="about.html">About</a>
       </nav>
       <a class="cta" href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}else{window.open('https://calendly.com/varneetsingh45/30min','_blank');}return false;">Let's Talk &rarr;</a>
-      <button class="menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav">MENU</button>
+      <button class="menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav" onclick="var n=document.getElementById('mobile-nav');if(n){var o=n.getAttribute('data-state')==='open'||n.classList.contains('active');n.setAttribute('data-state',o?'closed':'open');n.classList.toggle('active',!o);document.body.toggleAttribute('data-nav-open',!o);document.body.style.overflow=o?'':'hidden';}return false;">MENU</button>
     </header>
 
     <!-- Mobile Nav Drawer (LocalStudio.fr Style) -->
     <nav id="mobile-nav" class="mobile-nav" data-state="closed">
       <div class="mobile-nav-header">
-        <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">BACK</button>
+        <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');n.classList.remove('active');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}return false;">BACK</button>
       </div>
       <div class="mobile-nav-links">
         <a href="projects.html" class="mobile-nav-card">WORK</a>
