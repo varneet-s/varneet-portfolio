@@ -475,10 +475,7 @@ img {
 
 body[data-nav-open="true"], html[data-nav-open="true"] {
   overflow: hidden !important;
-  height: 100vh !important;
   touch-action: none !important;
-  position: fixed !important;
-  width: 100% !important;
 }
 
 /* Header inside Drawer: Top-Right BACK button, No Name */
