@@ -9,8 +9,8 @@ export function renderFooter(): string {
       <div class="local-footer-content">
         <div class="local-footer-avatar-wrap">
           <img src="${prefix}assets/varneet-avatar.png" alt="Varneet Singh — Illustrated Portrait" class="local-footer-avatar-img">
-          <a href="mailto:varneetsingh45@gmail.com" class="local-footer-email-badge">
-            VARNEETSINGH45@GMAIL.COM &rarr;
+          <a href="${prefix}index.html#contact" class="local-footer-email-badge">
+            BOOK A CALL &rarr;
           </a>
         </div>
 

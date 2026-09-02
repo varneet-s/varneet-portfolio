@@ -17,47 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const mobileTarget = navLinksRight || navMenu;
-  const navLinks = document.querySelectorAll('.nav-link, .mobile-only-link');
+  // Global click listener for mobile menu overlay toggle
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    const toggleBtn = target ? target.closest('#mobile-menu-toggle, .mobile-menu-btn, .hamburger') : null;
+    const closeBtn = target ? target.closest('#mobile-menu-close, .mobile-nav-close') : null;
+    const overlay = document.getElementById('mobile-nav-overlay');
 
-  if (hamburger) {
-    let savedScrollY = 0;
-
-    // Create dim overlay element once
-    const dimOverlay = document.createElement('div');
-    dimOverlay.className = 'nav-dim-overlay';
-    document.body.appendChild(dimOverlay);
-
-    function openMenu() {
-      savedScrollY = window.scrollY;
-      hamburger.classList.add('active');
-      if (mobileTarget) mobileTarget.classList.add('active');
-      dimOverlay.classList.add('active');
-      document.body.style.top = `-${savedScrollY}px`;
-      document.documentElement.classList.add('menu-active');
+    if (toggleBtn && overlay) {
+      e.preventDefault();
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    } else if (closeBtn && overlay) {
+      e.preventDefault();
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    } else if (overlay && overlay.classList.contains('active') && target.closest('#mobile-nav-overlay a')) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
     }
-
-    function closeMenu() {
-      hamburger.classList.remove('active');
-      if (mobileTarget) mobileTarget.classList.remove('active');
-      dimOverlay.classList.remove('active');
-      document.documentElement.classList.remove('menu-active');
-      document.body.style.top = '';
-      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
-    }
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileTarget && mobileTarget.classList.contains('active');
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
-    });
+  });
 
     // Tap empty space on glass drawer to close
     if (mobileTarget) {

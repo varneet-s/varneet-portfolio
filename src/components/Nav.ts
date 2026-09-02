@@ -4,13 +4,12 @@ export function renderNav(activePage: string = ''): string {
 
   const links = [
     { id: 'projects', label: 'Work', href: `${prefix}projects.html` },
-    { id: 'experience', label: 'Experience', href: `${prefix}experience.html` },
+    { id: 'about', label: 'About & Experience', href: `${prefix}about.html` },
     { id: 'writing', label: 'Writing', href: `${prefix}writing.html` },
-    { id: 'about', label: 'About', href: `${prefix}about.html` },
   ];
 
   const linksHtml = links
-    .map(l => `<a href="${l.href}" class="nav-link ${activePage === l.id ? 'active' : ''}" id="nav-link-${l.id}">${l.label}</a>`)
+    .map(l => `<a href="${l.href}" class="nav-link ${activePage === l.id || (activePage === 'experience' && l.id === 'about') ? 'active' : ''}" id="nav-link-${l.id}">${l.label}</a>`)
     .join('');
 
   return `
@@ -35,6 +34,7 @@ export function renderNav(activePage: string = ''): string {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
         <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-right: 6px;"><line x1="0" y1="2" x2="16" y2="2"></line><line x1="0" y1="6" x2="16" y2="6"></line><line x1="0" y1="10" x2="16" y2="10"></line></svg>
           MENU
         </button>
       </div>
@@ -49,9 +49,8 @@ export function renderNav(activePage: string = ''): string {
       <div class="mobile-nav-body">
         <div class="mobile-nav-links">
           <a href="${prefix}projects.html" class="mobile-nav-card">Work</a>
-          <a href="${prefix}experience.html" class="mobile-nav-card">Experience</a>
+          <a href="${prefix}about.html" class="mobile-nav-card">About &amp; Experience</a>
           <a href="${prefix}writing.html" class="mobile-nav-card">Writing</a>
-          <a href="${prefix}about.html" class="mobile-nav-card">About</a>
           <a href="${prefix}index.html#contact" class="mobile-nav-card mobile-nav-card--cta">Let's Talk &rarr;</a>
         </div>
         <div class="mobile-nav-footer">

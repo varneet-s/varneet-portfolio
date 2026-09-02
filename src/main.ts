@@ -17,33 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Mobile Nav Overlay Logic ([MENU] button and [CLOSE] button)
-  const openBtn = document.getElementById('mobile-menu-toggle');
-  const closeBtn = document.getElementById('mobile-menu-close');
-  const overlay = document.getElementById('mobile-nav-overlay');
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const toggleBtn = target ? target.closest('#mobile-menu-toggle, .mobile-menu-btn') : null;
+    const closeBtn = target ? target.closest('#mobile-menu-close, .mobile-nav-close') : null;
+    const overlay = document.getElementById('mobile-nav-overlay');
 
-  if (openBtn && overlay) {
-    openBtn.addEventListener('click', () => {
+    if (toggleBtn && overlay) {
+      e.preventDefault();
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (closeBtn && overlay) {
-    closeBtn.addEventListener('click', () => {
+    } else if (closeBtn && overlay) {
+      e.preventDefault();
       overlay.classList.remove('active');
       document.body.style.overflow = '';
-    });
-  }
-
-  // Close mobile nav when clicking any link inside overlay
-  if (overlay) {
-    overlay.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+    } else if (overlay && overlay.classList.contains('active') && target.closest('#mobile-nav-overlay a')) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 
   // 4. Header Scroll Hide / Reveal Logic
   const header = document.querySelector('#main-header');
@@ -52,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (header) {
     window.addEventListener('scroll', () => {
-      if (overlay && overlay.classList.contains('active')) return;
+      const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+      if (mobileNavOverlay && mobileNavOverlay.classList.contains('active')) return;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
