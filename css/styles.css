@@ -447,67 +447,126 @@ img {
 }
 
 /* ── Instruction 1: Mobile Nav Drawer ── */
+/* ── Instruction 1: Mobile Nav Drawer (Orange & White Top-Down Slide) ── */
 .mobile-nav {
-  display: none !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background: var(--ink, #0C0D0E) !important;
-  color: var(--cornsilk, #FFFDF5) !important;
+  background: #FF3B00 !important; /* Vibrant Orange background */
+  color: #FFFFFF !important;
+  display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 24px !important;
-  padding: 24px !important;
+  justify-content: space-between !important;
+  padding: 16px 20px 36px 20px !important;
+  transform: translateY(-100%) !important; /* Top-to-Down slide transition */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   z-index: 9999999 !important;
   pointer-events: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
+  box-sizing: border-box !important;
 }
 
 .mobile-nav[data-state="open"],
 .mobile-nav.active {
-  display: flex !important;
-  transform: none !important;
+  transform: translateY(0) !important;
   pointer-events: auto !important;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
 body[data-nav-open="true"], html[data-nav-open="true"] {
   overflow: hidden !important;
 }
 
-.mobile-nav a {
-  color: var(--cornsilk, #FFFDF5);
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
+/* Header inside Mobile Nav Drawer */
+.mobile-nav-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding-bottom: 12px !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25) !important;
 }
 
-.mobile-nav .mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.mobile-nav-logo {
+  font-family: var(--font-display, sans-serif) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.02em !important;
 }
 
-.mobile-nav .mobile-nav-footer {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
+.mobile-nav-close {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: #0C0D0E !important;
+  background: #FFFFFF !important;
+  border: 2.5px solid #0C0D0E !important;
+  border-radius: 100px !important;
+  padding: 10px 18px !important;
+  box-shadow: 3px 3px 0px #0C0D0E !important;
+  cursor: pointer !important;
+  text-transform: uppercase !important;
 }
 
-.mobile-nav .mobile-nav-footer a {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: none;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px 14px;
-  border-radius: 100px;
+.mobile-nav-close:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #0C0D0E !important;
+}
+
+/* Main Nav Links inside Drawer */
+.mobile-nav-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin: auto 0 !important;
+  text-align: center !important;
+}
+
+.mobile-nav-links a {
+  font-family: var(--font-display, sans-serif) !important;
+  font-size: clamp(2.4rem, 10vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  transition: transform 0.15s ease !important;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  transform: scale(1.05) !important;
+  color: #FFFDF5 !important;
+}
+
+/* White Social Pills at Bottom */
+.mobile-nav-footer {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.mobile-nav-pill {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: #0C0D0E !important;
+  background: #FFFFFF !important;
+  border: 2.5px solid #0C0D0E !important;
+  border-radius: 100px !important;
+  padding: 12px 20px !important;
+  text-decoration: none !important;
+  box-shadow: 3px 3px 0px #0C0D0E !important;
+  transition: transform 0.15s ease !important;
+}
+
+.mobile-nav-pill:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #0C0D0E !important;
 }
 
 /* ── Instruction 2, 3, 5, 6, 7, 8, 9: Standard 640px Mobile Breakpoint ── */
