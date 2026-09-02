@@ -8,6 +8,11 @@
   <link rel="icon" type="image/svg+xml" href="assets/logo-wordmark.svg">
   <link rel="stylesheet" href="css/styles.css?v=1.0.1">
   <link rel="stylesheet" href="css/design-system.css?v=1.0.1">
+
+  <!-- Calendly link widget begin -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <!-- Calendly link widget end -->
 </head>
 <body class="page-body">
 
@@ -23,7 +28,7 @@
         <a href="writing.html">Writing</a>
         <a href="about.html">About</a>
       </nav>
-      <a class="cta" href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener">Let's Talk &rarr;</a>
+      <a class="cta" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/varneetsingh45/30min'});return false;">Let's Talk &rarr;</a>
       <button class="menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav">MENU</button>
 
       <!-- Mobile Nav Drawer -->
@@ -36,7 +41,7 @@
           <a href="projects.html">Work</a>
           <a href="writing.html">Writing</a>
           <a href="about.html">About</a>
-          <a href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener" class="cta-mobile">Let's Talk &rarr;</a>
+          <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/varneetsingh45/30min'});return false;" class="cta-mobile">Let's Talk &rarr;</a>
         </div>
         <div class="mobile-nav-footer">
           <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
@@ -68,7 +73,7 @@
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="projects.html">View Work</a>
-            <a class="btn btn-outline" href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-outline" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/varneetsingh45/30min'});return false;">Book a Call</a>
           </div>
         </div>
       </section>
@@ -256,7 +261,7 @@
       <div class="local-footer-content">
         <div class="local-footer-avatar-wrap">
           <img src="assets/varneet-avatar.png" alt="Varneet Singh — Illustrated Portrait" class="local-footer-avatar-img">
-          <a href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener" class="local-footer-email-badge">
+          <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/varneetsingh45/30min'});return false;" class="local-footer-email-badge">
             BOOK A CALL &rarr;
           </a>
         </div>

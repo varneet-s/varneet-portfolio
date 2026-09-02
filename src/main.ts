@@ -2,6 +2,27 @@ import '../css/styles.css';
 import { renderNav } from './components/Nav';
 import { renderFooter } from './components/Footer';
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
+
+// Dynamically inject Calendly Popup Widget CSS & JS
+if (typeof document !== 'undefined' && !document.querySelector('script[src*="calendly.com"]')) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://assets.calendly.com/assets/external/widget.css';
+  document.head.appendChild(link);
+
+  const script = document.createElement('script');
+  script.src = 'https://assets.calendly.com/assets/external/widget.js';
+  script.async = true;
+  document.head.appendChild(script);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inject Nav if #main-header exists
   const headerEl = document.getElementById('main-header');

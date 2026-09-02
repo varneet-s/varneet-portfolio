@@ -9,7 +9,7 @@ export function renderFooter(): string {
       <div class="local-footer-content">
         <div class="local-footer-avatar-wrap">
           <img src="${prefix}assets/varneet-avatar.png" alt="Varneet Singh — Illustrated Portrait" class="local-footer-avatar-img">
-          <a href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener" class="local-footer-email-badge">
+          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});return false;}else{window.open('https://calendly.com/varneetsingh45/30min','_blank');return false;}" class="local-footer-email-badge">
             BOOK A CALL &rarr;
           </a>
         </div>
