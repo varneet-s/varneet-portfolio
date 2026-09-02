@@ -30,9 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const activePage = headerEl.getAttribute('data-active') || '';
     headerEl.innerHTML = renderNav(activePage);
 
-    // Ensure #mobile-nav is attached directly to document.body to avoid CSS header transform traps
-    const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav && mobileNav.parentElement !== document.body) {
+    // Ensure #mobile-nav exists and is attached directly to document.body
+    let mobileNav = document.getElementById('mobile-nav');
+    if (!mobileNav) {
+      const isSubdir = window.location.pathname.includes('/projects/') || window.location.pathname.includes('/writing/');
+      const prefix = isSubdir ? '../' : '';
+      mobileNav = document.createElement('nav');
+      mobileNav.id = 'mobile-nav';
+      mobileNav.className = 'mobile-nav';
+      mobileNav.setAttribute('data-state', 'closed');
+      mobileNav.innerHTML = `
+        <div class="mobile-nav-header">
+          <span class="mobile-nav-logo">VARNEET</span>
+          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">[CLOSE]</button>
+        </div>
+        <div class="mobile-nav-links">
+          <a href="${prefix}projects.html">Work</a>
+          <a href="${prefix}writing.html">Writing</a>
+          <a href="${prefix}about.html">About</a>
+          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});return false;}else{window.open('https://calendly.com/varneetsingh45/30min','_blank');return false;}" class="cta-mobile">Let's Talk &rarr;</a>
+        </div>
+        <div class="mobile-nav-footer">
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+          <a href="mailto:varneetsingh45@gmail.com">Email &rarr;</a>
+          <a href="${prefix}resume.pdf" target="_blank" rel="noopener">Resume &rarr;</a>
+        </div>
+      `;
+      document.body.appendChild(mobileNav);
+    } else if (mobileNav.parentElement !== document.body) {
       document.body.appendChild(mobileNav);
     }
   }
@@ -48,29 +73,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = e.target as HTMLElement;
     if (!target) return;
 
-    const toggle = target.closest('.menu-toggle, #mobile-menu-toggle') as HTMLElement;
+    const toggle = target.closest('.menu-toggle, #mobile-menu-toggle, .mobile-menu-btn') as HTMLElement;
     const closeBtn = target.closest('#mobile-menu-close, .mobile-nav-close') as HTMLElement;
     const nav = document.getElementById('mobile-nav');
 
-    if (toggle && nav) {
+    if (toggle) {
       e.preventDefault();
-      const isOpen = nav.getAttribute('data-state') === 'open';
-      const newState = isOpen ? 'closed' : 'open';
-
-      nav.setAttribute('data-state', newState);
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      document.body.setAttribute('data-nav-open', String(!isOpen));
-    } else if (closeBtn && nav) {
+      e.stopPropagation();
+      if (nav) {
+        const isOpen = nav.getAttribute('data-state') === 'open' || nav.classList.contains('active');
+        if (isOpen) {
+          nav.setAttribute('data-state', 'closed');
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.removeAttribute('data-nav-open');
+          document.body.style.overflow = '';
+        } else {
+          nav.setAttribute('data-state', 'open');
+          nav.classList.add('active');
+          toggle.setAttribute('aria-expanded', 'true');
+          document.body.setAttribute('data-nav-open', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    } else if (closeBtn) {
       e.preventDefault();
+      e.stopPropagation();
+      if (nav) {
+        nav.setAttribute('data-state', 'closed');
+        nav.classList.remove('active');
+        document.body.removeAttribute('data-nav-open');
+        document.body.style.overflow = '';
+        const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    } else if (nav && (nav.getAttribute('data-state') === 'open' || nav.classList.contains('active')) && target.closest('#mobile-nav a')) {
       nav.setAttribute('data-state', 'closed');
-      document.body.setAttribute('data-nav-open', 'false');
-      const toggleBtn = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
-    } else if (nav && nav.getAttribute('data-state') === 'open' && target.closest('#mobile-nav a')) {
-      nav.setAttribute('data-state', 'closed');
-      document.body.setAttribute('data-nav-open', 'false');
-      const toggleBtn = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('active');
+      document.body.removeAttribute('data-nav-open');
+      document.body.style.overflow = '';
+      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -82,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (header) {
     window.addEventListener('scroll', () => {
       const mobileNav = document.getElementById('mobile-nav');
-      if (mobileNav && mobileNav.getAttribute('data-state') === 'open') return;
+      if (mobileNav && (mobileNav.getAttribute('data-state') === 'open' || mobileNav.classList.contains('active'))) return;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
