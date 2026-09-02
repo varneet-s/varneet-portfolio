@@ -552,13 +552,13 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   box-shadow: 2px 2px 0px #0C0D0E !important;
 }
 
-/* Footer Socials: 2 Columns (2 on Left, 2 on Right) */
+/* Footer Socials: 2 Columns (2 on Left, 2 on Right, Elevated for Mobile Navigation Bars) */
 .mobile-nav-footer {
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-end !important;
   width: 100% !important;
-  padding: 0 8px !important;
+  padding: 0 16px 80px 16px !important; /* Elevated 80px above mobile browser UI bars */
   box-sizing: border-box !important;
 }
 
@@ -596,17 +596,130 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   box-shadow: 1px 1px 0px #0C0D0E !important;
 }
 
+/* ── Selected Work Typographic List (Matching Reference Screenshot 4) ── */
+.selected-work-section {
+  background: #FFFDF5 !important;
+  padding: 3rem 1.25rem 4rem 1.25rem !important;
+  border-top: 2px solid #0C0D0E !important;
+}
+
+.selected-work-header-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-bottom: 1.25rem !important;
+  border-bottom: 2px solid #0C0D0E !important;
+  margin-bottom: 0 !important;
+}
+
+.selected-work-display-title {
+  font-family: var(--font-display, sans-serif) !important;
+  font-size: clamp(1.8rem, 6vw, 2.8rem) !important;
+  font-weight: 900 !important;
+  color: #0C0D0E !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+}
+
+.selected-work-badge {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  background: #FF3B00 !important;
+  padding: 6px 12px !important;
+  border-radius: 2px !important;
+  text-transform: lowercase !important;
+}
+
+.selected-work-list {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.work-list-row {
+  display: grid !important;
+  grid-template-columns: 60px 1fr !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  padding: 1.75rem 0 !important;
+  border-bottom: 1.5px solid #0C0D0E !important;
+  text-decoration: none !important;
+  color: #0C0D0E !important;
+  transition: background 0.15s ease !important;
+}
+
+.work-list-row:hover {
+  background: rgba(255, 59, 0, 0.04) !important;
+}
+
+.work-list-num {
+  font-family: var(--font-display, sans-serif) !important;
+  font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  color: #FF3B00 !important;
+  line-height: 1 !important;
+}
+
+.work-list-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.work-list-title {
+  font-family: var(--font-display, sans-serif) !important;
+  font-size: clamp(1.25rem, 4.5vw, 1.8rem) !important;
+  font-weight: 900 !important;
+  color: #0C0D0E !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.work-list-tags {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #555555 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+@media (min-width: 768px) {
+  .selected-work-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+    border-bottom: 2px solid #0C0D0E !important;
+  }
+
+  .work-list-row {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 2.5rem 1.5rem !important;
+    border-bottom: none !important;
+    border-right: 2px solid #0C0D0E !important;
+  }
+
+  .work-list-row:last-child {
+    border-right: none !important;
+  }
+}
+
 /* ── Instruction 2, 3, 5, 6, 7, 8, 9: Standard 640px Mobile Breakpoint ── */
 @media (max-width: 640px) {
-  /* Instruction 9: Sticky Header */
+  /* Instruction 9: Sticky Header & Margin Alignment (V aligns with D) */
   header, #main-header {
     position: sticky !important;
     top: 0 !important;
-    padding: 14px 16px !important;
+    padding: 14px 20px !important;
     z-index: 90 !important;
     background: var(--cornsilk, #FFFDF5) !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .nav-menu-links,
@@ -621,13 +734,13 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 12px 16px !important;
   }
 
-  /* Instruction 5: Hero Mobile Values */
+  /* Instruction 5: Hero Mobile Values & Margin Alignment */
   h1, .hero-title--display {
     font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
   .hero-inner, .hero-container-z {
-    padding: 32px 16px 28px !important;
+    padding: 24px 20px 24px !important;
   }
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
@@ -639,34 +752,41 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     justify-content: center !important;
   }
 
-  /* Tag Strip Mobile Single Horizontal Row */
+  /* Tag Strip Mobile Single Horizontal Row (Matching Reference Screenshot 5) */
   .tag-strip {
+    position: relative !important;
+    z-index: 10 !important;
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
     gap: 0 !important;
-    padding: 8px 12px !important;
+    padding: 0 !important;
     background: var(--cornsilk, #FFFDF5) !important;
-    border-top: 1.5px solid var(--ink, #0C0D0E) !important;
-    border-bottom: 1.5px solid var(--ink, #0C0D0E) !important;
+    border-top: 2px solid var(--ink, #0C0D0E) !important;
+    border-bottom: 2px solid var(--ink, #0C0D0E) !important;
     width: 100% !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
   }
 
   .tag-strip span {
     font-family: var(--font-mono, monospace) !important;
-    font-size: clamp(10px, 2.7vw, 12px) !important;
+    font-size: clamp(10px, 2.7vw, 11.5px) !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    padding: 4px 6px !important;
+    padding: 12px 4px !important;
     border-bottom: none !important;
-    border-right: 1px solid rgba(12, 13, 14, 0.25) !important;
+    border-right: 1px solid var(--ink, #0C0D0E) !important;
     line-height: 1 !important;
     white-space: nowrap !important;
     flex: 1 !important;
     text-align: center !important;
+    color: var(--ink, #0C0D0E) !important;
+  }
+
+  .tag-strip span:last-child {
+    border-right: none !important;
   }
 
   .tag-strip span:last-child {
