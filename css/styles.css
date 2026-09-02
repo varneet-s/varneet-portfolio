@@ -4956,3 +4956,76 @@ body, .page-body {
     height: 220px !important;
   }
 }
+
+/* ==========================================================================
+   LOADING SKELETON & SHIMMER ANIMATION SYSTEM
+   ========================================================================== */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer,
+.skeleton-box,
+.skeleton-text,
+.skeleton-title,
+.skeleton-avatar,
+.skeleton-card {
+  background: linear-gradient(
+    90deg,
+    #EAEAEA 0%,
+    #F6F6F6 40%,
+    #EAEAEA 80%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.5s infinite linear !important;
+  border-radius: 6px !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  border: 1px solid rgba(12, 13, 14, 0.08) !important;
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  display: block;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-title {
+  height: 2rem;
+  width: 75%;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.skeleton-card-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #FFFDF5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  transition: opacity 0.35s ease-out;
+}
+
+.skeleton-overlay.loaded {
+  opacity: 0;
+  pointer-events: none;
+}

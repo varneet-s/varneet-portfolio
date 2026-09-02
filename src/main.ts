@@ -2,6 +2,7 @@ import '../css/styles.css';
 import { renderNav } from './components/Nav';
 import { renderFooter } from './components/Footer';
 import { MobileNavManager } from './components/MobileNav';
+import { SkeletonLoader } from './components/SkeletonLoader';
 
 declare global {
   interface Window {
@@ -25,8 +26,9 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
   document.head.appendChild(script);
 }
 
-// Initialize TypeScript Navigation Controller
+// Initialize TypeScript Navigation & Skeleton Controllers
 MobileNavManager.init();
+SkeletonLoader.init();
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inject Nav if #main-header is empty
