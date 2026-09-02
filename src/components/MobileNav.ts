@@ -9,7 +9,7 @@ export interface NavStateOptions {
 
 export class MobileNavManager {
   private static lastToggleTimestamp = 0;
-  private static readonly DEBOUNCE_MS = 350;
+  private static readonly DEBOUNCE_MS = 150;
   private static isInitialized = false;
 
   /**
@@ -37,13 +37,46 @@ export class MobileNavManager {
   }
 
   /**
-   * Ensures #mobile-nav exists and is appended directly to document.body
+   * Ensures #mobile-nav exists and is appended directly to document.body.
+   * Dynamically constructs drawer markup if not present in the DOM.
    */
-  public static ensureDrawerInBody(): HTMLElement | null {
-    const nav = document.getElementById('mobile-nav');
-    if (nav && nav.parentElement !== document.body) {
+  public static ensureDrawerInBody(): HTMLElement {
+    let nav = document.getElementById('mobile-nav');
+
+    if (!nav) {
+      const isSubdir = window.location.pathname.includes('/projects/') || window.location.pathname.includes('/writing/');
+      const prefix = isSubdir ? '../' : '';
+
+      nav = document.createElement('nav');
+      nav.id = 'mobile-nav';
+      nav.className = 'mobile-nav';
+      nav.setAttribute('data-state', 'closed');
+      nav.innerHTML = `
+        <div class="mobile-nav-header">
+          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">BACK</button>
+        </div>
+        <div class="mobile-nav-links">
+          <a href="${prefix}projects.html" class="mobile-nav-card">WORK</a>
+          <a href="${prefix}writing.html" class="mobile-nav-card">WRITING</a>
+          <a href="${prefix}about.html" class="mobile-nav-card">ABOUT</a>
+          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}return false;" class="mobile-nav-card">LET'S TALK &rarr;</a>
+        </div>
+        <div class="mobile-nav-footer">
+          <div class="mobile-nav-col mobile-nav-col-left">
+            <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="mobile-nav-badge">LINKEDIN</a>
+            <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="mobile-nav-badge">GITHUB</a>
+          </div>
+          <div class="mobile-nav-col mobile-nav-col-right">
+            <a href="mailto:varneetsingh45@gmail.com" class="mobile-nav-badge">EMAIL</a>
+            <a href="${prefix}resume.pdf" target="_blank" rel="noopener" class="mobile-nav-badge">RESUME</a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(nav);
+    } else if (nav.parentElement !== document.body) {
       document.body.appendChild(nav);
     }
+
     return nav;
   }
 
@@ -52,7 +85,6 @@ export class MobileNavManager {
    */
   public static toggle(options: NavStateOptions = {}): void {
     const now = Date.now();
-    // 350ms timestamp guard prevents double-toggles from fast event bubbling cascades
     if (options.forceState === undefined && now - this.lastToggleTimestamp < this.DEBOUNCE_MS) {
       return;
     }
@@ -60,7 +92,6 @@ export class MobileNavManager {
 
     const nav = this.ensureDrawerInBody();
     const toggleBtn = document.getElementById('mobile-menu-toggle') as HTMLButtonElement | null;
-    if (!nav) return;
 
     const currentState = nav.getAttribute('data-state');
     const isCurrentlyOpen = currentState === 'open' || nav.classList.contains('active');
@@ -103,9 +134,7 @@ export class MobileNavManager {
    * Attach global document click listener with event delegation
    */
   private static attachEventListeners(): void {
-    document.addEventListener('click', (e: MouseEvent) => {
-      if ((e as any)._navHandled) return;
-
+    const handleNavigationInteraction = (e: Event) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -114,19 +143,16 @@ export class MobileNavManager {
       const navLink = target.closest('#mobile-nav a');
 
       if (toggle) {
-        (e as any)._navHandled = true;
         e.preventDefault();
-        e.stopPropagation();
         this.toggle();
       } else if (closeBtn) {
-        (e as any)._navHandled = true;
         e.preventDefault();
-        e.stopPropagation();
         this.toggle({ forceState: 'closed' });
       } else if (navLink) {
-        (e as any)._navHandled = true;
         this.toggle({ forceState: 'closed' });
       }
-    }, true);
+    };
+
+    document.addEventListener('click', handleNavigationInteraction);
   }
 }
