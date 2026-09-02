@@ -23,103 +23,53 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
   document.head.appendChild(script);
 }
 
+// Global Mobile Nav Toggle function to prevent event listener collisions
+(window as any).toggleMobileNav = function(forceState?: 'open' | 'closed') {
+  const nav = document.getElementById('mobile-nav');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  if (!nav) return;
+
+  if (nav.parentElement !== document.body) {
+    document.body.appendChild(nav);
+  }
+
+  const currentState = nav.getAttribute('data-state');
+  const isOpen = forceState ? forceState === 'closed' : (currentState === 'open' || nav.classList.contains('active'));
+
+  if (isOpen) {
+    nav.setAttribute('data-state', 'closed');
+    nav.classList.remove('active');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.removeAttribute('data-nav-open');
+    document.body.style.overflow = '';
+  } else {
+    nav.setAttribute('data-state', 'open');
+    nav.classList.add('active');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.setAttribute('data-nav-open', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Inject Nav if #main-header exists
+  // 1. Inject Nav if #main-header is empty
   const headerEl = document.getElementById('main-header');
-  if (headerEl) {
+  if (headerEl && !headerEl.children.length) {
     const activePage = headerEl.getAttribute('data-active') || '';
     headerEl.innerHTML = renderNav(activePage);
-
-    // Ensure #mobile-nav exists and is attached directly to document.body
-    let mobileNav = document.getElementById('mobile-nav');
-    if (!mobileNav) {
-      const isSubdir = window.location.pathname.includes('/projects/') || window.location.pathname.includes('/writing/');
-      const prefix = isSubdir ? '../' : '';
-      mobileNav = document.createElement('nav');
-      mobileNav.id = 'mobile-nav';
-      mobileNav.className = 'mobile-nav';
-      mobileNav.setAttribute('data-state', 'closed');
-      mobileNav.innerHTML = `
-        <div class="mobile-nav-header">
-          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');n.classList.remove('active');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}return false;">BACK</button>
-        </div>
-        <div class="mobile-nav-links">
-          <a href="${prefix}projects.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">WORK</a>
-          <a href="${prefix}writing.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">WRITING</a>
-          <a href="${prefix}about.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">ABOUT</a>
-          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}return false;" class="mobile-nav-card">LET'S TALK &rarr;</a>
-        </div>
-        <div class="mobile-nav-footer">
-          <div class="mobile-nav-col mobile-nav-col-left">
-            <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="mobile-nav-badge">LINKEDIN</a>
-            <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" class="mobile-nav-badge">GITHUB</a>
-          </div>
-          <div class="mobile-nav-col mobile-nav-col-right">
-            <a href="mailto:varneetsingh45@gmail.com" class="mobile-nav-badge">EMAIL</a>
-            <a href="${prefix}resume.pdf" target="_blank" rel="noopener" class="mobile-nav-badge">RESUME</a>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(mobileNav);
-    } else if (mobileNav.parentElement !== document.body) {
-      document.body.appendChild(mobileNav);
-    }
   }
 
-  // 2. Inject Footer if #main-footer exists
+  // 2. Ensure #mobile-nav exists and is attached directly to document.body
+  let mobileNav = document.getElementById('mobile-nav');
+  if (mobileNav && mobileNav.parentElement !== document.body) {
+    document.body.appendChild(mobileNav);
+  }
+
+  // 3. Inject Footer if #main-footer is empty
   const footerEl = document.getElementById('main-footer');
-  if (footerEl) {
+  if (footerEl && !footerEl.children.length) {
     footerEl.innerHTML = renderFooter();
   }
-
-  // 3. Mobile Nav Drawer Toggle Logic
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    if (!target) return;
-
-    const toggle = target.closest('.menu-toggle, #mobile-menu-toggle, .mobile-menu-btn') as HTMLElement;
-    const closeBtn = target.closest('#mobile-menu-close, .mobile-nav-close') as HTMLElement;
-    const nav = document.getElementById('mobile-nav');
-
-    if (toggle) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (nav) {
-        const isOpen = nav.getAttribute('data-state') === 'open' || nav.classList.contains('active');
-        if (isOpen) {
-          nav.setAttribute('data-state', 'closed');
-          nav.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.removeAttribute('data-nav-open');
-          document.body.style.overflow = '';
-        } else {
-          nav.setAttribute('data-state', 'open');
-          nav.classList.add('active');
-          toggle.setAttribute('aria-expanded', 'true');
-          document.body.setAttribute('data-nav-open', 'true');
-          document.body.style.overflow = 'hidden';
-        }
-      }
-    } else if (closeBtn) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (nav) {
-        nav.setAttribute('data-state', 'closed');
-        nav.classList.remove('active');
-        document.body.removeAttribute('data-nav-open');
-        document.body.style.overflow = '';
-        const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      }
-    } else if (nav && (nav.getAttribute('data-state') === 'open' || nav.classList.contains('active')) && target.closest('#mobile-nav a')) {
-      nav.setAttribute('data-state', 'closed');
-      nav.classList.remove('active');
-      document.body.removeAttribute('data-nav-open');
-      document.body.style.overflow = '';
-      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-    }
-  });
 
   // 4. Header Scroll Hide / Reveal Logic
   const header = document.querySelector('#main-header');

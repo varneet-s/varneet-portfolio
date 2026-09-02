@@ -29,19 +29,19 @@
         <a href="about.html">About</a>
       </nav>
       <a class="cta" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/varneetsingh45/30min'});return false;">Let's Talk &rarr;</a>
-      <button class="menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav" onclick="var n=document.getElementById('mobile-nav');if(n){if(n.parentElement!==document.body)document.body.appendChild(n);var open=n.getAttribute('data-state')==='open'||n.classList.contains('active');if(open){n.setAttribute('data-state','closed');n.classList.remove('active');this.setAttribute('aria-expanded','false');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}else{n.setAttribute('data-state','open');n.classList.add('active');this.setAttribute('aria-expanded','true');document.body.setAttribute('data-nav-open','true');document.body.style.overflow='hidden';}}return false;">MENU</button>
+      <button class="menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav" onclick="if(window.toggleMobileNav){window.toggleMobileNav();}return false;">MENU</button>
     </header>
 
     <!-- Mobile Nav Drawer (LocalStudio.fr Style) -->
     <nav id="mobile-nav" class="mobile-nav" data-state="closed">
       <div class="mobile-nav-header">
-        <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');n.classList.remove('active');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}return false;">BACK</button>
+        <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="if(window.toggleMobileNav){window.toggleMobileNav('closed');}return false;">BACK</button>
       </div>
       <div class="mobile-nav-links">
-        <a href="projects.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">WORK</a>
-        <a href="writing.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">WRITING</a>
-        <a href="about.html" class="mobile-nav-card" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">ABOUT</a>
-        <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}return false;" class="mobile-nav-card">LET'S TALK &rarr;</a>
+        <a href="projects.html" class="mobile-nav-card" onclick="if(window.toggleMobileNav){window.toggleMobileNav('closed');}">WORK</a>
+        <a href="writing.html" class="mobile-nav-card" onclick="if(window.toggleMobileNav){window.toggleMobileNav('closed');}">WRITING</a>
+        <a href="about.html" class="mobile-nav-card" onclick="if(window.toggleMobileNav){window.toggleMobileNav('closed');}">ABOUT</a>
+        <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}if(window.toggleMobileNav){window.toggleMobileNav('closed');}return false;" class="mobile-nav-card">LET'S TALK &rarr;</a>
       </div>
       <div class="mobile-nav-footer">
         <div class="mobile-nav-col mobile-nav-col-left">
