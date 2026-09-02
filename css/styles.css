@@ -112,52 +112,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-display);
 }
 
-/* ── Organic Handmade Parchment Paper & Subtle Crease Overlay (Matching User Reference) ── */
-/* ── Organic Handmade Parchment Paper & Scroll-Attached Crease Overlay ── */
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.75;
-  background-size: 100% 1200px;
-  background-repeat: repeat-y;
-  background-image: 
-    /* Organic Pressed Paper Crease 1 (Gentle slant) */
-    linear-gradient(28deg,
-      transparent 0%,
-      transparent 34%,
-      rgba(110, 85, 55, 0.05) 34.2%,
-      rgba(255, 252, 245, 0.18) 34.4%,
-      transparent 34.7%,
-      transparent 100%
-    ),
-    /* Organic Pressed Paper Crease 2 (Horizontal ripple crease) */
-    linear-gradient(172deg,
-      transparent 0%,
-      transparent 61%,
-      rgba(120, 95, 60, 0.04) 61.2%,
-      rgba(255, 252, 245, 0.16) 61.4%,
-      transparent 61.7%,
-      transparent 100%
-    ),
-    /* Organic Paper Specks & Fiber Grain */
-    radial-gradient(circle at 25% 180px, rgba(80, 55, 30, 0.08) 0px, transparent 1.5px),
-    radial-gradient(circle at 72% 350px, rgba(90, 60, 35, 0.07) 0px, transparent 1.2px),
-    radial-gradient(circle at 40% 680px, rgba(70, 45, 25, 0.09) 0px, transparent 1.8px),
-    radial-gradient(circle at 85% 820px, rgba(85, 58, 32, 0.07) 0px, transparent 1.4px),
-    radial-gradient(circle at 15% 780px, rgba(75, 50, 30, 0.08) 0px, transparent 1.3px),
-    /* Soft Parchment Vignette & Warm Edge Aging */
-    radial-gradient(
-      ellipse at 50% 600px,
-      transparent 40%,
-      rgba(165, 130, 90, 0.08) 100%
-    );
-}
+/* Paper crease overlay removed per user request */
 
 a {
   color: inherit;
@@ -247,53 +202,150 @@ header.nav-revealed {
   padding: 0 1.5rem;
 }
 
-/* 3-column navbar: Sam Dickie exact layout (Pill container, wide centered logo gap) */
-.nav-menu-3col {
+/* ── Navbar New Layout (Logo left → Links → CTA right) ── */
+.nav-layout-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 2rem;
 }
 
-.nav-links-left {
+.nav-logo-link {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  white-space: nowrap;
+  text-decoration: none;
 }
 
-.nav-emblem-logo {
+.nav-menu-links {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  flex-shrink: 0;
+  gap: 0.75rem;
 }
 
-.nav-emblem-logo span {
+.nav-layout-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-menu-btn {
   display: none;
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2px solid #0C0D0E;
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #0C0D0E;
 }
 
-.nav-emblem-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid var(--copper);
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-emblem-logo:hover .nav-emblem-icon {
-  transform: rotate(12deg) scale(1.1);
-  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
-}
-
-.nav-links-right {
+/* Mobile Nav Overlay (#FF3B00 Full-Screen Background) */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FF3B00;
+  z-index: 9999;
   display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.25rem;
-  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+
+.mobile-nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+}
+
+.mobile-nav-close {
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2px solid #0C0D0E;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px #0C0D0E;
+}
+
+.mobile-nav-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.mobile-nav-card {
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2.5px solid #0C0D0E;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px #0C0D0E;
+}
+
+.mobile-nav-card--cta {
+  background: #0C0D0E;
+  color: #FF3B00;
+  border-color: #FFFFFF;
+  box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+.mobile-nav-footer {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.mobile-social-box {
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2px solid #0C0D0E;
+  border-radius: 100px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .nav-menu-links { display: none !important; }
+  .mobile-menu-btn { display: block !important; }
 }
 
 /* ==========================================================================
