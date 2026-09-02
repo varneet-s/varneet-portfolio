@@ -554,8 +554,41 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     justify-content: center !important;
   }
 
-  /* Instruction 6: Eyebrows / Tag Strip / Metrics Stacking */
-  .tag-strip, .metrics-strip {
+  /* Tag Strip Mobile Single Horizontal Row */
+  .tag-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 8px 12px !important;
+    background: var(--cornsilk, #FFFDF5) !important;
+    border-top: 1.5px solid var(--ink, #0C0D0E) !important;
+    border-bottom: 1.5px solid var(--ink, #0C0D0E) !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+  }
+
+  .tag-strip span {
+    font-family: var(--font-mono, monospace) !important;
+    font-size: clamp(10px, 2.7vw, 12px) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 4px 6px !important;
+    border-bottom: none !important;
+    border-right: 1px solid rgba(12, 13, 14, 0.25) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    flex: 1 !important;
+    text-align: center !important;
+  }
+
+  .tag-strip span:last-child {
+    border-right: none !important;
+  }
+
+  .metrics-strip {
     flex-direction: column !important;
   }
   .tag-strip span, .metric-card {
