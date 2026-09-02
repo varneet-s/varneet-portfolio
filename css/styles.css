@@ -162,215 +162,419 @@ p {
 /* ==========================================================================
    NAVIGATION BAR (Rectangle with Rounded Corners & Equal Spacing)
    ========================================================================== */
-#main-header {
+/* ==========================================================================
+   MOBILE FIRST BASE STYLES (Base = Mobile, Scale up at @media(min-width:641px))
+   ========================================================================== */
+
+/* ── Section 1: Header (Mobile Base) ── */
+#main-header, header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 2px solid var(--ink, #0C0D0E);
   position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  z-index: 90;
+  background: var(--cornsilk, #FFFDF5);
+}
+
+.logo, .logo-link {
+  font-family: var(--font-display, sans-serif);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--ink, #0C0D0E);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+header nav, .nav-links-desktop {
+  display: none;
+}
+
+.cta {
+  display: none;
+}
+
+.menu-toggle {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
   background: transparent;
   border: none;
-  margin: 0;
-  padding: 1.25rem 0;
-  box-shadow: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-}
-
-/* Nav Hide on scroll down / reveal on scroll up */
-header.nav-hidden {
-  transform: translateY(-130%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-header.nav-revealed {
-  animation: navRevealCenter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes navRevealCenter {
-  0% {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1.2rem 2rem;
-  box-sizing: border-box;
-}
-
-/* ── Navbar New Layout (Spaced across entire top bar like localstudio.fr) ── */
-.nav-logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.nav-menu-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-grow: 1;
-  max-width: 65%;
-  margin: 0 auto;
-}
-
-.nav-layout-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: #FFFFFF;
-  color: #0C0D0E;
-  border: 2px solid #0C0D0E;
-  border-radius: 100px;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 800;
-  padding: 0.4rem 1rem;
   cursor: pointer;
-  box-shadow: 2px 2px 0px #0C0D0E;
+  color: var(--ink, #0C0D0E);
 }
 
-/* Mobile Nav Overlay (#FF3B00 Full-Screen Background) */
-.mobile-nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #FF3B00;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
+/* ── Section 2: Tag Strip (Mobile Base) ── */
+.tag-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 2px solid var(--ink, #0C0D0E);
+  border-bottom: 2px solid var(--ink, #0C0D0E);
+  background: var(--cornsilk, #FFFDF5);
 }
 
-.mobile-nav-overlay.active {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  display: flex !important;
-  z-index: 999999 !important;
-}
-
-.mobile-nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.mobile-nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #FFFFFF;
-  letter-spacing: -0.04em;
-}
-
-.mobile-nav-close {
-  background: #FFFFFF;
-  color: #0C0D0E;
-  border: 2px solid #0C0D0E;
-  border-radius: 100px;
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 0.5rem 1.25rem;
-  cursor: pointer;
-  box-shadow: 3px 3px 0px #0C0D0E;
-}
-
-.mobile-nav-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.mobile-nav-card {
-  background: #FFFFFF;
-  color: #0C0D0E;
-  border: 2.5px solid #0C0D0E;
-  border-radius: 16px;
-  padding: 1rem 1.25rem;
-  font-size: 1.25rem;
-  font-weight: 900;
+.tag-strip span {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  box-shadow: 4px 4px 0px #0C0D0E;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ink, #0C0D0E);
+  text-align: left;
 }
 
-.mobile-nav-card--cta {
-  background: #0C0D0E;
-  color: #FF3B00;
-  border-color: #FFFFFF;
-  box-shadow: 4px 4px 0px #FFFFFF;
+.tag-strip span:last-child {
+  border-bottom: none;
 }
 
-.mobile-nav-footer {
+/* ── Section 3: Hero Headline (Mobile Base) ── */
+.hero-headline {
   display: flex;
-  gap: 0.65rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-display, sans-serif);
+  text-transform: uppercase;
+  margin: 0;
 }
 
-.mobile-social-box {
-  background: #FFFFFF;
-  color: #0C0D0E;
-  border: 2px solid #0C0D0E;
-  border-radius: 100px;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 800;
+.hero-headline .line {
+  font-size: clamp(2.1rem, 10.5vw, 3rem);
+  line-height: 0.95;
+  font-weight: 900;
+}
+
+.hero-headline .highlight {
+  background: var(--ink, #0C0D0E);
+  color: var(--cornsilk, #FFFDF5);
+  display: inline-block;
+  padding: 2px 8px;
+  width: fit-content;
+}
+
+/* ── Section 4: Sub-copy (Mobile Base) ── */
+.sub {
+  max-width: 100%;
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: var(--font-mono, monospace);
+  border-left: 3px solid var(--copper, #FF3B00);
+  padding-left: 14px;
+  color: var(--ink, #0C0D0E);
+}
+
+/* ── Section 5: CTA Buttons (Mobile Base) ── */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+}
+
+.btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px;
   text-decoration: none;
+  border: 2px solid var(--ink, #0C0D0E);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
-@media (max-width: 768px) {
-  #main-header {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+.btn-primary {
+  background: var(--ink, #0C0D0E);
+  color: var(--cornsilk, #FFFDF5);
+}
+
+.btn-outline {
+  color: var(--ink, #0C0D0E);
+  border-top: none;
+  background: transparent;
+}
+
+/* ── Section 6: Hero Container Spacing (Mobile Base) ── */
+.hero-inner {
+  padding: 32px 16px 28px;
+}
+
+/* ==========================================================================
+   DESKTOP OVERRIDES (min-width: 641px)
+   ========================================================================== */
+@media (min-width: 641px) {
+  /* Section 1: Header Desktop */
+  #main-header, header {
+    padding: 24px 32px;
   }
-  .nav-container {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0.75rem 1.25rem !important;
+
+  .logo, .logo-link {
+    font-size: 24px;
   }
-  .nav-menu-links { display: none !important; }
-  .nav-layout-right #nav-cta-talk { display: none !important; }
-  .mobile-menu-btn {
+
+  header nav, .nav-links-desktop {
+    display: flex;
+    gap: 0;
+  }
+
+  header nav a, .nav-links-desktop a {
+    font-family: var(--font-mono, monospace);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-left: 1px solid var(--ink, #0C0D0E);
+    text-decoration: none;
+    color: var(--ink, #0C0D0E);
+  }
+
+  .cta {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--copper, #FF3B00);
+    color: var(--cornsilk, #FFFDF5);
+    padding: 14px 24px;
+    text-decoration: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Section 2: Tag Strip Desktop */
+  .tag-strip {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .tag-strip span {
+    font-size: 14px;
+    padding: 16px 24px;
+    border-bottom: none;
+    border-right: 2px solid var(--ink, #0C0D0E);
+  }
+
+  .tag-strip span:last-child {
+    border-right: none;
+    text-align: right;
+  }
+
+  .tag-strip span:nth-child(2) {
+    text-align: center;
+  }
+
+  /* Section 3: Hero Headline Desktop */
+  .hero-headline {
+    gap: 18px;
+  }
+
+  .hero-headline .line {
+    font-size: clamp(3.5rem, 8.5vw, 7.5rem);
+    line-height: 0.9;
+  }
+
+  .hero-headline .highlight {
+    padding: 4px 12px;
+  }
+
+  /* Section 4: Sub-copy Desktop */
+  .sub {
+    max-width: 480px;
+    margin-top: 32px;
+    font-size: 17px;
+    padding-left: 18px;
+  }
+
+  /* Section 5: CTA Buttons Desktop */
+  .hero-cta {
+    flex-direction: row;
+    margin-top: 36px;
+  }
+
+  .btn {
+    padding: 18px 32px;
+    width: auto;
+  }
+
+  .btn-outline {
+    border-top: 2px solid var(--ink, #0C0D0E);
+    border-left: none;
+  }
+
+  /* Section 6: Hero Container Desktop */
+  .hero-inner {
+    padding: 72px 32px 56px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Instruction 10: Responsive Images & Global Overflow ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Instruction 1: Mobile Nav Drawer ── */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: var(--ink, #0C0D0E);
+  color: var(--cornsilk, #FFFDF5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-nav[data-state="open"] {
+  transform: translateX(0);
+}
+
+body[data-nav-open="true"], html[data-nav-open="true"] {
+  overflow: hidden !important;
+}
+
+.mobile-nav a {
+  color: var(--cornsilk, #FFFDF5);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobile-nav .mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-nav .mobile-nav-footer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.mobile-nav .mobile-nav-footer a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 100px;
+}
+
+/* ── Instruction 2, 3, 5, 6, 7, 8, 9: Standard 640px Mobile Breakpoint ── */
+@media (max-width: 640px) {
+  /* Instruction 9: Sticky Header */
+  header, #main-header {
+    position: sticky !important;
+    top: 0 !important;
+    padding: 14px 16px !important;
+    z-index: 90 !important;
+    background: var(--cornsilk, #FFFDF5) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+    width: 100% !important;
+  }
+
+  .nav-menu-links,
+  .nav-layout-right #nav-cta-talk {
+    display: none !important;
+  }
+
+  /* Instruction 3: Minimum 44x44px Touch Targets */
+  nav a, .btn, .menu-toggle, .mobile-menu-btn, .cta-button, .btn-outline, .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px !important;
+  }
+
+  /* Instruction 5: Hero Mobile Values */
+  h1, .hero-title--display {
+    font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
+    line-height: 0.92 !important;
+  }
+  .hero-inner, .hero-container-z {
+    padding: 32px 16px 28px !important;
+  }
+  .hero-cta, .hero-ctas-row {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .hero-cta .btn, .hero-ctas-row .cta-button, .hero-ctas-row .btn-outline {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Instruction 6: Eyebrows / Tag Strip / Metrics Stacking */
+  .tag-strip, .metrics-strip {
+    flex-direction: column !important;
+  }
+  .tag-strip span, .metric-card {
+    border-right: none !important;
+    border-bottom: 1px solid var(--ink, #0C0D0E) !important;
+    text-align: left !important;
+    padding: 10px 16px !important;
+  }
+  .tag-strip span:last-child, .metric-card:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Instruction 7: Work Section (One Card per Screen) */
+  .bento-grid, .projects-grid {
     display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .card, .bento-card {
+    flex-direction: column !important;
+    width: 100% !important;
+    grid-column: span 12 !important;
+    position: relative !important;
+    border-right: none !important;
+  }
+  .card img, .bento-card img, .project-card-thumb-wrap img {
+    width: 100% !important;
+    height: auto !important;
+    order: 1 !important;
+  }
+  .card .n, .project-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    font-size: 1.1rem !important;
+    background: var(--cornsilk, #FFFDF5) !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    z-index: 10 !important;
+  }
+  .card h3, .project-card-title {
+    order: 2 !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* Instruction 8: Section Padding Halved */
+  section {
+    padding: 40px 16px !important;
   }
 }
 

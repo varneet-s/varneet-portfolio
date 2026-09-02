@@ -9,7 +9,7 @@ export function renderFooter(): string {
       <div class="local-footer-content">
         <div class="local-footer-avatar-wrap">
           <img src="${prefix}assets/varneet-avatar.png" alt="Varneet Singh — Illustrated Portrait" class="local-footer-avatar-img">
-          <a href="${prefix}index.html#contact" class="local-footer-email-badge">
+          <a href="https://calendly.com/varneetsingh45/30min" target="_blank" rel="noopener" class="local-footer-email-badge">
             BOOK A CALL &rarr;
           </a>
         </div>
