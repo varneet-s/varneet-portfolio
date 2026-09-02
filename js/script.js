@@ -1,17 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Navigation toggle delegation via window.toggleMobileNav
-  document.addEventListener('click', function(e) {
-    var target = e.target;
-    if (!target) return;
-    var toggle = target.closest('.menu-toggle, #mobile-menu-toggle, .mobile-menu-btn');
-    var closeBtn = target.closest('#mobile-menu-close, .mobile-nav-close');
-    if ((toggle || closeBtn) && typeof window.toggleMobileNav === 'function') {
-      e.preventDefault();
-      e.stopPropagation();
-      window.toggleMobileNav(closeBtn ? 'closed' : undefined);
-    }
-  });
-
   // Project Filter Engine
   var filterBar = document.querySelector('.filter-bar');
   if (filterBar) {

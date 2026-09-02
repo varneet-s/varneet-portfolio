@@ -23,8 +23,15 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
   document.head.appendChild(script);
 }
 
-// Global Mobile Nav Toggle function to prevent event listener collisions
+// Global Mobile Nav Toggle function with 250ms debouncing guard
+let lastNavToggleTime = 0;
 (window as any).toggleMobileNav = function(forceState?: 'open' | 'closed') {
+  const now = Date.now();
+  if (now - lastNavToggleTime < 250 && forceState === undefined) {
+    return; // Block double-toggles caused by fast touch/click event bubbling
+  }
+  lastNavToggleTime = now;
+
   const nav = document.getElementById('mobile-nav');
   const toggle = document.getElementById('mobile-menu-toggle');
   if (!nav) return;
@@ -34,9 +41,10 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
   }
 
   const currentState = nav.getAttribute('data-state');
-  const isOpen = forceState ? forceState === 'closed' : (currentState === 'open' || nav.classList.contains('active'));
+  const isCurrentlyOpen = currentState === 'open' || nav.classList.contains('active');
+  const shouldClose = forceState ? forceState === 'closed' : isCurrentlyOpen;
 
-  if (isOpen) {
+  if (shouldClose) {
     nav.setAttribute('data-state', 'closed');
     nav.classList.remove('active');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
