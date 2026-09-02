@@ -1,5 +1,5 @@
 export function renderNav(activePage: string = ''): string {
-  const isSubdir = window.location.pathname.includes('/projects/');
+  const isSubdir = window.location.pathname.includes('/projects/') || window.location.pathname.includes('/writing/');
   const prefix = isSubdir ? '../' : '';
 
   const links = [

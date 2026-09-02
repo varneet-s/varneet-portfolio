@@ -199,9 +199,9 @@ header.nav-revealed {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0 2.5rem;
   box-sizing: border-box;
 }
 
@@ -2979,29 +2979,35 @@ section {
   color: #0C0D0E;
 }
 
-/* ── Hero section (index.html) — Local Studio & Signal-A Warm Canvas ── */
+/* ── Hero section (index.html) — Local Studio Full 100vw Canvas ── */
 #hero-section {
   background-color: #FFFDF5;
-  padding: 8rem 0 4.5rem 0;
+  padding: 7rem 2.5rem 4rem 2.5rem;
   margin-top: -6.75rem;
   position: relative;
   border-bottom: 2px solid #0C0D0E;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .hero-container-z {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-content-full {
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-content-z {
   position: relative;
   z-index: 2;
-}
-
-.hero-avatar-wrap-z {
-  position: relative;
-  z-index: 1;
-  text-align: center;
 }
 
 /* ── Hero title / subtitle overrides — Bold Attention Grabber (localstudio.fr style) ── */
@@ -3016,10 +3022,10 @@ section {
 
 .hero-subtitle--home {
   color: #2D2F31;
-  max-width: 800px;
+  max-width: 900px;
   margin-bottom: 2.2rem;
   font-weight: 500;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 /* ── Hero CTA row ── */
@@ -4112,15 +4118,29 @@ body, .page-body {
 .pudding-frame--orange { background-color: #FF3B00; }
 .pudding-frame--purple { background-color: #9B5DE5; }
 
+.pudding-card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.pudding-card-link:hover .pudding-title {
+  color: #FF3B00;
+}
+
 /* ── Local Studio Display Hero Headline Typography (Screenshot 2 & 4) ── */
 .hero-title--display {
-  font-size: clamp(3.2rem, 9.5vw, 8rem) !important;
+  font-size: clamp(3.5rem, 11vw, 9.5rem) !important;
   font-weight: 900 !important;
   letter-spacing: -0.04em !important;
-  line-height: 0.92 !important;
+  line-height: 0.88 !important;
   text-transform: uppercase !important;
   color: #0C0D0E;
   margin: 0 0 2rem 0;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-display);
 }
 
