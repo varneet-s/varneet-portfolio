@@ -43,30 +43,34 @@ document.addEventListener('DOMContentLoaded', () => {
     footerEl.innerHTML = renderFooter();
   }
 
-  // 3. Mobile Nav Drawer Toggle Logic (Instruction 1)
+  // 3. Mobile Nav Drawer Toggle Logic
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    const toggle = target ? (target.closest('.menu-toggle, #mobile-menu-toggle') as HTMLElement) : null;
-    const closeBtn = target ? (target.closest('#mobile-menu-close, .mobile-nav-close') as HTMLElement) : null;
-    const nav = document.querySelector('.mobile-nav, #mobile-nav') as HTMLElement;
+    if (!target) return;
+
+    const toggle = target.closest('.menu-toggle, #mobile-menu-toggle') as HTMLElement;
+    const closeBtn = target.closest('#mobile-menu-close, .mobile-nav-close') as HTMLElement;
+    const nav = document.getElementById('mobile-nav');
 
     if (toggle && nav) {
       e.preventDefault();
-      const isOpen = nav.dataset.state === 'open';
-      nav.dataset.state = isOpen ? 'closed' : 'open';
+      const isOpen = nav.getAttribute('data-state') === 'open';
+      const newState = isOpen ? 'closed' : 'open';
+
+      nav.setAttribute('data-state', newState);
       toggle.setAttribute('aria-expanded', String(!isOpen));
-      document.body.dataset.navOpen = String(!isOpen);
+      document.body.setAttribute('data-nav-open', String(!isOpen));
     } else if (closeBtn && nav) {
       e.preventDefault();
-      nav.dataset.state = 'closed';
-      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-      document.body.dataset.navOpen = 'false';
-    } else if (nav && nav.dataset.state === 'open' && target.closest('.mobile-nav a')) {
-      nav.dataset.state = 'closed';
-      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-      document.body.dataset.navOpen = 'false';
+      nav.setAttribute('data-state', 'closed');
+      document.body.setAttribute('data-nav-open', 'false');
+      const toggleBtn = document.querySelector('.menu-toggle, #mobile-menu-toggle');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+    } else if (nav && nav.getAttribute('data-state') === 'open' && target.closest('#mobile-nav a')) {
+      nav.setAttribute('data-state', 'closed');
+      document.body.setAttribute('data-nav-open', 'false');
+      const toggleBtn = document.querySelector('.menu-toggle, #mobile-menu-toggle');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -77,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (header) {
     window.addEventListener('scroll', () => {
-      const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-      if (mobileNavOverlay && mobileNavOverlay.classList.contains('active')) return;
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileNav && mobileNav.getAttribute('data-state') === 'open') return;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {

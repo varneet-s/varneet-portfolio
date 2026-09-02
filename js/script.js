@@ -1,60 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ==========================================================================
-  // MOBILE NAVIGATION DRAWER & DYNAMIC LINKS
-  // ==========================================================================
-  const navLinksLeft = document.querySelector('.nav-links-left');
-  const navLinksRight = document.querySelector('.nav-links-right');
-
-  // Clone left side links (About, Now, Writing) into right side links container for mobile layout
-  if (navLinksLeft && navLinksRight) {
-    const leftLinks = navLinksLeft.querySelectorAll('.nav-link');
-    // Prepend in reverse order so they appear at the beginning of the drawer in correct order
-    Array.from(leftLinks).reverse().forEach(link => {
-      const cloned = link.cloneNode(true);
-      cloned.classList.add('mobile-only-link');
-      cloned.id = cloned.id ? cloned.id + '-mobile' : '';
-      navLinksRight.insertBefore(cloned, navLinksRight.firstChild);
-    });
-  }
-
-  // Global click listener for mobile menu overlay toggle (Instruction 1)
-  document.addEventListener('click', (e) => {
-    const target = e.target;
-    const toggle = target ? target.closest('.menu-toggle, #mobile-menu-toggle') : null;
-    const closeBtn = target ? target.closest('#mobile-menu-close, .mobile-nav-close') : null;
-    const nav = document.querySelector('.mobile-nav, #mobile-nav');
-
-    if (toggle && nav) {
-      e.preventDefault();
-      const isOpen = nav.dataset.state === 'open';
-      nav.dataset.state = isOpen ? 'closed' : 'open';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      document.body.dataset.navOpen = String(!isOpen);
-    } else if (closeBtn && nav) {
-      e.preventDefault();
-      nav.dataset.state = 'closed';
-      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-      document.body.dataset.navOpen = 'false';
-    } else if (nav && nav.dataset.state === 'open' && target.closest('.mobile-nav a')) {
-      nav.dataset.state = 'closed';
-      const t = document.querySelector('.menu-toggle, #mobile-menu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-      document.body.dataset.navOpen = 'false';
-    }
-  });
-
-    // Tap empty space on glass drawer to close
-    if (mobileTarget) {
-      mobileTarget.addEventListener('click', (e) => {
-        const isLink = e.target.closest('a, button');
-        if (!isLink) closeMenu();
-      });
-    }
-
-    // Tap dim overlay to close
-    dimOverlay.addEventListener('click', closeMenu);
-  }
+  // Mobile navigation event delegation handled cleanly via main.ts
+});
 
   // ==========================================================================
   // PROJECT FILTER ENGINE
