@@ -448,6 +448,7 @@ img {
 
 /* ── Instruction 1: Mobile Nav Drawer ── */
 .mobile-nav {
+  display: none !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -455,14 +456,11 @@ img {
   height: 100vh !important;
   background: var(--ink, #0C0D0E) !important;
   color: var(--cornsilk, #FFFDF5) !important;
-  display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
   gap: 24px !important;
   padding: 24px !important;
-  transform: translateX(100%) !important;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
   z-index: 9999999 !important;
   pointer-events: none !important;
   opacity: 0 !important;
@@ -471,7 +469,8 @@ img {
 
 .mobile-nav[data-state="open"],
 .mobile-nav.active {
-  transform: translateX(0) !important;
+  display: flex !important;
+  transform: none !important;
   pointer-events: auto !important;
   opacity: 1 !important;
   visibility: visible !important;
