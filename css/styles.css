@@ -4133,18 +4133,47 @@ body, .page-body {
   color: #FF3B00;
 }
 
-/* ── Local Studio Display Hero Headline Typography (Screenshot 2 & 4) ── */
+/* ── Local Studio Display Hero Headline Typography (Screenshot 1 & 4) ── */
 .hero-title--display {
-  font-size: clamp(3.5rem, 11vw, 9.5rem) !important;
+  font-size: clamp(3.8rem, 12.5vw, 11rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -0.04em !important;
-  line-height: 0.88 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 0.82 !important;
   text-transform: uppercase !important;
   color: #0C0D0E;
-  margin: 0 0 2rem 0;
+  margin: -1.2rem 0 2rem 0; /* Cut top ~5% under navbar like localstudio.fr */
   width: 100%;
   max-width: 100%;
   font-family: var(--font-display);
+}
+
+.hero-line-indent {
+  display: block;
+  margin-left: 36vw;
+}
+
+@media (max-width: 768px) {
+  .hero-line-indent {
+    margin-left: 0;
+  }
+  .hero-title--display {
+    margin-top: 0;
+  }
+}
+
+.hero-subtitle--home {
+  color: #2D2F31;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: clamp(0.82rem, 1.25vw, 1.05rem);
+  margin-bottom: 1.5rem;
+}
+
+.metrics-section {
+  padding: 0.5rem 0 3rem 0;
+  background-color: #FFFDF5;
 }
 
 /* ── Local Studio Comic Footer CTA Section (Screenshot 4 & 5) ── */
