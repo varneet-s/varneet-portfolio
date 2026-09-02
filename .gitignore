@@ -7,3 +7,7 @@
 
 # Kiro IDE files
 .kiro/
+
+# Node & Build artifacts
+node_modules/
+dist/

@@ -24,7 +24,7 @@
   <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/vrinda-preview.jpg">
   <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/projects/vrinda.html">
   <meta property="og:type" content="website">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
   <link rel="stylesheet" href="../css/design-system.css">
 <style>
     /* ── Single Card CTA Layout ── */
@@ -86,15 +86,15 @@
     <!-- Case Study Hero Header -->
     <section class="cs-hero" id="cs-hero-section">
       <div class="container">
-        <a href="../projects.html" class="secondary-button" style="margin-bottom: 2.5rem; display: inline-flex; align-items: center; gap: 0.5rem;" id="back-to-projects">
+        <a href="../projects.html" class="secondary-button cs-back-link" id="back-to-projects">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           Back to Projects
         </a>
-        <h1 class="hero-title" style="font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 1.5rem;">
+        <h1 class="hero-title cs-hero-title">
           <span class="highlight">Vrinda Store Retail Sales Performance Audit</span>
         </h1>
         
-        <p class="hero-subtitle" style="max-width: 80ch; font-size: 1.15rem; line-height: 1.6; margin-bottom: 2.5rem;">
+        <p class="hero-subtitle cs-hero-subtitle">
           Audited a comprehensive retail sales database to profile target customer behaviors, map channel performance index, and structure future promotional spend.
         </p>
 
@@ -125,7 +125,7 @@
     </section>
 
     <!-- E1: TL;DR — Key Takeaways -->
-    <div class="cs-container" style="padding-top: 2.5rem;">
+    <div class="cs-container cs-section-spacing-top">
       <div class="cs-tldr" id="vrinda-tldr">
         <div class="cs-tldr-label">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 4 12 14.01 9 11.01"></polyline><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path></svg>
@@ -141,7 +141,7 @@
     </div>
 
     <!-- PAPAO Section Breakdown -->
-    <section class="cs-body" style="padding: 4rem 0 2rem 0;">
+    <section class="cs-body cs-section-padding">
       <div class="cs-container">
         
         <!-- P: Problem -->
@@ -150,7 +150,7 @@
           <p>
             Vrinda Store was attempting to scale its seasonal retail revenues but lacked a data-driven customer model. Promotional campaigns were broad and generalized, resulting in high advertising spend with poor conversion rates. Sales managers could not pinpoint underperforming territories or identify which product subcategories carried the highest net profit margins.
           </p>
-          <p style="margin-top: 1.5rem;">
+          <p class="cs-mt-1-5">
             The objective was to audit the raw year-long transactional database to answer three questions: **Who** is the core customer? **Where** is the revenue concentrated? And **what** channels drive the highest transactional value?
           </p>
           <figure class="narrative-chart narrative-chart--doughnut" aria-label="Doughnut chart showing gender split of revenue">
@@ -166,15 +166,15 @@
           <p>
             I structured a clear spreadsheet audit plan:
           </p>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
-            <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Data Ingestion & Cleaning:</strong> Sanitized transaction records, standardized date parameters, and resolved inconsistencies in city labels.
+          <ul class="cs-list">
+            <li class="cs-list-item">
+              <strong class="cs-text-bold">Data Ingestion & Cleaning:</strong> Sanitized transaction records, standardized date parameters, and resolved inconsistencies in city labels.
             </li>
-            <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Demographic Profiling:</strong> Grouped buyer ages and genders to map purchasing concentrations.
+            <li class="cs-list-item">
+              <strong class="cs-text-bold">Demographic Profiling:</strong> Grouped buyer ages and genders to map purchasing concentrations.
             </li>
-            <li style="position: relative; padding-left: 2rem;">
-              <strong style="color: var(--black-forest);">Channel Effectiveness Study:</strong> Modeled transactional performance across sales mediums (direct store, third-party marketplaces).
+            <li class="cs-list-item">
+              <strong class="cs-text-bold">Channel Effectiveness Study:</strong> Modeled transactional performance across sales mediums (direct store, third-party marketplaces).
             </li>
           </ul>
         </div>
@@ -185,18 +185,18 @@
           <p>
             The process was designed to go from raw numbers to clear structures:
           </p>
-          <div style="background-color: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 8px; padding: 2rem; margin: 2rem 0; display: flex; flex-direction: column; gap: 1.25rem;">
+          <div class="cs-callout-box">
             <div>
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 1: Data Cleansing</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Checked for duplicate records, filtered out cancelled orders to prevent gross margin skewing, and standardized currency formatting.</p>
+              <strong class="cs-eyebrow">Step 1: Data Cleansing</strong>
+              <p class="cs-text-desc">Checked for duplicate records, filtered out cancelled orders to prevent gross margin skewing, and standardized currency formatting.</p>
             </div>
-            <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 2: Excel Pivot Modeling</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Constructed multi-dimensional pivot tables crossing Age Group x Gender x Order Value to isolate the dominant demographic.</p>
+            <div class="cs-border-top">
+              <strong class="cs-eyebrow">Step 2: Excel Pivot Modeling</strong>
+              <p class="cs-text-desc">Constructed multi-dimensional pivot tables crossing Age Group x Gender x Order Value to isolate the dominant demographic.</p>
             </div>
-            <div style="border-top: 1px solid var(--divider); padding-top: 1.25rem;">
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 0.25rem;">Step 3: Dashboard Assembly</strong>
-              <p style="font-size: 0.95rem; margin: 0;">Arranged high-impact charts in Excel to create a clean, single-page executive overview showing month-over-month performance trends.</p>
+            <div class="cs-border-top">
+              <strong class="cs-eyebrow">Step 3: Dashboard Assembly</strong>
+              <p class="cs-text-desc">Arranged high-impact charts in Excel to create a clean, single-page executive overview showing month-over-month performance trends.</p>
             </div>
           </div>
         </div>
@@ -229,7 +229,7 @@
         </div>
 
         <!-- O: Outcome -->
-        <div class="cs-section" style="border-bottom: none;">
+        <div class="cs-section cs-border-none">
           <h2 class="cs-section-title">5. Business Recommendation</h2>
           <p>
             I delivered a clean, actionable marketing and stocking proposal to Vrinda Store's operational leaders, detailing where to prioritize promotional budgets.
@@ -254,9 +254,9 @@
                 <strong>Designed Single-Sheet Dashboard:</strong> Deployed a centralized spreadsheet overview layout enabling monthly performance tracking with zero manual upkeep.
               </li>
             </ul>
-            <div style="margin-top: 2rem;">
-              <strong style="color: var(--copper); font-size: 0.9rem; text-transform: uppercase;">Channel Strategy</strong>
-              <p style="font-size: 0.85rem; line-height: 1.4; margin-top: 0.5rem;">Targeted campaigns must prioritize the top 3 marketplace platforms which command 80.4% of total sales volume.</p>
+            <div class="cs-mt-2">
+              <strong class="cs-eyebrow">Channel Strategy</strong>
+              <p class="cs-text-sm">Targeted campaigns must prioritize the top 3 marketplace platforms which command 80.4% of total sales volume.</p>
               <figure class="narrative-chart narrative-chart--wide" aria-label="Bar chart showing sales by platform channel">
                 <div class="chart-badge">80.4% Top 3</div>
                 <canvas id="chart-vrinda-channels"></canvas>
@@ -281,37 +281,37 @@
 
   
     <!-- 2 WEEKS FREE SERVICES -->
-    <section class="free-services" id="free-services-section" style="padding: 3rem 0; background-color: #02F5A4 !important;">
+    <section class="free-services free-services-section" id="free-services-section">
       <div class="container">
 
         <!-- Single Centered White Card -->
         <div class="free-cta-card">
 
           <!-- Headline -->
-          <h2 style="color: #111115; font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 0.65rem 0;">
-            Test My Data Skills <span class="highlight" style="color: #111115;"><span class="underline-green">Free For 2 Weeks</span></span>&mdash;<br>No Risk, Real Results.
+          <h2 class="cta-headline">
+            Test My Data Skills <span class="highlight"><span class="underline-green">Free For 2 Weeks</span></span>&mdash;<br>No Risk, Real Results.
           </h2>
 
           <!-- Subheadline -->
-          <p style="color: #4B4B55; font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.65; margin: 0 0 1.1rem 0; max-width: 70ch;">
-            Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span style="display: inline-flex; align-items: center; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 800; padding: 0.15rem 0.65rem; border-radius: 100px; border: 1.5px solid #111115; vertical-align: middle; line-height: 1.4;">14 days</span> so you can evaluate my skills risk-free.
+          <p class="cta-subtext">
+            Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span class="inline-pill-badge">14 days</span> so you can evaluate my skills risk-free.
           </p>
 
           <!-- What you get: inline pill tags -->
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-start; margin-bottom: 1.5rem;">
-            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
-              <span style="font-size: 0.82rem;">&#10003;</span> Automated Dashboards &amp; Reporting
+          <div class="cta-tags-row">
+            <span class="cta-tag">
+              <span class="cta-tag-checkmark">&#10003;</span> Automated Dashboards &amp; Reporting
             </span>
-            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
-              <span style="font-size: 0.82rem;">&#10003;</span> Process Optimization &amp; SQL Queries
+            <span class="cta-tag">
+              <span class="cta-tag-checkmark">&#10003;</span> Process Optimization &amp; SQL Queries
             </span>
-            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: #02F5A4; color: #111115; font-size: 0.88rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1.5px solid #111115;">
-              <span style="font-size: 0.82rem;">&#10003;</span> Clear Business &amp; Data Insights
+            <span class="cta-tag">
+              <span class="cta-tag-checkmark">&#10003;</span> Clear Business &amp; Data Insights
             </span>
           </div>
 
           <!-- Tally Form -->
-          <div style="text-align: left;">
+          <div class="cta-form-wrap">
             <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
           </div>
@@ -323,15 +323,15 @@
   </main>
 
   <!-- FOOTER -->
-  <footer id="main-footer" style="background: #ffffff; padding: 2.5rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+  <footer id="main-footer" class="site-footer">
+    <div class="container footer-inner">
       
       <!-- Left: Logo emblem & links -->
-      <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;">
-        <a href="../index.html" style="display: flex; align-items: center; text-decoration: none;">
-          <img src="../assets/varneet-avatar.png" alt="Varneet Singh" style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #111115;">
+      <div class="footer-brand-group">
+        <a href="../index.html" class="footer-logo-link">
+          <img src="../assets/varneet-avatar.png" alt="Varneet Singh" class="footer-logo-img">
         </a>
-        <nav style="display: flex; gap: 1.25rem; font-weight: 600; font-size: 0.95rem;">
+        <nav class="footer-nav">
           <a href="../about.html" class="nav-link">About</a>
           <a href="../now.html" class="nav-link">Now</a>
           <a href="../writing.html" class="nav-link">Writing</a>
@@ -342,14 +342,14 @@
       </div>
 
       <!-- Right: Social icons -->
-      <div style="display: flex; align-items: center; gap: 1.25rem;">
-        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color='#111115'">
+      <div class="footer-socials-group">
+        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social-icon footer-social-icon--linkedin">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
-        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#6e40c9'" onmouseout="this.style.color='#111115'">
+        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social-icon footer-social-icon--github">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
         </a>
-        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social" style="color: #111115; transition: color 0.2s;" onmouseover="this.style.color='#EA4335'" onmouseout="this.style.color='#111115'">
+        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social-icon footer-social-icon--email">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
       </div>
@@ -357,8 +357,8 @@
     </div>
   </footer>
 
-  <script src="../js/script.js"></script>
-  <script src="../js/charts.js"></script>
+  <script src="../js/script.js?v=1.0.1"></script>
+  <script src="../js/charts.js?v=1.0.1"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       NarrativeCharts.applyDefaults();
@@ -399,5 +399,6 @@
       );
     });
   </script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (filterBar) {
     const badges = filterBar.querySelectorAll('.filter-badge');
-    const projectList = document.querySelector('.projects-list');
+    const projectList = document.querySelector('.bento-grid, .projects-grid, .projects-list');
     const cards = projectList ? projectList.querySelectorAll('.project-item') : [];
     const emptyState = projectList ? projectList.querySelector('.filter-empty-state') : null;
 
