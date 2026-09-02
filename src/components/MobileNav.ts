@@ -9,16 +9,26 @@ export interface NavStateOptions {
 
 export class MobileNavManager {
   private static lastToggleTimestamp = 0;
-  private static readonly DEBOUNCE_MS = 250;
+  private static readonly DEBOUNCE_MS = 350;
+  private static isInitialized = false;
 
   /**
    * Initializes event listeners and attaches the mobile drawer to document.body
    */
   public static init(): void {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || this.isInitialized) return;
+    this.isInitialized = true;
 
-    this.ensureDrawerInBody();
-    this.attachEventListeners();
+    const setup = () => {
+      this.ensureDrawerInBody();
+      this.attachEventListeners();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
     
     // Register global window helper for fallback compatibility
     (window as any).toggleMobileNav = (forceState?: 'open' | 'closed') => {
@@ -42,8 +52,9 @@ export class MobileNavManager {
    */
   public static toggle(options: NavStateOptions = {}): void {
     const now = Date.now();
+    // 350ms timestamp guard prevents double-toggles from fast event bubbling cascades
     if (options.forceState === undefined && now - this.lastToggleTimestamp < this.DEBOUNCE_MS) {
-      return; // Ignore duplicate event triggers within 250ms
+      return;
     }
     this.lastToggleTimestamp = now;
 
@@ -93,6 +104,8 @@ export class MobileNavManager {
    */
   private static attachEventListeners(): void {
     document.addEventListener('click', (e: MouseEvent) => {
+      if ((e as any)._navHandled) return;
+
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -101,16 +114,19 @@ export class MobileNavManager {
       const navLink = target.closest('#mobile-nav a');
 
       if (toggle) {
+        (e as any)._navHandled = true;
         e.preventDefault();
         e.stopPropagation();
         this.toggle();
       } else if (closeBtn) {
+        (e as any)._navHandled = true;
         e.preventDefault();
         e.stopPropagation();
         this.toggle({ forceState: 'closed' });
       } else if (navLink) {
+        (e as any)._navHandled = true;
         this.toggle({ forceState: 'closed' });
       }
-    });
+    }, true);
   }
 }
