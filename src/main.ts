@@ -42,18 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNav.innerHTML = `
         <div class="mobile-nav-header">
           <span class="mobile-nav-logo">VARNEET</span>
-          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu">[CLOSE]</button>
+          <button class="mobile-nav-close" id="mobile-menu-close" aria-label="Close menu" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');n.classList.remove('active');document.body.removeAttribute('data-nav-open');document.body.style.overflow='';}return false;">CLOSE [✕]</button>
         </div>
         <div class="mobile-nav-links">
-          <a href="${prefix}projects.html">Work</a>
-          <a href="${prefix}writing.html">Writing</a>
-          <a href="${prefix}about.html">About</a>
-          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});return false;}else{window.open('https://calendly.com/varneetsingh45/30min','_blank');return false;}" class="cta-mobile">Let's Talk &rarr;</a>
+          <a href="${prefix}projects.html" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">Work</a>
+          <a href="${prefix}writing.html" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">Writing</a>
+          <a href="${prefix}about.html" onclick="var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}">About</a>
+          <a href="" onclick="if(window.Calendly){window.Calendly.initPopupWidget({url:'https://calendly.com/varneetsingh45/30min'});}var n=document.getElementById('mobile-nav');if(n){n.setAttribute('data-state','closed');document.body.style.overflow='';}return false;" class="cta-mobile-orange">Let's Talk &rarr;</a>
         </div>
         <div class="mobile-nav-footer">
-          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
-          <a href="mailto:varneetsingh45@gmail.com">Email &rarr;</a>
-          <a href="${prefix}resume.pdf" target="_blank" rel="noopener">Resume &rarr;</a>
+          <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" class="mobile-nav-pill">LinkedIn &rarr;</a>
+          <a href="mailto:varneetsingh45@gmail.com" class="mobile-nav-pill">Email &rarr;</a>
+          <a href="${prefix}resume.pdf" target="_blank" rel="noopener" class="mobile-nav-pill">Resume &rarr;</a>
         </div>
       `;
       document.body.appendChild(mobileNav);
