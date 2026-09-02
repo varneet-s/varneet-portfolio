@@ -739,8 +739,15 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
+  .hero, #hero-section {
+    padding-top: 28px !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
   .hero-inner, .hero-container-z {
-    padding: 24px 20px 24px !important;
+    padding: 16px 20px 24px !important;
   }
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
@@ -755,7 +762,7 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   /* Tag Strip Mobile Single Horizontal Row (Matching Reference Screenshot 5) */
   .tag-strip {
     position: relative !important;
-    z-index: 10 !important;
+    z-index: 80 !important;
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
