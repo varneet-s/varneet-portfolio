@@ -1,600 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQDBHK7BZF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-CQDBHK7BZF');
-  </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing &amp; Insights | Varneet Singh</title>
-  <meta name="description" content="Business analysis insights, career reflections, and LinkedIn articles written by Varneet Singh.">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/typography.css">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Writing &amp; Insights | Varneet Singh">
-  <meta property="og:description" content="Business analysis insights and LinkedIn posts by Varneet Singh.">
-  <meta property="og:image" content="https://varneet-s.github.io/varneet-portfolio/assets/index-preview.jpg">
-  <meta property="og:url" content="https://varneet-s.github.io/varneet-portfolio/writing.html">
-  <meta property="og:type" content="website">
-
-  <style>
-    /* ── Single Card CTA Layout ── */
-    .free-cta-card {
-      background: #ffffff !important;
-      border: 2px solid #111115 !important;
-      border-radius: 28px !important;
-      padding: 2.25rem 3.5rem !important;
-      width: 100% !important;
-      max-width: 1100px !important;
-      margin: 0 auto !important;
-      text-align: left !important;
-      box-shadow: 4px 4px 0px #111115 !important;
-    }
-    @media (max-width: 640px) {
-      .free-cta-card {
-        padding: 1.75rem 1.25rem !important;
-        width: 100% !important;
-      }
-    }
-
-    /* ── Pudding.cool Inspired Writing Grid Styling ── */
-    .pudding-section {
-      padding: 3rem 0 5rem 0;
-    }
-
-    .pudding-header {
-      margin-bottom: 2.5rem;
-      text-align: left;
-    }
-
-    /* 4-Column Grid matching pudding.cool */
-    .pudding-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2.5rem 1.75rem;
-    }
-
-    @media (max-width: 1100px) {
-      .pudding-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem 1.75rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .pudding-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-    }
-
-    /* Pudding Card Container */
-    .pudding-card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-
-    /* Top Meta Header: Pill badge + Date */
-    .pudding-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.65rem;
-      font-family: var(--font-mono, monospace);
-    }
-
-    .pudding-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1.5px solid #111115;
-      border-radius: 100px;
-      padding: 0.15rem 0.65rem;
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: #111115;
-      background: #FFFFFF;
-    }
-
-    .pudding-date {
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #111115;
-    }
-
-    /* Vibrant Color Frame (Square Aspect Ratio) */
-    .pudding-frame {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 16px;
-      border: 1.5px solid #111115;
-      padding: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(17, 17, 21, 0.04);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .pudding-card:hover .pudding-frame {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 32px rgba(17, 17, 21, 0.12);
-    }
-
-    /* Inner Preview Card Graphic */
-    .pudding-inner-graphic {
-      background: #FFFFFF;
-      border: 1.5px solid #111115;
-      border-radius: 12px;
-      width: 100%;
-      height: 100%;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .pudding-card:hover .pudding-inner-graphic {
-      transform: scale(1.02);
-    }
-
-    /* Bold Editorial Title Below Frame */
-    .pudding-title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      text-transform: lowercase;
-      color: #111115;
-      margin: 0.85rem 0 0.4rem 0;
-      transition: color 0.2s ease;
-    }
-
-    .pudding-card:hover .pudding-title {
-      color: #000000;
-      text-decoration: underline;
-      text-decoration-color: #02F5A4;
-      text-decoration-thickness: 3px;
-    }
-
-    .pudding-desc {
-      font-size: 0.9rem;
-      color: #4B4B55;
-      line-height: 1.5;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .read-post-tag {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: #111115;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    /* Post Modal Overlay */
-    .post-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(17, 17, 21, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .post-modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .post-modal-content {
-      background: #FFFFFF;
-      border: 2px solid #111115;
-      border-radius: 24px;
-      padding: 2.5rem;
-      max-width: 680px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      box-shadow: 8px 8px 0px #111115;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
-
-    .post-modal-overlay.active .post-modal-content {
-      transform: translateY(0);
-    }
-
-    .post-modal-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      background: #F4F4F6;
-      border: 1.5px solid #111115;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1.25rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease;
-    }
-
-    .post-modal-close:hover {
-      background: #02F5A4;
-    }
-
-    .modal-body-text {
-      font-size: 1.02rem;
-      line-height: 1.7;
-      color: #111115;
-      white-space: pre-wrap;
-      margin: 1.5rem 0 2rem 0;
-    }
-  </style>
+  <title>Writing &amp; Reflections &mdash; Varneet Singh</title>
+  <meta name="description" content="Articles and reflections on business analysis, requirements gathering, and data-driven operational decisions by Varneet Singh.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-wordmark.svg">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.1">
+  <link rel="stylesheet" href="css/design-system.css?v=1.0.1">
 </head>
+<body class="page-body">
 
-<body>
+  <div id="root">
+    <!-- Dynamic Header Navigation Bar -->
+    <header id="main-header" data-active="writing"></header>
 
-  <!-- NAVIGATION BAR -->
-  <header id="main-header">
-    <div class="container nav-container">
-      <nav class="nav-menu-3col" id="nav-menu-links">
-        <div class="nav-links-left">
-          <a href="about.html" class="nav-link" id="nav-link-about">About</a>
-          <a href="now.html" class="nav-link" id="nav-link-now">Now</a>
-          <a href="writing.html" class="nav-link active" id="nav-link-writing">Writing</a>
-        </div>
-        <a href="index.html" class="nav-emblem-logo" id="logo-home" title="Varneet Singh — Home">
-          <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
-        </a>
-        <div class="nav-links-right">
-          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
-          <a href="experience.html" class="nav-link" id="nav-link-experience">Career</a>
-          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-          <a href="mailto:varneetsingh45@gmail.com" class="cta-button" id="nav-cta-talk">Let's Talk &rarr;</a>
-        </div>
-      </nav>
+    <main>
 
-      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+      <!-- WRITING INDEX SECTION -->
+      <section class="writing-hero-section">
+        <div class="container">
+          <div class="section-header-left">
+            <h1 class="section-title section-title--large">Writing &amp; Reflections</h1>
+            <p class="section-intro-bold">
+              Notes on business analysis, requirements engineering, coffee economics, and career transitions.
+            </p>
+          </div>
 
-  <main>
-    <section class="pudding-section">
-      <div class="container">
-        
-        <div class="pudding-header">
-          <h1 class="page-title"><span class="underline-green">writing &amp; essays</span></h1>
-          <p class="hero-subtitle hero-subtitle--no-margin">
-            authentic career reflections, business analysis lessons, and thoughts on decision-making — click any card to read the full post.
-          </p>
-        </div>
-
-        <!-- Pudding 4-Column Grid (Chronological: #04 to #01) -->
-        <div class="pudding-grid">
-          
-          <!-- Post #04: Requirements Gathering -->
-          <div class="pudding-card" data-post-id="post-4">
-            <div class="pudding-meta">
-              <span class="pudding-pill">#04</span>
-              <span class="pudding-date">MAR 2026</span>
-            </div>
-            <div class="pudding-frame" style="background-color: #00F5D4;">
-              <div class="pudding-inner-graphic">
-                <div class="pudding-card-type">LinkedIn Post</div>
-                <div class="pudding-mini-col">
-                  <div class="pudding-mini-chip">1. Define &amp; Validate</div>
-                  <div class="pudding-mini-chip">2. Functional vs Non-Func</div>
-                  <div class="pudding-mini-chip pudding-mini-chip--green">3. Epics &amp; Backlogs</div>
-                </div>
-                <div class="pudding-card-source">Microsoft BA Cert</div>
+          <!-- Pudding 4-Column Grid -->
+          <div class="pudding-grid">
+            
+            <!-- Post #04 -->
+            <article class="pudding-card">
+              <div class="pudding-meta">
+                <span class="pudding-pill">#04</span>
+                <span class="pudding-date">MAR 2026</span>
               </div>
-            </div>
-            <h2 class="pudding-title">requirements gathering in ba</h2>
-            <p class="pudding-desc">Writing down a requirement is only the starting point — the real work is managing, refining, and prioritizing it as things change.</p>
-            <span class="read-post-tag">Read Full Post &rarr;</span>
-          </div>
-
-          <!-- Post #03: What Progress Actually Looks Like -->
-          <div class="pudding-card" data-post-id="post-3">
-            <div class="pudding-meta">
-              <span class="pudding-pill">#03</span>
-              <span class="pudding-date">MAR 2026</span>
-            </div>
-            <div class="pudding-frame" style="background-color: #FF007F;">
-              <div class="pudding-inner-graphic">
-                <div class="pudding-card-type">LinkedIn Post</div>
-                <div class="pudding-mini-col">
-                  <div class="pudding-mini-row">
-                    <span>Coffee Roasting Plan</span>
-                    <span class="pudding-mini-accent-pink">BAM Model</span>
-                  </div>
-                  <div class="pudding-mini-chip pudding-mini-chip--desc">Questioning the "why" in decisions</div>
+              <div class="pudding-frame pudding-frame--cyan">
+                <div class="pudding-inner-graphic">
+                  <div class="pudding-card-type">ARTICLE</div>
+                  <div class="pudding-card-source">Microsoft BA Cert</div>
                 </div>
-                <div class="pudding-card-source">LinkedIn Reflection</div>
               </div>
-            </div>
-            <h2 class="pudding-title">what progress actually looks like</h2>
-            <p class="pudding-desc">How understanding business analysis shifted my daily thinking — from mapping a coffee business idea to building consistent habits.</p>
-            <span class="read-post-tag">Read Full Post &rarr;</span>
-          </div>
+              <h2 class="pudding-title">Requirements Gathering in BA</h2>
+              <p class="pudding-desc">Writing down a requirement is only the starting point — the real work is managing, refining, and prioritizing as things change.</p>
+              <a href="writing/requirements-gathering-in-ba.html" class="read-post-tag">Read Full Post &rarr;</a>
+            </article>
 
-          <!-- Post #02: Deciding to Take a Pause -->
-          <div class="pudding-card" data-post-id="post-2">
-            <div class="pudding-meta">
-              <span class="pudding-pill">#02</span>
-              <span class="pudding-date">FEB 2026</span>
-            </div>
-            <div class="pudding-frame" style="background-color: #F2542D;">
-              <div class="pudding-inner-graphic">
-                <div class="pudding-card-type">LinkedIn Post</div>
-                <div class="pudding-mini-pivot-row">
-                  <div class="pudding-mini-chip pudding-mini-chip--peach">Creative Role</div>
-                  <div class="pudding-mini-arrow">&rarr;</div>
-                  <div class="pudding-mini-chip pudding-mini-chip--green-sm">Operations Manager</div>
+            <!-- Post #03 -->
+            <article class="pudding-card">
+              <div class="pudding-meta">
+                <span class="pudding-pill">#03</span>
+                <span class="pudding-date">MAR 2026</span>
+              </div>
+              <div class="pudding-frame pudding-frame--pink">
+                <div class="pudding-inner-graphic">
+                  <div class="pudding-card-type">ARTICLE</div>
+                  <div class="pudding-card-source">Reflection</div>
                 </div>
-                <div class="pudding-card-source">Career Pivot</div>
               </div>
-            </div>
-            <h2 class="pudding-title">deciding to take a pause</h2>
-            <p class="pudding-desc">Stepping back to rethink my path — moving from performance metrics to understanding underlying business problems with clarity.</p>
-            <span class="read-post-tag">Read Full Post &rarr;</span>
-          </div>
+              <h2 class="pudding-title">What Progress Actually Looks Like</h2>
+              <p class="pudding-desc">How understanding business analysis shifted my daily thinking — from mapping coffee ideas to building consistent habits.</p>
+              <a href="writing/what-progress-actually-looks-like.html" class="read-post-tag">Read Full Post &rarr;</a>
+            </article>
 
-          <!-- Post #01: From Social Media Manager to BA -->
-          <div class="pudding-card" data-post-id="post-1">
-            <div class="pudding-meta">
-              <span class="pudding-pill">#01</span>
-              <span class="pudding-date">FEB 2026</span>
-            </div>
-            <div class="pudding-frame" style="background-color: #9B5DE5;">
-              <div class="pudding-inner-graphic">
-                <div class="pudding-card-type">LinkedIn Post</div>
-                <div class="pudding-mini-col">
-                  <div class="pudding-mini-label-purple">Labour Law Advisor (LLA)</div>
-                  <div class="pudding-mini-chip pudding-mini-chip--sm">Lean Six Sigma + Start With Why</div>
+            <!-- Post #02 -->
+            <article class="pudding-card">
+              <div class="pudding-meta">
+                <span class="pudding-pill">#02</span>
+                <span class="pudding-date">FEB 2026</span>
+              </div>
+              <div class="pudding-frame pudding-frame--orange">
+                <div class="pudding-inner-graphic">
+                  <div class="pudding-card-type">ARTICLE</div>
+                  <div class="pudding-card-source">Career Pivot</div>
                 </div>
-                <div class="pudding-card-source">BA Fundamentals Cert</div>
               </div>
-            </div>
-            <h2 class="pudding-title">from social media manager to ba</h2>
-            <p class="pudding-desc">Looking beyond marketing campaigns to understand the broader business problems behind decisions — starting with BA fundamentals.</p>
-            <span class="read-post-tag">Read Full Post &rarr;</span>
+              <h2 class="pudding-title">Deciding to Take a Pause</h2>
+              <p class="pudding-desc">Stepping back to rethink my path — moving from performance metrics to understanding underlying business problems with clarity.</p>
+              <a href="writing/deciding-to-take-a-pause.html" class="read-post-tag">Read Full Post &rarr;</a>
+            </article>
+
+            <!-- Post #01 -->
+            <article class="pudding-card">
+              <div class="pudding-meta">
+                <span class="pudding-pill">#01</span>
+                <span class="pudding-date">FEB 2026</span>
+              </div>
+              <div class="pudding-frame pudding-frame--purple">
+                <div class="pudding-inner-graphic">
+                  <div class="pudding-card-type">ARTICLE</div>
+                  <div class="pudding-card-source">BA Cert</div>
+                </div>
+              </div>
+              <h2 class="pudding-title">From Social Media Manager to BA</h2>
+              <p class="pudding-desc">Looking beyond marketing campaigns to understand the broader business problems behind decisions — starting with BA fundamentals.</p>
+              <a href="writing/from-social-media-manager-to-ba.html" class="read-post-tag">Read Full Post &rarr;</a>
+            </article>
+
           </div>
-
         </div>
+      </section>
 
-      </div>
-    </section>
+    </main>
 
-    <!-- Embedded Post Modal Overlay -->
-    <div class="post-modal-overlay" id="post-modal">
-      <div class="post-modal-content">
-        <button class="post-modal-close" id="modal-close-btn">&times;</button>
-        <div class="modal-meta-row">
-          <span class="pudding-pill" id="modal-pill">#04</span>
-          <span class="modal-date" id="modal-date">MAR 2026</span>
-          <span class="modal-type-badge">LinkedIn Post</span>
-        </div>
-        <h2 class="modal-title-heading" id="modal-title">Post Title</h2>
-        <div class="modal-body-text" id="modal-body">Post text goes here...</div>
-        <a href="#" target="_blank" rel="noopener" class="cta-button" id="modal-link-btn">
-          View Original on LinkedIn &rarr;
-        </a>
-      </div>
-    </div>
+    <!-- Dynamic Footer -->
+    <footer id="main-footer"></footer>
+  </div>
 
-    <!-- 2 WEEKS FREE SERVICES -->
-    <section class="free-services free-services-section" id="free-services-section">
-      <div class="container">
-
-        <!-- Single Centered White Card -->
-        <div class="free-cta-card">
-
-          <!-- Headline -->
-          <h2 class="cta-headline">
-            Test My Data Skills <span class="highlight"><span class="underline-green">Free For 2 Weeks</span></span>&mdash;<br>No Risk, Real Results.
-          </h2>
-
-          <!-- Subheadline -->
-          <p class="cta-subtext">
-            Send me a broken dashboard, a messy dataset, or a manual reporting bottleneck. I'll build a production-ready solution in <span class="inline-pill-badge">14 days</span> so you can evaluate my skills risk-free.
-          </p>
-
-          <!-- What you get: inline pill tags -->
-          <div class="cta-tags-row">
-            <span class="cta-tag">
-              <span class="cta-tag-checkmark">&#10003;</span> Automated Dashboards &amp; Reporting
-            </span>
-            <span class="cta-tag">
-              <span class="cta-tag-checkmark">&#10003;</span> Process Optimization &amp; SQL Queries
-            </span>
-            <span class="cta-tag">
-              <span class="cta-tag-checkmark">&#10003;</span> Clear Business &amp; Data Insights
-            </span>
-          </div>
-
-          <!-- Tally Form -->
-          <div class="cta-form-wrap">
-            <iframe data-tally-src="https://tally.so/embed/javPW4?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0" title="Portfolio Contact"></iframe>
-            <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not(*[src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer id="main-footer" class="site-footer">
-    <div class="container footer-inner">
-      
-      <!-- Left: Logo emblem & links -->
-      <div class="footer-brand-group">
-        <a href="index.html" class="footer-logo-link">
-          <img src="assets/varneet-avatar.png" alt="Varneet Singh" class="footer-logo-img">
-        </a>
-        <nav class="footer-nav">
-          <a href="about.html" class="nav-link">About</a>
-          <a href="now.html" class="nav-link">Now</a>
-          <a href="writing.html" class="nav-link">Writing</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="experience.html" class="nav-link">Career</a>
-          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link">Resume</a>
-        </nav>
-      </div>
-
-      <!-- Right: Social icons -->
-      <div class="footer-socials-group">
-        <a href="https://linkedin.com/in/varneet-singh/" target="_blank" rel="noopener" title="LinkedIn" class="footer-social-icon footer-social-icon--linkedin">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="https://github.com/varneet-s/" target="_blank" rel="noopener" title="GitHub" class="footer-social-icon footer-social-icon--github">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </a>
-        <a href="mailto:varneetsingh45@gmail.com" title="Email" class="footer-social-icon footer-social-icon--email">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </a>
-      </div>
-
-    </div>
-  </footer>
-
-  <script src="js/script.js?v=1.0.1"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Complete Post Database
-      const postsData = {
-        "post-4": {
-          pill: "#04",
-          date: "MAR 2026",
-          title: "requirements gathering in business analysis",
-          text: `What I’ve learned is this: writing down a requirement is only the starting point.\nThe real work is in managing it — refining, validating, prioritizing, and adjusting as things change.\n\nI’ve completed 4 out of 6 courses in the Microsoft Business Analyst certification so far.\nThe early modules — Excel, data handling, and Visio — felt familiar. They helped sharpen what I already knew.\n\nBut once I moved into requirement gathering and requirement engineering, things shifted.\nThe process felt abstract at first: new terminology, layered structure, different ways of thinking.\n\nThen it started to click.\n\nI learned how to:\n- Define requirements clearly — not just describe what I assumed\n- Distinguish between functional and non-functional needs\n- Break down what stakeholders actually expect — and why clarity matters so much\n- See how weak requirements lead to bigger risks than missing features\n\nLater modules introduced tools like backlog management, epics, and user stories — all aimed at structure, clarity, and continuous refinement.\n\nI’ve started noticing how often structure shapes clarity — not just in projects, but in how I approach decisions.\n\nTwo more courses to go.\nStill learning. Still showing up.`,
-          url: "https://coursera.org/share/c34218bdf0dd290456336eda30f04592",
-          btnText: "View Microsoft Certification Credential \u2197"
-        },
-        "post-3": {
-          pill: "#03",
-          date: "MAR 2026",
-          title: "what progress actually looks like",
-          text: `Lately, I’ve been thinking about what progress actually looks like.\nI guess it’s not always visible in the short run — or even limited to work.\n\nSince I started understanding how business analysis works, my thinking has shifted — not just in learning, but in everyday decisions.\nI’ve started questioning the why behind things more often — even outside work.\n\nYesterday, I was casually exploring how to start a small coffee roasting business. Without meaning to, I started mapping it using BA tools like BAM. A few months ago, that wouldn’t have happened.\n\nProgress also looks like small, personal changes that stay consistent:\n- A short callisthenics session and run every day\n- Reading every day — mostly fiction, usually at night. It’s part of the routine that’s been working\n- Eating better, moving more — not perfectly, but with intention\n- Staying consistent on LinkedIn, one post at a time\n\nNone of this is impressive on its own. But when it starts becoming part of your normal, you notice it.\n\nHow do you track your own progress — and know when it’s real?`,
-          url: "https://www.linkedin.com/feed/update/urn:li:activity:7426625300320567296",
-          btnText: "View Original Post on LinkedIn \u2197"
-        },
-        "post-2": {
-          pill: "#02",
-          date: "FEB 2026",
-          title: "deciding to take a pause",
-          text: `Six months ago, I decided to take a pause.\nAt the time, I didn’t have a new role lined up.\nI just knew I wanted to step back and rethink what kind of work I wanted to grow into.\n\nMy interest in data started earlier — during a short project where I worked on research and analysis.\nThat’s when I realised I enjoyed making sense of patterns more than just working with performance metrics.\nIt stuck with me, even as I shifted back into a creative role after that.\n\nI was drawn to the idea of understanding business problems more deeply — figuring out what needs attention, why it matters, and how to move forward with clarity.\nThat’s when I started exploring Business Analysis.\n\nSince then, I’ve been learning — one piece at a time.\nI started with a fundamentals course. Then books. Then practice.\n\nSome days it feels clear. Some days it doesn’t. But I’m glad I took the time to step into this field with intention.\nI’m building slowly — and starting to apply what I’ve been learning along the way.\n\nWhat helped you turn learning into real experience?`,
-          url: "https://www.linkedin.com/feed/update/urn:li:activity:7424100206398349312",
-          btnText: "View Original Post on LinkedIn \u2197"
-        },
-        "post-1": {
-          pill: "#01",
-          date: "FEB 2026",
-          title: "from social media manager to ba",
-          text: `A while ago, I was working as a social media manager at Labour Law Advisor and doing what I was already familiar with.\nOver time, I realised I wanted to look beyond campaigns and understand the broader business problems behind decisions.\n\nThat curiosity led me to explore Business Analysis.\nThe Business Analysis field is new to me.\nMost of the concepts in Business Analysis Fundamentals were things I was encountering for the first time.\n\nThe course introduced me to core concepts such as stakeholder management, problem diagnosis, and risk management, along with other fundamentals.\nIt challenged how I think about problems and decisions.\n\nTo dive deeper into these concepts, I’ve started reading Start With Why, a Lean Six Sigma book, and Strategic Management: Concepts and Cases (Pearson).\n\nI’m still early in this transition, but I’m learning step by step.\n\nWhat made you want to explore a new field?\nI’d love to hear your thoughts.`,
-          url: "https://coursera.org/share/7c7fffc3c9e8845be9610eec29a90f8c",
-          btnText: "View Business Analysis Certificate \u2197"
-        }
-      };
-
-      // Modal Elements
-      const modal = document.getElementById("post-modal");
-      const closeBtn = document.getElementById("modal-close-btn");
-      const modalPill = document.getElementById("modal-pill");
-      const modalDate = document.getElementById("modal-date");
-      const modalTitle = document.getElementById("modal-title");
-      const modalBody = document.getElementById("modal-body");
-      const modalLink = document.getElementById("modal-link-btn");
-
-      // Open Modal on Card Click
-      document.querySelectorAll(".pudding-card").forEach(card => {
-        card.addEventListener("click", () => {
-          const postId = card.getAttribute("data-post-id");
-          const data = postsData[postId];
-          if (data) {
-            modalPill.textContent = data.pill;
-            modalDate.textContent = data.date;
-            modalTitle.textContent = data.title;
-            modalBody.textContent = data.text;
-            modalLink.href = data.url;
-            modalLink.textContent = data.btnText;
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
-          }
-        });
-      });
-
-      // Close Modal
-      closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      });
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.remove("active");
-          document.body.style.overflow = "auto";
-        }
-      });
-
-      // Scroll Observer
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, { threshold: 0.08 });
-
-      document.querySelectorAll("section, .pudding-card").forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = "opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
-        observer.observe(el);
-      });
-    });
-  </script>
-  <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="src/main.ts"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
 
 .narrative-chart canvas {
   display: block;
-  width: 100% !important;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -23,18 +23,18 @@
 /* Mobile: give charts breathing room */
 @media (max-width: 768px) {
   .narrative-chart canvas {
-    height: 200px !important;
+    height: 200px;
   }
 
   .narrative-chart--wide canvas {
-    height: 240px !important;
+    height: 240px;
   }
 }
 
 /* Desktop: respect inline heights, fallback to 280px */
 @media (min-width: 769px) {
   .narrative-chart canvas {
-    height: 280px !important;
+    height: 280px;
   }
 }
 

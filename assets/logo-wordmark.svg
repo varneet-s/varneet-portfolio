@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="160" height="34" fill="none">
+  <!-- VARNEET Wordmark Typography -->
+  <text x="0" y="34" font-family="'Poppins', 'Satoshi', sans-serif" font-size="28" font-weight="900" letter-spacing="-0.04em" fill="#0C0D0E">VARNEET</text>
+  
+  <!-- Integrated Data Trend Line Accent -->
+  <path d="M142 36 L160 22 L175 28 L198 12 L204 18 M198 12 L206 12 L206 20" stroke="#FF3B00" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Data Node Dots -->
+  <circle cx="160" cy="22" r="2.5" fill="#FF3B00"/>
+  <circle cx="175" cy="28" r="2.5" fill="#FF3B00"/>
+  <circle cx="198" cy="12" r="3" fill="#FF3B00"/>
+</svg>

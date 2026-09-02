@@ -136,29 +136,7 @@
 <body>
 
   <!-- HEADER & NAV (Exact Chronology: About - Now - Writing - Logo - Projects - Career - Resume) -->
-  <header id="main-header">
-    <div class="container nav-container">
-      <nav class="nav-menu-3col" id="nav-menu-links">
-        <div class="nav-links-left">
-          <a href="about.html" class="nav-link" id="nav-link-about">About</a>
-          <a href="now.html" class="nav-link" id="nav-link-now">Now</a>
-          <a href="writing.html" class="nav-link" id="nav-link-writing">Writing</a>
-        </div>
-        <a href="index.html" class="nav-emblem-logo" id="logo-home" title="Varneet Singh — Home">
-          <img src="assets/varneet-avatar.png" alt="Varneet Singh — Home" class="nav-emblem-icon">
-        </a>
-        <div class="nav-links-right">
-          <a href="projects.html" class="nav-link" id="nav-link-projects">Projects</a>
-          <a href="experience.html" class="nav-link" id="nav-link-experience">Career</a>
-          <a href="resume.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-link-resume">Resume</a>
-          <a href="contact.html" class="cta-button active" id="nav-cta-talk">Let's Talk &rarr;</a>
-        </div>
-      </nav>
-      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <header id="main-header" data-active="contact"></header>
 
   <main>
     <!-- Simple Headline Header -->
@@ -300,7 +278,6 @@
     </div>
   </footer>
 
-  <script src="js/script.js?v=1.0.1"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver((entries) => {

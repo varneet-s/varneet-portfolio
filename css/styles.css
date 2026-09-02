@@ -4041,6 +4041,18 @@ section {
 
 /* Bookish Antique Linen Canvas Guarantee */
 body, .page-body {
-  background-color: #F8F6F0;
-  color: #1E293B;
+  background-color: #FFFDF5;
+  color: #0C0D0E;
 }
+
+/* Extracted Skill Bar Fill Utility Classes */
+.sd-skill-bar-fill--90 { --skill-pct: 90%; background: #FF3B00; }
+.sd-skill-bar-fill--65 { --skill-pct: 65%; background: #38B6FF; }
+.sd-skill-bar-fill--60 { --skill-pct: 60%; background: #FFB347; }
+.sd-skill-bar-fill--55 { --skill-pct: 55%; background: #FF6B8A; }
+
+/* Extracted Pudding Frame Background Colors */
+.pudding-frame--cyan   { background-color: #38B6FF; }
+.pudding-frame--pink   { background-color: #FF6B8A; }
+.pudding-frame--orange { background-color: #FF3B00; }
+.pudding-frame--purple { background-color: #9B5DE5; }
