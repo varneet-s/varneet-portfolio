@@ -1,12 +1,14 @@
 import '../css/styles.css';
 import { renderNav } from './components/Nav';
 import { renderFooter } from './components/Footer';
+import { MobileNavManager } from './components/MobileNav';
 
 declare global {
   interface Window {
     Calendly?: {
       initPopupWidget: (options: { url: string }) => void;
     };
+    toggleMobileNav?: (forceState?: 'open' | 'closed') => void;
   }
 }
 
@@ -23,41 +25,8 @@ if (typeof document !== 'undefined' && !document.querySelector('script[src*="cal
   document.head.appendChild(script);
 }
 
-// Global Mobile Nav Toggle function with 250ms debouncing guard
-let lastNavToggleTime = 0;
-(window as any).toggleMobileNav = function(forceState?: 'open' | 'closed') {
-  const now = Date.now();
-  if (now - lastNavToggleTime < 250 && forceState === undefined) {
-    return; // Block double-toggles caused by fast touch/click event bubbling
-  }
-  lastNavToggleTime = now;
-
-  const nav = document.getElementById('mobile-nav');
-  const toggle = document.getElementById('mobile-menu-toggle');
-  if (!nav) return;
-
-  if (nav.parentElement !== document.body) {
-    document.body.appendChild(nav);
-  }
-
-  const currentState = nav.getAttribute('data-state');
-  const isCurrentlyOpen = currentState === 'open' || nav.classList.contains('active');
-  const shouldClose = forceState ? forceState === 'closed' : isCurrentlyOpen;
-
-  if (shouldClose) {
-    nav.setAttribute('data-state', 'closed');
-    nav.classList.remove('active');
-    if (toggle) toggle.setAttribute('aria-expanded', 'false');
-    document.body.removeAttribute('data-nav-open');
-    document.body.style.overflow = '';
-  } else {
-    nav.setAttribute('data-state', 'open');
-    nav.classList.add('active');
-    if (toggle) toggle.setAttribute('aria-expanded', 'true');
-    document.body.setAttribute('data-nav-open', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-};
+// Initialize TypeScript Navigation Controller
+MobileNavManager.init();
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inject Nav if #main-header is empty
@@ -68,10 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. Ensure #mobile-nav exists and is attached directly to document.body
-  let mobileNav = document.getElementById('mobile-nav');
-  if (mobileNav && mobileNav.parentElement !== document.body) {
-    document.body.appendChild(mobileNav);
-  }
+  MobileNavManager.ensureDrawerInBody();
 
   // 3. Inject Footer if #main-footer is empty
   const footerEl = document.getElementById('main-footer');
