@@ -160,15 +160,15 @@ p {
    ========================================================================== */
 #main-header {
   position: sticky;
-  top: 1rem;
-  z-index: 100;
-  background: #FFFFFF;
-  border: 2px solid #0C0D0E;
-  width: calc(100% - 2rem);
-  max-width: 1080px;
-  margin: 0 auto 2.5rem auto;
-  border-radius: 100px;
-  box-shadow: 4px 4px 0px #0C0D0E;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 1.25rem 0;
+  box-shadow: none;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
 
@@ -198,8 +198,11 @@ header.nav-revealed {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
-  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 /* ── Navbar New Layout (Logo left → Links → CTA right) ── */
@@ -4108,3 +4111,125 @@ body, .page-body {
 .pudding-frame--pink   { background-color: #FF6B8A; }
 .pudding-frame--orange { background-color: #FF3B00; }
 .pudding-frame--purple { background-color: #9B5DE5; }
+
+/* ── Local Studio Display Hero Headline Typography (Screenshot 2 & 4) ── */
+.hero-title--display {
+  font-size: clamp(3.2rem, 9.5vw, 8rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.92 !important;
+  text-transform: uppercase !important;
+  color: #0C0D0E;
+  margin: 0 0 2rem 0;
+  font-family: var(--font-display);
+}
+
+/* ── Local Studio Comic Footer CTA Section (Screenshot 5) ── */
+.local-footer-banner {
+  position: relative;
+  background-color: #FFFDF5;
+  border-top: 3px solid #0C0D0E;
+  padding: 6rem 0 3rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.local-footer-bg-title {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 20vw, 17rem);
+  font-weight: 900;
+  color: #FF3B00;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  text-transform: uppercase;
+  user-select: none;
+  margin: 0;
+}
+
+.local-footer-content {
+  position: relative;
+  z-index: 2;
+  margin-top: -3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.local-footer-avatar-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.local-footer-avatar-img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0C0D0E;
+  box-shadow: 6px 6px 0px #0C0D0E;
+  background: #38B6FF;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.local-footer-avatar-img:hover {
+  transform: scale(1.05) rotate(4deg);
+}
+
+.local-footer-email-badge {
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2.5px solid #0C0D0E;
+  border-radius: 6px;
+  padding: 0.75rem 1.75rem;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px #0C0D0E;
+  transition: var(--transition-fast);
+}
+
+.local-footer-email-badge:hover {
+  background: #FF3B00;
+  color: #FFFFFF;
+  transform: translate3d(-2px, -2px, 0);
+  box-shadow: 6px 6px 0px #0C0D0E;
+}
+
+.local-footer-bottom-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.local-footer-pill {
+  background: #FFFFFF;
+  color: #0C0D0E;
+  border: 2px solid #0C0D0E;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px #0C0D0E;
+  transition: var(--transition-fast);
+}
+
+.local-footer-pill:hover {
+  background: #0C0D0E;
+  color: #FFFFFF;
+  transform: translate3d(-1px, -1px, 0);
+  box-shadow: 4px 4px 0px #FF3B00;
+}
