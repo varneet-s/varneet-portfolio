@@ -229,6 +229,11 @@ header nav, .nav-links-desktop {
   border-bottom: none;
 }
 
+/* ── Hero Section (White Background) ── */
+.hero, #hero-section {
+  background: #FFFFFF !important;
+}
+
 /* ── Section 3: Hero Headline (Mobile Base) ── */
 .hero-headline {
   display: flex;
@@ -251,6 +256,9 @@ header nav, .nav-links-desktop {
   display: inline-block;
   padding: 2px 8px;
   width: fit-content;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }
 
 /* ── Section 4: Sub-copy (Mobile Base) ── */
@@ -265,38 +273,47 @@ header nav, .nav-links-desktop {
   color: var(--ink, #0C0D0E);
 }
 
-/* ── Section 5: CTA Buttons (Mobile Base) ── */
+/* ── Section 5: CTA Buttons (Matching Pill & Drop-Shadow) ── */
 .hero-cta {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 16px;
   margin-top: 28px;
 }
 
 .btn {
   font-family: var(--font-mono, monospace);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
-  padding: 16px;
+  padding: 16px 32px;
   text-decoration: none;
-  border: 2px solid var(--ink, #0C0D0E);
+  border: 2.5px solid var(--ink, #0C0D0E) !important;
+  border-radius: 100px !important;
+  box-shadow: 4px 4px 0px var(--ink, #0C0D0E) !important;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0px var(--ink, #0C0D0E) !important;
 }
 
 .btn-primary {
   background: var(--copper, #FF3B00) !important;
   color: var(--cornsilk, #FFFDF5) !important;
-  border: 2px solid var(--ink, #0C0D0E) !important;
 }
 
 .btn-outline {
-  color: var(--ink, #0C0D0E);
-  border-top: none;
-  background: transparent;
+  background: #FFFFFF !important;
+  color: var(--ink, #0C0D0E) !important;
 }
 
 /* ── Section 6: Hero Container Spacing (Mobile Base) ── */
@@ -4551,22 +4568,115 @@ body, .page-body {
   box-shadow: 4px 4px 0px #FF3B00;
 }
 
+/* ── Selected Work Section (Solid Green Background like localstudio.fr) ── */
+.selected-work-section, #projects-section, .work-section {
+  background: #2E7D32 !important;
+  color: #FFFDF5 !important;
+  padding: 60px 20px !important;
+}
+
+.selected-work-section .section-title,
+.selected-work-section .section-subtitle,
+.selected-work-section h2,
+.selected-work-section p {
+  color: #FFFDF5 !important;
+}
+
+/* Selected Work Mobile Vertical List Style */
+@media (max-width: 640px) {
+  .selected-work-section .bento-grid,
+  .selected-work-section .projects-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .selected-work-section .card,
+  .selected-work-section .bento-card,
+  .selected-work-section .project-item {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 24px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    color: #FFFDF5 !important;
+  }
+
+  .selected-work-section .card img,
+  .selected-work-section .bento-card img {
+    border-radius: 16px !important;
+    border: 2.5px solid #0C0D0E !important;
+    box-shadow: 4px 4px 0px #0C0D0E !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .selected-work-section .card h3,
+  .selected-work-section .bento-card h3,
+  .selected-work-section .project-card-title {
+    color: #FFFDF5 !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    font-family: var(--font-display, sans-serif) !important;
+    text-transform: uppercase !important;
+  }
+
+  .selected-work-section .card p,
+  .selected-work-section .bento-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ── Services I Provide Section (White Background) ── */
+.services-section, #services-section, .process-section, #process-section {
+  background: #FFFFFF !important;
+  color: #0C0D0E !important;
+}
+
+/* ── CTA Section (Cornsilk Background & Giant VARNEET Title) ── */
+.local-footer-banner, #main-footer, .cta-footer-section {
+  background-color: #FFFDF5 !important;
+}
+
+.local-footer-bg-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(5.5rem, 26vw, 22rem) !important;
+  font-weight: 900 !important;
+  color: #FF3B00 !important;
+  letter-spacing: -0.05em !important;
+  line-height: 0.8 !important;
+  text-transform: uppercase !important;
+  user-select: none !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 0 -2.5rem 0 !important;
+}
+
 @media (max-width: 640px) {
   .local-footer-banner {
     padding: 3rem 0 2rem 0 !important;
   }
   .local-footer-bg-title {
-    font-size: clamp(3.2rem, 14vw, 5.5rem) !important;
-    margin-bottom: 1rem !important;
-    line-height: 1 !important;
+    font-size: clamp(4.5rem, 24vw, 8rem) !important;
+    margin-bottom: -1rem !important;
+    line-height: 0.85 !important;
     position: relative !important;
     z-index: 1 !important;
   }
   .local-footer-content {
     margin-top: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   .local-footer-avatar-img {
-    width: 200px !important;
-    height: 200px !important;
+    width: 220px !important;
+    height: 220px !important;
   }
 }
