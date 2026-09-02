@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800;900&family=Satoshi:wght@400;700;900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root {
-  /* ── Typography Variables ── */
-  --font-display:    'Anton', 'Poppins', sans-serif;
-  --font-sans:       'Poppins', 'Satoshi', sans-serif;
+  /* ── Typography Variables (Clash Display headline + Inter body + IBM Plex Mono metrics) ── */
+  --font-display:    'Clash Display', 'Inter', sans-serif;
+  --font-sans:       'Inter', sans-serif;
+  --font-body:       'Inter', sans-serif;
+  --font-mono:       'IBM Plex Mono', monospace;
 
   /* ── Local Studio & Signal-A Minimal Brutalist Palette ── */
   --bg-dark:         #FFFDF5;   /* Warm Cream Canvas (exact match from localstudio.fr reference) */
@@ -52,10 +55,6 @@
   /* ── Layout & Utility ─────────────────────────────────────── */
   --tag-bg:         rgba(12, 13, 14, 0.05);
   --tag-border:     #0C0D0E;
-
-  /* ── Typography ───────────────────────────────────────────── */
-  --font-display: 'Poppins', sans-serif;
-  --font-sans:    'Satoshi', sans-serif;
 
   /* ── Transitions & Motion ──────────────────────────────────── */
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -466,43 +465,43 @@ img {
 /* ── Instruction 1: Mobile Nav Drawer ── */
 /* ── Instruction 1: Mobile Nav Drawer (Orange & White LocalStudio Style) ── */
 .mobile-nav {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background: #FF3B00 !important; /* Vibrant Orange background */
-  color: #FFFFFF !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  padding: 16px 20px 24px 20px !important;
-  transform: translateY(-100%) !important; /* Top-to-Down slide transition */
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  z-index: 9999999 !important;
-  pointer-events: none !important;
-  box-sizing: border-box !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FF3B00; /* Vibrant Orange background */
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 20px 24px 20px;
+  transform: translateY(-100%); /* Top-to-Down slide transition */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999999;
+  pointer-events: none;
+  box-sizing: border-box;
 }
 
 .mobile-nav[data-state="open"],
 .mobile-nav.active {
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 body[data-nav-open="true"], html[data-nav-open="true"] {
-  overflow: hidden !important;
-  touch-action: none !important;
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* Header inside Drawer: Top-Right BACK button, No Name */
 .mobile-nav-header {
-  display: flex !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  width: 100% !important;
-  padding-bottom: 0 !important;
-  border-bottom: none !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .mobile-nav-close {
