@@ -55,6 +55,7 @@
   /* ── Layout & Utility ─────────────────────────────────────── */
   --tag-bg:         rgba(12, 13, 14, 0.05);
   --tag-border:     #0C0D0E;
+  --purple-shadow:  #5B21B6;   /* Rich Royal Purple Accent Shadow */
 
   /* ── Transitions & Motion ──────────────────────────────────── */
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -315,7 +316,7 @@ header nav, .nav-links-desktop {
   text-decoration: none;
   border: 2.5px solid var(--ink, #0C0D0E) !important;
   border-radius: 100px !important;
-  box-shadow: 4px 4px 0px var(--ink, #0C0D0E) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -328,7 +329,7 @@ header nav, .nav-links-desktop {
 
 .btn:active {
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0px var(--ink, #0C0D0E) !important;
+  box-shadow: 2px 2px 0px var(--purple-shadow, #5B21B6) !important;
 }
 
 .btn-primary {
@@ -4859,7 +4860,7 @@ body, .page-body {
   object-fit: cover;
   border-radius: 28px;
   border: 4px solid #0C0D0E;
-  box-shadow: 8px 8px 0px #0C0D0E;
+  box-shadow: 8px 8px 0px var(--purple-shadow, #5B21B6) !important;
   background-color: #38B6FF;
   transform: rotate(-3deg);
   margin-bottom: 1.5rem;
@@ -4881,7 +4882,7 @@ body, .page-body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 4px 4px 0px #0C0D0E;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
   transition: var(--transition-fast);
 }
 
@@ -4889,7 +4890,7 @@ body, .page-body {
   background: #FF3B00;
   color: #FFFFFF;
   transform: translate3d(-2px, -2px, 0);
-  box-shadow: 6px 6px 0px #0C0D0E;
+  box-shadow: 6px 6px 0px var(--purple-shadow, #5B21B6) !important;
 }
 
 .local-footer-bottom-bar {
@@ -4914,7 +4915,7 @@ body, .page-body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 3px 3px 0px #0C0D0E;
+  box-shadow: 3px 3px 0px var(--purple-shadow, #5B21B6) !important;
   transition: var(--transition-fast);
 }
 
@@ -4922,7 +4923,7 @@ body, .page-body {
   background: #0C0D0E;
   color: #FFFFFF;
   transform: translate3d(-1px, -1px, 0);
-  box-shadow: 4px 4px 0px #FF3B00;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
 }
 
 /* ── Selected Work Section (Brand Purple Palette) ── */
@@ -5028,7 +5029,7 @@ body, .page-body {
   font-weight: 900 !important;
   color: #FF3B00 !important;
   -webkit-text-stroke: 2.5px #0C0D0E !important;
-  text-shadow: 4px 4px 0px #0C0D0E !important;
+  text-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
   letter-spacing: 0 !important;
   line-height: 0.88 !important;
   text-transform: uppercase !important;
@@ -5061,7 +5062,7 @@ body, .page-body {
     letter-spacing: 0 !important;
     padding: 0 2px !important;
     -webkit-text-stroke: 1.5px #0C0D0E !important;
-    text-shadow: 3px 3px 0px #0C0D0E !important;
+    text-shadow: 3px 3px 0px var(--purple-shadow, #5B21B6) !important;
   }
   .local-footer-content {
     margin-top: 0 !important;
