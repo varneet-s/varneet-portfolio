@@ -16,45 +16,32 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="dh-page-wrapper">
-      {/* 1. MONUMENTAL HERO SECTION (David Hellmann Style) */}
-      <section className="dh-hero-wrapper" id="work-hero">
-        <div
-          className="dh-hero-bg"
-          style={{ backgroundImage: `url('/assets/archival/met-celestial-chart.jpg')` }}
-          aria-hidden="true"
-        ></div>
-
-        <div className="dh-hero-headline-wrap">
-          <div className="dh-hero-subtag">
-            <span>Selected Case Studies &middot; 2023 &mdash; 2026</span>
-          </div>
-          <h1 className="dh-hero-giant-title dh-hero-giant-title--work">
-            Work &amp;<br />Case Studies.
+    <main className="dh-work-page-canvas">
+      {/* 1. SEAMLESS WORK HEADLINE (No Divide Line, Exact David Hellmann Aesthetic) */}
+      <section className="dh-work-header-section">
+        <div className="dh-work-content-wrap">
+          <h1 className="dh-work-hero-title">
+            Work hard.<br />Play hard.
           </h1>
         </div>
       </section>
 
-      {/* 2. OVERLAPPING SHEET WITH WORK GRID */}
-      <section className="dh-sheet-container" id="featured-work">
-        <div className="dh-sheet-inner">
-          <h2 className="dh-editorial-heading">
-            Deep-Dive Projects.<br />
-            Data into Operating Decisions.
-          </h2>
-
+      {/* 2. FEATURED WORK CARDS (Directly on Continuous Sage Green Canvas) */}
+      <section className="dh-work-grid-section" id="featured-work">
+        <div className="dh-work-content-wrap">
           <div className="dh-work-grid">
             {/* Project 1: Olist */}
             <Link href="/projects/olist/" className="dh-work-card" id="project-card-olist">
               <div className="dh-work-header">
                 <span className="dh-work-tag">Business Analysis</span>
-                <h3 className="dh-work-title">Cutting Delivery Delays Across 99K Orders</h3>
+                <h2 className="dh-work-title">Cutting Delivery Delays Across 99K Orders</h2>
                 <div className="dh-work-meta-list">
-                  <div>Y. 2024 &middot; Client: Olist E-Commerce</div>
-                  <div>T. SQL &middot; Excel &middot; Tableau &middot; BPMN Workflow</div>
+                  <div>Y. 2024</div>
+                  <div>C. OLIST E-COMMERCE</div>
+                  <div>T. SQL &middot; EXCEL &middot; TABLEAU &middot; BPMN</div>
                 </div>
-                <p className="dh-cv-dek">
-                  Analysed ~99,000 orders from Brazil&apos;s largest marketplace aggregator across four pre-formed business hypotheses: delivery delays, geographic revenue concentration, seller GMV distribution, and freight cost burden.
+                <p className="dh-work-desc-desktop dh-cv-dek">
+                  Analysed ~99,000 orders across four pre-formed hypotheses: delivery delays, geographic revenue concentration, seller GMV distribution, and freight burden.
                 </p>
               </div>
               <div className="dh-work-preview-wrap">
@@ -73,13 +60,14 @@ export default function ProjectsPage() {
             <Link href="/projects/pharma/" className="dh-work-card" id="project-card-pharma">
               <div className="dh-work-header">
                 <span className="dh-work-tag">Operations Management</span>
-                <h3 className="dh-work-title">Real-Time Stock Reporting for 120+ Retail Accounts</h3>
+                <h2 className="dh-work-title">Real-Time Stock Reporting for 120+ Accounts</h2>
                 <div className="dh-work-meta-list">
-                  <div>Y. 2026 &middot; Client: I.P. Pharma</div>
-                  <div>T. Excel Automation &middot; Data Modeling &middot; Inventory Controls</div>
+                  <div>Y. 2026</div>
+                  <div>C. I.P. PHARMA</div>
+                  <div>T. EXCEL AUTOMATION &middot; DATA MODELING &middot; INVENTORY</div>
                 </div>
-                <p className="dh-cv-dek">
-                  Analysed ~45,000 inventory SKU movements across 120+ chemist accounts, addressing order fulfillment bottlenecks, representative route latency, and reducing reporting delay from 3 days to real-time.
+                <p className="dh-work-desc-desktop dh-cv-dek">
+                  Analysed ~45,000 inventory movements across 120+ chemist accounts, addressing fulfillment bottlenecks and reducing reporting latency from 3 days to real-time.
                 </p>
               </div>
               <div className="dh-work-preview-wrap">
@@ -95,26 +83,26 @@ export default function ProjectsPage() {
             </Link>
 
             {/* Project 3: Vrinda Store */}
-            <Link href="/projects/vrinda/" className="dh-work-card" id="project-card-vrinda" style={{ gridColumn: 'span 2' }}>
+            <Link href="/projects/vrinda/" className="dh-work-card dh-work-card--full" id="project-card-vrinda">
               <div className="dh-work-header">
                 <span className="dh-work-tag">Data Analytics</span>
-                <h3 className="dh-work-title">Multi-Channel Sales Performance &amp; Customer Demographics</h3>
+                <h2 className="dh-work-title">Multi-Channel Sales Performance &amp; Demographics</h2>
                 <div className="dh-work-meta-list">
-                  <div>Y. 2024 &middot; Client: Vrinda Store</div>
-                  <div>T. Excel &middot; Pivot Tables &middot; Customer Segmentation &middot; Regional Funnels</div>
+                  <div>Y. 2023</div>
+                  <div>C. VRINDA STORE</div>
+                  <div>T. ADVANCED EXCEL &middot; PIVOT CHARTS &middot; RFM</div>
                 </div>
-                <p className="dh-cv-dek" style={{ maxWidth: '85ch' }}>
-                  Analysed ~31,000 transaction records across 12 sales channels, isolating channel order volume drop-offs, customer gender purchase splits, and regional fulfillment state performance.
+                <p className="dh-work-desc-desktop dh-cv-dek">
+                  Synthesized 31,000+ customer records across Amazon, Flipkart, and Myntra to establish buyer demographic profiles and channel revenue share.
                 </p>
               </div>
               <div className="dh-work-preview-wrap">
                 <img
                   src="/assets/vrinda-preview.jpg"
-                  alt="Vrinda Store annual audit preview"
+                  alt="Vrinda store sales dashboard preview"
                   width={1200}
-                  height={280}
-                  className="dh-work-preview-img"
-                  style={{ height: '280px' }}
+                  height={350}
+                  className="dh-work-preview-img dh-work-preview-img--wide"
                   loading="lazy"
                 />
               </div>
@@ -123,16 +111,16 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* 3. ADDITIONAL WORK EXPERIENCE (Hellmann CV Format) */}
-      <section className="dh-dark-section" id="work-history">
-        <div className="dh-dark-container">
+      {/* 3. CLIENT & AGENCY HISTORY (CV Teasers on Continuous Canvas) */}
+      <section className="dh-work-history-section" id="client-history">
+        <div className="dh-work-content-wrap">
           <h2 className="dh-section-title-serif">Client &amp; Agency History.</h2>
           <p className="dh-section-subtitle">
-            Additional growth marketing, cross-platform telemetry, and enterprise campaign operations.
+            Cross-functional operations, agency growth, and campaign analytics.
           </p>
 
           <div className="dh-cv-list">
-            {/* LLA */}
+            {/* Labour Law Advisor */}
             <Link href="/work/lla/" className="dh-cv-card">
               <div className="dh-cv-logo-box">
                 <img
@@ -144,16 +132,16 @@ export default function ProjectsPage() {
                 />
               </div>
               <div className="dh-cv-info">
-                <h3 className="dh-cv-role">Labour Law Advisor &middot; Jagruk.Shop</h3>
+                <h3 className="dh-cv-role">Labour Law Advisor</h3>
                 <div className="dh-cv-meta">
-                  <span>Growth Operations</span>
+                  <span>Social Media Manager / Growth Operations</span>
                   <span>/</span>
                   <span>08/2024 &mdash; 07/2025</span>
                   <span>/</span>
                   <span>Jaipur, IN</span>
                 </div>
                 <p className="dh-cv-dek">
-                  Scaled Jagruk.Shop social audience from 400 to 4,000+ organic targeted followers (10x growth) and standardized video search metadata across 50+ business videos (+15% CTR).
+                  Mapped operations for Jagruk.Shop, scaling social community followers 10x (400 to 4,000+) and boosting video search CTR by 15%.
                 </p>
               </div>
             </Link>
@@ -213,9 +201,9 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* 4. CERTIFICATIONS & CREDENTIALS (Work Page) */}
-      <section className="dh-dark-section" style={{ paddingTop: '2rem', paddingBottom: '7rem' }} id="work-certs">
-        <div className="dh-dark-container">
+      {/* 4. CERTIFICATIONS & CREDENTIALS */}
+      <section className="dh-work-certs-section" id="work-certs">
+        <div className="dh-work-content-wrap">
           <h2 className="dh-section-title-serif">Certifications.</h2>
           <p className="dh-section-subtitle">
             Verified credentials and professional certifications.
@@ -278,4 +266,3 @@ export default function ProjectsPage() {
     </main>
   );
 }
-

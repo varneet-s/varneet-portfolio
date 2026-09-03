@@ -5961,18 +5961,104 @@ body, .page-body {
   }
 }
 
+/* ── Sage Green Unified Header (Zero Divide Line, Exact Background Match) ── */
+#main-header[data-active="projects"],
+#main-header[data-active="about"],
+#main-header[data-active="writing"] {
+  background: var(--dh-sage-deep, #16241E) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+#main-header[data-active="projects"] .logo,
+#main-header[data-active="projects"] .logo-link,
+#main-header[data-active="about"] .logo,
+#main-header[data-active="about"] .logo-link,
+#main-header[data-active="writing"] .logo,
+#main-header[data-active="writing"] .logo-link {
+  color: #F3F8F5 !important;
+}
+
+#main-header[data-active="projects"] .nav-links-desktop a,
+#main-header[data-active="about"] .nav-links-desktop a,
+#main-header[data-active="writing"] .nav-links-desktop a {
+  color: rgba(243, 248, 245, 0.75) !important;
+  border-left: 1px solid rgba(182, 219, 199, 0.18) !important;
+  transition: color 0.2s ease;
+}
+
+#main-header[data-active="projects"] .nav-links-desktop a:hover,
+#main-header[data-active="projects"] .nav-links-desktop a.active,
+#main-header[data-active="about"] .nav-links-desktop a:hover,
+#main-header[data-active="about"] .nav-links-desktop a.active,
+#main-header[data-active="writing"] .nav-links-desktop a:hover,
+#main-header[data-active="writing"] .nav-links-desktop a.active {
+  color: var(--dh-accent-sage, #7BE0AD) !important;
+}
+
+#main-header[data-active="projects"] .menu-toggle,
+#main-header[data-active="about"] .menu-toggle,
+#main-header[data-active="writing"] .menu-toggle {
+  color: #F3F8F5 !important;
+}
+
+#main-header[data-active="projects"] .cta,
+#main-header[data-active="about"] .cta,
+#main-header[data-active="writing"] .cta {
+  background: var(--dh-accent-sage, #7BE0AD) !important;
+  color: #16241E !important;
+  font-weight: 800 !important;
+  border: none !important;
+}
+
+/* ── Work Page Seamless Architecture (No Divide Line, Pure Sage Canvas) ── */
+.dh-work-page-canvas {
+  background: var(--dh-sage-deep);
+  color: var(--dh-text-light);
+  min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+}
+
+.dh-work-content-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.dh-work-header-section {
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+}
+
+.dh-work-hero-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(3rem, 11vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #FF2A5F;
+  margin: 0;
+  word-break: break-word;
+}
+
+.dh-work-grid-section {
+  padding-bottom: 4rem;
+}
+
+.dh-work-history-section,
+.dh-work-certs-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 /* ── Work Cards (Hellmann Grid - Sage Palette) ── */
 .dh-work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.25rem;
-  margin-top: 2.5rem;
-}
-
-@media (max-width: 900px) {
-  .dh-work-grid {
-    grid-template-columns: 1fr;
-  }
+  margin-top: 1.5rem;
 }
 
 .dh-work-card {
@@ -5985,6 +6071,10 @@ body, .page-body {
   display: flex;
   flex-direction: column;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.dh-work-card--full {
+  grid-column: span 2;
 }
 
 .dh-work-card:hover {
@@ -6048,8 +6138,69 @@ body, .page-body {
   transition: transform 0.3s ease;
 }
 
+.dh-work-preview-img--wide {
+  height: 300px;
+}
+
 .dh-work-card:hover .dh-work-preview-img {
   transform: scale(1.02);
+}
+
+/* ── Mobile Viewport Refinement: Compact, Balanced, David Hellmann Proportions ── */
+@media (max-width: 768px) {
+  .dh-work-page-canvas {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+  }
+  .dh-work-content-wrap {
+    padding: 0 1.25rem;
+  }
+  .dh-work-header-section {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  .dh-work-hero-title {
+    font-size: clamp(2.8rem, 13vw, 4.4rem);
+  }
+  .dh-work-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .dh-work-card--full {
+    grid-column: span 1;
+  }
+  .dh-work-card {
+    border-radius: 1.5rem;
+  }
+  .dh-work-header {
+    padding: 1.5rem 1.35rem 0.85rem;
+  }
+  .dh-work-tag {
+    margin-bottom: 0.75rem;
+  }
+  .dh-work-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+  .dh-work-meta-list {
+    margin-bottom: 0.75rem;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+  .dh-work-desc-desktop {
+    display: none; /* Hide verbose 4-line description on mobile so cards stay compact! */
+  }
+  .dh-work-preview-wrap {
+    padding: 0.75rem 1.35rem 1.35rem;
+    background: transparent;
+    border-top: none;
+  }
+  .dh-work-preview-img,
+  .dh-work-preview-img--wide {
+    height: 175px;
+    border-radius: 0.85rem;
+  }
 }
 
 /* ── Blog Card (Hellmann Style - Sage & Lilac Accent) ── */
