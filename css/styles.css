@@ -184,9 +184,14 @@ p {
   transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease !important;
 }
 
-/* Compensate for fixed header height on all pages */
+/* ── Nav height tokens (used for body offset + hero height) ── */
+:root {
+  --nav-h: 72px; /* mobile: 14px pad + 44px touch target + 14px pad */
+}
+
+/* Compensate for fixed header — must match --nav-h exactly */
 body {
-  padding-top: 53px !important;
+  padding-top: var(--nav-h) !important;
 }
 
 #main-header[data-scrolled="true"], header[data-scrolled="true"] {
@@ -201,11 +206,14 @@ body {
 }
 
 @media (min-width: 769px) {
+  :root {
+    --nav-h: 69px; /* desktop: 20px pad + ~29px font + 20px pad */
+  }
   #main-header, header {
-    padding: 20px 32px !important; /* Desktop 32px side padding aligning V with Hero */
+    padding: 20px 32px !important;
   }
   body {
-    padding-top: 69px !important; /* Desktop nav is taller: 20px*2 + font ~29px */
+    padding-top: var(--nav-h) !important;
   }
 }
 
@@ -493,18 +501,19 @@ header nav, .nav-links-desktop {
     border-left: none;
   }
 
-  /* Section 6: Hero — MacBook Pro 14 (1440×900 viewport, nav=69px → hero=831px) */
+  /* Section 6: Hero — MacBook Pro 14 (1440×900 viewport) */
+  /* 100svh = stable viewport (doesn’t jump with browser chrome) */
   .hero, #hero-section {
-    height: 831px !important;
-    min-height: 831px !important;
-    max-height: 831px !important;
+    height: calc(100svh - var(--nav-h)) !important;
+    min-height: calc(100svh - var(--nav-h)) !important;
+    max-height: calc(100svh - var(--nav-h)) !important;
     display: flex !important;
     flex-direction: column !important;
   }
   .hero-inner {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex: 1;
     padding: 64px 32px 64px;
     max-width: 1400px;
     margin: 0 auto;
@@ -865,15 +874,16 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 12px 16px !important;
   }
 
-  /* Hero Mobile — iPhone 14 (390×844 screen, nav=53px → hero=796px) */
+  /* Hero Mobile — iPhone 14 (390×844) */
+  /* 100svh = stable viewport height (sized for when Safari UI is fully visible) */
   h1, .hero-title--display {
     font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
   .hero, #hero-section {
-    height: 796px !important;
-    min-height: 796px !important;
-    max-height: 796px !important;
+    height: calc(100svh - var(--nav-h)) !important;
+    min-height: calc(100svh - var(--nav-h)) !important;
+    max-height: calc(100svh - var(--nav-h)) !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
     display: flex !important;
@@ -882,7 +892,7 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   .hero-inner, .hero-container-z {
     display: flex !important;
     flex-direction: column !important;
-    height: 100% !important;
+    flex: 1 !important;
     padding: 28px 20px 40px !important;
     box-sizing: border-box !important;
   }
@@ -5060,9 +5070,9 @@ body, .page-body {
 
 @media (max-width: 768px) {
   .local-footer-banner {
-    height: 796px !important;
-    min-height: 796px !important;
-    max-height: 796px !important;
+    height: calc(100svh - var(--nav-h)) !important;
+    min-height: calc(100svh - var(--nav-h)) !important;
+    max-height: calc(100svh - var(--nav-h)) !important;
     padding: 3rem 0 2.5rem 0 !important;
     display: flex !important;
     flex-direction: column !important;
