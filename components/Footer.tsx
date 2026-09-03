@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer id="main-footer" className="site-footer">
       <div className="local-footer-banner">
-        <div className="local-footer-bg-title">VARNEET</div>
+        <div className="local-footer-bg-title"><span className="kern-v">V</span>ARNEET</div>
 
         <div className="local-footer-content">
           <div className="local-footer-avatar-wrap">

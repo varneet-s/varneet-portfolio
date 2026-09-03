@@ -275,21 +275,12 @@ header nav, .nav-links-desktop {
   color: #0C0D0E;
 }
 
-/* ── Hero Highlight: Tightly Wrapped Painted Highlight Stroke ── */
-.hero-headline .highlight-line {
-  font-size: clamp(1.8rem, 8vw, 2.7rem) !important;
-  line-height: 0.85 !important;
-  margin-top: 6px !important;
-}
-
 .hero-headline .highlight {
-  background: var(--ink, #0C0D0E) !important;
-  color: #F6F1E4 !important;
-  line-height: 0.85 !important;
-  display: inline !important;
-  box-decoration-break: clone !important;
-  -webkit-box-decoration-break: clone !important;
-  padding: 0 0.12em !important;
+  background: var(--ink, #0C0D0E);
+  color: var(--cornsilk, #FFFDF5);
+  display: inline-block;
+  padding: 2px 8px;
+  width: fit-content;
   border-bottom: none !important;
   box-shadow: none !important;
   text-decoration: none !important;
@@ -359,20 +350,20 @@ header nav, .nav-links-desktop {
    DESKTOP OVERRIDES (min-width: 769px)
    ========================================================================== */
 @media (min-width: 769px) {
-  /* Section 1: Header Desktop (Local Studio Style - Boxed & Equal Distance) */
+  /* Section 1: Header Desktop (Local Studio Style - Boxed & Exact Equal Spacing) */
   #main-header, header {
-    display: grid !important;
-    grid-template-columns: auto 1fr 1fr 1fr auto !important;
+    display: flex !important;
     align-items: center !important;
+    justify-content: space-between !important;
     padding: 16px 32px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    gap: 16px !important;
   }
 
   .logo {
-    justify-self: start !important;
-    grid-column: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
   }
 
   .logo, .logo-link {
@@ -380,50 +371,18 @@ header nav, .nav-links-desktop {
     letter-spacing: -0.01em;
   }
 
-  header nav, .nav-links-desktop {
-    display: contents !important;
+  .nav-links-desktop {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 !important;
+    margin-left: clamp(48px, 8vw, 140px) !important;
   }
 
   .nav-box-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    justify-self: center !important;
-    border: 1.5px solid var(--ink, #0C0D0E) !important;
-    border-radius: 4px !important;
-    padding: 6px 18px !important;
-    background: transparent !important;
-    color: var(--ink, #0C0D0E) !important;
-    font-family: var(--font-mono, monospace) !important;
-    font-size: 13px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    line-height: 1 !important;
-    text-decoration: none !important;
-    box-shadow: none !important;
-    white-space: nowrap !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  }
-
-  .nav-box-btn:hover {
-    background: var(--ink, #0C0D0E) !important;
-    color: #F6F1E4 !important;
-    transform: translateY(-1px) !important;
-  }
-
-  .nav-box-btn.active {
-    background: var(--ink, #0C0D0E) !important;
-    color: #F6F1E4 !important;
-  }
-
-  /* Desktop CTA button - Local Studio Boxed Style */
-  .cta, .cta.nav-box-cta {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    justify-self: end !important;
-    grid-column: 5 !important;
     border: 1.5px solid var(--ink, #0C0D0E) !important;
     border-radius: 4px !important;
     padding: 6px 18px !important;
@@ -442,7 +401,19 @@ header nav, .nav-links-desktop {
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  .cta:hover, .cta.nav-box-cta:hover {
+  .nav-box-btn:hover {
+    background: var(--ink, #0C0D0E) !important;
+    color: #F6F1E4 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .nav-box-btn.active {
+    background: var(--ink, #0C0D0E) !important;
+    color: #F6F1E4 !important;
+  }
+
+  /* Desktop CTA button - Local Studio Boxed Style */
+  .nav-box-cta:hover, .cta.nav-box-cta:hover {
     background: var(--copper, #FF3B00) !important;
     color: #FFFDF5 !important;
     border-color: var(--copper, #FF3B00) !important;
@@ -480,21 +451,13 @@ header nav, .nav-links-desktop {
   }
 
   .hero-headline .line {
-    font-size: clamp(3.5rem, 8.5vw, 7.5rem);
-    line-height: 0.9;
-  }
-
-  .hero-headline .highlight-line {
-    font-size: clamp(2.4rem, 5.8vw, 6.2rem) !important;
-    line-height: 0.85 !important;
-    margin-top: 10px !important;
+    font-size: clamp(2.4rem, 5.7vw, 5.8rem) !important;
+    line-height: 0.95 !important;
+    white-space: nowrap !important;
   }
 
   .hero-headline .highlight {
-    line-height: 0.85 !important;
-    padding: 0 0.12em !important;
-    box-decoration-break: clone !important;
-    -webkit-box-decoration-break: clone !important;
+    padding: 4px 14px !important;
   }
 
   /* Section 4: Sub-copy Desktop */
@@ -5078,6 +5041,11 @@ body, .page-body {
   padding: 0 4px !important;
   white-space: nowrap !important;
   display: block !important;
+}
+
+.local-footer-bg-title .kern-v {
+  margin-right: -0.15em !important;
+  display: inline-block !important;
 }
 
 @media (max-width: 768px) {

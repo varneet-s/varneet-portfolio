@@ -91,10 +91,10 @@ export default function Header() {
           <Link href="/about/" className={`nav-box-btn ${isAbout ? 'active' : ''}`}>
             About
           </Link>
+          <CalendlyButton className="nav-box-btn nav-box-cta">
+            Let&apos;s Talk &rarr;
+          </CalendlyButton>
         </nav>
-        <CalendlyButton className="cta nav-box-cta">
-          Let&apos;s Talk &rarr;
-        </CalendlyButton>
         <button
           className="menu-toggle"
           id="mobile-menu-toggle"

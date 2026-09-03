@@ -35,9 +35,7 @@ export default function HomePage() {
           <h1 className="hero-headline" id="hero-heading">
             <span className="line">DATA DOESN&apos;T</span>
             <span className="line">DECIDE.</span>
-            <span className="line highlight-line">
-              <span className="highlight">PEOPLE WHO READ IT<br />DO.</span>
-            </span>
+            <span className="line highlight">PEOPLE WHO READ IT DO.</span>
           </h1>
 
           <p className="sub">
