@@ -35,9 +35,19 @@ export default function HomePage() {
           <h1 className="hero-headline">
             <span className="line">DATA DOESN&apos;T</span>
             <span className="line">DECIDE.</span>
-            <span className="line highlight">PEOPLE WHO READ IT DO.</span>
           </h1>
+        </div>
 
+        {/* Full-Bleed Highlight Band Touching Left and Right Corners */}
+        <div className="hero-highlight-band">
+          <div className="hero-highlight-inner">
+            <div className="hero-highlight-text">
+              PEOPLE WHO READ IT<br />DO.
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-inner hero-inner--sub">
           <p className="sub">
             I turn messy spreadsheets, scattered orders, and broken workflows into
             decisions people can act on fast.
