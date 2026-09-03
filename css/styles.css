@@ -6258,4 +6258,552 @@ body, .page-body {
   max-width: 75ch;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   TIM ROUSSILHE CHRONOLOGY SCROLL & CARD PLACEMENT ENGINE
+   ═══════════════════════════════════════════════════════════ */
+
+.tim-work-page-canvas {
+  background: var(--dh-sage-deep);
+  color: var(--dh-text-light);
+  min-height: 100vh;
+  padding-top: 1rem;
+  padding-bottom: 7rem;
+}
+
+.tim-work-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* ── Monumental "Work." Header (No Tagline) ── */
+.tim-work-header {
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+}
+
+.tim-work-subtag {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dh-accent-sage);
+  margin-bottom: 0.75rem;
+}
+
+.tim-work-hero-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(4rem, 16vw, 11rem);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: #F3F8F5;
+  margin: 0;
+  text-transform: none;
+}
+
+/* ── Tim Roussilhe Layout: Cards Stream + Fixed Chronology Rail ── */
+.tim-work-layout {
+  position: relative;
+  width: 100%;
+}
+
+.tim-cards-stream {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5.5rem;
+}
+
+/* ── Fixed Chronology Rail (Tim Roussilhe Iconic Right-Hand Indicator) ── */
+@media (min-width: 861px) {
+  .tim-chronology-rail {
+    position: fixed;
+    right: max(2.5rem, calc((100vw - 1300px) / 2 + 1rem));
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.tim-chronology-widget {
+  pointer-events: auto;
+  background: rgba(30, 48, 41, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--dh-sage-border);
+  border-radius: 1.5rem;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 20px 48px rgba(10, 20, 15, 0.45);
+  min-width: 175px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tim-chronology-counter {
+  font-family: var(--font-mono, monospace);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tim-counter-active {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--dh-accent-sage);
+}
+
+.tim-counter-slash {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(243, 248, 245, 0.35);
+}
+
+.tim-counter-total {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(243, 248, 245, 0.55);
+}
+
+.tim-chronology-date {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--dh-accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.tim-chronology-client {
+  font-family: var(--font-display, sans-serif);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(243, 248, 245, 0.85);
+  line-height: 1.35;
+}
+
+/* ── Mobile Chronology Chip (Fixed/Sticky Header Pill) ── */
+.tim-mobile-chronology-chip {
+  display: none;
+}
+
+/* ── Tim Roussilhe Card Placement Rhythm (Alternating Desktop Offsets) ── */
+.tim-project-card {
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 992px) {
+  .tim-card--left {
+    width: 86%;
+    margin-right: auto;
+  }
+  .tim-card--right {
+    width: 86%;
+    margin-left: auto;
+  }
+  .tim-card--center {
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+
+.tim-card-inner {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--dh-sage-card);
+  border: 1px solid var(--dh-sage-border);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  color: #F3F8F5;
+  box-shadow: 0 16px 40px rgba(10, 20, 15, 0.32);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, background 0.28s ease;
+}
+
+.tim-card-inner:hover {
+  transform: translateY(-4px);
+  border-color: var(--dh-sage-border-hover);
+  background: var(--dh-sage-card-hover);
+}
+
+/* ── Card Topbar (Month/Year & Category Tag) ── */
+.tim-card-topbar {
+  padding: 1.6rem 2rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tim-card-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tim-card-index-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--dh-accent-sage);
+  background: rgba(182, 219, 199, 0.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.tim-card-date-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--dh-accent-gold);
+}
+
+.tim-card-category-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(243, 248, 245, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* ── Card Visual Preview ── */
+.tim-card-visual {
+  width: 100%;
+  background: var(--dh-sage-preview);
+  border-top: 1px solid var(--dh-sage-border);
+  border-bottom: 1px solid var(--dh-sage-border);
+  padding: 1.25rem 2rem;
+  overflow: hidden;
+}
+
+.tim-card-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid var(--dh-sage-border);
+  transition: transform 0.3s ease;
+}
+
+.tim-card-inner:hover .tim-card-img {
+  transform: scale(1.02);
+}
+
+/* Agency Logo Visual Variation */
+.tim-card-logo-visual {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.2rem 1.5rem;
+  background: rgba(22, 36, 30, 0.6);
+  border-radius: 1rem;
+}
+
+.tim-card-logo-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 1.15rem;
+  background: #111A15;
+  border: 1px solid var(--dh-sage-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(10, 20, 15, 0.35);
+}
+
+.tim-card-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tim-card-logo-meta {
+  flex: 1;
+}
+
+.tim-card-logo-client {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #F3F8F5;
+  margin-bottom: 4px;
+}
+
+.tim-card-logo-role {
+  font-size: 1rem;
+  color: var(--dh-accent-sage);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tim-card-logo-range {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  color: rgba(243, 248, 245, 0.55);
+}
+
+/* ── Card Info ── */
+.tim-card-info {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.tim-card-client-line {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dh-accent-sage);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.tim-client-role {
+  color: rgba(243, 248, 245, 0.65);
+}
+
+.tim-card-title {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #F3F8F5;
+  margin: 0 0 1rem 0;
+}
+
+.tim-card-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.tim-tool-pill {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(243, 248, 245, 0.7);
+  background: rgba(182, 219, 199, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.tim-card-cta {
+  font-family: var(--font-mono, monospace);
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--dh-accent-sage);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.tim-card-inner:hover .tim-card-cta {
+  transform: translateX(4px);
+}
+
+/* ── Certifications Section (Chronological Archive Footer) ── */
+.tim-certs-section {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.tim-certs-card {
+  background: var(--dh-sage-card);
+  border: 1px solid var(--dh-sage-border);
+  border-radius: 1.75rem;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.tim-cert-logo-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 1.25rem;
+  background: #FFFFFF;
+  color: #16241E;
+  font-family: var(--font-mono, monospace);
+  font-weight: 900;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(10, 20, 15, 0.35);
+}
+
+.tim-cert-details {
+  flex: 1;
+}
+
+.tim-cert-badge {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--dh-accent-sage);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.tim-cert-title {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #F3F8F5;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.tim-cert-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 12.5px;
+  color: rgba(243, 248, 245, 0.7);
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 8px;
+}
+
+.tim-cert-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(243, 248, 245, 0.75);
+  margin: 0 0 1.25rem 0;
+  max-width: 68ch;
+}
+
+.tim-cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 800;
+  color: #16241E;
+  background: var(--dh-accent-sage);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tim-cert-btn:hover {
+  transform: scale(1.03);
+}
+
+/* ── Mobile Responsive Adaptation ── */
+@media (max-width: 860px) {
+  .tim-work-container {
+    padding: 0 1.25rem;
+  }
+  .tim-work-header {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  .tim-work-hero-title {
+    font-size: clamp(3.2rem, 18vw, 5.5rem);
+  }
+  .tim-chronology-rail {
+    display: none;
+  }
+  .tim-mobile-chronology-chip {
+    display: flex;
+    position: sticky;
+    top: 62px;
+    z-index: 50;
+    margin-bottom: 1.75rem;
+    background: rgba(25, 41, 34, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--dh-sage-border);
+    border-radius: 9999px;
+    padding: 7px 14px;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono, monospace);
+    font-size: 11.5px;
+    box-shadow: 0 8px 24px rgba(10, 20, 15, 0.45);
+    width: fit-content;
+  }
+  .tim-chip-index {
+    font-weight: 800;
+    color: var(--dh-accent-sage);
+  }
+  .tim-chip-bullet {
+    color: rgba(243, 248, 245, 0.35);
+  }
+  .tim-chip-date {
+    color: var(--dh-accent-gold);
+    font-weight: 800;
+  }
+  .tim-chip-client {
+    color: #F3F8F5;
+    font-weight: 700;
+  }
+  .tim-cards-stream {
+    gap: 2rem;
+  }
+  .tim-project-card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .tim-card-inner {
+    border-radius: 1.35rem;
+  }
+  .tim-card-topbar {
+    padding: 1.25rem 1.25rem 0.85rem;
+  }
+  .tim-card-visual {
+    padding: 0.75rem 1.25rem;
+  }
+  .tim-card-img {
+    height: 175px;
+    border-radius: 0.85rem;
+  }
+  .tim-card-logo-visual {
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+  }
+  .tim-card-logo-box {
+    width: 60px;
+    height: 60px;
+  }
+  .tim-card-logo-client {
+    font-size: 1.25rem;
+  }
+  .tim-card-info {
+    padding: 1.25rem 1.25rem 1.4rem;
+  }
+  .tim-card-title {
+    font-size: 1.35rem;
+    line-height: 1.28;
+    margin-bottom: 0.75rem;
+  }
+  .tim-certs-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.35rem;
+    gap: 1.25rem;
+  }
+}
+
 
