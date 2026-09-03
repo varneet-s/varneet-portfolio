@@ -319,6 +319,10 @@ header nav, .nav-links-desktop {
 /* ── Section 6: Hero Container Spacing (Mobile Base) ── */
 .hero-inner {
   padding: 32px 16px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
 }
 
 /* ==========================================================================
@@ -825,24 +829,37 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 12px 16px !important;
   }
 
-  /* Instruction 5: Hero Mobile Values & Margin Alignment */
+  /* Instruction 5: Hero Mobile — Full Viewport Height */
   h1, .hero-title--display {
     font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
   .hero, #hero-section {
-    padding-top: 28px !important;
+    min-height: 100dvh !important;
+    padding-top: 0 !important;
     margin-top: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: stretch !important;
   }
   .hero-inner, .hero-container-z {
-    padding: 16px 20px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 !important;
+    padding: 28px 20px 32px !important;
+    min-height: 100% !important;
+  }
+  .sub {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    flex-grow: 1 !important;
   }
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
     width: 100% !important;
+    margin-top: 24px !important;
+    flex-shrink: 0 !important;
   }
   .hero-cta .btn, .hero-ctas-row .cta-button, .hero-ctas-row .btn-outline {
     width: 100% !important;
