@@ -6710,55 +6710,95 @@ body, .page-body {
   transform: scale(1.03);
 }
 
-/* ── Mobile Responsive Adaptation ── */
+/* ── Mobile Chronology Elements (Hidden on Desktop) ── */
+.tim-card-mobile-chronology {
+  display: none;
+}
+
+.tim-floating-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.75rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: rgba(30, 48, 41, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--dh-sage-border);
+  color: var(--dh-accent-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(10, 20, 15, 0.45);
+  z-index: 70;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tim-floating-top-btn:hover {
+  transform: translateY(-2px);
+  background: var(--dh-sage-card-hover);
+  color: #F3F8F5;
+}
+
+/* ── Mobile Responsive Adaptation (Clean Viewport Tuning) ── */
 @media (max-width: 860px) {
   .tim-work-container {
     padding: 0 1.25rem;
   }
   .tim-work-header {
     padding-top: 2rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+  .tim-work-subtag {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
   }
   .tim-work-hero-title {
-    font-size: clamp(3.2rem, 18vw, 5.5rem);
+    font-size: clamp(3.4rem, 20vw, 5.8rem);
+    letter-spacing: -0.04em;
   }
   .tim-chronology-rail {
     display: none;
   }
-  .tim-mobile-chronology-chip {
+
+  /* Inline Right-Aligned Counter (Exactly matching Tim Roussilhe mobile reference) */
+  .tim-card-mobile-chronology {
     display: flex;
-    position: sticky;
-    top: 62px;
-    z-index: 50;
-    margin-bottom: 1.75rem;
-    background: rgba(25, 41, 34, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid var(--dh-sage-border);
-    border-radius: 9999px;
-    padding: 7px 14px;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono, monospace);
-    font-size: 11.5px;
-    box-shadow: 0 8px 24px rgba(10, 20, 15, 0.45);
-    width: fit-content;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
   }
-  .tim-chip-index {
-    font-weight: 800;
+  .tim-mobile-counter-digits {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    line-height: 1;
+  }
+  .tim-mobile-c-num {
+    font-family: var(--font-display, 'Bitter', Georgia, serif);
+    font-size: 1.55rem;
+    font-weight: 900;
     color: var(--dh-accent-sage);
   }
-  .tim-chip-bullet {
-    color: rgba(243, 248, 245, 0.35);
-  }
-  .tim-chip-date {
-    color: var(--dh-accent-gold);
-    font-weight: 800;
-  }
-  .tim-chip-client {
-    color: #F3F8F5;
+  .tim-mobile-c-slash {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.95rem;
     font-weight: 700;
+    color: rgba(243, 248, 245, 0.45);
   }
+  .tim-mobile-c-date {
+    font-family: var(--font-mono, monospace);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--dh-accent-gold);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
   .tim-cards-stream {
     gap: 2rem;
   }
@@ -6771,6 +6811,19 @@ body, .page-body {
   }
   .tim-card-topbar {
     padding: 1.25rem 1.25rem 0.85rem;
+    align-items: flex-start;
+  }
+  .tim-card-badge-wrap {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tim-card-date-badge,
+  .tim-card-index-tag {
+    display: none; /* Displayed cleanly in the mobile right counter! */
+  }
+  .tim-card-category-tag {
+    font-size: 10px;
+    padding: 3px 8px;
   }
   .tim-card-visual {
     padding: 0.75rem 1.25rem;
@@ -6797,6 +6850,17 @@ body, .page-body {
     font-size: 1.35rem;
     line-height: 1.28;
     margin-bottom: 0.75rem;
+  }
+  .tim-card-tools-row {
+    margin-bottom: 1rem;
+    gap: 5px;
+  }
+  .tim-tool-pill {
+    font-size: 9.5px;
+    padding: 2px 7px;
+  }
+  .tim-card-cta {
+    font-size: 12px;
   }
   .tim-certs-card {
     flex-direction: column;

@@ -32,7 +32,6 @@ const projects: ProjectItem[] = [
     tools: ['EXCEL AUTOMATION', 'DATA MODELING', 'INVENTORY CONTROLS'],
     href: '/projects/pharma/',
     previewImg: '/assets/pharma-preview.jpg',
-    logoImg: '/assets/logos/I_P_Pharma_Logo.jpg',
     alignment: 'left',
   },
   {
@@ -109,20 +108,23 @@ const projects: ProjectItem[] = [
 
 export default function WorkChronology() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const targetPoint = scrollY + windowHeight * 0.35;
+      const targetPoint = scrollY + windowHeight * 0.38;
+
+      setShowScrollTop(scrollY > 450);
 
       for (let i = cardRefs.current.length - 1; i >= 0; i--) {
         const el = cardRefs.current[i];
         if (el) {
           const rect = el.getBoundingClientRect();
           const top = rect.top + scrollY;
-          if (targetPoint >= top - 100) {
+          if (targetPoint >= top - 80) {
             setActiveIndex(i);
             break;
           }
@@ -135,11 +137,16 @@ export default function WorkChronology() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const active = projects[activeIndex] || projects[0];
 
   return (
     <div className="tim-work-layout">
-      {/* ── STICKY CHRONOLOGY RAIL (Tim Roussilhe Style, customized with Month & Year) ── */}
+      {/* ── DESKTOP FIXED CHRONOLOGY RAIL (Tim Roussilhe Style, customized with Month & Year) ── */}
       <aside className="tim-chronology-rail" aria-hidden="true">
         <div className="tim-chronology-widget">
           <div className="tim-chronology-counter">
@@ -151,15 +158,6 @@ export default function WorkChronology() {
           <div className="tim-chronology-client">{active.client}</div>
         </div>
       </aside>
-
-      {/* ── MOBILE STICKY CHIP ── */}
-      <div className="tim-mobile-chronology-chip" aria-hidden="true">
-        <span className="tim-chip-index">{active.index} / 06</span>
-        <span className="tim-chip-bullet">&middot;</span>
-        <span className="tim-chip-date">{active.dateBadge}</span>
-        <span className="tim-chip-bullet">&middot;</span>
-        <span className="tim-chip-client">{active.client}</span>
-      </div>
 
       {/* ── ASYMMETRICAL CARD STREAM (Tim Roussilhe Placement Rhythm) ── */}
       <div className="tim-cards-stream">
@@ -175,13 +173,22 @@ export default function WorkChronology() {
             id={`work-${proj.id}`}
           >
             <Link href={proj.href} className="tim-card-inner">
-              {/* Top Meta Bar */}
+              {/* Top Meta Bar: Category Tag on left, Tim Roussilhe Stacked Counter on right for mobile */}
               <div className="tim-card-topbar">
                 <div className="tim-card-badge-wrap">
                   <span className="tim-card-index-tag">{proj.index}</span>
                   <span className="tim-card-date-badge">{proj.dateBadge}</span>
+                  <span className="tim-card-category-tag">{proj.category}</span>
                 </div>
-                <span className="tim-card-category-tag">{proj.category}</span>
+
+                {/* Mobile Tim Roussilhe Right-Aligned Counter (Exactly like Google Pride in user's screenshot) */}
+                <div className="tim-card-mobile-chronology" aria-hidden="true">
+                  <div className="tim-mobile-counter-digits">
+                    <span className="tim-mobile-c-num">{proj.index}</span>
+                    <span className="tim-mobile-c-slash">/06</span>
+                  </div>
+                  <div className="tim-mobile-c-date">{proj.dateBadge}</div>
+                </div>
               </div>
 
               {/* Card Preview Visual */}
@@ -220,11 +227,16 @@ export default function WorkChronology() {
 
               {/* Card Info Details */}
               <div className="tim-card-info">
-                <div className="tim-card-client-line">
-                  <span className="tim-client-name">{proj.client}</span>
-                  <span className="tim-client-role">&middot; {proj.role}</span>
-                </div>
+                {/* For non-logo cards, show client & role header line */}
+                {proj.previewImg && (
+                  <div className="tim-card-client-line">
+                    <span className="tim-client-name">{proj.client}</span>
+                    <span className="tim-client-role">&middot; {proj.role}</span>
+                  </div>
+                )}
+
                 <h2 className="tim-card-title">{proj.title}</h2>
+
                 <div className="tim-card-tools-row">
                   {proj.tools.map((tool, tIdx) => (
                     <span key={tIdx} className="tim-tool-pill">
@@ -232,6 +244,7 @@ export default function WorkChronology() {
                     </span>
                   ))}
                 </div>
+
                 <div className="tim-card-cta">
                   <span>View Case Study &rarr;</span>
                 </div>
@@ -240,6 +253,28 @@ export default function WorkChronology() {
           </article>
         ))}
       </div>
+
+      {/* ── TIM ROUSSILHE FLOATING MOBILE/DESKTOP SCROLL-TO-TOP BUTTON ── */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="tim-floating-top-btn"
+          aria-label="Scroll to top of work page"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
