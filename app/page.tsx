@@ -176,9 +176,10 @@ export default function HomePage() {
           </div>
 
           <div className="services-cta-wrap">
-            <Link href="/contact/" className="btn btn-primary" id="services-cta-btn">
-              Let&apos;s talk about your data &rarr;
-            </Link>
+            <CalendlyButton className="btn btn-primary services-hover-btn" id="services-cta-btn">
+              <span className="btn-text-default">Let&apos;s talk about your data &rarr;</span>
+              <span className="btn-text-hover">2 Weeks Free Services</span>
+            </CalendlyButton>
           </div>
         </div>
       </section>

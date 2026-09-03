@@ -14,12 +14,14 @@ interface CalendlyButtonProps {
   className?: string;
   children: React.ReactNode;
   url?: string;
+  id?: string;
 }
 
 export default function CalendlyButton({
   className = 'cta',
   children,
   url = 'https://calendly.com/varneetsingh45/30min',
+  id,
 }: CalendlyButtonProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ export default function CalendlyButton({
   };
 
   return (
-    <a href={url} onClick={handleClick} className={className}>
+    <a href={url} onClick={handleClick} className={className} id={id}>
       {children}
     </a>
   );

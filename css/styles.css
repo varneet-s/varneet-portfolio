@@ -6388,6 +6388,68 @@ body, .page-body {
   justify-content: center;
 }
 
+.services-hover-btn {
+  position: relative !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 330px !important;
+  padding: 18px 36px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  border: 2.5px solid var(--ink, #0C0D0E) !important;
+  border-radius: 100px !important;
+  box-shadow: 4px 4px 0px var(--ink, #0C0D0E) !important;
+  background: var(--copper, #FF3B00) !important;
+  color: var(--cornsilk, #FFFDF5) !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
+}
+
+.services-hover-btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px var(--ink, #0C0D0E) !important;
+  background-color: #E03400 !important;
+}
+
+.services-hover-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0px var(--ink, #0C0D0E) !important;
+}
+
+.services-hover-btn .btn-text-default {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.services-hover-btn .btn-text-hover {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, 120%) !important;
+  opacity: 0 !important;
+  white-space: nowrap !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+  color: #FFFDF5 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.services-hover-btn:hover .btn-text-default {
+  transform: translateY(-130%) !important;
+  opacity: 0 !important;
+}
+
+.services-hover-btn:hover .btn-text-hover {
+  transform: translate(-50%, -50%) !important;
+  opacity: 1 !important;
+}
+
 @media (max-width: 960px) {
   .services-section .what-i-do-grid {
     grid-template-columns: 1fr !important;
