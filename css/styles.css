@@ -5961,13 +5961,30 @@ body, .page-body {
   }
 }
 
-/* ── Sage Green Unified Header (Zero Divide Line, Exact Background Match) ── */
+/* ── Header Scroll & Nav Transition (Replicated from Gurpreet's Portfolio) ── */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease !important;
+}
+
 #main-header[data-active="projects"],
 #main-header[data-active="about"],
 #main-header[data-active="writing"] {
   background: var(--dh-sage-deep, #16241E) !important;
-  border-bottom: none !important;
+  border-bottom: 1px solid transparent !important;
   box-shadow: none !important;
+}
+
+#main-header[data-scrolled="true"][data-active="projects"],
+#main-header[data-scrolled="true"][data-active="about"],
+#main-header[data-scrolled="true"][data-active="writing"] {
+  background: rgba(22, 36, 30, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--dh-sage-border, rgba(182, 219, 199, 0.16)) !important;
+  box-shadow: 0 4px 24px rgba(10, 20, 15, 0.35) !important;
 }
 
 #main-header[data-active="projects"] .logo,
@@ -5982,9 +5999,35 @@ body, .page-body {
 #main-header[data-active="projects"] .nav-links-desktop a,
 #main-header[data-active="about"] .nav-links-desktop a,
 #main-header[data-active="writing"] .nav-links-desktop a {
+  position: relative !important;
   color: rgba(243, 248, 245, 0.75) !important;
-  border-left: 1px solid rgba(182, 219, 199, 0.18) !important;
-  transition: color 0.2s ease;
+  border-left: none !important;
+  transition: color 150ms ease !important;
+}
+
+/* Gurpreet's Portfolio Nav Link Underline Transition */
+#main-header[data-active="projects"] .nav-links-desktop a::after,
+#main-header[data-active="about"] .nav-links-desktop a::after,
+#main-header[data-active="writing"] .nav-links-desktop a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background-color: var(--dh-accent-sage, #7BE0AD) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#main-header[data-active="projects"] .nav-links-desktop a:hover::after,
+#main-header[data-active="projects"] .nav-links-desktop a.active::after,
+#main-header[data-active="about"] .nav-links-desktop a:hover::after,
+#main-header[data-active="about"] .nav-links-desktop a.active::after,
+#main-header[data-active="writing"] .nav-links-desktop a:hover::after,
+#main-header[data-active="writing"] .nav-links-desktop a.active::after {
+  transform: scaleX(1) !important;
 }
 
 #main-header[data-active="projects"] .nav-links-desktop a:hover,
@@ -6435,36 +6478,12 @@ body, .page-body {
   background: var(--dh-sage-card-hover);
 }
 
-/* ── Card Topbar (Month/Year & Category Tag) ── */
+/* ── Card Topbar (Category Tag on Left, Brand Logo on Right) ── */
 .tim-card-topbar {
-  padding: 1.6rem 2rem 1.2rem;
+  padding: 1.4rem 2rem 1.1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.tim-card-badge-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.tim-card-index-tag {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--dh-accent-sage);
-  background: rgba(182, 219, 199, 0.12);
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
-.tim-card-date-badge {
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--dh-accent-gold);
 }
 
 .tim-card-category-tag {
@@ -6473,13 +6492,32 @@ body, .page-body {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(243, 248, 245, 0.7);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--dh-accent-sage);
+  background: rgba(182, 219, 199, 0.1);
+  border: 1px solid rgba(182, 219, 199, 0.18);
   padding: 4px 10px;
   border-radius: 9999px;
 }
 
-/* ── Card Visual Preview ── */
+.tim-card-brand-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111A15;
+  border: 1px solid var(--dh-sage-border);
+  border-radius: 8px;
+  padding: 4px 10px;
+  height: 32px;
+}
+
+.tim-card-brand-logo {
+  max-height: 22px;
+  max-width: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Card Visual Preview (Clean, NO text or timeline inside thumbnail) ── */
 .tim-card-visual {
   width: 100%;
   background: var(--dh-sage-preview);
@@ -6551,10 +6589,28 @@ body, .page-body {
   margin-bottom: 4px;
 }
 
-.tim-card-logo-range {
+/* ── Timeline Bar Below the Thumbnail (From Month/Year to Month/Year) ── */
+.tim-card-timeline-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 2rem;
+  background: rgba(22, 36, 30, 0.65);
+  border-bottom: 1px solid var(--dh-sage-border);
   font-family: var(--font-mono, monospace);
-  font-size: 12px;
-  color: rgba(243, 248, 245, 0.55);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--dh-accent-gold);
+}
+
+.tim-timeline-svg {
+  color: var(--dh-accent-sage);
+  flex-shrink: 0;
+}
+
+.tim-timeline-text {
+  line-height: 1;
 }
 
 /* ── Card Info ── */
@@ -6636,19 +6692,23 @@ body, .page-body {
 }
 
 .tim-cert-logo-box {
-  width: 90px;
-  height: 90px;
+  width: 84px;
+  height: 84px;
   border-radius: 1.25rem;
-  background: #FFFFFF;
-  color: #16241E;
-  font-family: var(--font-mono, monospace);
-  font-weight: 900;
-  font-size: 30px;
+  background: #111A15;
+  border: 1px solid var(--dh-sage-border);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(10, 20, 15, 0.35);
+  padding: 12px;
+}
+
+.tim-cert-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .tim-cert-details {
@@ -6710,11 +6770,6 @@ body, .page-body {
   transform: scale(1.03);
 }
 
-/* ── Mobile Chronology Elements (Hidden on Desktop) ── */
-.tim-card-mobile-chronology {
-  display: none;
-}
-
 .tim-floating-top-btn {
   position: fixed;
   bottom: 2rem;
@@ -6742,7 +6797,7 @@ body, .page-body {
   color: #F3F8F5;
 }
 
-/* ── Mobile Responsive Adaptation (Clean Viewport Tuning) ── */
+/* ── Mobile Responsive Adaptation ── */
 @media (max-width: 860px) {
   .tim-work-container {
     padding: 0 1.25rem;
@@ -6751,52 +6806,12 @@ body, .page-body {
     padding-top: 2rem;
     padding-bottom: 1.25rem;
   }
-  .tim-work-subtag {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-  }
   .tim-work-hero-title {
     font-size: clamp(3.4rem, 20vw, 5.8rem);
     letter-spacing: -0.04em;
   }
   .tim-chronology-rail {
     display: none;
-  }
-
-  /* Inline Right-Aligned Counter (Exactly matching Tim Roussilhe mobile reference) */
-  .tim-card-mobile-chronology {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-  }
-  .tim-mobile-counter-digits {
-    display: flex;
-    align-items: baseline;
-    gap: 3px;
-    line-height: 1;
-  }
-  .tim-mobile-c-num {
-    font-family: var(--font-display, 'Bitter', Georgia, serif);
-    font-size: 1.55rem;
-    font-weight: 900;
-    color: var(--dh-accent-sage);
-  }
-  .tim-mobile-c-slash {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: rgba(243, 248, 245, 0.45);
-  }
-  .tim-mobile-c-date {
-    font-family: var(--font-mono, monospace);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: var(--dh-accent-gold);
-    text-transform: uppercase;
-    margin-top: 3px;
   }
 
   .tim-cards-stream {
@@ -6810,20 +6825,21 @@ body, .page-body {
     border-radius: 1.35rem;
   }
   .tim-card-topbar {
-    padding: 1.25rem 1.25rem 0.85rem;
-    align-items: flex-start;
-  }
-  .tim-card-badge-wrap {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .tim-card-date-badge,
-  .tim-card-index-tag {
-    display: none; /* Displayed cleanly in the mobile right counter! */
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .tim-card-category-tag {
     font-size: 10px;
     padding: 3px 8px;
+  }
+  .tim-card-brand-wrap {
+    height: 28px;
+    padding: 3px 8px;
+  }
+  .tim-card-brand-logo {
+    max-height: 18px;
   }
   .tim-card-visual {
     padding: 0.75rem 1.25rem;
@@ -6831,6 +6847,11 @@ body, .page-body {
   .tim-card-img {
     height: 175px;
     border-radius: 0.85rem;
+  }
+  .tim-card-timeline-bar {
+    padding: 0.7rem 1.25rem;
+    font-size: 10.5px;
+    gap: 6px;
   }
   .tim-card-logo-visual {
     padding: 1.5rem 1.25rem;
@@ -6867,6 +6888,12 @@ body, .page-body {
     align-items: flex-start;
     padding: 1.75rem 1.35rem;
     gap: 1.25rem;
+  }
+  .tim-floating-top-btn {
+    bottom: 1.5rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
   }
 }
 

@@ -6,8 +6,8 @@ import Link from 'next/link';
 interface ProjectItem {
   id: string;
   index: string;
-  dateBadge: string;
-  dateRange: string;
+  fromMonthYear: string;
+  toMonthYear: string;
   client: string;
   role: string;
   category: string;
@@ -15,30 +15,16 @@ interface ProjectItem {
   tools: string[];
   href: string;
   previewImg?: string;
-  logoImg?: string;
+  brandLogo: string;
   alignment: 'left' | 'right' | 'center';
 }
 
 const projects: ProjectItem[] = [
   {
-    id: 'pharma',
-    index: '01',
-    dateBadge: 'JAN 2026',
-    dateRange: '01/2026 — Present',
-    client: 'I.P. PHARMA',
-    role: 'Business Operations Manager',
-    category: 'OPERATIONS MANAGEMENT',
-    title: 'Real-Time Stock Reporting for 120+ Retail Accounts',
-    tools: ['EXCEL AUTOMATION', 'DATA MODELING', 'INVENTORY CONTROLS'],
-    href: '/projects/pharma/',
-    previewImg: '/assets/pharma-preview.jpg',
-    alignment: 'left',
-  },
-  {
     id: 'olist',
-    index: '02',
-    dateBadge: 'OCT 2024',
-    dateRange: '2024',
+    index: '01',
+    fromMonthYear: 'May 2026',
+    toMonthYear: 'May 2026',
     client: 'OLIST E-COMMERCE',
     role: 'Business Analyst',
     category: 'BUSINESS ANALYSIS',
@@ -46,55 +32,14 @@ const projects: ProjectItem[] = [
     tools: ['SQL', 'EXCEL', 'TABLEAU', 'BPMN WORKFLOW'],
     href: '/projects/olist/',
     previewImg: '/assets/olist-preview.png',
-    alignment: 'right',
-  },
-  {
-    id: 'lla',
-    index: '03',
-    dateBadge: 'AUG 2024',
-    dateRange: '08/2024 — 07/2025',
-    client: 'LABOUR LAW ADVISOR',
-    role: 'Social Media Manager / Growth Operations',
-    category: 'GROWTH OPERATIONS',
-    title: 'Operational Mapping & E-Commerce Scaling for Jagruk.Shop',
-    tools: ['PROCESS MAPPING', 'COMMUNITY TELEMETRY', 'SEARCH CTR OPTIMIZATION'],
-    href: '/work/lla/',
-    logoImg: '/assets/logos/lla-logo.png',
-    alignment: 'left',
-  },
-  {
-    id: 'mad-influence',
-    index: '04',
-    dateBadge: 'MAR 2024',
-    dateRange: '03/2024 — 07/2024',
-    client: 'MAD INFLUENCE',
-    role: 'Data Research Intern',
-    category: 'DATA RESEARCH',
-    title: 'Multi-Creator Campaign Telemetry Automation',
-    tools: ['EXCEL AUTOMATION', 'CROSS-PLATFORM TELEMETRY', 'REPORTING TEMPLATES'],
-    href: '/work/mad-influence/',
-    logoImg: '/assets/logos/mad-influence-logo.png',
-    alignment: 'right',
-  },
-  {
-    id: 'mrm-mccann',
-    index: '05',
-    dateBadge: 'SEP 2023',
-    dateRange: '09/2023 — 12/2023',
-    client: 'MRM / MCCANN',
-    role: 'Account Management Intern',
-    category: 'ACCOUNT MANAGEMENT',
-    title: 'Enterprise Ad Spend Pacing & Milestone Schedule Tracking',
-    tools: ['BUDGET PACING', 'WORKFLOW COORDINATION', 'MILESTONE AUDITING'],
-    href: '/work/mrm-mccann/',
-    logoImg: '/assets/logos/mrm-logo.svg',
+    brandLogo: '/assets/logos/olist-logo.svg',
     alignment: 'left',
   },
   {
     id: 'vrinda',
-    index: '06',
-    dateBadge: 'MAY 2023',
-    dateRange: '2023',
+    index: '02',
+    fromMonthYear: 'Apr 2026',
+    toMonthYear: 'Apr 2026',
     client: 'VRINDA STORE',
     role: 'Data Analyst',
     category: 'DATA ANALYTICS',
@@ -102,6 +47,64 @@ const projects: ProjectItem[] = [
     tools: ['ADVANCED EXCEL', 'PIVOT CHARTS', 'RFM SEGMENTATION'],
     href: '/projects/vrinda/',
     previewImg: '/assets/vrinda-preview.jpg',
+    brandLogo: '/assets/logos/vrinda-logo.svg',
+    alignment: 'right',
+  },
+  {
+    id: 'pharma',
+    index: '03',
+    fromMonthYear: 'Jan 2026',
+    toMonthYear: 'Present',
+    client: 'I.P. PHARMA',
+    role: 'Business Operations Manager',
+    category: 'OPERATIONS MANAGEMENT',
+    title: 'Real-Time Stock Reporting for 120+ Retail Accounts',
+    tools: ['EXCEL AUTOMATION', 'DATA MODELING', 'INVENTORY CONTROLS'],
+    href: '/projects/pharma/',
+    previewImg: '/assets/pharma-preview.jpg',
+    brandLogo: '/assets/logos/I_P_Pharma_Logo.jpg',
+    alignment: 'left',
+  },
+  {
+    id: 'lla',
+    index: '04',
+    fromMonthYear: 'Aug 2024',
+    toMonthYear: 'Jul 2025',
+    client: 'LABOUR LAW ADVISOR',
+    role: 'Social Media Manager / Growth Operations',
+    category: 'GROWTH OPERATIONS',
+    title: 'Operational Mapping & E-Commerce Scaling for Jagruk.Shop',
+    tools: ['PROCESS MAPPING', 'COMMUNITY TELEMETRY', 'SEARCH CTR OPTIMIZATION'],
+    href: '/work/lla/',
+    brandLogo: '/assets/logos/lla-logo.png',
+    alignment: 'right',
+  },
+  {
+    id: 'mad-influence',
+    index: '05',
+    fromMonthYear: 'Mar 2024',
+    toMonthYear: 'Jul 2024',
+    client: 'MAD INFLUENCE',
+    role: 'Data Research Intern',
+    category: 'DATA RESEARCH',
+    title: 'Multi-Creator Campaign Telemetry Automation',
+    tools: ['EXCEL AUTOMATION', 'CROSS-PLATFORM TELEMETRY', 'REPORTING TEMPLATES'],
+    href: '/work/mad-influence/',
+    brandLogo: '/assets/logos/mad-influence-logo.png',
+    alignment: 'left',
+  },
+  {
+    id: 'mrm-mccann',
+    index: '06',
+    fromMonthYear: 'Sep 2023',
+    toMonthYear: 'Dec 2023',
+    client: 'MRM / MCCANN',
+    role: 'Account Management Intern',
+    category: 'ACCOUNT MANAGEMENT',
+    title: 'Enterprise Ad Spend Pacing & Milestone Schedule Tracking',
+    tools: ['BUDGET PACING', 'WORKFLOW COORDINATION', 'MILESTONE AUDITING'],
+    href: '/work/mrm-mccann/',
+    brandLogo: '/assets/logos/mrm-logo.svg',
     alignment: 'center',
   },
 ];
@@ -146,7 +149,7 @@ export default function WorkChronology() {
 
   return (
     <div className="tim-work-layout">
-      {/* ── DESKTOP FIXED CHRONOLOGY RAIL (Tim Roussilhe Style, customized with Month & Year) ── */}
+      {/* ── DESKTOP FIXED SIDE RAIL (Active Project Tracker) ── */}
       <aside className="tim-chronology-rail" aria-hidden="true">
         <div className="tim-chronology-widget">
           <div className="tim-chronology-counter">
@@ -154,12 +157,16 @@ export default function WorkChronology() {
             <span className="tim-counter-slash">/</span>
             <span className="tim-counter-total">06</span>
           </div>
-          <div className="tim-chronology-date">{active.dateBadge}</div>
+          <div className="tim-chronology-date">
+            {active.fromMonthYear === active.toMonthYear
+              ? active.fromMonthYear
+              : `${active.fromMonthYear} — ${active.toMonthYear}`}
+          </div>
           <div className="tim-chronology-client">{active.client}</div>
         </div>
       </aside>
 
-      {/* ── ASYMMETRICAL CARD STREAM (Tim Roussilhe Placement Rhythm) ── */}
+      {/* ── ASYMMETRICAL CARD STREAM ── */}
       <div className="tim-cards-stream">
         {projects.map((proj, idx) => (
           <article
@@ -173,25 +180,22 @@ export default function WorkChronology() {
             id={`work-${proj.id}`}
           >
             <Link href={proj.href} className="tim-card-inner">
-              {/* Top Meta Bar: Category Tag on left, Tim Roussilhe Stacked Counter on right for mobile */}
+              {/* Top Meta Bar: Category Tag on left, Brand Logo on right (NO chronological number on right) */}
               <div className="tim-card-topbar">
-                <div className="tim-card-badge-wrap">
-                  <span className="tim-card-index-tag">{proj.index}</span>
-                  <span className="tim-card-date-badge">{proj.dateBadge}</span>
-                  <span className="tim-card-category-tag">{proj.category}</span>
-                </div>
-
-                {/* Mobile Tim Roussilhe Right-Aligned Counter (Exactly like Google Pride in user's screenshot) */}
-                <div className="tim-card-mobile-chronology" aria-hidden="true">
-                  <div className="tim-mobile-counter-digits">
-                    <span className="tim-mobile-c-num">{proj.index}</span>
-                    <span className="tim-mobile-c-slash">/06</span>
-                  </div>
-                  <div className="tim-mobile-c-date">{proj.dateBadge}</div>
+                <span className="tim-card-category-tag">{proj.category}</span>
+                <div className="tim-card-brand-wrap">
+                  <img
+                    src={proj.brandLogo}
+                    alt={`${proj.client} logo`}
+                    width={48}
+                    height={28}
+                    className="tim-card-brand-logo"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 
-              {/* Card Preview Visual */}
+              {/* Card Preview Visual (Clean, no text/timeline inside thumbnail) */}
               <div className="tim-card-visual">
                 {proj.previewImg ? (
                   <img
@@ -204,36 +208,53 @@ export default function WorkChronology() {
                   />
                 ) : (
                   <div className="tim-card-logo-visual">
-                    {proj.logoImg && (
-                      <div className="tim-card-logo-box">
-                        <img
-                          src={proj.logoImg}
-                          alt={`${proj.client} logo`}
-                          width={72}
-                          height={72}
-                          className="tim-card-logo-img"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
+                    <div className="tim-card-logo-box">
+                      <img
+                        src={proj.brandLogo}
+                        alt={`${proj.client} logo`}
+                        width={64}
+                        height={64}
+                        className="tim-card-logo-img"
+                        loading="lazy"
+                      />
+                    </div>
                     <div className="tim-card-logo-meta">
                       <div className="tim-card-logo-client">{proj.client}</div>
                       <div className="tim-card-logo-role">{proj.role}</div>
-                      <div className="tim-card-logo-range">{proj.dateRange}</div>
                     </div>
                   </div>
                 )}
               </div>
 
+              {/* ── TIMELINE BAR BELOW THE THUMBNAIL ── */}
+              <div className="tim-card-timeline-bar">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="tim-timeline-svg"
+                >
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                </svg>
+                <span className="tim-timeline-text">
+                  From {proj.fromMonthYear} to {proj.toMonthYear}
+                </span>
+              </div>
+
               {/* Card Info Details */}
               <div className="tim-card-info">
-                {/* For non-logo cards, show client & role header line */}
-                {proj.previewImg && (
-                  <div className="tim-card-client-line">
-                    <span className="tim-client-name">{proj.client}</span>
-                    <span className="tim-client-role">&middot; {proj.role}</span>
-                  </div>
-                )}
+                <div className="tim-card-client-line">
+                  <span className="tim-client-name">{proj.client}</span>
+                  <span className="tim-client-role">&middot; {proj.role}</span>
+                </div>
 
                 <h2 className="tim-card-title">{proj.title}</h2>
 
@@ -254,7 +275,7 @@ export default function WorkChronology() {
         ))}
       </div>
 
-      {/* ── TIM ROUSSILHE FLOATING MOBILE/DESKTOP SCROLL-TO-TOP BUTTON ── */}
+      {/* ── FLOATING SCROLL-TO-TOP BUTTON ── */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}

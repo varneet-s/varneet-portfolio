@@ -11,6 +11,13 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
   const [navRevealed, setNavRevealed] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -66,6 +73,7 @@ export default function Header() {
       <header
         id="main-header"
         data-active={activeData}
+        data-scrolled={scrolled ? 'true' : 'false'}
         className={`${navHidden ? 'nav-hidden' : ''} ${navRevealed ? 'nav-revealed' : ''}`}
       >
         <div className="logo">

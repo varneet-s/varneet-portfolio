@@ -5,11 +5,11 @@ import WorkChronology from '@/components/WorkChronology';
 export const metadata: Metadata = {
   title: 'Work | Varneet Singh — Business Analysis & Operations',
   description:
-    'Chronological case studies in business analysis, inventory forecasting, and operational modeling by Varneet Singh.',
+    'Featured projects and operational case studies in business analysis, inventory forecasting, and data modeling by Varneet Singh.',
   openGraph: {
     title: 'Work | Varneet Singh',
     description:
-      'Chronological case studies in business operations, requirements engineering, and analytical modeling.',
+      'Featured case studies in business operations, requirements engineering, and analytical modeling.',
     images: ['/assets/projects-preview.jpg'],
   },
 };
@@ -17,17 +17,14 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main className="tim-work-page-canvas">
-      {/* ── HEADER SECTION: "Work." (No tagline) ── */}
+      {/* ── HEADER SECTION: "Work." (Clean, No "Chronological" wording, No Tagline) ── */}
       <section className="tim-work-header">
         <div className="tim-work-container">
-          <div className="tim-work-subtag">
-            <span>CHRONOLOGICAL ARCHIVE &middot; 2023 &mdash; 2026</span>
-          </div>
           <h1 className="tim-work-hero-title">Work.</h1>
         </div>
       </section>
 
-      {/* ── CHRONOLOGY SCROLL & CARD STREAM (Tim Roussilhe Placement) ── */}
+      {/* ── WORK STREAM (Clean card placement with timelines below thumbnails) ── */}
       <section className="tim-work-body">
         <div className="tim-work-container">
           <WorkChronology />
@@ -38,12 +35,22 @@ export default function ProjectsPage() {
       <section className="tim-certs-section" id="work-certs">
         <div className="tim-work-container">
           <div className="tim-certs-card">
-            <div className="tim-cert-logo-box">MS</div>
+            <div className="tim-cert-logo-box">
+              <img
+                src="/assets/logos/microsoft-logo.png"
+                alt="Microsoft Logo"
+                width={56}
+                height={56}
+                className="tim-cert-logo-img"
+              />
+            </div>
             <div className="tim-cert-details">
-              <span className="tim-cert-badge">VERIFIED CREDENTIAL</span>
+              <span className="tim-cert-badge">VERIFIED CREDENTIAL &middot; MARCH 2026</span>
               <h2 className="tim-cert-title">Microsoft Certified: Business Analyst</h2>
               <div className="tim-cert-meta">
                 <span>Microsoft &middot; Coursera</span>
+                <span>/</span>
+                <span>Issued: March 2026</span>
                 <span>/</span>
                 <span>Credential ID: N1UGS1TCSPFD</span>
               </div>
