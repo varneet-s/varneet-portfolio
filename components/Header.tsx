@@ -54,7 +54,7 @@ export default function Header() {
 
   const isProjects = pathname?.startsWith('/projects');
   const isWriting = pathname?.startsWith('/writing');
-  const isAbout = pathname?.startsWith('/about') || pathname?.startsWith('/experience');
+  const isAbout = pathname?.startsWith('/about');
 
   let activeData = 'home';
   if (isProjects) activeData = 'projects';

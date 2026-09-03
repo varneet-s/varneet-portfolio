@@ -1673,18 +1673,43 @@ section {
   position: relative;
 }
 
-.exp-card {
+.exp-card,
+.exp-card-item {
   position: relative;
-  border: 1px solid var(--divider);
-  background-color: rgba(40, 54, 24, 0.01);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: var(--transition-smooth);
+  background: #FFFFFF;
+  border: 1.5px solid #0C0D0E;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 4px 4px 0px #0C0D0E;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
-.exp-card:hover {
-  border-color: rgba(40, 54, 24, 0.25);
-  background-color: rgba(40, 54, 24, 0.02);
+.exp-card:hover,
+.exp-card-item:hover {
+  transform: translate3d(-2px, -2px, 0);
+  box-shadow: 6px 6px 0px #0C0D0E;
+}
+
+/* Brand Accent Left Border Strip (van Schneider pattern) */
+#card-pharma,
+.exp-card-item--pharma {
+  border-left: 6px solid #16a34a;
+}
+
+#card-lla,
+.exp-card-item--lla {
+  border-left: 6px solid #c0392b;
+}
+
+#card-mad,
+.exp-card-item--mad {
+  border-left: 6px solid #0C0D0E;
+}
+
+#card-mccann,
+.exp-card-item--mccann {
+  border-left: 6px solid #6b2fa0;
 }
 
 .exp-header {
@@ -5068,6 +5093,148 @@ body, .page-body {
   color: #505356;
 }
 
+/* ── Journalist Teaser Row Format (Step 3 & 5) ── */
+.exp-teaser-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.exp-teaser-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.exp-teaser-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.exp-teaser-topline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+}
+
+.exp-teaser-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #0C0D0E;
+  white-space: nowrap;
+}
+
+.exp-teaser-tag--pharma {
+  background: #E8F5E9;
+  color: #1B5E20;
+}
+
+.exp-teaser-tag--lla {
+  background: #FDEDEC;
+  color: #C0392B;
+}
+
+.exp-teaser-tag--mad {
+  background: #F4F4F5;
+  color: #18181B;
+}
+
+.exp-teaser-tag--mccann {
+  background: #F3E5F5;
+  color: #6B2FA0;
+}
+
+.exp-teaser-name {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0C0D0E;
+}
+
+.exp-teaser-dot {
+  color: #8C8C9A;
+  font-weight: 600;
+}
+
+.exp-teaser-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4B4B55;
+}
+
+.exp-teaser-year {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #71717A;
+}
+
+.exp-teaser-dek {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #555562;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .exp-teaser-dek {
+    white-space: normal;
+  }
+}
+
+.exp-teaser-cta {
+  flex-shrink: 0;
+}
+
+.exp-teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 800;
+  color: #0C0D0E;
+  background: #FFFDF5;
+  border: 1.5px solid #0C0D0E;
+  padding: 8px 14px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px #0C0D0E;
+  text-decoration: none;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease;
+  white-space: nowrap;
+}
+
+.exp-teaser-link:hover {
+  transform: translate3d(-1px, -1px, 0);
+  box-shadow: 3px 3px 0px #0C0D0E;
+  background: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .exp-teaser-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .exp-teaser-left {
+    align-items: flex-start;
+  }
+}
+
 /* ── PAPAO Dropdown Accordion ── */
 .papao-dropdown {
   margin-top: 1.25rem;
@@ -5287,3 +5454,57 @@ body, .page-body {
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0px #0C0D0E;
 }
+
+/* ── About Interests Photo Strip ── */
+.about-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-photo-card {
+  border: 2px solid #0C0D0E;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #FFFDF5;
+  box-shadow: 3px 3px 0px #0C0D0E;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-photo-card:hover {
+  transform: translate3d(-2px, -2px, 0);
+  box-shadow: 5px 5px 0px #0C0D0E;
+}
+
+.about-photo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-photo-caption {
+  padding: 8px 12px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #0C0D0E;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #FFFFFF;
+  border-top: 1.5px solid #0C0D0E;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+  .about-photo-strip {
+    grid-template-columns: 1fr;
+  }
+  .about-photo-card img {
+    height: 200px;
+  }
+}
+

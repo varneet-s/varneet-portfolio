@@ -120,6 +120,55 @@ export default function AboutPage() {
             continuous self-learning, usually through books and long-form content
             rather than short videos.
           </p>
+
+          {/* Photo Strip: Reading, Running, Travel */}
+          {/* TODO: replace placeholder photos below with personal photos */}
+          <div className="about-photo-strip">
+            <div className="about-photo-card">
+              {/* TODO: replace placeholder with real reading photo */}
+              <img
+                src="/assets/about/reading.jpg"
+                alt="Reading classics and continuous self-learning"
+                width={360}
+                height={200}
+                loading="lazy"
+              />
+              <div className="about-photo-caption">
+                <span>Reading</span>
+                <span>Classics &middot; Orwell</span>
+              </div>
+            </div>
+
+            <div className="about-photo-card">
+              {/* TODO: replace placeholder with real running photo */}
+              <img
+                src="/assets/about/running.jpg"
+                alt="Morning outdoor running routine"
+                width={360}
+                height={200}
+                loading="lazy"
+              />
+              <div className="about-photo-caption">
+                <span>Running</span>
+                <span>Unwind &middot; 5K</span>
+              </div>
+            </div>
+
+            <div className="about-photo-card">
+              {/* TODO: replace placeholder with real travel photo */}
+              <img
+                src="/assets/about/travel.jpg"
+                alt="Travel resets and exploring scenic destinations"
+                width={360}
+                height={200}
+                loading="lazy"
+              />
+              <div className="about-photo-caption">
+                <span>Travel</span>
+                <span>Perspective Reset</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -162,67 +211,65 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. TECHNICAL STACK SECTION */}
+      {/* 5. CERTIFICATIONS & CONTINUOUS LEARNING */}
       <section className="sd-section">
         <div className="sd-section-header">
-          <h2 className="sd-heading">Technical Stack &amp; Toolkit</h2>
+          <h2 className="sd-heading">Certifications</h2>
           <div className="sd-underline"></div>
         </div>
 
-        <div className="sd-skills-wrapper">
-          <div className="sd-skill-bar-item">
-            <div className="sd-skill-bar-header">
-              <span className="sd-skill-bar-name">Microsoft Excel</span>
-              <span className="sd-skill-bar-meta">Advanced &middot; 90%</span>
+        <div style={{ maxWidth: '600px' }}>
+          <div
+            style={{
+              background: '#ffffff',
+              border: '2.5px solid #0C0D0E',
+              borderRadius: '8px',
+              padding: '28px',
+              boxShadow: '4px 4px 0px #0C0D0E',
+            }}
+          >
+            <div
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                fontWeight: 800,
+                color: '#FF3B00',
+                textTransform: 'uppercase',
+                marginBottom: '8px',
+              }}
+            >
+              Microsoft &middot; Certified Professional
             </div>
-            <div className="sd-skill-bar-track">
-              <div className="sd-skill-bar-fill sd-skill-bar-fill--90"></div>
-            </div>
-            <div className="sd-skill-bar-desc">
-              Pivot tables, XLOOKUP, nested logic, data modeling &amp; executive
-              dashboard design.
-            </div>
-          </div>
-
-          <div className="sd-skill-bar-item">
-            <div className="sd-skill-bar-header">
-              <span className="sd-skill-bar-name">SQL &amp; Databases</span>
-              <span className="sd-skill-bar-meta">Intermediate &middot; 65%</span>
-            </div>
-            <div className="sd-skill-bar-track">
-              <div className="sd-skill-bar-fill sd-skill-bar-fill--65"></div>
-            </div>
-            <div className="sd-skill-bar-desc">
-              Window functions, CTEs, complex joins, data aggregation &amp; query
-              optimization.
-            </div>
-          </div>
-
-          <div className="sd-skill-bar-item">
-            <div className="sd-skill-bar-header">
-              <span className="sd-skill-bar-name">Tableau &amp; Power BI</span>
-              <span className="sd-skill-bar-meta">Intermediate &middot; 60%</span>
-            </div>
-            <div className="sd-skill-bar-track">
-              <div className="sd-skill-bar-fill sd-skill-bar-fill--60"></div>
-            </div>
-            <div className="sd-skill-bar-desc">
-              Interactive dashboard creation, KPI tracking &amp; visual storytelling.
-            </div>
-          </div>
-
-          <div className="sd-skill-bar-item">
-            <div className="sd-skill-bar-header">
-              <span className="sd-skill-bar-name">Process Modeling (BPMN)</span>
-              <span className="sd-skill-bar-meta">Intermediate &middot; 55%</span>
-            </div>
-            <div className="sd-skill-bar-track">
-              <div className="sd-skill-bar-fill sd-skill-bar-fill--55"></div>
-            </div>
-            <div className="sd-skill-bar-desc">
-              MS Visio workflow mapping, bottleneck identification &amp; SOP
-              creation.
-            </div>
+            <h3
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.5rem',
+                fontWeight: 900,
+                color: '#0C0D0E',
+                margin: '0 0 10px 0',
+              }}
+            >
+              Microsoft Business Analyst
+            </h3>
+            <p
+              style={{
+                fontSize: '15px',
+                color: '#555562',
+                lineHeight: 1.6,
+                margin: '0 0 16px 0',
+              }}
+            >
+              Data modeling, Power BI dashboard design, DAX expressions, operational
+              workflow mapping, and business insights generation.
+            </p>
+            <a
+              href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cert-credential-btn"
+            >
+              View Verified Certificate &rarr;
+            </a>
           </div>
         </div>
       </section>

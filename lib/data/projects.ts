@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     id: 'olist',
     num: '01',
-    title: 'Olist E-Commerce Case Study',
+    title: 'Cutting Delivery Delays Across 99K Orders',
     slug: 'olist',
     category: 'business-analysis',
     categoryLabel: 'Business Analysis',
@@ -38,7 +38,7 @@ export const projects: Project[] = [
   {
     id: 'pharma',
     num: '02',
-    title: 'I.P. Pharma Operational Audit',
+    title: 'Real-Time Stock Reporting for 120+ Retail Accounts',
     slug: 'pharma',
     category: 'business-analysis',
     categoryLabel: 'Operations Manager',
