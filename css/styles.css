@@ -25,17 +25,17 @@
   --text-tertiary:  #505356;
 
   /* ── Signature Minimal Brutalist Accents (localstudio & signal-a) ── */
-  --copper:         #FF3B00;   /* High-Impact Vermilion Orange / Coral */
-  --copper-hover:   #E03400;   /* Deep Coral hover */
+  --copper:         #E07A2C;   /* High-Impact Vermilion Orange / Coral */
+  --copper-hover:   #C8661D;   /* Deep Coral hover */
   --accent-cyan:    #38B6FF;   /* Electric Cyan Blue accent */
   --accent-mint:    #02F5A4;   /* Mint Green highlight */
   --divider:        #0C0D0E;   /* Crisp 1.5px Black Border */
 
   /* ── Domain Accents ───────────────────────────────────────── */
-  --status-green:         #FF3B00;
-  --status-green-muted:   rgba(255, 59, 0, 0.10);
+  --status-green:         #E07A2C;
+  --status-green-muted:   rgba(224, 122, 44, 0.10);
   --status-green-border:  #0C0D0E;
-  --status-green-dot:     #FF3B00;
+  --status-green-dot:     #E07A2C;
 
   --teal:           #38B6FF;
   --teal-muted:     rgba(56, 182, 255, 0.12);
@@ -294,7 +294,7 @@ header nav, .nav-links-desktop {
   font-size: 15px;
   line-height: 1.6;
   font-family: var(--font-mono, monospace);
-  border-left: 3px solid var(--copper, #FF3B00);
+  border-left: 3px solid var(--copper, #E07A2C);
   padding-left: 14px;
   color: var(--ink, #0C0D0E);
 }
@@ -333,7 +333,7 @@ header nav, .nav-links-desktop {
 }
 
 .btn-primary {
-  background: var(--copper, #FF3B00) !important;
+  background: var(--copper, #E07A2C) !important;
   color: var(--cornsilk, #FFFDF5) !important;
 }
 
@@ -415,9 +415,9 @@ header nav, .nav-links-desktop {
 
   /* Desktop CTA button - Local Studio Boxed Style */
   .nav-box-cta:hover, .cta.nav-box-cta:hover {
-    background: var(--copper, #FF3B00) !important;
+    background: var(--copper, #E07A2C) !important;
     color: #FFFDF5 !important;
-    border-color: var(--copper, #FF3B00) !important;
+    border-color: var(--copper, #E07A2C) !important;
     transform: translateY(-1px) !important;
   }
 
@@ -519,7 +519,7 @@ img {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #FF3B00; /* Vibrant Orange background */
+  background: #E07A2C; /* Vibrant Orange background */
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -689,7 +689,7 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   font-size: 13px !important;
   font-weight: 800 !important;
   color: #FFFFFF !important;
-  background: #FF3B00 !important;
+  background: #E07A2C !important;
   padding: 6px 12px !important;
   border-radius: 2px !important;
   text-transform: lowercase !important;
@@ -714,14 +714,14 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
 }
 
 .work-list-row:hover {
-  background: rgba(255, 59, 0, 0.04) !important;
+  background: rgba(224, 122, 44, 0.04) !important;
 }
 
 .work-list-num {
   font-family: var(--font-display, sans-serif) !important;
   font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
   font-weight: 900 !important;
-  color: #FF3B00 !important;
+  color: #E07A2C !important;
   line-height: 1 !important;
 }
 
@@ -1006,7 +1006,7 @@ section {
   bottom: 2px;
   width: 100%;
   height: 6px;
-  background-color: var(--copper, #FF3B00);
+  background-color: var(--copper, #E07A2C);
   z-index: -1;
   border-radius: 2px;
   opacity: 0.85;
@@ -1016,7 +1016,7 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--copper, #FF3B00);
+  background-color: var(--copper, #E07A2C);
   color: var(--cornsilk, #FFFDF5);
   font-weight: 700;
   padding: 0.15rem 0.6rem;
@@ -1093,7 +1093,7 @@ section {
 
 /* CTA Pill Button (Local Studio & Signal-A Vermilion Orange) */
 .cta-button {
-  background-color: #FF3B00;
+  background-color: #E07A2C;
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-size: 0.82rem;
@@ -1112,9 +1112,9 @@ section {
 
 .cta-button:hover {
   background-color: #0C0D0E;
-  color: #FF3B00;
+  color: #E07A2C;
   transform: translate3d(-1px, -1px, 0);
-  box-shadow: 4px 4px 0px #FF3B00;
+  box-shadow: 4px 4px 0px #E07A2C;
 }
 
 .cta-button:active {
@@ -3659,7 +3659,7 @@ section {
   background-color: #0C0D0E;
   color: #FFFFFF;
   transform: translate3d(-1px, -1px, 0);
-  box-shadow: 4px 4px 0px #FF3B00;
+  box-shadow: 4px 4px 0px #E07A2C;
 }
 
 /* ── Hero avatar image overrides (localstudio comic border frame) ── */
@@ -3682,7 +3682,7 @@ section {
 .metric-number--hero {
   font-size: 2rem;
   font-weight: 900;
-  color: #FF3B00;
+  color: #E07A2C;
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -4710,7 +4710,7 @@ body, .page-body {
 }
 
 /* Extracted Skill Bar Fill Utility Classes */
-.sd-skill-bar-fill--90 { --skill-pct: 90%; background: #FF3B00; }
+.sd-skill-bar-fill--90 { --skill-pct: 90%; background: #E07A2C; }
 .sd-skill-bar-fill--65 { --skill-pct: 65%; background: #38B6FF; }
 .sd-skill-bar-fill--60 { --skill-pct: 60%; background: #FFB347; }
 .sd-skill-bar-fill--55 { --skill-pct: 55%; background: #FF6B8A; }
@@ -4718,7 +4718,7 @@ body, .page-body {
 /* Extracted Pudding Frame Background Colors */
 .pudding-frame--cyan   { background-color: #38B6FF; }
 .pudding-frame--pink   { background-color: #FF6B8A; }
-.pudding-frame--orange { background-color: #FF3B00; }
+.pudding-frame--orange { background-color: #E07A2C; }
 .pudding-frame--purple { background-color: #9B5DE5; }
 
 .pudding-card-link {
@@ -4730,7 +4730,7 @@ body, .page-body {
 }
 
 .pudding-card-link:hover .pudding-title {
-  color: #FF3B00;
+  color: #E07A2C;
 }
 
 /* ── Local Studio Display Hero Headline Typography (Screenshot 1 & 4) ── */
@@ -4825,7 +4825,7 @@ body, .page-body {
   font-family: var(--font-display, sans-serif);
   font-size: clamp(3.8rem, 21.6vw, 24vw);
   font-weight: 900;
-  color: #FF3B00;
+  color: #E07A2C;
   letter-spacing: -0.015em;
   line-height: 0.84;
   text-transform: uppercase;
@@ -4887,7 +4887,7 @@ body, .page-body {
 }
 
 .local-footer-email-badge:hover {
-  background: #FF3B00;
+  background: #E07A2C;
   color: #FFFFFF;
   transform: translate3d(-2px, -2px, 0);
   box-shadow: 6px 6px 0px var(--purple-shadow, #5B21B6) !important;
@@ -5027,7 +5027,7 @@ body, .page-body {
   font-family: var(--font-display, sans-serif);
   font-size: clamp(3.8rem, 18.6vw, 20vw) !important;
   font-weight: 900 !important;
-  color: #FF3B00 !important;
+  color: #E07A2C !important;
   -webkit-text-stroke: 2.5px #0C0D0E !important;
   text-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
   letter-spacing: 0 !important;
@@ -5375,7 +5375,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 10px;
   font-weight: 800;
-  background: #FF3B00;
+  background: #E07A2C;
   color: #FFFFFF;
   padding: 2px 6px;
   border-radius: 3px;
@@ -5389,7 +5389,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 12px;
   font-weight: 700;
-  color: #FF3B00;
+  color: #E07A2C;
 }
 
 .papao-arrow {
@@ -5509,7 +5509,7 @@ body, .page-body {
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  color: #FF3B00;
+  color: #E07A2C;
   text-decoration: underline;
   transition: transform 0.15s ease;
 }
@@ -5538,7 +5538,7 @@ body, .page-body {
 }
 
 .cert-credential-btn:hover {
-  background: #FF3B00;
+  background: #E07A2C;
   color: #FFFFFF;
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0px #0C0D0E;
@@ -6325,7 +6325,7 @@ body, .page-body {
 }
 
 .service-card-icon {
-  color: #FF3B00;
+  color: #E07A2C;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
@@ -6339,13 +6339,13 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 12.5px;
   font-weight: 700;
-  color: #FF3B00;
+  color: #E07A2C;
   text-decoration: none;
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
 .service-case-link:hover {
-  color: #E03400;
+  color: #C8661D;
   transform: translateX(3px);
 }
 
@@ -6367,8 +6367,8 @@ body, .page-body {
   text-decoration: none !important;
   border: 2.5px solid var(--ink, #0C0D0E) !important;
   border-radius: 100px !important;
-  box-shadow: 4px 4px 0px var(--ink, #0C0D0E) !important;
-  background: var(--copper, #FF3B00) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #5B21B6) !important;
+  background: var(--copper, #E07A2C) !important;
   color: var(--cornsilk, #FFFDF5) !important;
   font-family: var(--font-mono, monospace) !important;
   font-size: 14px !important;
@@ -6377,15 +6377,18 @@ body, .page-body {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
 }
 
-.services-hover-btn:hover {
+.services-hover-btn:hover,
+#services-cta-btn:hover {
   transform: translate(-2px, -2px) !important;
-  box-shadow: 6px 6px 0px var(--ink, #0C0D0E) !important;
-  background-color: #E03400 !important;
+  box-shadow: 6px 6px 0px var(--purple-shadow, #5B21B6) !important;
+  background: var(--purple-shadow, #5B21B6) !important;
+  background-color: var(--purple-shadow, #5B21B6) !important;
+  border-color: #0C0D0E !important;
 }
 
 .services-hover-btn:active {
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0px var(--ink, #0C0D0E) !important;
+  box-shadow: 2px 2px 0px var(--purple-shadow, #5B21B6) !important;
 }
 
 .services-hover-btn .btn-text-default {
