@@ -103,7 +103,7 @@ export default function AboutPage() {
               />
               <div className="dh-tilted-caption">
                 <span>Reading</span>
-                <span>Orwell &middot; 1984</span>
+                <span>Orwell &middot; 1984 (Penguin &middot; 1949)</span>
               </div>
             </div>
 

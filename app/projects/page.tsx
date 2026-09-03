@@ -21,7 +21,7 @@ export default function ProjectsPage() {
       <section className="dh-hero-wrapper" id="work-hero">
         <div
           className="dh-hero-bg"
-          style={{ backgroundImage: `url('/assets/olist-preview.png')` }}
+          style={{ backgroundImage: `url('/assets/archival/met-celestial-chart.jpg')` }}
           aria-hidden="true"
         ></div>
 

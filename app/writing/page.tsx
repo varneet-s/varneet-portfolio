@@ -22,7 +22,7 @@ export default function WritingPage() {
       <section className="dh-hero-wrapper" id="blog-hero">
         <div
           className="dh-hero-bg"
-          style={{ backgroundImage: `url('/assets/about/reading.jpg')` }}
+          style={{ backgroundImage: `url('/assets/archival/met-arithmetica.jpg')` }}
           aria-hidden="true"
         ></div>
 
