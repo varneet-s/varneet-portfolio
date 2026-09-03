@@ -1,31 +1,36 @@
 {
   "name": "varneet-portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Varneet Singh — Portfolio (Next.js 15)",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/varneet-s/varneet-portfolio.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Varneet Singh",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/varneet-s/varneet-portfolio/issues"
   },
   "homepage": "https://github.com/varneet-s/varneet-portfolio#readme",
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
     "@types/node": "^26.4.1",
-    "typescript": "^7.0.2",
-    "vite": "^8.2.2"
-  },
-  "dependencies": {
-    "chart.js": "^4.5.1"
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0",
+    "typescript": "^5.9.3"
   }
 }

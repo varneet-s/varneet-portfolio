@@ -11,3 +11,5 @@
 # Node & Build artifacts
 node_modules/
 dist/
+.next/
+out/
