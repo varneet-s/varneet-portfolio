@@ -212,6 +212,70 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      {/* 4. CERTIFICATIONS & CREDENTIALS (Work Page) */}
+      <section className="dh-dark-section" style={{ paddingTop: '2rem', paddingBottom: '7rem' }} id="work-certs">
+        <div className="dh-dark-container">
+          <h2 className="dh-section-title-serif">Certifications.</h2>
+          <p className="dh-section-subtitle">
+            Verified credentials and professional certifications.
+          </p>
+
+          <div className="dh-cv-list">
+            <div className="dh-cv-card" style={{ cursor: 'default' }}>
+              <div
+                className="dh-cv-logo-box"
+                style={{
+                  background: '#FFFDF5',
+                  color: '#2E7D32',
+                  fontWeight: 900,
+                  fontSize: '26px',
+                  fontFamily: 'var(--font-mono, monospace)',
+                }}
+              >
+                MS
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Microsoft Certified: Business Analyst</h3>
+                <div className="dh-cv-meta">
+                  <span>Professional Certificate</span>
+                  <span>/</span>
+                  <span>Microsoft &middot; Coursera</span>
+                  <span>/</span>
+                  <span>Credential ID: N1UGS1TCSPFD</span>
+                </div>
+                <p className="dh-cv-dek" style={{ marginBottom: '1.25rem' }}>
+                  Covers end-to-end data modeling, Power BI dashboard architecture, DAX expressions, operational workflow mapping, and business insights delivery.
+                </p>
+                <a
+                  href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cert-credential-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '13px',
+                    fontWeight: 800,
+                    color: '#16241E',
+                    background: '#E2F4EC',
+                    border: '1.5px solid #7BE0AD',
+                    padding: '8px 16px',
+                    borderRadius: '9999px',
+                    textDecoration: 'none',
+                    width: 'fit-content',
+                  }}
+                >
+                  View Verified Certificate &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
+

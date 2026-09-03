@@ -5632,14 +5632,33 @@ body, .page-body {
   }
 }
 
-/* ── David Hellmann Monumental Hero ── */
+/* ═══════════════════════════════════════════════════════════
+   DAVID HELLMANN DESIGN ARCHITECTURE — SAGE GREEN PALETTE
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --dh-sage-deep: #16241E;
+  --dh-sage-surface: #1E3029;
+  --dh-sage-card: #253930;
+  --dh-sage-card-hover: #2D453B;
+  --dh-sage-preview: #16251F;
+  --dh-sage-border: rgba(182, 219, 199, 0.16);
+  --dh-sage-border-hover: rgba(182, 219, 199, 0.38);
+  --dh-text-light: #F3F8F5;
+  --dh-text-muted: rgba(235, 245, 240, 0.74);
+  --dh-accent-sage: #7BE0AD;
+  --dh-accent-gold: #F3CA7E;
+  --dh-accent-purple: #D8B4FE;
+}
+
+/* ── David Hellmann Monumental Hero (Sage Green Theme) ── */
 .dh-hero-wrapper {
   position: relative;
   width: 100%;
   padding-top: 6rem;
   overflow: hidden;
-  background: #0E0E10;
-  color: #FFFFFF;
+  background: var(--dh-sage-deep);
+  color: var(--dh-text-light);
 }
 
 .dh-hero-bg {
@@ -5651,7 +5670,7 @@ body, .page-body {
   min-height: 480px;
   background-size: cover;
   background-position: center 25%;
-  opacity: 0.28;
+  opacity: 0.24;
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
@@ -5668,7 +5687,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--dh-accent-sage);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
@@ -5685,16 +5704,16 @@ body, .page-body {
   letter-spacing: -0.04em;
   text-transform: uppercase;
   margin: 0 0 1rem 0;
-  color: #E5FF00;
+  color: #E2F4EC;
   word-break: break-word;
 }
 
 .dh-hero-giant-title--work {
-  color: #FF3B00;
+  color: var(--dh-accent-gold);
 }
 
 .dh-hero-giant-title--blog {
-  color: #A855F7;
+  color: var(--dh-accent-purple);
 }
 
 /* ── Overlapping Content Sheet ── */
@@ -5702,9 +5721,9 @@ body, .page-body {
   position: relative;
   z-index: 5;
   background: #FFFFFF;
-  color: #121214;
+  color: #16241E;
   border-radius: 2.5rem 2.5rem 0 0;
-  box-shadow: 0 -24px 48px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -24px 48px rgba(16, 28, 22, 0.25);
   padding: 4.5rem 2rem 5rem;
 }
 
@@ -5720,7 +5739,7 @@ body, .page-body {
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.02em;
-  color: #0E0E10;
+  color: #16241E;
   margin-bottom: 2rem;
 }
 
@@ -5731,7 +5750,7 @@ body, .page-body {
   font-family: 'Bitter', Georgia, serif;
   font-size: 1.18rem;
   line-height: 1.75;
-  color: #383842;
+  color: #33483E;
 }
 
 .dh-editorial-cols p {
@@ -5739,7 +5758,7 @@ body, .page-body {
 }
 
 .dh-editorial-cols a {
-  color: #0E0E10;
+  color: #16241E;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -5752,10 +5771,10 @@ body, .page-body {
   }
 }
 
-/* ── Full-Bleed Dark Section with Angled Photos ── */
+/* ── Full-Bleed Dark Section with Angled Photos (Sage Green) ── */
 .dh-dark-section {
-  background: #0E0E10;
-  color: #FFFFFF;
+  background: var(--dh-sage-surface);
+  color: var(--dh-text-light);
   padding: 6rem 2rem;
   position: relative;
   overflow: hidden;
@@ -5773,14 +5792,14 @@ body, .page-body {
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
 }
 
 .dh-section-subtitle {
   font-family: var(--font-mono, monospace);
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--dh-text-muted);
   max-width: 65ch;
   line-height: 1.6;
 }
@@ -5793,11 +5812,11 @@ body, .page-body {
 }
 
 .dh-tilted-card {
-  background: #18181B;
+  background: var(--dh-sage-card);
   border-radius: 1.5rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--dh-sage-border);
+  box-shadow: 0 20px 40px rgba(10, 20, 15, 0.4);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
@@ -5815,7 +5834,7 @@ body, .page-body {
 
 .dh-tilted-card:hover {
   transform: rotate(0deg) scale(1.04);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 30px 60px rgba(10, 20, 15, 0.6);
   z-index: 10;
 }
 
@@ -5836,9 +5855,9 @@ body, .page-body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.85);
-  background: #141416;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--dh-text-light);
+  background: #1B2D24;
+  border-top: 1px solid var(--dh-sage-border);
 }
 
 @media (max-width: 768px) {
@@ -5853,7 +5872,7 @@ body, .page-body {
   }
 }
 
-/* ── David Hellmann CV Cards ── */
+/* ── David Hellmann CV Cards (Sage Palette) ── */
 .dh-cv-list {
   display: flex;
   flex-direction: column;
@@ -5862,22 +5881,22 @@ body, .page-body {
 }
 
 .dh-cv-card {
-  background: #141416;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--dh-sage-card);
+  border: 1px solid var(--dh-sage-border);
   border-radius: 1.75rem;
   padding: 2.25rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
   text-decoration: none;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, background 0.22s ease;
 }
 
 .dh-cv-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: #1A1A1E;
+  border-color: var(--dh-sage-border-hover);
+  background: var(--dh-sage-card-hover);
 }
 
 .dh-cv-logo-box {
@@ -5890,7 +5909,7 @@ body, .page-body {
   justify-content: center;
   padding: 12px;
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(10, 20, 15, 0.3);
 }
 
 .dh-cv-logo-img {
@@ -5909,7 +5928,7 @@ body, .page-body {
   font-size: clamp(1.5rem, 3.2vw, 2.3rem);
   font-weight: 800;
   line-height: 1.15;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   margin: 0 0 0.6rem 0;
   letter-spacing: -0.02em;
 }
@@ -5918,7 +5937,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 13px;
   font-weight: 700;
-  color: #E5FF00;
+  color: var(--dh-accent-sage);
   margin-bottom: 0.6rem;
   display: flex;
   flex-wrap: wrap;
@@ -5929,7 +5948,7 @@ body, .page-body {
 .dh-cv-dek {
   font-size: 1rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--dh-text-muted);
   margin: 0;
 }
 
@@ -5942,7 +5961,7 @@ body, .page-body {
   }
 }
 
-/* ── Work Cards (Hellmann Grid) ── */
+/* ── Work Cards (Hellmann Grid - Sage Palette) ── */
 .dh-work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5957,12 +5976,12 @@ body, .page-body {
 }
 
 .dh-work-card {
-  background: #141416;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--dh-sage-card);
+  border: 1px solid var(--dh-sage-border);
   border-radius: 1.75rem;
   overflow: hidden;
   text-decoration: none;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   display: flex;
   flex-direction: column;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
@@ -5970,7 +5989,7 @@ body, .page-body {
 
 .dh-work-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--dh-sage-border-hover);
 }
 
 .dh-work-header {
@@ -5986,8 +6005,8 @@ body, .page-body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(182, 219, 199, 0.12);
+  color: var(--dh-accent-sage);
   padding: 4px 10px;
   border-radius: 9999px;
   margin-bottom: 1rem;
@@ -5999,14 +6018,14 @@ body, .page-body {
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   margin-bottom: 0.75rem;
 }
 
 .dh-work-meta-list {
   font-family: var(--font-mono, monospace);
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--dh-text-muted);
   line-height: 1.6;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -6014,8 +6033,8 @@ body, .page-body {
 
 .dh-work-preview-wrap {
   position: relative;
-  background: #09090B;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--dh-sage-preview);
+  border-top: 1px solid var(--dh-sage-border);
   padding: 1.5rem;
   overflow: hidden;
 }
@@ -6025,7 +6044,7 @@ body, .page-body {
   height: 250px;
   object-fit: cover;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--dh-sage-border);
   transition: transform 0.3s ease;
 }
 
@@ -6033,7 +6052,7 @@ body, .page-body {
   transform: scale(1.02);
 }
 
-/* ── Blog Card (Hellmann Style) ── */
+/* ── Blog Card (Hellmann Style - Sage & Lilac Accent) ── */
 .dh-blog-list {
   display: flex;
   flex-direction: column;
@@ -6042,20 +6061,20 @@ body, .page-body {
 }
 
 .dh-blog-card {
-  background: #141416;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--dh-sage-card);
+  border: 1px solid var(--dh-sage-border);
   border-radius: 1.75rem;
   padding: 2.5rem 2.75rem;
   text-decoration: none;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   display: block;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
 }
 
 .dh-blog-card:hover {
   transform: translateY(-3px);
-  border-color: #A855F7;
-  background: #18181E;
+  border-color: var(--dh-accent-purple);
+  background: var(--dh-sage-card-hover);
 }
 
 .dh-blog-meta {
@@ -6066,7 +6085,7 @@ body, .page-body {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--dh-text-muted);
   margin-bottom: 1rem;
 }
 
@@ -6076,14 +6095,14 @@ body, .page-body {
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: var(--dh-text-light);
   margin: 0 0 0.8rem 0;
 }
 
 .dh-blog-dek {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--dh-text-muted);
   margin: 0;
   max-width: 75ch;
 }
