@@ -4,49 +4,86 @@ import type { Metadata } from 'next';
 import { articles } from '@/lib/data/writing';
 
 export const metadata: Metadata = {
-  title: 'Writing & Articles | Varneet Singh — Business Analysis & Operations',
+  title: 'Thoughts & Articles | Varneet Singh',
   description:
-    'Reflections on business analysis, requirements gathering, operational frameworks, and career pivots by Varneet Singh.',
+    'Reflections on business analysis, requirements gathering, operational frameworks, and career transitions by Varneet Singh.',
+  openGraph: {
+    title: 'Thoughts & Articles | Varneet Singh',
+    description:
+      'Writing about business operations, requirements engineering, and analytical frameworks.',
+    images: ['/assets/index-preview.jpg'],
+  },
 };
 
 export default function WritingPage() {
   return (
-    <main>
-      {/* Simple Headline Header */}
-      <section className="simple-page-header">
-        <div className="container">
-          <h1 className="page-title">
-            <span className="underline-green">Writing</span>
+    <main className="dh-page-wrapper">
+      {/* 1. MONUMENTAL HERO SECTION (David Hellmann Style) */}
+      <section className="dh-hero-wrapper" id="blog-hero">
+        <div
+          className="dh-hero-bg"
+          style={{ backgroundImage: `url('/assets/about/reading.jpg')` }}
+          aria-hidden="true"
+        ></div>
+
+        <div className="dh-hero-headline-wrap">
+          <div className="dh-hero-subtag">
+            <span>Writing &middot; Reflections &middot; Analytical Frameworks</span>
+          </div>
+          <h1 className="dh-hero-giant-title dh-hero-giant-title--blog">
+            Thoughts &amp;<br />Articles.
           </h1>
-          <p className="hero-subtitle hero-subtitle--no-margin">
-            Thoughts on business analysis, requirements engineering, and career pivots.
-          </p>
         </div>
       </section>
 
-      {/* Writing Grid */}
-      <section className="writing-section" id="writing-listing">
-        <div className="container">
-          <div className="pudding-grid">
+      {/* 2. OVERLAPPING SHEET WITH EDITORIAL INTRO & ARTICLE LIST */}
+      <section className="dh-sheet-container" id="blog-listing">
+        <div className="dh-sheet-inner">
+          <h2 className="dh-editorial-heading">
+            &hellip;things I think about &mdash;<br />
+            stories from operational life, systems thinking, and business analysis.
+          </h2>
+
+          <div className="dh-blog-list">
             {articles.map((art) => (
               <Link
                 key={art.slug}
                 href={`/writing/${art.slug}/`}
-                className="pudding-card pudding-card-link"
+                className="dh-blog-card"
+                id={`article-${art.slug}`}
               >
-                <div className="pudding-meta">
-                  <span className="pudding-pill">{art.num}</span>
-                  <span className="pudding-date">{art.date}</span>
+                <div className="dh-blog-meta">
+                  <span
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      color: '#E5FF00',
+                      padding: '3px 10px',
+                      borderRadius: '9999px',
+                      fontWeight: 800,
+                    }}
+                  >
+                    {art.type}
+                  </span>
+                  <span>{art.date}</span>
+                  <span>&middot;</span>
+                  <span>{art.source}</span>
                 </div>
-                <div className={`pudding-frame pudding-frame--${art.frameColor}`}>
-                  <div className="pudding-inner-graphic">
-                    <div className="pudding-card-type">{art.type}</div>
-                    <div className="pudding-card-source">{art.source}</div>
-                  </div>
+                <h3 className="dh-blog-title">{art.title}</h3>
+                <p className="dh-blog-dek">{art.description}</p>
+                <div
+                  style={{
+                    marginTop: '1.25rem',
+                    fontFamily: 'var(--font-mono, monospace)',
+                    fontSize: '13px',
+                    fontWeight: 800,
+                    color: '#A855F7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>Read Full Essay &rarr;</span>
                 </div>
-                <h2 className="pudding-title">{art.title}</h2>
-                <p className="pudding-desc">{art.description}</p>
-                <span className="read-post-tag">Read Full Post &rarr;</span>
               </Link>
             ))}
           </div>

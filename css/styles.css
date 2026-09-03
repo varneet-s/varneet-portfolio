@@ -5508,3 +5508,584 @@ body, .page-body {
   }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   DAVID HELLMANN DESIGN ARCHITECTURE & TOKENS
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Floating Pill Navigation ── */
+.dh-header-wrapper {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.dh-header-container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dh-avatar-badge {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 14, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 4px 14px 4px 4px;
+  text-decoration: none;
+  color: #FAFAFA;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dh-avatar-badge:hover {
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dh-avatar-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.dh-avatar-text {
+  font-family: var(--font-display, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+
+.dh-nav-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(20, 20, 24, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 5px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.dh-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dh-nav-link:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dh-nav-link.active {
+  color: #0E0E10;
+  background: #E5FF00;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .dh-header-wrapper {
+    top: auto;
+    bottom: 1.25rem;
+    padding: 0 1rem;
+  }
+  .dh-avatar-badge {
+    display: none;
+  }
+  .dh-header-container {
+    justify-content: center;
+  }
+  .dh-nav-pill {
+    padding: 4px 6px;
+  }
+  .dh-nav-link {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ── David Hellmann Monumental Hero ── */
+.dh-hero-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 6rem;
+  overflow: hidden;
+  background: #0E0E10;
+  color: #FFFFFF;
+}
+
+.dh-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0.28;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.dh-hero-headline-wrap {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 2rem 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.dh-hero-subtag {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dh-hero-giant-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(3rem, 10.5vw, 8rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  color: #E5FF00;
+  word-break: break-word;
+}
+
+.dh-hero-giant-title--work {
+  color: #FF3B00;
+}
+
+.dh-hero-giant-title--blog {
+  color: #A855F7;
+}
+
+/* ── Overlapping Content Sheet ── */
+.dh-sheet-container {
+  position: relative;
+  z-index: 5;
+  background: #FFFFFF;
+  color: #121214;
+  border-radius: 2.5rem 2.5rem 0 0;
+  box-shadow: 0 -24px 48px rgba(0, 0, 0, 0.15);
+  padding: 4.5rem 2rem 5rem;
+}
+
+.dh-sheet-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Editorial Bio Layout ── */
+.dh-editorial-heading {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #0E0E10;
+  margin-bottom: 2rem;
+}
+
+.dh-editorial-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.75;
+  color: #383842;
+}
+
+.dh-editorial-cols p {
+  margin-bottom: 1.25rem;
+}
+
+.dh-editorial-cols a {
+  color: #0E0E10;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 860px) {
+  .dh-editorial-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ── Full-Bleed Dark Section with Angled Photos ── */
+.dh-dark-section {
+  background: #0E0E10;
+  color: #FFFFFF;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dh-dark-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dh-section-title-serif {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.dh-section-subtitle {
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.dh-photo-tilted-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+  margin: 4rem 0 3rem;
+}
+
+.dh-tilted-card {
+  background: #18181B;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.dh-tilted-card--1 {
+  transform: rotate(-2.5deg);
+}
+
+.dh-tilted-card--2 {
+  transform: rotate(1.2deg) translateY(-12px);
+}
+
+.dh-tilted-card--3 {
+  transform: rotate(2.5deg);
+}
+
+.dh-tilted-card:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.dh-tilted-img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+}
+
+.dh-tilted-caption {
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  background: #141416;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .dh-photo-tilted-strip {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .dh-tilted-card--1,
+  .dh-tilted-card--2,
+  .dh-tilted-card--3 {
+    transform: none;
+  }
+}
+
+/* ── David Hellmann CV Cards ── */
+.dh-cv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.dh-cv-card {
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  padding: 2.25rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, background 0.22s ease;
+}
+
+.dh-cv-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: #1A1A1E;
+}
+
+.dh-cv-logo-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 1.25rem;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dh-cv-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.dh-cv-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dh-cv-role {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 0.6rem 0;
+  letter-spacing: -0.02em;
+}
+
+.dh-cv-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: #E5FF00;
+  margin-bottom: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+}
+
+.dh-cv-dek {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .dh-cv-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ── Work Cards (Hellmann Grid) ── */
+.dh-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .dh-work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dh-work-card {
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.dh-work-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dh-work-header {
+  padding: 2rem 2.25rem 1.25rem;
+}
+
+.dh-work-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.dh-work-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.dh-work-meta-list {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.dh-work-preview-wrap {
+  position: relative;
+  background: #09090B;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.dh-work-preview-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.dh-work-card:hover .dh-work-preview-img {
+  transform: scale(1.02);
+}
+
+/* ── Blog Card (Hellmann Style) ── */
+.dh-blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.dh-blog-card {
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  padding: 2.5rem 2.75rem;
+  text-decoration: none;
+  color: #FFFFFF;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
+}
+
+.dh-blog-card:hover {
+  transform: translateY(-3px);
+  border-color: #A855F7;
+  background: #18181E;
+}
+
+.dh-blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.dh-blog-title {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 0.8rem 0;
+}
+
+.dh-blog-dek {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  max-width: 75ch;
+}
+
+

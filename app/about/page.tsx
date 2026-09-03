@@ -3,167 +3,135 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About | Varneet Singh — Business Operations Manager',
+  title: 'About Me & My Life | Varneet Singh',
   description:
-    'Learn about Varneet Singh — Business Operations Manager specializing in process optimization, data-driven decisions, Excel, SQL, and Tableau.',
+    'About Varneet Singh — Business Operations Manager specializing in supply chain data, workflow optimization, and analytical systems.',
   openGraph: {
-    title: 'About | Varneet Singh — Business Operations Manager',
+    title: 'About Me & My Life | Varneet Singh',
     description:
-      'Business Operations Manager specializing in process optimization and data analysis.',
+      'Business Operations Manager specializing in process optimization, SQL, Excel modeling, and operational clarity.',
     images: ['/assets/index-preview.jpg'],
   },
 };
 
 export default function AboutPage() {
   return (
-    <main className="about-page-container">
-      {/* 1. ABOUT HERO SECTION */}
-      <section className="sd-section">
-        <div className="sd-grid-2col">
-          <div>
-            <div className="sd-section-header">
-              <h1 className="sd-heading">About</h1>
-              <div className="sd-underline"></div>
-            </div>
+    <main className="dh-page-wrapper">
+      {/* 1. MONUMENTAL HERO SECTION (David Hellmann Style) */}
+      <section className="dh-hero-wrapper" id="about-hero">
+        <div
+          className="dh-hero-bg"
+          style={{ backgroundImage: `url('/assets/about/travel.jpg')` }}
+          aria-hidden="true"
+        ></div>
 
-            <div className="sd-text-body">
-              <p>
-                A business operations manager with a passion at the intersection of
-                data, process efficiency, and business strategy. By day I oversee
-                supply chain data and operational workflows at I.P. Pharma, and by
-                night I build interactive data models, practice advanced SQL, and
-                write about analytical frameworks.
-              </p>
-              <p>
-                I&apos;m currently focused on expanding my portfolio of{' '}
-                <Link href="/projects/">real-world case studies</Link>, mastering
-                complex SQL join patterns, and exploring automated reporting
-                architectures for growing businesses.
-              </p>
-            </div>
+        <div className="dh-hero-headline-wrap">
+          <div className="dh-hero-subtag">
+            <span>Identity &middot; Background &middot; Focus</span>
           </div>
+          <h1 className="dh-hero-giant-title">
+            About Me<br />&amp; My Life.
+          </h1>
+        </div>
+      </section>
 
-          {/* Profile Card */}
-          <div className="sd-profile-card">
-            <img
-              src="/assets/varneet-avatar.png"
-              alt="Varneet Singh"
-              className="sd-profile-img"
-              width={130}
-              height={130}
-            />
-            <div className="sd-profile-name">Varneet Singh</div>
-            <div className="sd-profile-sub">Business Analyst</div>
-            <span className="sd-badge-pill">Ludhiana, India</span>
+      {/* 2. OVERLAPPING EDITORIAL SHEET */}
+      <section className="dh-sheet-container" id="about-intro">
+        <div className="dh-sheet-inner">
+          <h2 className="dh-editorial-heading">
+            Hello, I&apos;m Varneet!<br />
+            Business Operations Manager.
+          </h2>
+
+          <div className="dh-editorial-cols">
+            <div>
+              <p>
+                I operate at the intersection of operational workflows, data architecture,
+                and business strategy. By day, I manage inventory tracking systems and
+                field representative pipelines at I.P. Pharma. By night, I design
+                interactive spreadsheet models, write analytical frameworks, and build
+                reproducible case studies.
+              </p>
+              <p>
+                My focus is turning messy, unmeasured operational chaos into predictable
+                clarity. Whether it&apos;s eliminating three-day reporting delays or
+                diagnosing supply chain bottlenecks, I care about the underlying engine:
+                accurate metrics, clean data pipelines, and dashboards that executives
+                can actually trust.
+              </p>
+            </div>
+            <div>
+              <p>
+                I took a deliberate, hands-on path to business analysis. Starting in
+                journalism, I learned how to interrogate raw numbers, cut through noise,
+                and communicate findings with total precision. Transitioning to growth
+                operations, I built workflows that scaled digital community initiatives
+                tenfold.
+              </p>
+              <p>
+                Currently, I&apos;m focused on expanding my catalog of{' '}
+                <Link href="/projects/">real-world business case studies</Link>,
+                mastering complex SQL window joins, and building automated reporting
+                architectures for expanding organizations.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. BACKGROUND SECTION */}
-      <section className="sd-section">
-        <div className="sd-section-header">
-          <h2 className="sd-heading">Background</h2>
-          <div className="sd-underline"></div>
-        </div>
-
-        <div className="sd-text-body">
-          <p>
-            I&apos;ve taken a deliberate, hands-on path to my career in business
-            operations. Starting in journalism, I learned how to ask sharp
-            questions, extract core facts from noise, and communicate complex
-            narratives simply. Moving into content operations and growth, I managed
-            community channels and built systems that scaled engagement 10x.
-          </p>
-          <p>
-            Through managing multi-channel operations, I realized that the part of
-            every project I loved most was the underlying system: discovering data
-            bottlenecks, auditing process flows, and turning guesswork into clean,
-            actionable dashboards.
+      {/* 3. FULL-BLEED DARK SECTION: ANGLED PHOTO STRIP */}
+      <section className="dh-dark-section" id="about-interests">
+        <div className="dh-dark-container">
+          <h2 className="dh-section-title-serif">
+            Books. Running. Travel. Coffee. Data.
+          </h2>
+          <p className="dh-section-subtitle">
+            Outside of work, I balance rigorous analytical discipline with classic
+            literature, morning road mileage, and exploring new terrain to reset my perspective.
           </p>
 
-          <blockquote className="sd-blockquote">
-            <p>
-              &ldquo;I decided to pursue a career helping businesses turn messy
-              operational data into predictable clarity &mdash; and I haven&apos;t
-              looked back since.&rdquo;
-            </p>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* 3. INTERESTS SECTION */}
-      <section className="sd-section">
-        <div className="sd-section-header">
-          <h2 className="sd-heading">Interests</h2>
-          <div className="sd-underline"></div>
-        </div>
-
-        <div className="sd-text-body">
-          <p>
-            I thrive on solving unstructured problems and optimizing business
-            workflows. Right now, I&apos;m actively refining skills across:
-          </p>
-
-          <div className="sd-pill-container">
-            <span className="pill pill-blue">Business Analysis</span>
-            <span className="pill pill-green">SQL &amp; Data Pipelines</span>
-            <span className="pill pill-purple">Power BI &amp; Dashboards</span>
-            <span className="pill pill-yellow">BPMN 2.0 Process Modeling</span>
-            <span className="pill pill-pink">Behavioral Economics</span>
-          </div>
-
-          <p>
-            Outside of work, I read a lot — mostly fiction and classics. Right now
-            I&apos;m working through <em>1984</em> by George Orwell. I try to run
-            regularly and use it as unwind time. I enjoy travelling when I get the
-            chance — new places are a good way to reset. I also spend time on
-            continuous self-learning, usually through books and long-form content
-            rather than short videos.
-          </p>
-
-          {/* Photo Strip: Reading, Running, Travel */}
           {/* TODO: replace placeholder photos below with personal photos */}
-          <div className="about-photo-strip">
-            <div className="about-photo-card">
-              {/* TODO: replace placeholder with real reading photo */}
+          <div className="dh-photo-tilted-strip">
+            <div className="dh-tilted-card dh-tilted-card--1">
               <img
                 src="/assets/about/reading.jpg"
-                alt="Reading classics and continuous self-learning"
-                width={360}
-                height={200}
+                alt="Reading Orwell and classical literature"
+                width={400}
+                height={270}
+                className="dh-tilted-img"
                 loading="lazy"
               />
-              <div className="about-photo-caption">
+              <div className="dh-tilted-caption">
                 <span>Reading</span>
-                <span>Classics &middot; Orwell</span>
+                <span>Orwell &middot; 1984</span>
               </div>
             </div>
 
-            <div className="about-photo-card">
-              {/* TODO: replace placeholder with real running photo */}
+            <div className="dh-tilted-card dh-tilted-card--2">
               <img
                 src="/assets/about/running.jpg"
-                alt="Morning outdoor running routine"
-                width={360}
-                height={200}
+                alt="Morning road running routine"
+                width={400}
+                height={270}
+                className="dh-tilted-img"
                 loading="lazy"
               />
-              <div className="about-photo-caption">
+              <div className="dh-tilted-caption">
                 <span>Running</span>
                 <span>Unwind &middot; 5K</span>
               </div>
             </div>
 
-            <div className="about-photo-card">
-              {/* TODO: replace placeholder with real travel photo */}
+            <div className="dh-tilted-card dh-tilted-card--3">
               <img
                 src="/assets/about/travel.jpg"
-                alt="Travel resets and exploring scenic destinations"
-                width={360}
-                height={200}
+                alt="Travel resets and exploring scenic mountain destinations"
+                width={400}
+                height={270}
+                className="dh-tilted-img"
                 loading="lazy"
               />
-              <div className="about-photo-caption">
+              <div className="dh-tilted-caption">
                 <span>Travel</span>
                 <span>Perspective Reset</span>
               </div>
@@ -172,104 +140,173 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. CURRENT ROLE SECTION */}
-      <section className="sd-section">
-        <div className="sd-section-header">
-          <h2 className="sd-heading">Current Role</h2>
-          <div className="sd-underline"></div>
-        </div>
+      {/* 4. CURRICULUM VITAE / WORK EXPERIENCE (David Hellmann Style) */}
+      <section className="dh-dark-section" style={{ paddingTop: '2rem' }} id="about-cv">
+        <div className="dh-dark-container">
+          <h2 className="dh-section-title-serif">Curriculum Vitae.</h2>
+          <p className="dh-section-subtitle">
+            Operational roles, enterprise agency experience, and hands-on business analysis.
+          </p>
 
-        <div className="sd-text-body">
-          <p>
-            Currently, I work as a{' '}
-            <strong>Business Operations Manager at I.P. Pharma</strong> (since
-            January 2026). In this role, I manage inventory tracking models, analyze
-            stock-level variations, and automate daily reporting routines for
-            executive leadership.
-          </p>
-          <p>
-            Previously, I spent a year at{' '}
-            <a
-              href="https://www.youtube.com/@LabourLawAdvisor"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Labour Law Advisor
-            </a>{' '}
-            as a Growth &amp; Content Operations Specialist, scaling their
-            e-commerce brand{' '}
-            <a
-              href="https://jagruk.shop/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Jagruk.Shop
-            </a>{' '}
-            from 400 to 4,000+ followers while setting up standard operating
-            procedures (SOPs).
-          </p>
+          <div className="dh-cv-list">
+            {/* 1. I.P. Pharma */}
+            <Link href="/projects/pharma/" className="dh-cv-card" id="cv-pharma">
+              <div className="dh-cv-logo-box">
+                <img
+                  src="/assets/logos/I_P_Pharma_Logo.jpg"
+                  alt="I.P. Pharma logo"
+                  width={64}
+                  height={64}
+                  className="dh-cv-logo-img"
+                />
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Business Operations Manager</h3>
+                <div className="dh-cv-meta">
+                  <span>01/2026 &mdash; Present</span>
+                  <span>/</span>
+                  <span>Ludhiana, India</span>
+                  <span>/</span>
+                  <span>I.P. Pharma</span>
+                </div>
+                <p className="dh-cv-dek">
+                  Engineered automated inventory forecasting models and field representative tracking for 120+ retail accounts. Reduced reporting latency from 3 days to real-time.
+                </p>
+              </div>
+            </Link>
+
+            {/* 2. Labour Law Advisor */}
+            <Link href="/work/lla/" className="dh-cv-card" id="cv-lla">
+              <div className="dh-cv-logo-box">
+                <img
+                  src="/assets/logos/lla-logo.png"
+                  alt="Labour Law Advisor logo"
+                  width={56}
+                  height={50}
+                  className="dh-cv-logo-img"
+                />
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Social Media Manager / Growth Operations</h3>
+                <div className="dh-cv-meta">
+                  <span>08/2024 &mdash; 07/2025</span>
+                  <span>/</span>
+                  <span>Jaipur, India</span>
+                  <span>/</span>
+                  <span>Labour Law Advisor</span>
+                </div>
+                <p className="dh-cv-dek">
+                  Led end-to-end data and operational mapping for Jagruk.Shop, scaling social community followers 10x (400 to 4,000+) and boosting video search CTR by 15%.
+                </p>
+              </div>
+            </Link>
+
+            {/* 3. Mad Influence */}
+            <Link href="/work/mad-influence/" className="dh-cv-card" id="cv-mad">
+              <div className="dh-cv-logo-box">
+                <img
+                  src="/assets/logos/mad-influence-logo.png"
+                  alt="Mad Influence logo"
+                  width={56}
+                  height={56}
+                  className="dh-cv-logo-img"
+                />
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Data Research Intern</h3>
+                <div className="dh-cv-meta">
+                  <span>03/2024 &mdash; 07/2024</span>
+                  <span>/</span>
+                  <span>Noida, India</span>
+                  <span>/</span>
+                  <span>Mad Influence</span>
+                </div>
+                <p className="dh-cv-dek">
+                  Aggregated multi-creator campaign telemetry across Instagram and YouTube into automated Excel client reporting templates, cutting turnaround time by 40%.
+                </p>
+              </div>
+            </Link>
+
+            {/* 4. MRM / McCann */}
+            <Link href="/work/mrm-mccann/" className="dh-cv-card" id="cv-mccann">
+              <div className="dh-cv-logo-box">
+                <img
+                  src="/assets/logos/mrm-logo.svg"
+                  alt="MRM McCann logo"
+                  width={64}
+                  height={24}
+                  className="dh-cv-logo-img"
+                />
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Account Management Intern</h3>
+                <div className="dh-cv-meta">
+                  <span>09/2023 &mdash; 12/2023</span>
+                  <span>/</span>
+                  <span>Gurgaon, India</span>
+                  <span>/</span>
+                  <span>MRM / McCann</span>
+                </div>
+                <p className="dh-cv-dek">
+                  Audited media spend pacing and coordinated milestone delivery schedules across creative and media teams, achieving a 100% on-time asset delivery rate with zero budget overruns.
+                </p>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 5. CERTIFICATIONS & CONTINUOUS LEARNING */}
-      <section className="sd-section">
-        <div className="sd-section-header">
-          <h2 className="sd-heading">Certifications</h2>
-          <div className="sd-underline"></div>
-        </div>
+      {/* 5. AWARDS & CERTIFICATIONS (David Hellmann Style) */}
+      <section className="dh-dark-section" style={{ paddingTop: '2rem', paddingBottom: '7rem' }} id="about-certs">
+        <div className="dh-dark-container">
+          <h2 className="dh-section-title-serif">Certifications.</h2>
+          <p className="dh-section-subtitle">
+            Verified credentials and professional certifications.
+          </p>
 
-        <div style={{ maxWidth: '600px' }}>
-          <div
-            style={{
-              background: '#ffffff',
-              border: '2.5px solid #0C0D0E',
-              borderRadius: '8px',
-              padding: '28px',
-              boxShadow: '4px 4px 0px #0C0D0E',
-            }}
-          >
-            <div
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px',
-                fontWeight: 800,
-                color: '#FF3B00',
-                textTransform: 'uppercase',
-                marginBottom: '8px',
-              }}
-            >
-              Microsoft &middot; Certified Professional
+          <div className="dh-cv-list">
+            <div className="dh-cv-card" style={{ cursor: 'default' }}>
+              <div
+                className="dh-cv-logo-box"
+                style={{
+                  background: '#FFFDF5',
+                  color: '#FF3B00',
+                  fontWeight: 900,
+                  fontSize: '28px',
+                  fontFamily: 'var(--font-mono, monospace)',
+                }}
+              >
+                MS
+              </div>
+              <div className="dh-cv-info">
+                <h3 className="dh-cv-role">Microsoft Certified: Business Analyst</h3>
+                <div className="dh-cv-meta">
+                  <span>Professional Certificate</span>
+                  <span>/</span>
+                  <span>Microsoft &middot; Coursera</span>
+                  <span>/</span>
+                  <span>Credential ID: N1UGS1TCSPFD</span>
+                </div>
+                <p className="dh-cv-dek" style={{ marginBottom: '1rem' }}>
+                  Covers end-to-end data modeling, Power BI dashboard architecture, DAX expressions, operational workflow mapping, and stakeholder insights delivery.
+                </p>
+                <a
+                  href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dh-nav-link"
+                  style={{
+                    display: 'inline-flex',
+                    background: 'rgba(255,255,255,0.1)',
+                    color: '#FFFFFF',
+                    width: 'fit-content',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                  }}
+                >
+                  View Verified Certificate &rarr;
+                </a>
+              </div>
             </div>
-            <h3
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.5rem',
-                fontWeight: 900,
-                color: '#0C0D0E',
-                margin: '0 0 10px 0',
-              }}
-            >
-              Microsoft Business Analyst
-            </h3>
-            <p
-              style={{
-                fontSize: '15px',
-                color: '#555562',
-                lineHeight: 1.6,
-                margin: '0 0 16px 0',
-              }}
-            >
-              Data modeling, Power BI dashboard design, DAX expressions, operational
-              workflow mapping, and business insights generation.
-            </p>
-            <a
-              href="https://www.coursera.org/account/accomplishments/professional-cert/N1UGS1TCSPFD"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cert-credential-btn"
-            >
-              View Verified Certificate &rarr;
-            </a>
           </div>
         </div>
       </section>
