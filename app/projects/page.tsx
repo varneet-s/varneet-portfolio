@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import WorkChronology from '@/components/WorkChronology';
+import Work from '@/components/Work';
 
 export const metadata: Metadata = {
   title: 'Projects | Varneet Singh — Business Analyst',
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       {/* ── WORK BODY: Blog-Style Project Cards, Watracz Experience, Metrics & Certs ── */}
       <section className="tim-work-body">
         <div className="tim-work-container">
-          <WorkChronology />
+          <Work />
         </div>
       </section>
     </main>

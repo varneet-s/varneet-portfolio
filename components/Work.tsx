@@ -112,7 +112,7 @@ const metrics: MetricStat[] = [
   },
 ];
 
-export default function WorkChronology() {
+export default function Work() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
