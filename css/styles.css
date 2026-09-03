@@ -6761,6 +6761,15 @@ body, .page-body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-blog-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .project-blog-pill {
@@ -6794,39 +6803,17 @@ body, .page-body {
   object-fit: contain;
 }
 
-.project-blog-visual {
-  width: 100%;
-  border-radius: 1.15rem;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  border: 1px solid var(--dh-purple-border);
-  background: #0E0B16;
-}
-
-.project-blog-img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.project-blog-card:hover .project-blog-img {
-  transform: scale(1.02);
-}
-
-/* Timeline row below thumbnail */
+/* Inline Timeline badge in topbar */
 .project-blog-timeline-bar {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.5rem 0.9rem;
+  padding: 4px 10px;
   background: rgba(14, 11, 22, 0.7);
-  border-radius: 0.75rem;
+  border-radius: 9999px;
   border: 1px solid rgba(167, 139, 250, 0.18);
-  margin-bottom: 1.25rem;
   font-family: var(--font-mono, monospace);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--dh-accent-purple);
