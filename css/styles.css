@@ -5022,11 +5022,16 @@ body, .page-body {
 
 @media (max-width: 768px) {
   .local-footer-banner {
-    padding: 3rem 0 2rem 0 !important;
+    min-height: 100dvh !important;
+    padding: 3rem 0 2.5rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
   }
   .local-footer-bg-title {
     font-size: clamp(2.8rem, 18.4vw, 5rem) !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 0 !important;
     line-height: 0.88 !important;
     position: relative !important;
     z-index: 1 !important;
@@ -5034,15 +5039,33 @@ body, .page-body {
     padding: 0 2px !important;
     -webkit-text-stroke: 1.5px #0C0D0E !important;
     text-shadow: 3px 3px 0px var(--purple-shadow, #110E1B) !important;
+    flex-shrink: 0 !important;
   }
   .local-footer-content {
     margin-top: 0 !important;
     position: relative !important;
     z-index: 2 !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding-top: 2rem !important;
+  }
+  .local-footer-avatar-wrap {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
   }
   .local-footer-avatar-img {
     width: 200px !important;
     height: 200px !important;
+  }
+  .local-footer-bottom-bar {
+    flex-shrink: 0 !important;
+    padding-top: 2rem !important;
   }
 }
 
