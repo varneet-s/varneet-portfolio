@@ -4878,37 +4878,37 @@ body, .page-body {
   box-shadow: 4px 4px 0px #FF3B00;
 }
 
-/* ── Selected Work Section (Unified Sage Green Palette) ── */
+/* ── Selected Work Section (Brand Purple Palette) ── */
 .selected-work-section, #projects-section, .work-section {
-  background: #16241E !important;
-  color: #F3F8F5 !important;
+  background: var(--brand-purple-deep, #120E1C) !important;
+  color: var(--brand-purple-text, #F5F3FF) !important;
   padding: 80px 24px !important;
-  border-top: 1px solid rgba(182, 219, 199, 0.14) !important;
-  border-bottom: 1px solid rgba(182, 219, 199, 0.14) !important;
+  border-top: 1px solid var(--brand-purple-border, rgba(167, 139, 250, 0.18)) !important;
+  border-bottom: 1px solid var(--brand-purple-border, rgba(167, 139, 250, 0.18)) !important;
 }
 
 .selected-work-section .section-title,
 .selected-work-section .section-subtitle,
 .selected-work-section h2,
 .selected-work-section p {
-  color: #F3F8F5 !important;
+  color: var(--brand-purple-text, #F5F3FF) !important;
 }
 
 .selected-work-section .card,
 .selected-work-section .bento-card,
 .selected-work-section .project-item {
-  background: #1E3029 !important;
-  border: 1px solid rgba(182, 219, 199, 0.16) !important;
+  background: var(--brand-purple-card, #1E1830) !important;
+  border: 1px solid var(--brand-purple-border, rgba(167, 139, 250, 0.18)) !important;
   border-radius: 1.25rem !important;
-  color: #F3F8F5 !important;
+  color: var(--brand-purple-text, #F5F3FF) !important;
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
 }
 
 .selected-work-section .card:hover,
 .selected-work-section .bento-card:hover,
 .selected-work-section .project-item:hover {
-  background: #263C33 !important;
-  border-color: #7BE0AD !important;
+  background: var(--brand-purple-card-hover, #27203E) !important;
+  border-color: var(--brand-purple-accent, #A78BFA) !important;
   transform: translateY(-3px) !important;
 }
 
@@ -4919,7 +4919,7 @@ body, .page-body {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
-    border-top: 1.5px solid rgba(182, 219, 199, 0.2) !important;
+    border-top: 1.5px solid rgba(167, 139, 250, 0.2) !important;
   }
 
   .selected-work-section .card,
@@ -4927,7 +4927,7 @@ body, .page-body {
   .selected-work-section .project-item {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1.5px solid rgba(182, 219, 199, 0.2) !important;
+    border-bottom: 1.5px solid rgba(167, 139, 250, 0.2) !important;
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 24px 0 !important;
@@ -5663,32 +5663,64 @@ body, .page-body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   DAVID HELLMANN DESIGN ARCHITECTURE — SAGE GREEN PALETTE
+   PORTFOLIO BRAND PALETTES
+   ───────────────────────────────────────────────────────────
+   1. BRAND PURPLE (Active Default Brand Color)
+   2. SAVED SAGE GREEN (Preserved for Future Toggling)
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  --dh-sage-deep: #16241E;
-  --dh-sage-surface: #1E3029;
-  --dh-sage-card: #253930;
-  --dh-sage-card-hover: #2D453B;
-  --dh-sage-preview: #16251F;
-  --dh-sage-border: rgba(182, 219, 199, 0.16);
-  --dh-sage-border-hover: rgba(182, 219, 199, 0.38);
-  --dh-text-light: #F3F8F5;
-  --dh-text-muted: rgba(235, 245, 240, 0.74);
-  --dh-accent-sage: #7BE0AD;
+  /* ── BRAND PURPLE THEME (Active Brand Color) ── */
+  --brand-purple-deep: #120E1C;
+  --brand-purple-surface: #171324;
+  --brand-purple-card: #1E1830;
+  --brand-purple-card-hover: #27203E;
+  --brand-purple-preview: #0E0B16;
+  --brand-purple-border: rgba(167, 139, 250, 0.18);
+  --brand-purple-border-hover: rgba(167, 139, 250, 0.45);
+  --brand-purple-text: #F5F3FF;
+  --brand-purple-muted: rgba(245, 243, 255, 0.72);
+  --brand-purple-accent: #A78BFA;
+  --brand-purple-blue: #60A5FA;
+  --brand-purple-indigo: #818CF8;
+  --brand-purple-lilac: #C4B5FD;
+
+  /* ── SAVED SAGE GREEN THEME (Preserved for Future Reversion) ── */
+  --saved-sage-deep: #16241E;
+  --saved-sage-surface: #1E3029;
+  --saved-sage-card: #253930;
+  --saved-sage-card-hover: #2D453B;
+  --saved-sage-preview: #16251F;
+  --saved-sage-border: rgba(182, 219, 199, 0.16);
+  --saved-sage-border-hover: rgba(182, 219, 199, 0.38);
+  --saved-sage-text: #F3F8F5;
+  --saved-sage-muted: rgba(235, 245, 240, 0.74);
+  --saved-sage-accent: #7BE0AD;
+  --saved-sage-gold: #F3CA7E;
+
+  /* ── Backward Compatibility Aliases ── */
+  --dh-sage-deep: var(--brand-purple-deep);
+  --dh-sage-surface: var(--saved-sage-surface); /* Kept for hobby section */
+  --dh-sage-card: var(--brand-purple-card);
+  --dh-sage-card-hover: var(--brand-purple-card-hover);
+  --dh-sage-preview: var(--brand-purple-preview);
+  --dh-sage-border: var(--brand-purple-border);
+  --dh-sage-border-hover: var(--brand-purple-border-hover);
+  --dh-text-light: var(--brand-purple-text);
+  --dh-text-muted: var(--brand-purple-muted);
+  --dh-accent-sage: var(--brand-purple-accent);
   --dh-accent-gold: #F3CA7E;
-  --dh-accent-purple: #D8B4FE;
+  --dh-accent-purple: var(--brand-purple-accent);
 }
 
-/* ── David Hellmann Monumental Hero (Sage Green Theme) ── */
+/* ── David Hellmann Monumental Hero (Brand Purple Theme) ── */
 .dh-hero-wrapper {
   position: relative;
   width: 100%;
   padding-top: 6rem;
   overflow: hidden;
-  background: var(--dh-sage-deep);
-  color: var(--dh-text-light);
+  background: var(--brand-purple-deep);
+  color: var(--brand-purple-text);
 }
 
 .dh-hero-bg {
@@ -5717,7 +5749,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 13px;
   font-weight: 700;
-  color: var(--dh-accent-sage);
+  color: var(--brand-purple-accent);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
@@ -6823,18 +6855,18 @@ body, .page-body {
   transform: scale(1.03);
 }
 
-/* ── 5. About Skills Section (Matching Reference Screenshot 2) ── */
-.watracz-skills-container {
+/* ── 5. About Skills Section (Matching Reference Screenshot 2 — Clean on Page Background) ── */
+.watracz-skills-clean {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-  margin-top: 3.5rem;
-  margin-bottom: 4rem;
-  padding: 3rem 2.75rem;
-  background: var(--dh-purple-card);
-  border: 1px solid var(--dh-purple-border);
-  border-radius: 1.75rem;
-  box-shadow: 0 16px 40px rgba(8, 6, 14, 0.35);
+  gap: 4.5rem;
+  margin-top: 4rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid rgba(12, 13, 14, 0.1);
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #0C0D0E !important;
 }
 
 .watracz-skills-col {
@@ -6844,26 +6876,26 @@ body, .page-body {
 
 .watracz-skills-kicker {
   font-family: var(--font-mono, monospace);
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(245, 243, 255, 0.55);
+  color: #737373 !important;
   margin-bottom: 1.5rem;
 }
 
 .watracz-skills-list {
   font-family: var(--font-display, sans-serif);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 800;
   line-height: 1.8;
-  color: #F5F3FF;
+  color: #0C0D0E !important;
 }
 
 .watracz-skills-slash {
-  color: rgba(167, 139, 250, 0.45);
+  color: rgba(12, 13, 14, 0.25) !important;
   font-weight: 400;
-  margin: 0 0.5rem;
+  margin: 0 0.55rem;
 }
 
 /* ── Floating Scroll-to-Top Button ── */
@@ -6939,10 +6971,11 @@ body, .page-body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  .watracz-skills-container {
+  .watracz-skills-clean {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding: 2rem 1.5rem;
+    padding-top: 2rem;
+    margin-top: 2.5rem;
   }
   .tim-certs-card {
     flex-direction: column;

@@ -76,13 +76,9 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 3. SKILLS & TOOLS (Matching Reference Screenshot 2) */}
-      <section className="watracz-skills-section" id="about-skills">
-        <div className="dh-dark-container">
-          <div className="watracz-skills-container">
+          {/* 3. SKILLS & TOOLS (Matching Reference Screenshot 2 — Clean on Page Background) */}
+          <div className="watracz-skills-clean" id="about-skills">
             <div className="watracz-skills-col">
               <div className="watracz-skills-kicker">ANALYTICAL SKILLS</div>
               <div className="watracz-skills-list">
@@ -126,7 +122,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. FULL-BLEED DARK SECTION: ANGLED PHOTO STRIP */}
+      {/* 4. FULL-BLEED DARK SECTION: ANGLED PHOTO STRIP (Hobby Section) */}
       <section className="dh-dark-section" id="about-interests">
         <div className="dh-dark-container">
           <h2 className="dh-section-title-serif">
