@@ -79,7 +79,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. FULL-BLEED DARK SECTION: ANGLED PHOTO STRIP */}
+      {/* 3. SKILLS & TOOLS (Matching Reference Screenshot 2) */}
+      <section className="watracz-skills-section" id="about-skills">
+        <div className="dh-dark-container">
+          <div className="watracz-skills-container">
+            <div className="watracz-skills-col">
+              <div className="watracz-skills-kicker">ANALYTICAL SKILLS</div>
+              <div className="watracz-skills-list">
+                <span>Requirements Engineering</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Process Mapping</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Inventory Controls</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>DAX &amp; Data Modeling</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Workflow Automation</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Stakeholder Management</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>GAP Analysis</span>
+              </div>
+            </div>
+
+            <div className="watracz-skills-col">
+              <div className="watracz-skills-kicker">TOOLS I USE</div>
+              <div className="watracz-skills-list">
+                <span>Advanced Excel</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>SQL</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Tableau</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Power BI</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>BPMN 2.0</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Google Analytics</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Jira</span>
+                <span className="watracz-skills-slash">/</span>
+                <span>Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FULL-BLEED DARK SECTION: ANGLED PHOTO STRIP */}
       <section className="dh-dark-section" id="about-interests">
         <div className="dh-dark-container">
           <h2 className="dh-section-title-serif">

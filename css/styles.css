@@ -171,13 +171,19 @@ p {
   align-items: center !important;
   justify-content: space-between !important;
   padding: 14px 16px !important; /* Mobile base 16px side padding aligning V with Hero */
-  border-bottom: 2px solid var(--ink, #0C0D0E) !important;
+  border-bottom: 1px solid transparent !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 90 !important;
   background: var(--cornsilk, #FFFDF5) !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease !important;
+}
+
+#main-header[data-scrolled="true"], header[data-scrolled="true"] {
+  border-bottom: 1px solid var(--border-color, rgba(12, 13, 14, 0.15)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
 }
 
 @media (min-width: 769px) {
@@ -734,10 +740,14 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 14px 16px !important;
     z-index: 90 !important;
     background: var(--cornsilk, #FFFDF5) !important;
-    border-bottom: 2px solid var(--ink, #0C0D0E) !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+  header[data-scrolled="true"], #main-header[data-scrolled="true"] {
+    border-bottom: 1px solid var(--border-color, rgba(12, 13, 14, 0.15)) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important;
   }
   .container {
     padding: 0 16px !important;
@@ -4868,18 +4878,38 @@ body, .page-body {
   box-shadow: 4px 4px 0px #FF3B00;
 }
 
-/* ── Selected Work Section (Solid Green Background like localstudio.fr) ── */
+/* ── Selected Work Section (Unified Sage Green Palette) ── */
 .selected-work-section, #projects-section, .work-section {
-  background: #2E7D32 !important;
-  color: #FFFDF5 !important;
-  padding: 60px 20px !important;
+  background: #16241E !important;
+  color: #F3F8F5 !important;
+  padding: 80px 24px !important;
+  border-top: 1px solid rgba(182, 219, 199, 0.14) !important;
+  border-bottom: 1px solid rgba(182, 219, 199, 0.14) !important;
 }
 
 .selected-work-section .section-title,
 .selected-work-section .section-subtitle,
 .selected-work-section h2,
 .selected-work-section p {
-  color: #FFFDF5 !important;
+  color: #F3F8F5 !important;
+}
+
+.selected-work-section .card,
+.selected-work-section .bento-card,
+.selected-work-section .project-item {
+  background: #1E3029 !important;
+  border: 1px solid rgba(182, 219, 199, 0.16) !important;
+  border-radius: 1.25rem !important;
+  color: #F3F8F5 !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.selected-work-section .card:hover,
+.selected-work-section .bento-card:hover,
+.selected-work-section .project-item:hover {
+  background: #263C33 !important;
+  border-color: #7BE0AD !important;
+  transform: translateY(-3px) !important;
 }
 
 /* Selected Work Mobile Vertical List Style */
@@ -4889,7 +4919,7 @@ body, .page-body {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
-    border-top: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    border-top: 1.5px solid rgba(182, 219, 199, 0.2) !important;
   }
 
   .selected-work-section .card,
@@ -4897,14 +4927,14 @@ body, .page-body {
   .selected-work-section .project-item {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    border-bottom: 1.5px solid rgba(182, 219, 199, 0.2) !important;
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 24px 0 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-    color: #FFFDF5 !important;
+    color: #F3F8F5 !important;
   }
 
   .selected-work-section .card img,
@@ -5972,7 +6002,7 @@ body, .page-body {
 #main-header[data-active="projects"],
 #main-header[data-active="about"],
 #main-header[data-active="writing"] {
-  background: var(--dh-sage-deep, #16241E) !important;
+  background: var(--dh-purple-deep, #120E1C) !important;
   border-bottom: 1px solid transparent !important;
   box-shadow: none !important;
 }
@@ -5980,11 +6010,11 @@ body, .page-body {
 #main-header[data-scrolled="true"][data-active="projects"],
 #main-header[data-scrolled="true"][data-active="about"],
 #main-header[data-scrolled="true"][data-active="writing"] {
-  background: rgba(22, 36, 30, 0.94) !important;
+  background: rgba(18, 14, 28, 0.94) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid var(--dh-sage-border, rgba(182, 219, 199, 0.16)) !important;
-  box-shadow: 0 4px 24px rgba(10, 20, 15, 0.35) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2) !important;
+  box-shadow: 0 4px 24px rgba(10, 8, 20, 0.45) !important;
 }
 
 #main-header[data-active="projects"] .logo,
@@ -5993,14 +6023,14 @@ body, .page-body {
 #main-header[data-active="about"] .logo-link,
 #main-header[data-active="writing"] .logo,
 #main-header[data-active="writing"] .logo-link {
-  color: #F3F8F5 !important;
+  color: #F5F3FF !important;
 }
 
 #main-header[data-active="projects"] .nav-links-desktop a,
 #main-header[data-active="about"] .nav-links-desktop a,
 #main-header[data-active="writing"] .nav-links-desktop a {
   position: relative !important;
-  color: rgba(243, 248, 245, 0.75) !important;
+  color: rgba(245, 243, 255, 0.75) !important;
   border-left: none !important;
   transition: color 150ms ease !important;
 }
@@ -6015,7 +6045,7 @@ body, .page-body {
   left: 0 !important;
   width: 100% !important;
   height: 2px !important;
-  background-color: var(--dh-accent-sage, #7BE0AD) !important;
+  background-color: var(--dh-accent-purple, #A78BFA) !important;
   transform: scaleX(0) !important;
   transform-origin: left !important;
   transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -6036,20 +6066,20 @@ body, .page-body {
 #main-header[data-active="about"] .nav-links-desktop a.active,
 #main-header[data-active="writing"] .nav-links-desktop a:hover,
 #main-header[data-active="writing"] .nav-links-desktop a.active {
-  color: var(--dh-accent-sage, #7BE0AD) !important;
+  color: var(--dh-accent-purple, #A78BFA) !important;
 }
 
 #main-header[data-active="projects"] .menu-toggle,
 #main-header[data-active="about"] .menu-toggle,
 #main-header[data-active="writing"] .menu-toggle {
-  color: #F3F8F5 !important;
+  color: #F5F3FF !important;
 }
 
 #main-header[data-active="projects"] .cta,
 #main-header[data-active="about"] .cta,
 #main-header[data-active="writing"] .cta {
-  background: var(--dh-accent-sage, #7BE0AD) !important;
-  color: #16241E !important;
+  background: var(--dh-accent-purple, #A78BFA) !important;
+  color: #120E1C !important;
   font-weight: 800 !important;
   border: none !important;
 }
@@ -6302,406 +6332,428 @@ body, .page-body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   TIM ROUSSILHE CHRONOLOGY SCROLL & CARD PLACEMENT ENGINE
+   PURPLE & BLUE EDITORIAL WORK & ABOUT SYSTEM
    ═══════════════════════════════════════════════════════════ */
 
+:root {
+  --dh-purple-deep: #120E1C;
+  --dh-purple-surface: #171324;
+  --dh-purple-card: #1E1830;
+  --dh-purple-card-hover: #27203E;
+  --dh-purple-border: rgba(167, 139, 250, 0.18);
+  --dh-purple-border-hover: rgba(167, 139, 250, 0.45);
+  --dh-accent-purple: #A78BFA;
+  --dh-accent-blue: #60A5FA;
+  --dh-accent-indigo: #818CF8;
+  --dh-accent-lilac: #C4B5FD;
+}
+
 .tim-work-page-canvas {
-  background: var(--dh-sage-deep);
-  color: var(--dh-text-light);
+  background: var(--dh-purple-deep);
+  color: #F5F3FF;
   min-height: 100vh;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   padding-bottom: 7rem;
 }
 
 .tim-work-container {
-  max-width: 1300px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
 }
 
-/* ── Monumental "Work." Header (No Tagline) ── */
+/* ── "Projects." Hero Header ── */
 .tim-work-header {
-  padding-top: 3rem;
-  padding-bottom: 2.5rem;
-}
-
-.tim-work-subtag {
-  font-family: var(--font-mono, monospace);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--dh-accent-sage);
-  margin-bottom: 0.75rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .tim-work-hero-title {
-  font-family: var(--font-display, sans-serif);
-  font-size: clamp(4rem, 16vw, 11rem);
-  font-weight: 900;
-  line-height: 0.86;
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(3.8rem, 10vw, 7.2rem);
+  font-weight: 800;
+  line-height: 1.05;
   letter-spacing: -0.04em;
-  color: #F3F8F5;
+  color: #F5F3FF;
+  margin: 0 0 1rem 0;
+}
+
+.tim-work-hero-dek {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: rgba(245, 243, 255, 0.72);
+  line-height: 1.6;
+  max-width: 65ch;
   margin: 0;
-  text-transform: none;
 }
 
-/* ── Tim Roussilhe Layout: Cards Stream + Fixed Chronology Rail ── */
-.tim-work-layout {
-  position: relative;
-  width: 100%;
-}
-
-.tim-cards-stream {
-  width: 100%;
+/* ── Project Cards (Using the exact generous Blog Card architecture) ── */
+.project-blog-stream {
   display: flex;
   flex-direction: column;
-  gap: 5.5rem;
+  gap: 3rem;
+  margin-bottom: 5rem;
 }
 
-/* ── Fixed Chronology Rail (Tim Roussilhe Iconic Right-Hand Indicator) ── */
-@media (min-width: 861px) {
-  .tim-chronology-rail {
-    position: fixed;
-    right: max(2.5rem, calc((100vw - 1300px) / 2 + 1rem));
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 60;
-    pointer-events: none;
-    user-select: none;
-  }
-}
-
-.tim-chronology-widget {
-  pointer-events: auto;
-  background: rgba(30, 48, 41, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--dh-sage-border);
-  border-radius: 1.5rem;
-  padding: 1.6rem 1.8rem;
-  box-shadow: 0 20px 48px rgba(10, 20, 15, 0.45);
-  min-width: 175px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tim-chronology-counter {
-  font-family: var(--font-mono, monospace);
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.tim-counter-active {
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--dh-accent-sage);
-}
-
-.tim-counter-slash {
-  font-size: 22px;
-  font-weight: 700;
-  color: rgba(243, 248, 245, 0.35);
-}
-
-.tim-counter-total {
-  font-size: 18px;
-  font-weight: 700;
-  color: rgba(243, 248, 245, 0.55);
-}
-
-.tim-chronology-date {
-  font-family: var(--font-mono, monospace);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--dh-accent-gold);
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.tim-chronology-client {
-  font-family: var(--font-display, sans-serif);
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(243, 248, 245, 0.85);
-  line-height: 1.35;
-}
-
-/* ── Mobile Chronology Chip (Fixed/Sticky Header Pill) ── */
-.tim-mobile-chronology-chip {
-  display: none;
-}
-
-/* ── Tim Roussilhe Card Placement Rhythm (Alternating Desktop Offsets) ── */
-.tim-project-card {
-  width: 100%;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (min-width: 992px) {
-  .tim-card--left {
-    width: 86%;
-    margin-right: auto;
-  }
-  .tim-card--right {
-    width: 86%;
-    margin-left: auto;
-  }
-  .tim-card--center {
-    width: 98%;
-    margin: 0 auto;
-  }
-}
-
-.tim-card-inner {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  background: var(--dh-sage-card);
-  border: 1px solid var(--dh-sage-border);
+.project-blog-card {
+  background: var(--dh-purple-card);
+  border: 1px solid var(--dh-purple-border);
   border-radius: 1.75rem;
-  overflow: hidden;
-  color: #F3F8F5;
-  box-shadow: 0 16px 40px rgba(10, 20, 15, 0.32);
+  padding: 2.5rem 2.75rem;
+  text-decoration: none;
+  color: #F5F3FF;
+  display: block;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, background 0.28s ease;
+  box-shadow: 0 16px 40px rgba(8, 6, 14, 0.4);
 }
 
-.tim-card-inner:hover {
+.project-blog-card:hover {
   transform: translateY(-4px);
-  border-color: var(--dh-sage-border-hover);
-  background: var(--dh-sage-card-hover);
+  border-color: var(--dh-purple-border-hover);
+  background: var(--dh-purple-card-hover);
 }
 
-/* ── Card Topbar (Category Tag on Left, Brand Logo on Right) ── */
-.tim-card-topbar {
-  padding: 1.4rem 2rem 1.1rem;
+.project-blog-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
-.tim-card-category-tag {
-  font-family: var(--font-mono, monospace);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--dh-accent-sage);
-  background: rgba(182, 219, 199, 0.1);
-  border: 1px solid rgba(182, 219, 199, 0.18);
-  padding: 4px 10px;
+.project-blog-pill {
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  color: var(--dh-accent-purple);
+  padding: 5px 12px;
   border-radius: 9999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.tim-card-brand-wrap {
+.project-blog-brand-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111A15;
-  border: 1px solid var(--dh-sage-border);
+  background: #0E0B16;
+  border: 1px solid var(--dh-purple-border);
   border-radius: 8px;
   padding: 4px 10px;
   height: 32px;
 }
 
-.tim-card-brand-logo {
-  max-height: 22px;
+.project-blog-brand-logo {
+  max-height: 20px;
   max-width: 90px;
   width: auto;
   object-fit: contain;
 }
 
-/* ── Card Visual Preview (Clean, NO text or timeline inside thumbnail) ── */
-.tim-card-visual {
+.project-blog-visual {
   width: 100%;
-  background: var(--dh-sage-preview);
-  border-top: 1px solid var(--dh-sage-border);
-  border-bottom: 1px solid var(--dh-sage-border);
-  padding: 1.25rem 2rem;
+  border-radius: 1.15rem;
   overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid var(--dh-purple-border);
+  background: #0E0B16;
 }
 
-.tim-card-img {
+.project-blog-img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 1rem;
-  border: 1px solid var(--dh-sage-border);
+  display: block;
   transition: transform 0.3s ease;
 }
 
-.tim-card-inner:hover .tim-card-img {
+.project-blog-card:hover .project-blog-img {
   transform: scale(1.02);
 }
 
-/* Agency Logo Visual Variation */
-.tim-card-logo-visual {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2.2rem 1.5rem;
-  background: rgba(22, 36, 30, 0.6);
-  border-radius: 1rem;
-}
-
-.tim-card-logo-box {
-  width: 80px;
-  height: 80px;
-  border-radius: 1.15rem;
-  background: #111A15;
-  border: 1px solid var(--dh-sage-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(10, 20, 15, 0.35);
-}
-
-.tim-card-logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.tim-card-logo-meta {
-  flex: 1;
-}
-
-.tim-card-logo-client {
-  font-family: var(--font-display, sans-serif);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #F3F8F5;
-  margin-bottom: 4px;
-}
-
-.tim-card-logo-role {
-  font-size: 1rem;
-  color: var(--dh-accent-sage);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-/* ── Timeline Bar Below the Thumbnail (From Month/Year to Month/Year) ── */
-.tim-card-timeline-bar {
-  display: flex;
+/* Timeline row below thumbnail */
+.project-blog-timeline-bar {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.85rem 2rem;
-  background: rgba(22, 36, 30, 0.65);
-  border-bottom: 1px solid var(--dh-sage-border);
+  padding: 0.5rem 0.9rem;
+  background: rgba(14, 11, 22, 0.7);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  margin-bottom: 1.25rem;
   font-family: var(--font-mono, monospace);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--dh-accent-gold);
+  color: var(--dh-accent-purple);
 }
 
-.tim-timeline-svg {
-  color: var(--dh-accent-sage);
+.project-blog-timeline-svg {
+  color: var(--dh-accent-blue);
   flex-shrink: 0;
 }
 
-.tim-timeline-text {
-  line-height: 1;
-}
-
-/* ── Card Info ── */
-.tim-card-info {
-  padding: 1.75rem 2rem 2rem;
-}
-
-.tim-card-client-line {
+.project-blog-client-line {
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 11.5px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--dh-accent-sage);
-  margin-bottom: 0.6rem;
-  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--dh-accent-blue);
+  font-weight: 800;
+  margin-bottom: 0.4rem;
 }
 
-.tim-client-role {
-  color: rgba(243, 248, 245, 0.65);
-}
-
-.tim-card-title {
+.project-blog-title {
   font-family: 'Bitter', Georgia, serif;
-  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #F3F8F5;
-  margin: 0 0 1rem 0;
+  color: #F5F3FF;
+  margin: 0 0 0.85rem 0;
 }
 
-.tim-card-tools-row {
+.project-blog-dek {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(245, 243, 255, 0.72);
+  margin: 0 0 1.25rem 0;
+  max-width: 78ch;
+}
+
+.project-blog-tools-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 1.25rem;
 }
 
-.tim-tool-pill {
+.project-blog-tool-pill {
   font-family: var(--font-mono, monospace);
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(243, 248, 245, 0.7);
-  background: rgba(182, 219, 199, 0.08);
+  color: rgba(245, 243, 255, 0.75);
+  background: rgba(167, 139, 250, 0.1);
   padding: 3px 8px;
   border-radius: 6px;
 }
 
-.tim-card-cta {
+.project-blog-cta {
   font-family: var(--font-mono, monospace);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 800;
-  color: var(--dh-accent-sage);
+  color: var(--dh-accent-purple);
   display: flex;
   align-items: center;
   gap: 6px;
   transition: transform 0.2s ease;
 }
 
-.tim-card-inner:hover .tim-card-cta {
+.project-blog-card:hover .project-blog-cta {
   transform: translateX(4px);
 }
 
-/* ── Certifications Section (Chronological Archive Footer) ── */
-.tim-certs-section {
+/* ── 2. Damian Watracz Experience Section (Matching Reference Screenshot 1) ── */
+.watracz-exp-section {
   padding-top: 5rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid var(--dh-purple-border);
+}
+
+.watracz-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dh-accent-purple);
+  margin-bottom: 0.85rem;
+}
+
+.watracz-heading {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #F5F3FF;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.12;
+}
+
+.watracz-intro {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.65;
+  color: rgba(245, 243, 255, 0.7);
+  max-width: 72ch;
+  margin-bottom: 3rem;
+}
+
+.watracz-intro a {
+  color: #F5F3FF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.watracz-intro a:hover {
+  color: var(--dh-accent-purple);
+}
+
+.watracz-exp-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--dh-purple-border);
+}
+
+.watracz-exp-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr 1.2fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 0.75rem;
+  border-bottom: 1px solid var(--dh-purple-border);
+  text-decoration: none;
+  color: #F5F3FF;
+  transition: background 0.2s ease, padding 0.2s ease;
+  border-radius: 0.65rem;
+}
+
+.watracz-exp-row:hover {
+  background: rgba(167, 139, 250, 0.08);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.watracz-company {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #F5F3FF;
+}
+
+.watracz-role {
+  font-size: 1.02rem;
+  color: rgba(245, 243, 255, 0.78);
+}
+
+.watracz-dates {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  color: rgba(245, 243, 255, 0.55);
+}
+
+.watracz-arrow {
+  color: var(--dh-accent-purple);
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.watracz-exp-row:hover .watracz-arrow {
+  transform: translateX(4px);
+  color: #F5F3FF;
+}
+
+/* ── 3. Impact Metrics Cards (Matching Reference Screenshot 3) ── */
+.watracz-metrics-section {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.watracz-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.watracz-metric-card {
+  background: var(--dh-purple-card);
+  border: 1px solid var(--dh-purple-border);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 10px 24px rgba(8, 6, 14, 0.3);
+}
+
+.watracz-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--dh-purple-border-hover);
+}
+
+.watracz-metric-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(167, 139, 250, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watracz-metric-badge::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dh-accent-purple);
+}
+
+.watracz-metric-value {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--dh-accent-purple);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.watracz-metric-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(245, 243, 255, 0.75);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+/* ── 4. Certifications Section (Purple Palette) ── */
+.tim-certs-section {
+  padding-top: 4rem;
   padding-bottom: 2rem;
 }
 
 .tim-certs-card {
-  background: var(--dh-sage-card);
-  border: 1px solid var(--dh-sage-border);
+  background: var(--dh-purple-card);
+  border: 1px solid var(--dh-purple-border);
   border-radius: 1.75rem;
   padding: 2.5rem;
   display: flex;
   align-items: center;
   gap: 2.25rem;
+  box-shadow: 0 16px 40px rgba(8, 6, 14, 0.35);
 }
 
 .tim-cert-logo-box {
   width: 84px;
   height: 84px;
   border-radius: 1.25rem;
-  background: #111A15;
-  border: 1px solid var(--dh-sage-border);
+  background: #0E0B16;
+  border: 1px solid var(--dh-purple-border);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(10, 20, 15, 0.35);
+  box-shadow: 0 8px 24px rgba(8, 6, 14, 0.35);
   padding: 12px;
 }
 
@@ -6720,7 +6772,7 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 800;
-  color: var(--dh-accent-sage);
+  color: var(--dh-accent-purple);
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
 }
@@ -6729,7 +6781,7 @@ body, .page-body {
   font-family: 'Bitter', Georgia, serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 800;
-  color: #F3F8F5;
+  color: #F5F3FF;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
 }
@@ -6737,16 +6789,17 @@ body, .page-body {
 .tim-cert-meta {
   font-family: var(--font-mono, monospace);
   font-size: 12.5px;
-  color: rgba(243, 248, 245, 0.7);
+  color: rgba(245, 243, 255, 0.7);
   margin-bottom: 0.75rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .tim-cert-desc {
   font-size: 0.95rem;
   line-height: 1.55;
-  color: rgba(243, 248, 245, 0.75);
+  color: rgba(245, 243, 255, 0.75);
   margin: 0 0 1.25rem 0;
   max-width: 68ch;
 }
@@ -6758,8 +6811,8 @@ body, .page-body {
   font-family: var(--font-mono, monospace);
   font-size: 13px;
   font-weight: 800;
-  color: #16241E;
-  background: var(--dh-accent-sage);
+  color: #120E1C;
+  background: var(--dh-accent-purple);
   padding: 8px 18px;
   border-radius: 9999px;
   text-decoration: none;
@@ -6770,6 +6823,50 @@ body, .page-body {
   transform: scale(1.03);
 }
 
+/* ── 5. About Skills Section (Matching Reference Screenshot 2) ── */
+.watracz-skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  margin-top: 3.5rem;
+  margin-bottom: 4rem;
+  padding: 3rem 2.75rem;
+  background: var(--dh-purple-card);
+  border: 1px solid var(--dh-purple-border);
+  border-radius: 1.75rem;
+  box-shadow: 0 16px 40px rgba(8, 6, 14, 0.35);
+}
+
+.watracz-skills-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.watracz-skills-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 255, 0.55);
+  margin-bottom: 1.5rem;
+}
+
+.watracz-skills-list {
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.8;
+  color: #F5F3FF;
+}
+
+.watracz-skills-slash {
+  color: rgba(167, 139, 250, 0.45);
+  font-weight: 400;
+  margin: 0 0.5rem;
+}
+
+/* ── Floating Scroll-to-Top Button ── */
 .tim-floating-top-btn {
   position: fixed;
   bottom: 2rem;
@@ -6777,15 +6874,15 @@ body, .page-body {
   width: 44px;
   height: 44px;
   border-radius: 9999px;
-  background: rgba(30, 48, 41, 0.92);
+  background: rgba(30, 24, 48, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--dh-sage-border);
-  color: var(--dh-accent-sage);
+  border: 1px solid var(--dh-purple-border);
+  color: var(--dh-accent-purple);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 28px rgba(10, 20, 15, 0.45);
+  box-shadow: 0 10px 28px rgba(8, 6, 14, 0.45);
   z-index: 70;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
@@ -6793,8 +6890,8 @@ body, .page-body {
 
 .tim-floating-top-btn:hover {
   transform: translateY(-2px);
-  background: var(--dh-sage-card-hover);
-  color: #F3F8F5;
+  background: var(--dh-purple-card-hover);
+  color: #F5F3FF;
 }
 
 /* ── Mobile Responsive Adaptation ── */
@@ -6804,84 +6901,48 @@ body, .page-body {
   }
   .tim-work-header {
     padding-top: 2rem;
-    padding-bottom: 1.25rem;
+    padding-bottom: 2rem;
   }
   .tim-work-hero-title {
-    font-size: clamp(3.4rem, 20vw, 5.8rem);
-    letter-spacing: -0.04em;
+    font-size: clamp(3.4rem, 18vw, 5.5rem);
   }
-  .tim-chronology-rail {
-    display: none;
-  }
-
-  .tim-cards-stream {
-    gap: 2rem;
-  }
-  .tim-project-card {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-  .tim-card-inner {
+  .project-blog-card {
+    padding: 1.5rem 1.35rem;
     border-radius: 1.35rem;
   }
-  .tim-card-topbar {
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .project-blog-img {
+    height: 180px;
   }
-  .tim-card-category-tag {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-  .tim-card-brand-wrap {
-    height: 28px;
-    padding: 3px 8px;
-  }
-  .tim-card-brand-logo {
-    max-height: 18px;
-  }
-  .tim-card-visual {
-    padding: 0.75rem 1.25rem;
-  }
-  .tim-card-img {
-    height: 175px;
-    border-radius: 0.85rem;
-  }
-  .tim-card-timeline-bar {
-    padding: 0.7rem 1.25rem;
-    font-size: 10.5px;
-    gap: 6px;
-  }
-  .tim-card-logo-visual {
-    padding: 1.5rem 1.25rem;
-    gap: 1.25rem;
-  }
-  .tim-card-logo-box {
-    width: 60px;
-    height: 60px;
-  }
-  .tim-card-logo-client {
-    font-size: 1.25rem;
-  }
-  .tim-card-info {
-    padding: 1.25rem 1.25rem 1.4rem;
-  }
-  .tim-card-title {
-    font-size: 1.35rem;
+  .project-blog-title {
+    font-size: 1.45rem;
     line-height: 1.28;
-    margin-bottom: 0.75rem;
   }
-  .tim-card-tools-row {
-    margin-bottom: 1rem;
-    gap: 5px;
+  .watracz-exp-row {
+    grid-template-columns: 1fr auto;
+    gap: 0.4rem 1rem;
+    padding: 1.35rem 0.25rem;
   }
-  .tim-tool-pill {
-    font-size: 9.5px;
-    padding: 2px 7px;
+  .watracz-role {
+    grid-column: 1 / 2;
+    font-size: 0.95rem;
   }
-  .tim-card-cta {
+  .watracz-dates {
+    grid-column: 1 / 2;
     font-size: 12px;
+  }
+  .watracz-arrow {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+  .watracz-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .watracz-skills-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
   }
   .tim-certs-card {
     flex-direction: column;
@@ -6894,6 +6955,12 @@ body, .page-body {
     right: 1.25rem;
     width: 42px;
     height: 42px;
+  }
+}
+
+@media (max-width: 520px) {
+  .watracz-metrics-grid {
+    grid-template-columns: 1fr;
   }
 }
 
