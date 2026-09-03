@@ -896,17 +896,17 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 28px 20px 40px !important;
     box-sizing: border-box !important;
   }
-  /* Tagline stays close to headline */
+  /* Tagline — same 28px gap as desktop */
   .hero-inner .sub, .hero-container-z .sub {
-    margin-top: 20px !important;
+    margin-top: 28px !important;
     margin-bottom: 0 !important;
   }
-  /* Buttons pin to the bottom via margin-top: auto */
+  /* Buttons — same margin-top:auto + 48px breathing room as desktop */
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
     width: 100% !important;
     margin-top: auto !important;
-    padding-top: 28px !important;
+    padding-top: 48px !important;
     flex-shrink: 0 !important;
   }
   .hero-cta .btn, .hero-ctas-row .cta-button, .hero-ctas-row .btn-outline {
