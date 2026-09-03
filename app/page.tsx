@@ -4,9 +4,19 @@ import type { Metadata } from 'next';
 import CalendlyButton from '@/components/CalendlyButton';
 
 export const metadata: Metadata = {
-  title: 'Varneet Singh — E-Commerce Data Analyst & Operations Specialist',
+  title: 'Varneet Singh — Business Analyst',
   description:
-    'Varneet Singh turns messy operational data into clear e-commerce decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
+    'Varneet Singh turns messy operational data into clear business decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
+  openGraph: {
+    title: 'Varneet Singh — Business Analyst',
+    description:
+      'Varneet Singh turns messy operational data into clear business decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
+  },
+  twitter: {
+    title: 'Varneet Singh — Business Analyst',
+    description:
+      'Varneet Singh turns messy operational data into clear business decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
+  },
 };
 
 export default function HomePage() {

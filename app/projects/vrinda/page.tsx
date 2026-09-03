@@ -4,14 +4,20 @@ import type { Metadata } from 'next';
 import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
-  title: 'Vrinda Store Retail Sales Analysis | Varneet Singh',
+  title: 'Vrinda Store Retail Sales Analysis | Varneet Singh — Business Analyst',
   description:
     'Retail sales auditing and customer demographic profiling for Vrinda Store, conducted in Microsoft Excel.',
   openGraph: {
-    title: 'Vrinda Store Retail Sales Analysis | Varneet Singh',
+    title: 'Vrinda Store Retail Sales Analysis | Varneet Singh — Business Analyst',
     description:
       'Retail sales auditing and customer demographic profiling for Vrinda Store, conducted in Microsoft Excel.',
-    images: ['/assets/vrinda-preview.jpg'],
+    images: ['https://varneet.in/assets/vrinda-preview.jpg'],
+  },
+  twitter: {
+    title: 'Vrinda Store Retail Sales Analysis | Varneet Singh — Business Analyst',
+    description:
+      'Retail sales auditing and customer demographic profiling for Vrinda Store, conducted in Microsoft Excel.',
+    images: ['https://varneet.in/assets/vrinda-preview.jpg'],
   },
 };
 

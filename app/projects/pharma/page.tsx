@@ -4,14 +4,20 @@ import type { Metadata } from 'next';
 import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
-  title: 'I.P. Pharma Operational Tracking | Varneet Singh',
+  title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
   description:
-    'Automated stock management and sales representative tracking dashboard developed for a pharmaceutical distributor.',
+    'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
   openGraph: {
-    title: 'I.P. Pharma Operational Tracking | Varneet Singh',
+    title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
     description:
-      'Automated stock management and sales representative tracking dashboard developed for a pharmaceutical distributor.',
-    images: ['/assets/pharma-preview.jpg'],
+      'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
+    images: ['https://varneet.in/assets/pharma-preview.jpg'],
+  },
+  twitter: {
+    title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
+    description:
+      'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
+    images: ['https://varneet.in/assets/pharma-preview.jpg'],
   },
 };
 

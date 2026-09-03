@@ -3,9 +3,21 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'MRM / McCann Case Study | Varneet Singh',
+  title: 'MRM / McCann Case Study | Varneet Singh — Business Analyst',
   description:
     'Ad spend auditing, cross-functional campaign coordination, and milestone delivery tracking at MRM / McCann.',
+  openGraph: {
+    title: 'MRM / McCann Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Ad spend auditing, cross-functional campaign coordination, and milestone delivery tracking at MRM / McCann.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'MRM / McCann Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Ad spend auditing, cross-functional campaign coordination, and milestone delivery tracking at MRM / McCann.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
 };
 
 export default function MRMMcCannCaseStudyPage() {

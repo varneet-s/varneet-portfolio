@@ -4,14 +4,20 @@ import type { Metadata } from 'next';
 import { articles } from '@/lib/data/writing';
 
 export const metadata: Metadata = {
-  title: 'Thoughts & Articles | Varneet Singh',
+  title: 'Blog & Articles | Varneet Singh — Business Analyst',
   description:
     'Reflections on business analysis, requirements gathering, operational frameworks, and career transitions by Varneet Singh.',
   openGraph: {
-    title: 'Thoughts & Articles | Varneet Singh',
+    title: 'Blog & Articles | Varneet Singh — Business Analyst',
     description:
       'Writing about business operations, requirements engineering, and analytical frameworks.',
-    images: ['/assets/index-preview.jpg'],
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'Blog & Articles | Varneet Singh — Business Analyst',
+    description:
+      'Writing about business operations, requirements engineering, and analytical frameworks.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
 

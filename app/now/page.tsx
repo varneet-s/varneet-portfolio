@@ -3,9 +3,21 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Now | Varneet Singh',
+  title: 'Now | Varneet Singh — Business Analyst',
   description:
     'What Varneet Singh is working on right now — current focus, learning, and projects.',
+  openGraph: {
+    title: 'Now | Varneet Singh — Business Analyst',
+    description:
+      'What Varneet Singh is working on right now — current focus, learning, and projects.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'Now | Varneet Singh — Business Analyst',
+    description:
+      'What Varneet Singh is working on right now — current focus, learning, and projects.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
 };
 
 export default function NowPage() {

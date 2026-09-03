@@ -3,14 +3,20 @@ import type { Metadata } from 'next';
 import WorkChronology from '@/components/WorkChronology';
 
 export const metadata: Metadata = {
-  title: 'Projects | Varneet Singh — Business Analysis & Operations',
+  title: 'Projects | Varneet Singh — Business Analyst',
   description:
     'Featured projects and operational case studies in business analysis, inventory forecasting, and data modeling by Varneet Singh.',
   openGraph: {
-    title: 'Projects | Varneet Singh',
+    title: 'Projects | Varneet Singh — Business Analyst',
     description:
       'Featured case studies in business operations, requirements engineering, and analytical modeling.',
-    images: ['/assets/projects-preview.jpg'],
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'Projects | Varneet Singh — Business Analyst',
+    description:
+      'Featured case studies in business operations, requirements engineering, and analytical modeling.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
 

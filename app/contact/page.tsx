@@ -3,14 +3,20 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Let's Talk | Varneet Singh",
+  title: "Let's Talk | Varneet Singh — Business Analyst",
   description:
     'Get in touch with Varneet Singh — BA roles in e-commerce and consumer tech, freelance engagements, or just a conversation about data.',
   openGraph: {
-    title: "Let's Talk | Varneet Singh",
+    title: "Let's Talk | Varneet Singh — Business Analyst",
     description:
       'Get in touch with Varneet Singh — BA roles in e-commerce and consumer tech, freelance engagements, or just a conversation about data.',
-    images: ['/assets/contact-preview.jpg'],
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: "Let's Talk | Varneet Singh — Business Analyst",
+    description:
+      'Get in touch with Varneet Singh — BA roles in e-commerce and consumer tech, freelance engagements, or just a conversation about data.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
 

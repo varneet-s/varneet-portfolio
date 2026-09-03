@@ -3,9 +3,21 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Labour Law Advisor Case Study | Varneet Singh',
+  title: 'Labour Law Advisor Case Study | Varneet Singh — Business Analyst',
   description:
     'Growth operations, organic audience acquisition, and operational SOPs scaling Jagruk.Shop by 10x at Labour Law Advisor.',
+  openGraph: {
+    title: 'Labour Law Advisor Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Growth operations, organic audience acquisition, and operational SOPs scaling Jagruk.Shop by 10x at Labour Law Advisor.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'Labour Law Advisor Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Growth operations, organic audience acquisition, and operational SOPs scaling Jagruk.Shop by 10x at Labour Law Advisor.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
 };
 
 export default function LLACaseStudyPage() {

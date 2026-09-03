@@ -8,8 +8,8 @@ import ScrollReveal from '@/components/ScrollReveal';
 export const metadata: Metadata = {
   metadataBase: new URL('https://varneet.in'),
   title: {
-    default: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
-    template: '%s | Varneet Singh',
+    default: 'Varneet Singh — Business Analyst',
+    template: '%s | Varneet Singh — Business Analyst',
   },
   description:
     'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     icon: '/assets/logo-wordmark.svg',
   },
   openGraph: {
-    title: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
+    title: 'Varneet Singh — Business Analyst',
     description:
       'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
     url: 'https://varneet.in',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
+    title: 'Varneet Singh — Business Analyst',
     description:
       'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
     images: ['https://varneet.in/assets/og-preview.jpg'],

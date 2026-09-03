@@ -3,11 +3,17 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Me & My Background | Varneet Singh',
+  title: 'About Me & My Life | Varneet Singh — Business Analyst',
   description:
     'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
   openGraph: {
-    title: 'About Me & My Background | Varneet Singh',
+    title: 'About Me & My Life | Varneet Singh — Business Analyst',
+    description:
+      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'About Me & My Life | Varneet Singh — Business Analyst',
     description:
       'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
     images: ['https://varneet.in/assets/og-preview.jpg'],

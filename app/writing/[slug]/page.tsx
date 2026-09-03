@@ -22,11 +22,17 @@ export async function generateMetadata({
   if (!article) return { title: 'Article Not Found' };
 
   return {
-    title: `${article.title} — Varneet Singh`,
+    title: `${article.title} — Varneet Singh — Business Analyst`,
     description: article.description,
     openGraph: {
-      title: `${article.title} — Varneet Singh`,
+      title: `${article.title} — Varneet Singh — Business Analyst`,
       description: article.description,
+      images: ['https://varneet.in/assets/og-preview.jpg'],
+    },
+    twitter: {
+      title: `${article.title} — Varneet Singh — Business Analyst`,
+      description: article.description,
+      images: ['https://varneet.in/assets/og-preview.jpg'],
     },
   };
 }

@@ -4,14 +4,20 @@ import type { Metadata } from 'next';
 import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
-  title: 'Olist E-Commerce Business Analysis — Varneet Singh',
+  title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
   description:
-    'Analysed ~99,000 orders from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses — delivery delays, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel, Tableau, and BPMN.',
+    'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses — delivery delays, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel, Tableau, and BPMN.',
   openGraph: {
-    title: 'Olist E-Commerce Business Analysis — Varneet Singh',
+    title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
     description:
-      'Analysed ~99,000 orders from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses.',
-    images: ['/assets/olist-preview.png'],
+      'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses.',
+    images: ['https://varneet.in/assets/olist-preview.png'],
+  },
+  twitter: {
+    title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
+    description:
+      'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses.',
+    images: ['https://varneet.in/assets/olist-preview.png'],
   },
 };
 

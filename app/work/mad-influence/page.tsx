@@ -3,9 +3,21 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mad Influence Case Study | Varneet Singh',
+  title: 'Mad Influence Case Study | Varneet Singh — Business Analyst',
   description:
     'Influencer campaign operations, cross-platform telemetry aggregation, and automated Excel reporting for corporate brand partners at Mad Influence.',
+  openGraph: {
+    title: 'Mad Influence Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Influencer campaign operations, cross-platform telemetry aggregation, and automated Excel reporting for corporate brand partners at Mad Influence.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
+  twitter: {
+    title: 'Mad Influence Case Study | Varneet Singh — Business Analyst',
+    description:
+      'Influencer campaign operations, cross-platform telemetry aggregation, and automated Excel reporting for corporate brand partners at Mad Influence.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
+  },
 };
 
 export default function MadInfluenceCaseStudyPage() {
