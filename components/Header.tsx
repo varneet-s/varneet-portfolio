@@ -82,17 +82,17 @@ export default function Header() {
           </Link>
         </div>
         <nav className="nav-links-desktop">
-          <Link href="/projects/" className={isProjects ? 'active' : ''}>
+          <Link href="/projects/" className={`nav-box-btn ${isProjects ? 'active' : ''}`}>
             Work
           </Link>
-          <Link href="/blog/" className={isWriting ? 'active' : ''}>
+          <Link href="/blog/" className={`nav-box-btn ${isWriting ? 'active' : ''}`}>
             Blog
           </Link>
-          <Link href="/about/" className={isAbout ? 'active' : ''}>
+          <Link href="/about/" className={`nav-box-btn ${isAbout ? 'active' : ''}`}>
             About
           </Link>
         </nav>
-        <CalendlyButton className="cta">
+        <CalendlyButton className="cta nav-box-cta">
           Let&apos;s Talk &rarr;
         </CalendlyButton>
         <button

@@ -42,7 +42,8 @@ export default function HomePage() {
         <div className="hero-highlight-band">
           <div className="hero-highlight-inner">
             <div className="hero-highlight-text">
-              PEOPLE WHO READ IT<br />DO.
+              <span className="hero-hl-line hero-hl-line-1">PEOPLE WHO READ IT</span>
+              <span className="hero-hl-line hero-hl-line-2">DO.</span>
             </div>
           </div>
         </div>

@@ -202,15 +202,15 @@ p {
 }
 
 header nav, .nav-links-desktop {
-  display: none;
+  display: none !important;
 }
 
-.cta {
-  display: none;
+.cta, .cta.nav-box-cta {
+  display: none !important;
 }
 
 .menu-toggle {
-  display: block;
+  display: block !important;
   font-family: var(--font-mono, monospace);
   font-size: 13px;
   font-weight: 700;
@@ -292,13 +292,22 @@ header nav, .nav-links-desktop {
 
 .hero-highlight-text {
   font-family: var(--font-display, sans-serif) !important;
-  font-size: clamp(2.1rem, 10.5vw, 3rem) !important;
+  font-size: clamp(1.8rem, 8vw, 2.7rem) !important;
   line-height: 0.95 !important;
   font-weight: 900 !important;
   color: #F6F1E4 !important;
   text-transform: uppercase !important;
   letter-spacing: -0.01em !important;
   margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.hero-hl-line {
+  display: block !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
 }
 
 .hero-inner--sub {
@@ -366,47 +375,101 @@ header nav, .nav-links-desktop {
 }
 
 /* ==========================================================================
-   DESKTOP OVERRIDES (min-width: 641px)
+   DESKTOP OVERRIDES (min-width: 769px)
    ========================================================================== */
-@media (min-width: 641px) {
-  /* Section 1: Header Desktop */
+@media (min-width: 769px) {
+  /* Section 1: Header Desktop (Local Studio Style - Boxed & Equal Distance) */
   #main-header, header {
-    padding: 24px 32px;
+    display: grid !important;
+    grid-template-columns: auto 1fr 1fr 1fr auto !important;
+    align-items: center !important;
+    padding: 16px 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 16px !important;
+  }
+
+  .logo {
+    justify-self: start !important;
+    grid-column: 1 !important;
   }
 
   .logo, .logo-link {
     font-size: 24px;
+    letter-spacing: -0.01em;
   }
 
   header nav, .nav-links-desktop {
-    display: flex;
-    gap: 0;
+    display: contents !important;
   }
 
-  header nav a, .nav-links-desktop a {
-    font-family: var(--font-mono, monospace);
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 8px 20px;
-    border-left: 1px solid var(--ink, #0C0D0E);
-    text-decoration: none;
-    color: var(--ink, #0C0D0E);
+  .nav-box-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: center !important;
+    border: 1.5px solid var(--ink, #0C0D0E) !important;
+    border-radius: 4px !important;
+    padding: 6px 18px !important;
+    background: transparent !important;
+    color: var(--ink, #0C0D0E) !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  .cta {
-    display: inline-block;
-    font-family: var(--font-mono, monospace);
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: var(--copper, #FF3B00);
-    color: var(--cornsilk, #FFFDF5);
-    padding: 14px 24px;
-    text-decoration: none;
+  .nav-box-btn:hover {
+    background: var(--ink, #0C0D0E) !important;
+    color: #F6F1E4 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .nav-box-btn.active {
+    background: var(--ink, #0C0D0E) !important;
+    color: #F6F1E4 !important;
+  }
+
+  /* Desktop CTA button - Local Studio Boxed Style */
+  .cta, .cta.nav-box-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: end !important;
+    grid-column: 5 !important;
+    border: 1.5px solid var(--ink, #0C0D0E) !important;
+    border-radius: 4px !important;
+    padding: 6px 18px !important;
+    background: transparent !important;
+    color: var(--ink, #0C0D0E) !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .cta:hover, .cta.nav-box-cta:hover {
+    background: var(--copper, #FF3B00) !important;
+    color: #FFFDF5 !important;
+    border-color: var(--copper, #FF3B00) !important;
+    transform: translateY(-1px) !important;
   }
 
   .menu-toggle {
-    display: none;
+    display: none !important;
   }
 
   /* Section 2: Tag Strip Desktop */
@@ -452,8 +515,8 @@ header nav, .nav-links-desktop {
   }
 
   .hero-highlight-text {
-    font-size: clamp(3.5rem, 8.5vw, 7.5rem) !important;
-    line-height: 0.9 !important;
+    font-size: clamp(2.4rem, 5.8vw, 6.2rem) !important;
+    line-height: 0.92 !important;
     letter-spacing: -0.02em !important;
   }
 
@@ -5024,6 +5087,8 @@ body, .page-body {
   font-size: clamp(3.8rem, 18.6vw, 20vw) !important;
   font-weight: 900 !important;
   color: #FF3B00 !important;
+  -webkit-text-stroke: 2.5px #0C0D0E !important;
+  text-shadow: 4px 4px 0px #0C0D0E !important;
   letter-spacing: 0 !important;
   line-height: 0.88 !important;
   text-transform: uppercase !important;
@@ -5050,6 +5115,8 @@ body, .page-body {
     z-index: 1 !important;
     letter-spacing: 0 !important;
     padding: 0 2px !important;
+    -webkit-text-stroke: 1.5px #0C0D0E !important;
+    text-shadow: 3px 3px 0px #0C0D0E !important;
   }
   .local-footer-content {
     margin-top: 0 !important;
@@ -6135,53 +6202,29 @@ body, .page-body {
   color: #F5F3FF !important;
 }
 
-#main-header[data-active="projects"] .nav-links-desktop a,
-#main-header[data-active="writing"] .nav-links-desktop a {
-  position: relative !important;
-  color: rgba(245, 243, 255, 0.75) !important;
-  border-left: none !important;
-  transition: color 150ms ease !important;
+#main-header[data-active="projects"] .nav-box-btn,
+#main-header[data-active="writing"] .nav-box-btn,
+#main-header[data-active="projects"] .cta.nav-box-cta,
+#main-header[data-active="writing"] .cta.nav-box-cta {
+  border: 1.5px solid rgba(245, 243, 255, 0.4) !important;
+  color: #F5F3FF !important;
+  background: transparent !important;
 }
 
-#main-header[data-active="projects"] .nav-links-desktop a::after,
-#main-header[data-active="writing"] .nav-links-desktop a::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: 0px !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 2px !important;
-  background-color: var(--brand-purple-accent, #A78BFA) !important;
-  transform: scaleX(0) !important;
-  transform-origin: left !important;
-  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-#main-header[data-active="projects"] .nav-links-desktop a:hover::after,
-#main-header[data-active="projects"] .nav-links-desktop a.active::after,
-#main-header[data-active="writing"] .nav-links-desktop a:hover::after,
-#main-header[data-active="writing"] .nav-links-desktop a.active::after {
-  transform: scaleX(1) !important;
-}
-
-#main-header[data-active="projects"] .nav-links-desktop a:hover,
-#main-header[data-active="projects"] .nav-links-desktop a.active,
-#main-header[data-active="writing"] .nav-links-desktop a:hover,
-#main-header[data-active="writing"] .nav-links-desktop a.active {
-  color: var(--brand-purple-accent, #A78BFA) !important;
+#main-header[data-active="projects"] .nav-box-btn:hover,
+#main-header[data-active="projects"] .nav-box-btn.active,
+#main-header[data-active="writing"] .nav-box-btn:hover,
+#main-header[data-active="writing"] .nav-box-btn.active,
+#main-header[data-active="projects"] .cta.nav-box-cta:hover,
+#main-header[data-active="writing"] .cta.nav-box-cta:hover {
+  background: #F5F3FF !important;
+  color: #120E1C !important;
+  border-color: #F5F3FF !important;
 }
 
 #main-header[data-active="projects"] .menu-toggle,
 #main-header[data-active="writing"] .menu-toggle {
   color: #F5F3FF !important;
-}
-
-#main-header[data-active="projects"] .cta,
-#main-header[data-active="writing"] .cta {
-  background: var(--brand-purple-accent, #A78BFA) !important;
-  color: #120E1C !important;
-  font-weight: 800 !important;
-  border: none !important;
 }
 
 /* 3. About Header (Requested Green Sage Palette #16241E) */
@@ -6204,45 +6247,23 @@ body, .page-body {
   color: var(--saved-sage-text, #F3F8F5) !important;
 }
 
-#main-header[data-active="about"] .nav-links-desktop a {
-  position: relative !important;
-  color: rgba(243, 248, 245, 0.78) !important;
-  border-left: none !important;
-  transition: color 150ms ease !important;
+#main-header[data-active="about"] .nav-box-btn,
+#main-header[data-active="about"] .cta.nav-box-cta {
+  border: 1.5px solid rgba(123, 224, 173, 0.6) !important;
+  color: var(--saved-sage-text, #F3F8F5) !important;
+  background: transparent !important;
 }
 
-#main-header[data-active="about"] .nav-links-desktop a::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: 0px !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 2px !important;
-  background-color: var(--saved-sage-accent, #7BE0AD) !important;
-  transform: scaleX(0) !important;
-  transform-origin: left !important;
-  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-#main-header[data-active="about"] .nav-links-desktop a:hover::after,
-#main-header[data-active="about"] .nav-links-desktop a.active::after {
-  transform: scaleX(1) !important;
-}
-
-#main-header[data-active="about"] .nav-links-desktop a:hover,
-#main-header[data-active="about"] .nav-links-desktop a.active {
-  color: var(--saved-sage-accent, #7BE0AD) !important;
+#main-header[data-active="about"] .nav-box-btn:hover,
+#main-header[data-active="about"] .nav-box-btn.active,
+#main-header[data-active="about"] .cta.nav-box-cta:hover {
+  background: var(--saved-sage-accent, #7BE0AD) !important;
+  color: #16241E !important;
+  border-color: var(--saved-sage-accent, #7BE0AD) !important;
 }
 
 #main-header[data-active="about"] .menu-toggle {
   color: var(--saved-sage-text, #F3F8F5) !important;
-}
-
-#main-header[data-active="about"] .cta {
-  background: var(--saved-sage-accent, #7BE0AD) !important;
-  color: #16241E !important;
-  font-weight: 800 !important;
-  border: none !important;
 }
 
 /* 4. About Hero Background (Requested Green Sage) */
