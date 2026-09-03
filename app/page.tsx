@@ -32,23 +32,14 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="hero" id="hero-section">
         <div className="hero-inner">
-          <h1 className="hero-headline">
+          <h1 className="hero-headline" id="hero-heading">
             <span className="line">DATA DOESN&apos;T</span>
             <span className="line">DECIDE.</span>
+            <span className="line highlight-line">
+              <span className="highlight">PEOPLE WHO READ IT<br />DO.</span>
+            </span>
           </h1>
-        </div>
 
-        {/* Full-Bleed Highlight Band Touching Left and Right Corners */}
-        <div className="hero-highlight-band">
-          <div className="hero-highlight-inner">
-            <div className="hero-highlight-text">
-              <span className="hero-hl-line hero-hl-line-1">PEOPLE WHO READ IT</span>
-              <span className="hero-hl-line hero-hl-line-2">DO.</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-inner hero-inner--sub">
           <p className="sub">
             I turn messy spreadsheets, scattered orders, and broken workflows into
             decisions people can act on fast.
