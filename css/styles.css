@@ -190,8 +190,14 @@ body {
 }
 
 #main-header[data-scrolled="true"], header[data-scrolled="true"] {
-  border-bottom: 1px solid var(--border-color, rgba(12, 13, 14, 0.15)) !important;
+  border-bottom: 1px solid #110E1B !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Dissolve border when footer is in view */
+#main-header[data-at-bottom="true"], header[data-at-bottom="true"] {
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
 }
 
 @media (min-width: 769px) {

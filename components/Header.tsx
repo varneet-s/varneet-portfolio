@@ -12,9 +12,18 @@ export default function Header() {
   const [navHidden, setNavHidden] = useState(false);
   const [navRevealed, setNavRevealed] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [atBottom, setAtBottom] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      // Dissolve border when footer comes into view
+      const distanceFromBottom =
+        document.documentElement.scrollHeight -
+        window.scrollY -
+        window.innerHeight;
+      setAtBottom(distanceFromBottom < 80);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -74,6 +83,7 @@ export default function Header() {
         id="main-header"
         data-active={activeData}
         data-scrolled={scrolled ? 'true' : 'false'}
+        data-at-bottom={atBottom ? 'true' : 'false'}
         className={`${navHidden ? 'nav-hidden' : ''} ${navRevealed ? 'nav-revealed' : ''}`}
       >
         <div className="logo">
