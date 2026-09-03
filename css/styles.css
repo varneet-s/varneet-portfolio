@@ -221,35 +221,9 @@ header nav, .nav-links-desktop {
   color: var(--ink, #0C0D0E);
 }
 
-/* ── Section 2: Tag Strip (Mobile & Desktop) ── */
+/* ── Section 2: Tag Strip (Hidden on Mobile) ── */
 .tag-strip {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr !important;
-  border-top: 2px solid var(--ink, #0C0D0E) !important;
-  border-bottom: 2px solid var(--ink, #0C0D0E) !important;
-  background: var(--cornsilk, #FFFDF5) !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-.tag-strip span {
-  font-family: var(--font-mono, monospace) !important;
-  font-size: clamp(10px, 2.8vw, 14px) !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  padding: 12px 6px !important;
-  border-bottom: none !important;
-  border-right: 2px solid var(--ink, #0C0D0E) !important;
-  text-align: center !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-sizing: border-box !important;
-  white-space: nowrap !important;
-}
-
-.tag-strip span:last-child {
-  border-right: none !important;
+  display: none !important;
 }
 
 /* ── Hero Section (Same Background as Nav Bar: #F6F1E4) ── */
@@ -425,25 +399,39 @@ header nav, .nav-links-desktop {
     display: none !important;
   }
 
-  /* Section 2: Tag Strip Desktop */
+  /* Section 2: Tag Strip Desktop (Visible on Desktop) */
   .tag-strip {
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    border-top: 2px solid var(--ink, #0C0D0E) !important;
+    border-bottom: 2px solid var(--ink, #0C0D0E) !important;
+    background: var(--cornsilk, #FFFDF5) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .tag-strip span {
-    font-size: 14px;
-    padding: 16px 24px;
-    border-bottom: none;
-    border-right: 2px solid var(--ink, #0C0D0E);
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 16px 24px !important;
+    border-bottom: none !important;
+    border-right: 2px solid var(--ink, #0C0D0E) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    color: var(--ink, #0C0D0E) !important;
   }
 
   .tag-strip span:last-child {
-    border-right: none;
-    text-align: right;
+    border-right: none !important;
+    text-align: right !important;
   }
 
   .tag-strip span:nth-child(2) {
-    text-align: center;
+    text-align: center !important;
   }
 
   /* Section 3: Hero Headline Desktop */
@@ -862,57 +850,23 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     justify-content: center !important;
   }
 
-  /* Tag Strip Mobile Single Horizontal Row (Matching Reference Screenshot 5) */
-  .tag-strip {
-    position: relative !important;
-    z-index: 80 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 0 !important;
-    padding: 0 !important;
-    background: var(--cornsilk, #FFFDF5) !important;
-    border-top: 2px solid var(--ink, #0C0D0E) !important;
-    border-bottom: 2px solid var(--ink, #0C0D0E) !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-  }
-
-  .tag-strip span {
-    font-family: var(--font-mono, monospace) !important;
-    font-size: clamp(10px, 2.7vw, 11.5px) !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    padding: 12px 4px !important;
-    border-bottom: none !important;
-    border-right: 1px solid var(--ink, #0C0D0E) !important;
-    line-height: 1 !important;
-    white-space: nowrap !important;
-    flex: 1 !important;
-    text-align: center !important;
-    color: var(--ink, #0C0D0E) !important;
-  }
-
+  /* Tag Strip: Hidden on Mobile */
+  .tag-strip,
+  .tag-strip span,
   .tag-strip span:last-child {
-    border-right: none !important;
-  }
-
-  .tag-strip span:last-child {
-    border-right: none !important;
+    display: none !important;
   }
 
   .metrics-strip {
     flex-direction: column !important;
   }
-  .tag-strip span, .metric-card {
+  .metric-card {
     border-right: none !important;
     border-bottom: 1px solid var(--ink, #0C0D0E) !important;
     text-align: left !important;
     padding: 10px 16px !important;
   }
-  .tag-strip span:last-child, .metric-card:last-child {
+  .metric-card:last-child {
     border-bottom: none !important;
   }
 
