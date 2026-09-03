@@ -487,18 +487,18 @@ header nav, .nav-links-desktop {
     border-left: none;
   }
 
-  /* Section 6: Hero — Full Viewport Height on Desktop */
+  /* Section 6: Hero — MacBook Pro 14 (1440×900 viewport, nav=69px → hero=831px) */
   .hero, #hero-section {
-    min-height: 100dvh !important;
+    height: 831px !important;
+    min-height: 831px !important;
+    max-height: 831px !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: stretch !important;
   }
   .hero-inner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+    height: 100%;
     padding: 64px 32px 64px;
     max-width: 1400px;
     margin: 0 auto;
@@ -506,7 +506,6 @@ header nav, .nav-links-desktop {
     box-sizing: border-box;
   }
   .hero-inner .sub {
-    flex-grow: 0;
     margin-top: 28px;
   }
   .hero-inner .hero-cta {
@@ -860,13 +859,15 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 12px 16px !important;
   }
 
-  /* Instruction 5: Hero Mobile — Full Viewport Height */
+  /* Hero Mobile — iPhone 14 (390×844 screen, nav=53px → hero=796px) */
   h1, .hero-title--display {
     font-size: clamp(2.2rem, 11vw, 3.2rem) !important;
     line-height: 0.92 !important;
   }
   .hero, #hero-section {
-    min-height: 100dvh !important;
+    height: 796px !important;
+    min-height: 796px !important;
+    max-height: 796px !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
     display: flex !important;
@@ -875,21 +876,21 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   .hero-inner, .hero-container-z {
     display: flex !important;
     flex-direction: column !important;
-    flex: 1 !important;
+    height: 100% !important;
     padding: 28px 20px 40px !important;
+    box-sizing: border-box !important;
   }
-  /* Tagline stays close to headline — NO flex-grow */
+  /* Tagline stays close to headline */
   .hero-inner .sub, .hero-container-z .sub {
     margin-top: 20px !important;
     margin-bottom: 0 !important;
-    flex-grow: 0 !important;
   }
   /* Buttons pin to the bottom via margin-top: auto */
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
     width: 100% !important;
     margin-top: auto !important;
-    padding-top: 32px !important;
+    padding-top: 28px !important;
     flex-shrink: 0 !important;
   }
   .hero-cta .btn, .hero-ctas-row .cta-button, .hero-ctas-row .btn-outline {
@@ -5053,7 +5054,9 @@ body, .page-body {
 
 @media (max-width: 768px) {
   .local-footer-banner {
-    min-height: 100dvh !important;
+    height: 796px !important;
+    min-height: 796px !important;
+    max-height: 796px !important;
     padding: 3rem 0 2.5rem 0 !important;
     display: flex !important;
     flex-direction: column !important;
