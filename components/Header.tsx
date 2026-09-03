@@ -85,8 +85,8 @@ export default function Header() {
           <Link href="/projects/" className={isProjects ? 'active' : ''}>
             Work
           </Link>
-          <Link href="/writing/" className={isWriting ? 'active' : ''}>
-            Writing
+          <Link href="/blog/" className={isWriting ? 'active' : ''}>
+            Blog
           </Link>
           <Link href="/about/" className={isAbout ? 'active' : ''}>
             About

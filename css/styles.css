@@ -11,12 +11,12 @@
   --font-body:       'Inter', sans-serif;
   --font-mono:       'IBM Plex Mono', monospace;
 
-  /* ── Local Studio & Signal-A Minimal Brutalist Palette ── */
-  --bg-dark:         #FFFDF5;   /* Warm Cream Canvas (exact match from localstudio.fr reference) */
-  --bg-dark-elevated:#FFFFFF;   /* Crisp white elevated card surface */
+  /* ── Exact Swatch Palette from User Screenshot (#F6F1E4) ── */
+  --bg-dark:         #F6F1E4;   /* User Swatch Canvas */
+  --bg-dark-elevated:#FFFFFF;   /* Elevated card surface */
   --bg-card:         #FFFFFF;   /* Card surface */
-  --bg-card-hover:   #F5F2E6;   /* Warm cream hover tint */
-  --cornsilk:        #FFFDF5;   /* Cream base canvas */
+  --bg-card-hover:   #EDE7D8;   /* Swatch hover tint */
+  --cornsilk:        #F6F1E4;   /* User Swatch base canvas */
   --black-forest:    #0C0D0E;   /* Deep Pitch Ink primary text */
 
   /* ── Text Tones ───────────────────────────────────────────── */
@@ -5782,10 +5782,10 @@ body, .page-body {
 .dh-sheet-container {
   position: relative;
   z-index: 5;
-  background: #FFFFFF;
-  color: #16241E;
+  background: #F6F1E4;
+  color: #0C0D0E;
   border-radius: 2.5rem 2.5rem 0 0;
-  box-shadow: 0 -24px 48px rgba(16, 28, 22, 0.25);
+  box-shadow: 0 -24px 48px rgba(10, 8, 20, 0.25);
   padding: 4.5rem 2rem 5rem;
 }
 
@@ -5868,36 +5868,46 @@ body, .page-body {
 
 .dh-photo-tilted-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
   margin: 4rem 0 3rem;
 }
 
 .dh-tilted-card {
-  background: var(--dh-sage-card);
+  background: var(--saved-sage-card, #1E3029);
   border-radius: 1.5rem;
   overflow: hidden;
-  border: 1px solid var(--dh-sage-border);
+  border: 1px solid var(--saved-sage-border, rgba(182, 219, 199, 0.16));
   box-shadow: 0 20px 40px rgba(10, 20, 15, 0.4);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  text-decoration: none !important;
+  display: block;
 }
 
 .dh-tilted-card--1 {
-  transform: rotate(-2.5deg);
+  transform: rotate(-2.2deg);
 }
 
 .dh-tilted-card--2 {
-  transform: rotate(1.2deg) translateY(-12px);
+  transform: rotate(1.2deg) translateY(-10px);
 }
 
 .dh-tilted-card--3 {
-  transform: rotate(2.5deg);
+  transform: rotate(-1.5deg) translateY(6px);
+}
+
+.dh-tilted-card--4 {
+  transform: rotate(2.2deg) translateY(-8px);
 }
 
 .dh-tilted-card:hover {
-  transform: rotate(0deg) scale(1.04);
+  transform: rotate(0deg) scale(1.04) !important;
   box-shadow: 0 30px 60px rgba(10, 20, 15, 0.6);
   z-index: 10;
+}
+
+.dh-tilted-card--link:hover .dh-tilted-caption {
+  color: var(--saved-sage-accent, #7BE0AD) !important;
 }
 
 .dh-tilted-img {
@@ -5919,17 +5929,26 @@ body, .page-body {
   letter-spacing: 0.04em;
   color: var(--dh-text-light);
   background: #1B2D24;
-  border-top: 1px solid var(--dh-sage-border);
+  border-top: 1px solid var(--saved-sage-border, rgba(182, 219, 199, 0.16));
+  transition: color 0.2s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
+  .dh-photo-tilted-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
   .dh-photo-tilted-strip {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
   .dh-tilted-card--1,
   .dh-tilted-card--2,
-  .dh-tilted-card--3 {
+  .dh-tilted-card--3,
+  .dh-tilted-card--4 {
     transform: none;
   }
 }
@@ -6023,7 +6042,7 @@ body, .page-body {
   }
 }
 
-/* ── Header Scroll & Nav Transition (Replicated from Gurpreet's Portfolio) ── */
+/* ── Header Scroll & Nav Transition (Gurpreet's Portfolio Architecture) ── */
 #main-header {
   position: sticky;
   top: 0;
@@ -6031,16 +6050,30 @@ body, .page-body {
   transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease !important;
 }
 
+/* 1. Home Header (Exact Swatch Background #F6F1E4 matching Hero) */
+#main-header[data-active="home"] {
+  background: #F6F1E4 !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+#main-header[data-scrolled="true"][data-active="home"] {
+  background: rgba(246, 241, 228, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(12, 13, 14, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Projects & Blog Header (Brand Purple Palette #120E1C) */
 #main-header[data-active="projects"],
-#main-header[data-active="about"],
 #main-header[data-active="writing"] {
-  background: var(--dh-purple-deep, #120E1C) !important;
+  background: var(--brand-purple-deep, #120E1C) !important;
   border-bottom: 1px solid transparent !important;
   box-shadow: none !important;
 }
 
 #main-header[data-scrolled="true"][data-active="projects"],
-#main-header[data-scrolled="true"][data-active="about"],
 #main-header[data-scrolled="true"][data-active="writing"] {
   background: rgba(18, 14, 28, 0.94) !important;
   backdrop-filter: blur(16px) !important;
@@ -6051,15 +6084,12 @@ body, .page-body {
 
 #main-header[data-active="projects"] .logo,
 #main-header[data-active="projects"] .logo-link,
-#main-header[data-active="about"] .logo,
-#main-header[data-active="about"] .logo-link,
 #main-header[data-active="writing"] .logo,
 #main-header[data-active="writing"] .logo-link {
   color: #F5F3FF !important;
 }
 
 #main-header[data-active="projects"] .nav-links-desktop a,
-#main-header[data-active="about"] .nav-links-desktop a,
 #main-header[data-active="writing"] .nav-links-desktop a {
   position: relative !important;
   color: rgba(245, 243, 255, 0.75) !important;
@@ -6067,9 +6097,7 @@ body, .page-body {
   transition: color 150ms ease !important;
 }
 
-/* Gurpreet's Portfolio Nav Link Underline Transition */
 #main-header[data-active="projects"] .nav-links-desktop a::after,
-#main-header[data-active="about"] .nav-links-desktop a::after,
 #main-header[data-active="writing"] .nav-links-desktop a::after {
   content: '' !important;
   position: absolute !important;
@@ -6077,7 +6105,7 @@ body, .page-body {
   left: 0 !important;
   width: 100% !important;
   height: 2px !important;
-  background-color: var(--dh-accent-purple, #A78BFA) !important;
+  background-color: var(--brand-purple-accent, #A78BFA) !important;
   transform: scaleX(0) !important;
   transform-origin: left !important;
   transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -6085,8 +6113,6 @@ body, .page-body {
 
 #main-header[data-active="projects"] .nav-links-desktop a:hover::after,
 #main-header[data-active="projects"] .nav-links-desktop a.active::after,
-#main-header[data-active="about"] .nav-links-desktop a:hover::after,
-#main-header[data-active="about"] .nav-links-desktop a.active::after,
 #main-header[data-active="writing"] .nav-links-desktop a:hover::after,
 #main-header[data-active="writing"] .nav-links-desktop a.active::after {
   transform: scaleX(1) !important;
@@ -6094,26 +6120,233 @@ body, .page-body {
 
 #main-header[data-active="projects"] .nav-links-desktop a:hover,
 #main-header[data-active="projects"] .nav-links-desktop a.active,
-#main-header[data-active="about"] .nav-links-desktop a:hover,
-#main-header[data-active="about"] .nav-links-desktop a.active,
 #main-header[data-active="writing"] .nav-links-desktop a:hover,
 #main-header[data-active="writing"] .nav-links-desktop a.active {
-  color: var(--dh-accent-purple, #A78BFA) !important;
+  color: var(--brand-purple-accent, #A78BFA) !important;
 }
 
 #main-header[data-active="projects"] .menu-toggle,
-#main-header[data-active="about"] .menu-toggle,
 #main-header[data-active="writing"] .menu-toggle {
   color: #F5F3FF !important;
 }
 
 #main-header[data-active="projects"] .cta,
-#main-header[data-active="about"] .cta,
 #main-header[data-active="writing"] .cta {
-  background: var(--dh-accent-purple, #A78BFA) !important;
+  background: var(--brand-purple-accent, #A78BFA) !important;
   color: #120E1C !important;
   font-weight: 800 !important;
   border: none !important;
+}
+
+/* 3. About Header (Requested Green Sage Palette #16241E) */
+#main-header[data-active="about"] {
+  background: var(--saved-sage-deep, #16241E) !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+#main-header[data-scrolled="true"][data-active="about"] {
+  background: rgba(22, 36, 30, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(182, 219, 199, 0.16) !important;
+  box-shadow: 0 4px 24px rgba(10, 20, 15, 0.45) !important;
+}
+
+#main-header[data-active="about"] .logo,
+#main-header[data-active="about"] .logo-link {
+  color: var(--saved-sage-text, #F3F8F5) !important;
+}
+
+#main-header[data-active="about"] .nav-links-desktop a {
+  position: relative !important;
+  color: rgba(243, 248, 245, 0.78) !important;
+  border-left: none !important;
+  transition: color 150ms ease !important;
+}
+
+#main-header[data-active="about"] .nav-links-desktop a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background-color: var(--saved-sage-accent, #7BE0AD) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#main-header[data-active="about"] .nav-links-desktop a:hover::after,
+#main-header[data-active="about"] .nav-links-desktop a.active::after {
+  transform: scaleX(1) !important;
+}
+
+#main-header[data-active="about"] .nav-links-desktop a:hover,
+#main-header[data-active="about"] .nav-links-desktop a.active {
+  color: var(--saved-sage-accent, #7BE0AD) !important;
+}
+
+#main-header[data-active="about"] .menu-toggle {
+  color: var(--saved-sage-text, #F3F8F5) !important;
+}
+
+#main-header[data-active="about"] .cta {
+  background: var(--saved-sage-accent, #7BE0AD) !important;
+  color: #16241E !important;
+  font-weight: 800 !important;
+  border: none !important;
+}
+
+/* 4. About Hero Background (Requested Green Sage) */
+#about-hero.dh-hero-wrapper {
+  background: var(--saved-sage-deep, #16241E) !important;
+}
+
+#about-hero .dh-hero-subtag {
+  color: var(--saved-sage-accent, #7BE0AD) !important;
+}
+
+/* 5. Selected Work High-Visibility Overrides on Brand Purple */
+.selected-work-section {
+  background: var(--brand-purple-deep, #120E1C) !important;
+  color: #F5F3FF !important;
+}
+
+.selected-work-section .selected-work-display-title {
+  color: #F5F3FF !important;
+}
+
+.selected-work-section .selected-work-badge {
+  background: var(--brand-purple-accent, #A78BFA) !important;
+  color: #120E1C !important;
+  font-weight: 800 !important;
+}
+
+.selected-work-section .selected-work-header-row {
+  border-bottom: 2px solid rgba(167, 139, 250, 0.25) !important;
+}
+
+.selected-work-section .selected-work-list {
+  border-bottom: 2px solid rgba(167, 139, 250, 0.25) !important;
+}
+
+.selected-work-section .work-list-row {
+  border-bottom: 1.5px solid rgba(167, 139, 250, 0.2) !important;
+  color: #F5F3FF !important;
+  text-decoration: none !important;
+  transition: background 0.15s ease !important;
+}
+
+@media (min-width: 768px) {
+  .selected-work-section .work-list-row {
+    border-right: 2px solid rgba(167, 139, 250, 0.25) !important;
+    border-bottom: none !important;
+  }
+}
+
+.selected-work-section .work-list-row:hover {
+  background: rgba(167, 139, 250, 0.08) !important;
+}
+
+.selected-work-section .work-list-num {
+  color: #FF5722 !important; /* Bright vivid orange */
+}
+
+.selected-work-section .work-list-title {
+  color: #F5F3FF !important; /* Crisp white title */
+  transition: color 0.15s ease !important;
+}
+
+.selected-work-section .work-list-row:hover .work-list-title {
+  color: var(--brand-purple-accent, #A78BFA) !important;
+}
+
+.selected-work-section .work-list-tags {
+  color: var(--brand-purple-accent, #A78BFA) !important;
+  opacity: 0.95 !important;
+}
+
+/* 6. Services Card Icons and Case Study Links */
+.services-section .what-i-do-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2.25rem !important;
+  margin-top: 3rem !important;
+}
+
+.services-section .feature-item {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  align-items: flex-start !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(12, 13, 14, 0.12) !important;
+  border-radius: 1.25rem !important;
+  padding: 2.25rem 2rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.services-section .feature-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.07) !important;
+  border-color: rgba(12, 13, 14, 0.3) !important;
+}
+
+.services-section .feature-title {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: #0C0D0E !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.services-section .feature-desc {
+  font-size: 0.95rem !important;
+  color: #4B5563 !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  flex-grow: 1 !important;
+}
+
+.service-card-icon {
+  color: #FF3B00;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #FF3B00;
+  text-decoration: none;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.service-case-link:hover {
+  color: #E03400;
+  transform: translateX(3px);
+}
+
+.services-cta-wrap {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 960px) {
+  .services-section .what-i-do-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
 }
 
 /* ── Work Page Seamless Architecture (No Divide Line, Pure Sage Canvas) ── */

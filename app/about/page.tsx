@@ -3,14 +3,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Me & My Life | Varneet Singh',
+  title: 'About Me & My Background | Varneet Singh',
   description:
-    'About Varneet Singh — Business Operations Manager specializing in supply chain data, workflow optimization, and analytical systems.',
+    'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
   openGraph: {
-    title: 'About Me & My Life | Varneet Singh',
+    title: 'About Me & My Background | Varneet Singh',
     description:
-      'Business Operations Manager specializing in process optimization, SQL, Excel modeling, and operational clarity.',
-    images: ['/assets/index-preview.jpg'],
+      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="dh-sheet-inner">
           <h2 className="dh-editorial-heading">
             Hello, I&apos;m Varneet!<br />
-            Business Operations Manager.
+            Business Operations Manager &mdash; targeting Business Analyst roles.
           </h2>
 
           <div className="dh-editorial-cols">
@@ -48,7 +48,7 @@ export default function AboutPage() {
               <p>
                 I operate at the intersection of operational workflows, data architecture,
                 and business strategy. By day, I manage inventory tracking systems and
-                field representative pipelines at I.P. Pharma. By night, I design
+                operational reporting at I.P. Pharma. By night, I design
                 interactive spreadsheet models, write analytical frameworks, and build
                 reproducible case studies.
               </p>
@@ -126,19 +126,25 @@ export default function AboutPage() {
       <section className="dh-dark-section" id="about-interests">
         <div className="dh-dark-container">
           <h2 className="dh-section-title-serif">
-            Books. Running. Travel. Coffee. Data.
+            Books. Running. Travel. Pour Over Coffee. Data.
           </h2>
           <p className="dh-section-subtitle">
             Outside of work, I balance rigorous analytical discipline with classic
-            literature, morning road mileage, and exploring new terrain to reset my perspective.
+            literature, morning road mileage, manual coffee brewing, and exploring new terrain.
           </p>
 
-          {/* TODO: replace placeholder photos below with personal photos */}
           <div className="dh-photo-tilted-strip">
-            <div className="dh-tilted-card dh-tilted-card--1">
+            {/* 1. Reading with Goodreads Link */}
+            <a
+              href="https://www.goodreads.com/book/show/230149114-1984"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dh-tilted-card dh-tilted-card--1 dh-tilted-card--link"
+              title="View 1984 on Goodreads"
+            >
               <img
                 src="/assets/about/reading.jpg"
-                alt="Reading Orwell and classical literature"
+                alt="Reading George Orwell's 1984"
                 width={400}
                 height={270}
                 className="dh-tilted-img"
@@ -146,10 +152,11 @@ export default function AboutPage() {
               />
               <div className="dh-tilted-caption">
                 <span>Reading</span>
-                <span>Orwell &middot; 1984 (Penguin &middot; 1949)</span>
+                <span>George Orwell &middot; 1984 ↗</span>
               </div>
-            </div>
+            </a>
 
+            {/* 2. Running */}
             <div className="dh-tilted-card dh-tilted-card--2">
               <img
                 src="/assets/about/running.jpg"
@@ -165,6 +172,7 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* 3. Travel */}
             <div className="dh-tilted-card dh-tilted-card--3">
               <img
                 src="/assets/about/travel.jpg"
@@ -177,6 +185,22 @@ export default function AboutPage() {
               <div className="dh-tilted-caption">
                 <span>Travel</span>
                 <span>Perspective Reset</span>
+              </div>
+            </div>
+
+            {/* 4. Pour Over Coffee */}
+            <div className="dh-tilted-card dh-tilted-card--4">
+              <img
+                src="/assets/about/coffee.jpg"
+                alt="Pour over coffee ritual with V60 dripper"
+                width={400}
+                height={270}
+                className="dh-tilted-img"
+                loading="lazy"
+              />
+              <div className="dh-tilted-caption">
+                <span>Pour Over Coffee</span>
+                <span>V60 &middot; Single Origin Ritual</span>
               </div>
             </div>
           </div>

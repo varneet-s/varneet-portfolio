@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "varneet-portfolio.vercel.app"
+        }
+      ],
+      "destination": "https://varneet.in/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -45,8 +45,8 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         <Link href="/projects/" className="mobile-nav-card" onClick={onClose}>
           WORK
         </Link>
-        <Link href="/writing/" className="mobile-nav-card" onClick={onClose}>
-          WRITING
+        <Link href="/blog/" className="mobile-nav-card" onClick={onClose}>
+          BLOG
         </Link>
         <Link href="/about/" className="mobile-nav-card" onClick={onClose}>
           ABOUT

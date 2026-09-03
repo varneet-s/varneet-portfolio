@@ -28,10 +28,10 @@ export default function WritingPage() {
 
         <div className="dh-hero-headline-wrap">
           <div className="dh-hero-subtag">
-            <span>Writing &middot; Reflections &middot; Analytical Frameworks</span>
+            <span>Blog &middot; Reflections &middot; Analytical Frameworks</span>
           </div>
           <h1 className="dh-hero-giant-title dh-hero-giant-title--blog">
-            Thoughts &amp;<br />Articles.
+            Blog &amp;<br />Articles.
           </h1>
         </div>
       </section>

@@ -6,25 +6,25 @@ import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://varneet-s.github.io/varneet-portfolio'),
+  metadataBase: new URL('https://varneet.in'),
   title: {
-    default: 'Varneet Singh — E-Commerce Data Analyst & Operations Specialist',
+    default: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
     template: '%s | Varneet Singh',
   },
   description:
-    'Varneet Singh turns messy operational data into clear e-commerce decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
+    'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
   icons: {
     icon: '/assets/logo-wordmark.svg',
   },
   openGraph: {
-    title: 'Varneet Singh — E-Commerce Data Analyst & Operations Specialist',
+    title: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
     description:
-      'Varneet Singh turns messy operational data into clear e-commerce decisions. Specialized in SQL, Excel, Tableau, and BPMN process optimization.',
-    url: 'https://varneet-s.github.io/varneet-portfolio',
+      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
+    url: 'https://varneet.in',
     siteName: 'Varneet Singh Portfolio',
     images: [
       {
-        url: '/assets/og-preview.jpg',
+        url: 'https://varneet.in/assets/og-preview.jpg',
         width: 1200,
         height: 630,
         alt: 'Varneet Singh Portfolio',
@@ -32,6 +32,13 @@ export const metadata: Metadata = {
     ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Varneet Singh — Business Operations Manager | Aspiring Business Analyst',
+    description:
+      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
+    images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
 
