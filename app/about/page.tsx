@@ -3,19 +3,19 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Me & My Life | Varneet Singh — Business Analyst',
+  title: 'About Me & My Life | Varneet Singh, Business Analyst',
   description:
-    'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
+    'Business Analyst working freelance with I.P. Pharma. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
   openGraph: {
-    title: 'About Me & My Life | Varneet Singh — Business Analyst',
+    title: 'About Me & My Life | Varneet Singh, Business Analyst',
     description:
-      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
+      'Business Analyst working freelance with I.P. Pharma. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
     images: ['https://varneet.in/assets/og-preview.jpg'],
   },
   twitter: {
-    title: 'About Me & My Life | Varneet Singh — Business Analyst',
+    title: 'About Me & My Life | Varneet Singh, Business Analyst',
     description:
-      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
+      'Business Analyst working freelance with I.P. Pharma. Specialized in Excel inventory tracking systems, process optimization, and SQL.',
     images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };
@@ -46,17 +46,16 @@ export default function AboutPage() {
         <div className="dh-sheet-inner">
           <h2 className="dh-editorial-heading">
             Hello, I&apos;m Varneet!<br />
-            Business Operations Manager &mdash; targeting Business Analyst roles.
+            Business Analyst
           </h2>
 
           <div className="dh-editorial-cols">
             <div>
               <p>
                 I operate at the intersection of operational workflows, data architecture,
-                and business strategy. By day, I manage inventory tracking systems and
-                operational reporting at I.P. Pharma. By night, I design
-                interactive spreadsheet models, write analytical frameworks, and build
-                reproducible case studies.
+                and business strategy. Currently working freelance with I.P. Pharma, I manage
+                inventory tracking systems, audit data workflows, and build automated
+                operational reporting models.
               </p>
               <p>
                 My focus is turning messy, unmeasured operational chaos into predictable

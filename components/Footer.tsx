@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="local-footer-avatar-wrap">
             <img
               src="/assets/varneet-avatar.png"
-              alt="Varneet Singh — Illustrated Portrait"
+              alt="Varneet Singh, Illustrated Portrait"
               className="local-footer-avatar-img"
               width={140}
               height={140}

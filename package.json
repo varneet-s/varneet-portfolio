@@ -1,7 +1,7 @@
 {
   "name": "varneet-portfolio",
   "version": "2.0.0",
-  "description": "Varneet Singh — Portfolio (Next.js 15)",
+  "description": "Varneet Singh — Portfolio (Next.js 16)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/varneet-s/varneet-portfolio#readme",
   "dependencies": {
     "chart.js": "^4.5.1",
-    "next": "^15.0.0",
+    "next": "^16.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -30,7 +30,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.0.0",
+    "eslint-config-next": "^16.3.4",
     "typescript": "^5.9.3"
   }
 }

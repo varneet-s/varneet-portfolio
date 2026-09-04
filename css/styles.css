@@ -55,7 +55,7 @@
   /* ── Layout & Utility ─────────────────────────────────────── */
   --tag-bg:         rgba(12, 13, 14, 0.05);
   --tag-border:     #0C0D0E;
-  --purple-shadow:  #110E1B;   /* Rich Royal Purple Accent Shadow */
+  --purple-shadow:  #2E1065;   /* Rich Royal Dark Purple Shadow */
 
   /* ── Transitions & Motion ──────────────────────────────────── */
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -274,6 +274,12 @@ header nav, .nav-links-desktop {
   color: #0C0D0E;
 }
 
+.hero-headline .kern-data {
+  letter-spacing: -0.065em !important;
+  margin-right: 0.16em !important;
+  display: inline-block !important;
+}
+
 .hero-headline .highlight {
   background: var(--ink, #0C0D0E);
   color: var(--cornsilk, #FFFDF5);
@@ -314,7 +320,7 @@ header nav, .nav-links-desktop {
   text-decoration: none;
   border: 2.5px solid var(--ink, #0C0D0E) !important;
   border-radius: 100px !important;
-  box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -322,12 +328,12 @@ header nav, .nav-links-desktop {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .btn:active {
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 2px 2px 0px var(--purple-shadow, #2E1065) !important;
 }
 
 .btn-primary {
@@ -338,6 +344,14 @@ header nav, .nav-links-desktop {
 .btn-outline {
   background: #FFFFFF !important;
   color: var(--ink, #0C0D0E) !important;
+}
+
+.btn-outline:hover {
+  background: #3B185F !important;
+  color: #FFFDF5 !important;
+  border-color: #2E1065 !important;
+  box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
+  transform: translate(-2px, -2px) !important;
 }
 
 /* ── Section 6: Hero Container Spacing (Mobile Base) ── */
@@ -521,28 +535,21 @@ header nav, .nav-links-desktop {
     box-sizing: border-box;
   }
   .hero-inner .sub {
-    margin-top: 28px;
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+    max-width: 65ch !important;
   }
   .hero-inner .hero-cta {
     margin-top: auto;
-    padding-top: 48px;
+    padding-top: 0 !important;
     flex-direction: row !important;
   }
 
-  .selected-work-section, #projects-section {
+  .selected-work-section, #projects-section,
+  .services-section, #services-section,
+  .writing-section, #writing-preview-section,
+  .local-footer-banner {
     padding: 5rem 0 !important;
-    scroll-margin-top: var(--nav-h) !important;
-    box-sizing: border-box !important;
-  }
-
-  .services-section, #services-section {
-    padding: 5.5rem 0 !important;
-    scroll-margin-top: var(--nav-h) !important;
-    box-sizing: border-box !important;
-  }
-
-  .writing-section, #writing-preview-section {
-    padding: 5.5rem 0 !important;
     scroll-margin-top: var(--nav-h) !important;
     box-sizing: border-box !important;
   }
@@ -921,19 +928,20 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     width: 100% !important;
     flex: none !important;
   }
-  /* Tagline — fixed spacing for iPhone 17 Pro */
+  /* Tagline — equal spacing above and below (36px) */
   .hero-inner .sub, .hero-container-z .sub {
     margin-top: 36px !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 36px !important;
     font-size: 15px !important;
     line-height: 1.6 !important;
+    max-width: 65ch !important;
   }
   /* Buttons — fixed non-flexible dimensions specifically for iPhone 17 Pro (402px wide) */
   .hero-cta, .hero-ctas-row {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    margin-top: 48px !important;
+    margin-top: 0 !important;
     padding-top: 0 !important;
     gap: 14px !important;
     width: 100% !important;
@@ -957,6 +965,14 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     box-sizing: border-box !important;
     text-align: center !important;
     border-radius: 100px !important;
+  }
+  .hero-cta .btn-outline,
+  .hero-ctas-row .btn-outline {
+    background: #3B185F !important;
+    background-color: #3B185F !important;
+    color: #FFFDF5 !important;
+    border-color: #2E1065 !important;
+    box-shadow: 4px 4px 0px #1E0836 !important;
   }
 
   /* Tag Strip: Hidden on Mobile */
@@ -3283,14 +3299,14 @@ section {
 .pudding-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
 .pudding-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; font-family: var(--font-mono, monospace); }
 .pudding-pill { display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid #111115; border-radius: 100px; padding: 0.15rem 0.65rem; font-size: 0.78rem; font-weight: 800; color: #111115; background: #FFFFFF; }
-.pudding-date { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #111115; }
+.pudding-date { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #111115; }
 .pudding-frame { width: 100%; aspect-ratio: 1 / 1; border-radius: 16px; border: 1.5px solid #111115; padding: 1.5rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 4px 16px rgba(17, 17, 21, 0.04); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 .pudding-card:hover .pudding-frame { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(17, 17, 21, 0.12); }
 .pudding-inner-graphic { background: #FFFFFF; border: 1.5px solid #111115; border-radius: 12px; width: 100%; height: 100%; padding: 1.1rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
 .pudding-card:hover .pudding-inner-graphic { transform: scale(1.02); }
-.pudding-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; text-transform: lowercase; color: #111115; margin: 0.9rem 0 0.4rem 0; transition: color 0.2s ease; }
+.pudding-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700 !important; letter-spacing: -0.01em !important; word-spacing: 0.12em !important; line-height: 1.25; text-transform: none; color: #111115; margin: 0.9rem 0 0.4rem 0; transition: color 0.2s ease; }
 .pudding-card:hover .pudding-title { color: #000000; text-decoration: underline; text-decoration-color: #02F5A4; text-decoration-thickness: 3px; }
-.pudding-desc { font-size: 0.92rem; color: #4B4B55; line-height: 1.55; margin: 0; }
+.pudding-desc { font-size: 0.92rem; color: #4B4B55; line-height: 1.6; max-width: 65ch; margin: 0; }
 
 .simple-page-header, .page-title, .pudding-header { text-align: left; }
 
@@ -3768,22 +3784,28 @@ section {
 }
 
 .section-header-left {
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   text-align: left;
 }
 
 .section-title--large {
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  font-weight: 800;
-  margin-bottom: 1.25rem;
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.15;
+  color: var(--text-primary, #0C0D0E);
+  margin-bottom: 0.75rem;
   text-align: left;
 }
 
 .section-intro-bold {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #0C281E;
-  max-width: 850px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary, #2D2F31);
+  max-width: 65ch;
   line-height: 1.6;
   margin: 0;
   text-align: left;
@@ -4883,7 +4905,7 @@ body, .page-body {
   border-top: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
-  padding: 5.5rem 0 3.5rem 0 !important;
+  padding: 5rem 0 !important;
   overflow: hidden !important;
   text-align: center !important;
   width: 100% !important;
@@ -4929,7 +4951,7 @@ body, .page-body {
   object-fit: cover;
   border-radius: 28px;
   border: 4px solid #0C0D0E;
-  box-shadow: 8px 8px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 8px 8px 0px var(--purple-shadow, #2E1065) !important;
   background-color: #38B6FF;
   transform: rotate(-3deg);
   margin-bottom: 1.5rem;
@@ -4951,7 +4973,7 @@ body, .page-body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   transition: var(--transition-fast);
 }
 
@@ -4959,7 +4981,7 @@ body, .page-body {
   background: #E07A2C;
   color: #FFFFFF;
   transform: translate3d(-2px, -2px, 0);
-  box-shadow: 6px 6px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
 }
 
 .local-footer-bottom-bar {
@@ -4981,10 +5003,10 @@ body, .page-body {
   padding: 0.5rem 1.25rem;
   font-size: 0.85rem;
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em !important;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 3px 3px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 3px 3px 0px var(--purple-shadow, #2E1065) !important;
   transition: var(--transition-fast);
 }
 
@@ -4992,7 +5014,7 @@ body, .page-body {
   background: #0C0D0E;
   color: #FFFFFF;
   transform: translate3d(-1px, -1px, 0);
-  box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
 }
 
 /* ── Selected Work Section (Brand Purple Palette) ── */
@@ -5098,7 +5120,7 @@ body, .page-body {
   font-weight: 900 !important;
   color: #E07A2C !important;
   -webkit-text-stroke: 2.5px #0C0D0E !important;
-  text-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  text-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   letter-spacing: 0 !important;
   line-height: 0.88 !important;
   text-transform: uppercase !important;
@@ -5119,8 +5141,12 @@ body, .page-body {
 }
 
 @media (max-width: 768px) {
+  .selected-work-section, #projects-section,
+  .services-section, #services-section,
+  .writing-section, #writing-preview-section,
   .local-footer-banner {
-    padding: 3rem 0 2rem 0 !important;
+    padding: 3.5rem 0 !important;
+    box-sizing: border-box !important;
   }
   .local-footer-bg-title {
     font-size: clamp(2.8rem, 18.4vw, 5rem) !important;
@@ -5131,7 +5157,7 @@ body, .page-body {
     letter-spacing: 0 !important;
     padding: 0 2px !important;
     -webkit-text-stroke: 1.5px #0C0D0E !important;
-    text-shadow: 3px 3px 0px var(--purple-shadow, #110E1B) !important;
+    text-shadow: 3px 3px 0px var(--purple-shadow, #2E1065) !important;
   }
   .local-footer-content {
     margin-top: 0 !important;
@@ -6307,12 +6333,15 @@ body, .page-body {
 
 .selected-work-section .selected-work-display-title {
   color: #F5F3FF !important;
+  letter-spacing: -0.02em !important;
 }
 
 .selected-work-section .selected-work-badge {
   background: var(--brand-purple-accent, #A78BFA) !important;
   color: #120E1C !important;
   font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
 }
 
 .selected-work-section .selected-work-header-row {
@@ -6359,11 +6388,18 @@ body, .page-body {
   opacity: 0.95 !important;
 }
 
-/* 6. Services Card Icons and Case Study Links */
+/* 6. Services & Blog Card Grids — Equal Spacing & Strict Typographic Measure */
 .services-section .what-i-do-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 2.25rem !important;
+  gap: 2rem !important;
+  margin-top: 3rem !important;
+}
+
+.writing-section .pudding-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem !important;
   margin-top: 3rem !important;
 }
 
@@ -6391,13 +6427,15 @@ body, .page-body {
   font-weight: 800 !important;
   color: #0C0D0E !important;
   margin: 0 !important;
-  line-height: 1.3 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
 }
 
 .services-section .feature-desc {
   font-size: 0.95rem !important;
   color: #4B5563 !important;
   line-height: 1.6 !important;
+  max-width: 65ch !important;
   margin: 0 !important;
   flex-grow: 1 !important;
 }
@@ -6445,7 +6483,7 @@ body, .page-body {
   text-decoration: none !important;
   border: 2.5px solid var(--ink, #0C0D0E) !important;
   border-radius: 100px !important;
-  box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   background: var(--copper, #E07A2C) !important;
   color: var(--cornsilk, #FFFDF5) !important;
   font-family: var(--font-mono, monospace) !important;
@@ -6458,15 +6496,15 @@ body, .page-body {
 .services-hover-btn:hover,
 #services-cta-btn:hover {
   transform: translate(-2px, -2px) !important;
-  box-shadow: 6px 6px 0px var(--purple-shadow, #110E1B) !important;
-  background: var(--purple-shadow, #110E1B) !important;
-  background-color: var(--purple-shadow, #110E1B) !important;
-  border-color: #0C0D0E !important;
+  box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
+  background: #3B185F !important;
+  background-color: #3B185F !important;
+  border-color: #2E1065 !important;
 }
 
 .services-hover-btn:active {
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0px var(--purple-shadow, #110E1B) !important;
+  box-shadow: 2px 2px 0px var(--purple-shadow, #2E1065) !important;
 }
 
 .services-hover-btn .btn-text-default {
@@ -6499,7 +6537,8 @@ body, .page-body {
 }
 
 @media (max-width: 960px) {
-  .services-section .what-i-do-grid {
+  .services-section .what-i-do-grid,
+  .writing-section .pudding-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
@@ -6511,8 +6550,10 @@ body, .page-body {
     min-width: unset !important;
     width: 100% !important;
     max-width: 360px !important;
-    background: #E07A2C !important;
-    box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+    background: #3B185F !important;
+    background-color: #3B185F !important;
+    border-color: #2E1065 !important;
+    box-shadow: 4px 4px 0px #1E0836 !important;
   }
   .services-hover-btn .btn-text-default {
     display: none !important;

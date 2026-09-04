@@ -60,8 +60,8 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 'pharma',
-    company: 'I.P. Pharma',
-    role: 'Business Operations Manager',
+    company: 'I.P. Pharma (Freelance)',
+    role: 'Business Analyst (Freelance)',
     dates: 'January 2026 — Present',
     href: '/projects/pharma/',
   },

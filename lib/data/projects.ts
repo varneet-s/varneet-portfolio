@@ -41,7 +41,7 @@ export const projects: Project[] = [
     title: 'Real-Time Stock Reporting for 120+ Retail Accounts',
     slug: 'pharma',
     category: 'business-analysis',
-    categoryLabel: 'Operations Manager',
+    categoryLabel: 'Business Analyst (Freelance)',
     badgeClass: 'badge-business',
     status: 'active',
     summary: 'POWER BI · SALES OPS',

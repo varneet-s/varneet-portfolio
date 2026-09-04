@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     template: '%s | Varneet Singh — Business Analyst',
   },
   description:
-    'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
+    'Business Analyst working freelance at I.P. Pharma. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
   icons: {
     icon: '/assets/logo-wordmark.svg',
   },
   openGraph: {
-    title: 'Varneet Singh — Business Analyst',
+    title: 'Varneet Singh, Business Analyst',
     description:
-      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
+      'Business Analyst working freelance at I.P. Pharma. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
     url: 'https://varneet.in',
     siteName: 'Varneet Singh Portfolio',
     images: [
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Varneet Singh — Business Analyst',
+    title: 'Varneet Singh, Business Analyst',
     description:
-      'Business Operations Manager at I.P. Pharma targeting Business Analyst roles. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
+      'Business Analyst working freelance at I.P. Pharma. Specialized in Excel, SQL, Tableau, and BPMN process optimization.',
     images: ['https://varneet.in/assets/og-preview.jpg'],
   },
 };

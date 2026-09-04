@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* Eyebrow Tag Strip */}
       <div className="tag-strip">
         <span>Ludhiana, IN</span>
-        <span>Business Operations Manager &middot; Targeting BA</span>
+        <span>Business Analyst &middot; Freelance at I.P. Pharma</span>
         <span>Open to Work</span>
       </div>
 
@@ -33,7 +33,7 @@ export default function HomePage() {
       <section className="hero" id="hero-section">
         <div className="hero-inner">
           <h1 className="hero-headline" id="hero-heading">
-            <span className="line">DATA DOESN&apos;T</span>
+            <span className="line"><span className="kern-data">DATA</span> DOESN&apos;T</span>
             <span className="line">DECIDE.</span>
             <span className="line highlight">PEOPLE WHO READ IT DO.</span>
           </h1>
