@@ -9,59 +9,48 @@ import MobileNav from './MobileNav';
 export default function Header() {
   const pathname = usePathname();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [navHidden, setNavHidden] = useState(false);
-  const [navRevealed, setNavRevealed] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [atBottom, setAtBottom] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const checkBottom = () => {
       setScrolled(window.scrollY > 8);
-      // Dissolve border when footer comes into view
       const distanceFromBottom =
         document.documentElement.scrollHeight -
         window.scrollY -
         window.innerHeight;
-      setAtBottom(distanceFromBottom < 80);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    let lastScrollTop = 0;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (mobileNavOpen) return;
-
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-          if (scrollTop > 120) {
-            if (scrollTop > lastScrollTop) {
-              setNavHidden(true);
-              setNavRevealed(false);
-            } else {
-              setNavHidden(false);
-              setNavRevealed(true);
-            }
-          } else {
-            setNavHidden(false);
-            setNavRevealed(false);
-          }
-
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-          ticking = false;
-        });
-        ticking = true;
+      if (distanceFromBottom <= 100) {
+        setAtBottom(true);
+      } else {
+        setAtBottom(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [mobileNavOpen]);
+    window.addEventListener('scroll', checkBottom, { passive: true });
+    checkBottom();
+
+    // IntersectionObserver on footer to dissolve navbar line when footer enters
+    const footer = document.getElementById('main-footer');
+    let observer: IntersectionObserver | null = null;
+    if (footer && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setAtBottom(true);
+          } else {
+            checkBottom();
+          }
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(footer);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', checkBottom);
+      if (observer) observer.disconnect();
+    };
+  }, []);
 
   // Close mobile nav on route change
   useEffect(() => {
@@ -84,7 +73,6 @@ export default function Header() {
         data-active={activeData}
         data-scrolled={scrolled ? 'true' : 'false'}
         data-at-bottom={atBottom ? 'true' : 'false'}
-        className={`${navHidden ? 'nav-hidden' : ''} ${navRevealed ? 'nav-revealed' : ''}`}
       >
         <div className="logo">
           <Link href="/" className="logo-link" id="logo-home">

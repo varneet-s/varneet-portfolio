@@ -809,16 +809,18 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
 
 /* ── Standard 768px Mobile Breakpoint ── */
 @media (max-width: 768px) {
-  /* Sticky Header & Margin Alignment (V aligns with Hero) */
+  /* Fixed Header on Mobile */
   header, #main-header {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    position: sticky !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     padding: 14px 16px !important;
-    z-index: 90 !important;
+    z-index: 9000 !important;
     background: var(--cornsilk, #FFFDF5) !important;
     border-bottom: 1px solid transparent !important;
     box-shadow: none !important;
@@ -826,8 +828,12 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     box-sizing: border-box !important;
   }
   header[data-scrolled="true"], #main-header[data-scrolled="true"] {
-    border-bottom: 1px solid var(--border-color, rgba(12, 13, 14, 0.15)) !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important;
+    border-bottom: 1px solid #110E1B !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  }
+  header[data-at-bottom="true"], #main-header[data-at-bottom="true"] {
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
   }
   .container {
     padding: 0 16px !important;
@@ -6145,11 +6151,13 @@ body, .page-body {
   }
 }
 
-/* ── Header Scroll & Nav Transition (Gurpreet's Portfolio Architecture) ── */
+/* ── Header Scroll & Nav Transition (Fixed Nav & Gurpreet Dark Purple Border) ── */
 #main-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9000 !important;
   transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease !important;
 }
 
@@ -6164,8 +6172,15 @@ body, .page-body {
   background: rgba(246, 241, 228, 0.94) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(12, 13, 14, 0.12) !important;
+  border-bottom: 1px solid #110E1B !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+#main-header[data-at-bottom="true"],
+#main-header[data-at-bottom="true"][data-active],
+#main-header[data-at-bottom="true"][data-scrolled="true"][data-active] {
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
 }
 
 /* 2. Projects & Blog Header (Brand Purple Palette #120E1C) */
