@@ -902,17 +902,17 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
     padding: 28px 20px 40px !important;
     box-sizing: border-box !important;
   }
-  /* Tagline — same 28px gap as desktop */
+  /* Tagline — equal spacing above and below */
   .hero-inner .sub, .hero-container-z .sub {
-    margin-top: 28px !important;
-    margin-bottom: 0 !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
   }
-  /* Buttons — same margin-top:auto + 48px breathing room as desktop */
+  /* Buttons — pinned at the bottom with equal breathing room */
   .hero-cta, .hero-ctas-row {
     flex-direction: column !important;
     width: 100% !important;
-    margin-top: auto !important;
-    padding-top: 48px !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     flex-shrink: 0 !important;
   }
   .hero-cta .btn, .hero-ctas-row .cta-button, .hero-ctas-row .btn-outline {
