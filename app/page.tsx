@@ -118,7 +118,7 @@ export default function HomePage() {
               </div>
               <div className="feature-title">1. Process Mapping &amp; BPMN</div>
               <p className="feature-desc">
-                Document end-to-end operational workflows, eliminate bottleneck drop-offs, and map optimized AS-IS vs TO-BE SOPs — delivering clear multi-channel visibility.
+                Document end-to-end operational workflows, eliminate bottleneck drop-offs, and map optimized AS-IS vs TO-BE SOPs, delivering clear multi-channel visibility.
               </p>
               <Link href="/projects/vrinda/" className="service-case-link">
                 View Vrinda Retail Case Study &rarr;
@@ -157,7 +157,7 @@ export default function HomePage() {
               </div>
               <div className="feature-title">3. E-Commerce Data Audits</div>
               <p className="feature-desc">
-                Analyze 96,478 orders across 9 joined data files — isolating freight burdens, seller concentration risks, and customer cohorts.
+                Analyze 96,478 orders across 9 joined data files, isolating freight burdens, seller concentration risks, and customer cohorts.
               </p>
               <Link href="/projects/olist/" className="service-case-link">
                 View Olist E-Commerce Case Study &rarr;
@@ -202,7 +202,7 @@ export default function HomePage() {
               </div>
               <h3 className="pudding-title">Requirements Gathering in BA</h3>
               <p className="pudding-desc">
-                Writing down a requirement is only the starting point — the real work is managing, refining, and prioritizing as things change.
+                Writing down a requirement is only the starting point: the real work is managing, refining, and prioritizing as things change.
               </p>
               <span className="read-post-tag">Read Full Post &rarr;</span>
             </Link>
@@ -224,7 +224,7 @@ export default function HomePage() {
               </div>
               <h3 className="pudding-title">What Progress Actually Looks Like</h3>
               <p className="pudding-desc">
-                How understanding business analysis shifted my daily thinking — from mapping coffee ideas to building consistent habits.
+                How understanding business analysis shifted my daily thinking, from mapping coffee ideas to building consistent habits.
               </p>
               <span className="read-post-tag">Read Full Post &rarr;</span>
             </Link>

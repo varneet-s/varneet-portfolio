@@ -501,15 +501,11 @@ header nav, .nav-links-desktop {
     border-left: none;
   }
 
-  /* Section 6: Desktop Sections — Unified 723px Length (Matching CTA) */
-  :root {
-    --desktop-section-h: 723px;
-  }
-
+  /* Section 6: Desktop Sections Layout & Spacing */
   .hero, #hero-section {
-    height: var(--desktop-section-h) !important;
-    min-height: var(--desktop-section-h) !important;
-    max-height: var(--desktop-section-h) !important;
+    height: calc(100vh - var(--nav-h)) !important;
+    min-height: calc(100vh - var(--nav-h)) !important;
+    max-height: calc(100vh - var(--nav-h)) !important;
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
@@ -534,39 +530,21 @@ header nav, .nav-links-desktop {
   }
 
   .selected-work-section, #projects-section {
-    height: var(--desktop-section-h) !important;
-    min-height: var(--desktop-section-h) !important;
-    max-height: var(--desktop-section-h) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
+    padding: 5rem 0 !important;
+    scroll-margin-top: var(--nav-h) !important;
     box-sizing: border-box !important;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
   }
 
   .services-section, #services-section {
-    height: var(--desktop-section-h) !important;
-    min-height: var(--desktop-section-h) !important;
-    max-height: var(--desktop-section-h) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
+    padding: 5.5rem 0 !important;
+    scroll-margin-top: var(--nav-h) !important;
     box-sizing: border-box !important;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
   }
 
   .writing-section, #writing-preview-section {
-    height: var(--desktop-section-h) !important;
-    min-height: var(--desktop-section-h) !important;
-    max-height: var(--desktop-section-h) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
+    padding: 5.5rem 0 !important;
+    scroll-margin-top: var(--nav-h) !important;
     box-sizing: border-box !important;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
   }
 
   .hero-inner--sub {
@@ -4905,10 +4883,11 @@ body, .page-body {
   border-top: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
-  padding: 4.5rem 0 3rem 0 !important;
+  padding: 5.5rem 0 3.5rem 0 !important;
   overflow: hidden !important;
   text-align: center !important;
   width: 100% !important;
+  scroll-margin-top: var(--nav-h) !important;
 }
 
 .local-footer-bg-title {
@@ -5115,7 +5094,7 @@ body, .page-body {
 
 .local-footer-bg-title {
   font-family: var(--font-display, sans-serif);
-  font-size: clamp(3.8rem, 18.6vw, 20vw) !important;
+  font-size: clamp(3.5rem, 14vw, 15vw) !important;
   font-weight: 900 !important;
   color: #E07A2C !important;
   -webkit-text-stroke: 2.5px #0C0D0E !important;
@@ -5127,7 +5106,7 @@ body, .page-body {
   width: 100vw !important;
   max-width: 100vw !important;
   text-align: center !important;
-  margin: 0 auto 2.5rem auto !important;
+  margin: 0 auto 2rem auto !important;
   box-sizing: border-box !important;
   padding: 0 4px !important;
   white-space: nowrap !important;
