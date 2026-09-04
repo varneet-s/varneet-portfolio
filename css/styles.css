@@ -501,20 +501,24 @@ header nav, .nav-links-desktop {
     border-left: none;
   }
 
-  /* Section 6: Hero — MacBook Pro 14 (1440×900 viewport) */
-  /* 100svh = stable viewport (doesn’t jump with browser chrome) */
+  /* Section 6: Desktop Sections — Unified 723px Length (Matching CTA) */
+  :root {
+    --desktop-section-h: 723px;
+  }
+
   .hero, #hero-section {
-    height: calc(100svh - var(--nav-h)) !important;
-    min-height: calc(100svh - var(--nav-h)) !important;
-    max-height: calc(100svh - var(--nav-h)) !important;
+    height: var(--desktop-section-h) !important;
+    min-height: var(--desktop-section-h) !important;
+    max-height: var(--desktop-section-h) !important;
     display: flex !important;
     flex-direction: column !important;
+    box-sizing: border-box !important;
   }
   .hero-inner {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 64px 32px 64px;
+    padding: 56px 32px 56px;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -527,6 +531,52 @@ header nav, .nav-links-desktop {
     margin-top: auto;
     padding-top: 48px;
     flex-direction: row !important;
+  }
+
+  .selected-work-section, #projects-section {
+    height: var(--desktop-section-h) !important;
+    min-height: var(--desktop-section-h) !important;
+    max-height: var(--desktop-section-h) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .services-section, #services-section {
+    height: var(--desktop-section-h) !important;
+    min-height: var(--desktop-section-h) !important;
+    max-height: var(--desktop-section-h) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .writing-section, #writing-preview-section {
+    height: var(--desktop-section-h) !important;
+    min-height: var(--desktop-section-h) !important;
+    max-height: var(--desktop-section-h) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .local-footer-banner {
+    height: var(--desktop-section-h) !important;
+    min-height: var(--desktop-section-h) !important;
+    max-height: var(--desktop-section-h) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
   .hero-inner--sub {
@@ -5076,9 +5126,9 @@ body, .page-body {
 
 @media (max-width: 768px) {
   .local-footer-banner {
-    height: calc(100svh - var(--nav-h)) !important;
-    min-height: calc(100svh - var(--nav-h)) !important;
-    max-height: calc(100svh - var(--nav-h)) !important;
+    height: 772px !important;
+    min-height: 772px !important;
+    max-height: 772px !important;
     padding: 3rem 0 2.5rem 0 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -6483,6 +6533,34 @@ body, .page-body {
   .services-section .what-i-do-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile: Show hover content directly without needing hover interaction */
+  .services-hover-btn {
+    min-width: unset !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    background: #E07A2C !important;
+    box-shadow: 4px 4px 0px var(--purple-shadow, #110E1B) !important;
+  }
+  .services-hover-btn .btn-text-default {
+    display: none !important;
+  }
+  .services-hover-btn .btn-text-hover {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    color: #FFFDF5 !important;
+  }
+
+  /* Footer CTA badge: already colored on mobile */
+  .local-footer-email-badge {
+    background: #E07A2C !important;
+    color: #FFFFFF !important;
+    border-color: #0C0D0E !important;
   }
 }
 
