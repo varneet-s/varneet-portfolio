@@ -346,12 +346,14 @@ header nav, .nav-links-desktop {
   color: var(--ink, #0C0D0E) !important;
 }
 
-.btn-outline:hover {
-  background: #3B185F !important;
-  color: #FFFDF5 !important;
-  border-color: #2E1065 !important;
-  box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
-  transform: translate(-2px, -2px) !important;
+@media (hover: hover) and (pointer: fine) {
+  .btn-outline:hover {
+    background: #3B185F !important;
+    color: #FFFDF5 !important;
+    border-color: #2E1065 !important;
+    box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
+    transform: translate(-2px, -2px) !important;
+  }
 }
 
 /* ── Section 6: Hero Container Spacing (Mobile Base) ── */
@@ -968,11 +970,11 @@ body[data-nav-open="true"], html[data-nav-open="true"] {
   }
   .hero-cta .btn-outline,
   .hero-ctas-row .btn-outline {
-    background: #3B185F !important;
-    background-color: #3B185F !important;
-    color: #FFFDF5 !important;
-    border-color: #2E1065 !important;
-    box-shadow: 4px 4px 0px #1E0836 !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: var(--ink, #0C0D0E) !important;
+    border: 2.5px solid var(--ink, #0C0D0E) !important;
+    box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   }
 
   /* Tag Strip: Hidden on Mobile */
@@ -5135,11 +5137,6 @@ body, .page-body {
   display: block !important;
 }
 
-.local-footer-bg-title .kern-v {
-  margin-right: -0.15em !important;
-  display: inline-block !important;
-}
-
 @media (max-width: 768px) {
   .selected-work-section, #projects-section,
   .services-section, #services-section,
@@ -6493,15 +6490,6 @@ body, .page-body {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
 }
 
-.services-hover-btn:hover,
-#services-cta-btn:hover {
-  transform: translate(-2px, -2px) !important;
-  box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
-  background: #3B185F !important;
-  background-color: #3B185F !important;
-  border-color: #2E1065 !important;
-}
-
 .services-hover-btn:active {
   transform: translate(2px, 2px) !important;
   box-shadow: 2px 2px 0px var(--purple-shadow, #2E1065) !important;
@@ -6526,14 +6514,25 @@ body, .page-body {
   letter-spacing: 0.02em !important;
 }
 
-.services-hover-btn:hover .btn-text-default {
-  transform: translateY(-130%) !important;
-  opacity: 0 !important;
-}
+@media (hover: hover) and (pointer: fine) {
+  .services-hover-btn:hover,
+  #services-cta-btn:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px var(--purple-shadow, #2E1065) !important;
+    background: #3B185F !important;
+    background-color: #3B185F !important;
+    border-color: #2E1065 !important;
+  }
 
-.services-hover-btn:hover .btn-text-hover {
-  transform: translate(-50%, -50%) !important;
-  opacity: 1 !important;
+  .services-hover-btn:hover .btn-text-default {
+    transform: translateY(-130%) !important;
+    opacity: 0 !important;
+  }
+
+  .services-hover-btn:hover .btn-text-hover {
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+  }
 }
 
 @media (max-width: 960px) {
@@ -6553,7 +6552,11 @@ body, .page-body {
     background: #3B185F !important;
     background-color: #3B185F !important;
     border-color: #2E1065 !important;
-    box-shadow: 4px 4px 0px #1E0836 !important;
+    box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
+  }
+  .services-hover-btn:hover {
+    transform: none !important;
+    box-shadow: 4px 4px 0px var(--purple-shadow, #2E1065) !important;
   }
   .services-hover-btn .btn-text-default {
     display: none !important;
@@ -6564,6 +6567,9 @@ body, .page-body {
     opacity: 1 !important;
     display: inline-block !important;
     color: #FFFDF5 !important;
+  }
+  .services-hover-btn:hover .btn-text-hover {
+    transform: none !important;
   }
 }
 
