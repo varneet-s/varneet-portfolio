@@ -7430,4 +7430,259 @@ body, .page-body {
   }
 }
 
+/* ==========================================================================
+   CASE STUDY REWORK (6-PART LEAN HIERARCHY)
+   ========================================================================== */
+
+.cs-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cs-meta-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--moss-green);
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.cs-meta-sep {
+  color: var(--text-tertiary);
+}
+
+.cs-github-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.cs-github-inline:hover {
+  background-color: var(--tag-bg);
+  border-color: var(--text-primary);
+}
+
+/* Snapshot Stat Bar */
+.cs-snapshot-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  margin-top: 1.75rem;
+  padding: 0.85rem 1.15rem;
+  background-color: rgba(40, 54, 24, 0.035);
+  border: 1px solid rgba(40, 54, 24, 0.12);
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.cs-snapshot-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.cs-snapshot-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--black-forest);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.cs-snapshot-lbl {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.cs-snapshot-dot {
+  color: var(--text-tertiary);
+  font-weight: 700;
+}
+
+/* Key Takeaways Card */
+.cs-spacing-top {
+  margin-top: 2.25rem;
+}
+
+.cs-takeaways-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(40, 54, 24, 0.14);
+  border-left: 4px solid var(--moss-green);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(40, 54, 24, 0.04);
+}
+
+.cs-takeaways-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss-green);
+  margin-bottom: 0.85rem;
+}
+
+.cs-takeaways-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cs-takeaways-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.cs-takeaways-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--moss-green);
+}
+
+.cs-takeaways-list strong {
+  color: var(--black-forest);
+  font-weight: 700;
+}
+
+/* 6-Part Narrative Blocks */
+.cs-rework-block {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--divider);
+}
+
+.cs-rework-block:first-of-type {
+  margin-top: 2rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.cs-rework-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--black-forest);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.85rem;
+}
+
+.cs-rework-text {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 68ch;
+  margin: 0;
+}
+
+.cs-rework-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Why It Mattered - Reflective Accent */
+.cs-rework-block--why {
+  background-color: rgba(40, 54, 24, 0.035);
+  border: 1px solid rgba(40, 54, 24, 0.12);
+  border-radius: 8px;
+  padding: 1.75rem;
+  margin-top: 3rem;
+}
+
+.cs-rework-block--why .cs-rework-heading {
+  color: var(--black-forest);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cs-rework-block--why .cs-rework-text {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+/* Bottom Navigation */
+.cs-rework-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--divider);
+}
+
+.cs-rework-nav-sub {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.cs-rework-nav-link {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--moss-green);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.cs-rework-nav-link:hover {
+  color: var(--black-forest);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .cs-snapshot-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .cs-snapshot-dot {
+    display: none;
+  }
+  .cs-rework-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
 

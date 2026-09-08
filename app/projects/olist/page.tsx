@@ -1,22 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from 'next';
-import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
-  title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
+  title: 'Olist E-Commerce Analytics | Varneet Singh — Business Analyst',
   description:
-    'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses — delivery delays, geographic revenue concentration, seller GMV distribution, and freight cost burden — using Excel, Tableau, and BPMN.',
+    'Analysed 96,478 orders across 9 joined datasets to isolate late delivery impact on review scores and uncover an 82.54% GMV seller concentration risk.',
   openGraph: {
-    title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
+    title: 'Olist E-Commerce Analytics | Varneet Singh — Business Analyst',
     description:
-      'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses.',
+      'Late deliveries cut review scores from 4.03 to 2.27, and the top 20% of sellers generated 82.54% of GMV.',
     images: ['https://varneet.in/assets/olist-preview.png'],
   },
   twitter: {
-    title: 'Olist E-Commerce Business Analysis | Varneet Singh — Business Analyst',
+    title: 'Olist E-Commerce Analytics | Varneet Singh — Business Analyst',
     description:
-      'Analysed 96,478 orders across 9 joined data files from Brazil\'s largest marketplace aggregator across four pre-formed business hypotheses.',
+      'Late deliveries cut review scores from 4.03 to 2.27, and the top 20% of sellers generated 82.54% of GMV.',
     images: ['https://varneet.in/assets/olist-preview.png'],
   },
 };
@@ -26,9 +25,6 @@ export default function OlistPage() {
   const html = fs.readFileSync(filePath, 'utf-8');
 
   return (
-    <>
-      <main dangerouslySetInnerHTML={{ __html: html }} />
-      <CaseStudyCharts project="olist" />
-    </>
+    <main dangerouslySetInnerHTML={{ __html: html }} />
   );
 }

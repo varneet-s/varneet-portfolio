@@ -1,22 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from 'next';
-import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
-  title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
+  title: 'Pharma Sales Performance | Varneet Singh — Business Analyst',
   description:
-    'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
+    'Traced root cause of a 30% revenue drop while order volume held flat through transaction-level and client-conversation audits, restoring run-rate by Q3.',
   openGraph: {
-    title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
+    title: 'Pharma Sales Performance | Varneet Singh — Business Analyst',
     description:
-      'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
+      'Traced root cause of a 30% revenue drop while order volume held flat through transaction-level and client-conversation audits, restoring run-rate by Q3.',
     images: ['https://varneet.in/assets/pharma-preview.jpg'],
   },
   twitter: {
-    title: 'I.P. Pharma Operational Tracking | Varneet Singh — Business Analyst',
+    title: 'Pharma Sales Performance | Varneet Singh — Business Analyst',
     description:
-      'Automated stock management and inventory tracking system developed for a pharmaceutical distributor using structured Excel modeling.',
+      'Traced root cause of a 30% revenue drop while order volume held flat through transaction-level and client-conversation audits, restoring run-rate by Q3.',
     images: ['https://varneet.in/assets/pharma-preview.jpg'],
   },
 };
@@ -26,9 +25,6 @@ export default function PharmaPage() {
   const html = fs.readFileSync(filePath, 'utf-8');
 
   return (
-    <>
-      <main dangerouslySetInnerHTML={{ __html: html }} />
-      <CaseStudyCharts project="pharma" />
-    </>
+    <main dangerouslySetInnerHTML={{ __html: html }} />
   );
 }

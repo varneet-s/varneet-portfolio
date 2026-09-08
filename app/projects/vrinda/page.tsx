@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import type { Metadata } from 'next';
-import CaseStudyCharts from '@/components/CaseStudyCharts';
 
 export const metadata: Metadata = {
   title: 'Vrinda Store Retail Sales Analysis | Varneet Singh — Business Analyst',
@@ -26,9 +25,6 @@ export default function VrindaPage() {
   const html = fs.readFileSync(filePath, 'utf-8');
 
   return (
-    <>
-      <main dangerouslySetInnerHTML={{ __html: html }} />
-      <CaseStudyCharts project="vrinda" />
-    </>
+    <main dangerouslySetInnerHTML={{ __html: html }} />
   );
 }

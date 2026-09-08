@@ -59,7 +59,7 @@ export default function HomePage() {
         <div className="container">
           <div className="selected-work-header-row">
             <h2 className="selected-work-display-title">SELECTED WORK</h2>
-            <span className="selected-work-badge">03 studies</span>
+            <span className="selected-work-badge">02 studies</span>
           </div>
 
           <div className="selected-work-list">
@@ -78,15 +78,6 @@ export default function HomePage() {
               <div className="work-list-content">
                 <h3 className="work-list-title">Pharma Sales Performance</h3>
                 <div className="work-list-tags">EXCEL &middot; OPERATIONS</div>
-              </div>
-            </Link>
-
-            {/* Project 03 */}
-            <Link href="/projects/vrinda/" className="work-list-row">
-              <div className="work-list-num">03</div>
-              <div className="work-list-content">
-                <h3 className="work-list-title">Vrinda Retail Channels</h3>
-                <div className="work-list-tags">EXCEL &middot; SEGMENTATION</div>
               </div>
             </Link>
           </div>
